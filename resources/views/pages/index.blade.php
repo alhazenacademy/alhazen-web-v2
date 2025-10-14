@@ -8,4 +8,42 @@
         title="Tentang Alhazen Academy"
         description="<strong>Alhazen Academy</strong> adalah tempat belajar teknologi yang dirancang khusus untuk anak-anak. Kami membantu mereka memahami dunia digital melalui <strong>coding, AI, dan robotika</strong> — bukan sekadar menonton, tapi menciptakan karya sendiri."
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+    <x-why-alhazen title="Kenapa Belajar di Alhazen Academy?" :cards="[
+        [
+            'icon' => asset('assets/kids/icon-puzzle.svg'),
+            'title' => 'Tutor Profesional',
+            'description' =>
+                'Tutor berpengalaman di bidang <strong> IT dan pendidikan anak.</strong> Setiap sesi dirancang agar siswa paham, bukan sekadar hafalan.',
+        ],
+        [
+            'icon' => asset('assets/kids/icon-puzzle.svg'),
+            'title' => 'Tutor Profesional',
+            'description' =>
+                'Tutor berpengalaman di bidang <strong> IT dan pendidikan anak.</strong> Setiap sesi dirancang agar siswa paham, bukan sekadar hafalan.',
+        ],
+        [
+            'icon' => asset('assets/kids/icon-puzzle.svg'),
+            'title' => 'Tutor Profesional',
+            'description' =>
+                'Tutor berpengalaman di bidang <strong> IT dan pendidikan anak.</strong> Setiap sesi dirancang agar siswa paham, bukan sekadar hafalan.',
+        ],
+        [
+            'icon' => asset('assets/kids/icon-puzzle.svg'),
+            'title' => 'Tutor Profesional',
+            'description' =>
+                'Tutor berpengalaman di bidang <strong> IT dan pendidikan anak.</strong> Setiap sesi dirancang agar siswa paham, bukan sekadar hafalan.',
+        ],
+        [
+            'icon' => asset('assets/kids/icon-puzzle.svg'),
+            'title' => 'Tutor Profesional',
+            'description' =>
+                'Tutor berpengalaman di bidang <strong> IT dan pendidikan anak.</strong> Setiap sesi dirancang agar siswa paham, bukan sekadar hafalan.',
+        ],
+        [
+            'icon' => asset('assets/kids/icon-puzzle.svg'),
+            'title' => 'Tutor Profesional',
+            'description' =>
+                'Tutor berpengalaman di bidang <strong> IT dan pendidikan anak.</strong> Setiap sesi dirancang agar siswa paham, bukan sekadar hafalan.',
+        ],
+    ]" />
 </x-layout>
