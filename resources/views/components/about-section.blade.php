@@ -1,5 +1,5 @@
 <section {{ $attributes->merge(['id' => $id, 'class' => 'py-20']) }} aria-labelledby="about-title">
-    <div class="container mx-auto px-4">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1 relative">
                 <div

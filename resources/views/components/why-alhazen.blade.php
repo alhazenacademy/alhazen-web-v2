@@ -1,5 +1,5 @@
 <section class="py-20"> 
-  <div class="container mx-auto px-4">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-h2 font-bold text-primary mb-4">
         {{ $title }}
