@@ -46,4 +46,56 @@
                 'Tutor berpengalaman di bidang <strong> IT dan pendidikan anak.</strong> Setiap sesi dirancang agar siswa paham, bukan sekadar hafalan.',
         ],
     ]" />
+    <x-program title="Program Belajar di Alhazen Academy"
+        subtitle="Setiap program dirancang agar anak belajar sambil bermain, menumbuhkan rasa ingin tahu dan semangat berkreasi."
+        view-all-href="" :cards="[
+            [
+                'bg' => 'bg-[#38BDF8]',
+                'text-color' => 'text-[#F9FAFB]',
+                'child' => asset('assets/kids/anak.png'),
+                'icon' => asset('assets/kids/icon-chip.png'),
+                'title' => 'Coding',
+                'sub' => 'Create with logic',
+            ],
+            [
+                'bg' => 'bg-[#F97316]',
+                'text-color' => 'text-[#F9FAFB]',
+                'child' => asset('assets/kids/anak.png'),
+                'icon' => asset('assets/kids/icon-robot-ai.png'),
+                'title' => 'Gen AI',
+                'sub' => 'Future-ready thinking',
+            ],
+            [
+                'bg' => 'bg-[#059669]',
+                'text-color' => 'text-[#F9FAFB]',
+                'child' => asset('assets/kids/anak.png'),
+                'icon' => asset('assets/kids/icon-stick-game.png'),
+                'title' => 'Game Design',
+                'sub' => 'Turn ideas into games',
+            ],
+            [
+                'bg' => 'bg-[#38BDF8]',
+                'text-color' => 'text-[#F9FAFB]',
+                'child' => asset('assets/kids/anak.png'),
+                'icon' => asset('assets/kids/icon-chip.png'),
+                'title' => 'Coding',
+                'sub' => 'Create with logic',
+            ],
+            [
+                'bg' => 'bg-[#F97316]',
+                'text-color' => 'text-[#F9FAFB]',
+                'child' => asset('assets/kids/anak.png'),
+                'icon' => asset('assets/kids/icon-robot-ai.png'),
+                'title' => 'Gen AI',
+                'sub' => 'Future-ready thinking',
+            ],
+            [
+                'bg' => 'bg-[#E5E7EB]',
+                'text-color' => 'text-[#0F172A]',
+                'child' => asset('assets/kids/anak.png'),
+                'icon' => asset('assets/kids/icon-view-all.png'),
+                'title' => 'View All',
+                'sub' => 'Explore all our courses',
+            ],
+        ]" />
 </x-layout>
