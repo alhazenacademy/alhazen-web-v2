@@ -98,4 +98,34 @@
                 'sub' => 'Explore all our courses',
             ],
         ]" />
+
+    <x-alhazen-goes-to-school title="Alhazen Goes to School"
+        description="Kami percaya bahwa pemahaman teknologi harus dimulai sejak dini. Oleh karena itu, kami membawa program Alhazem Coding dan Robotika langsung ke ruang kelas – menyenangkan, interaktif, dan inspiratif."
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        image="{{ asset('assets/kids/coding-school.jpg') }}" :cards="[
+            [
+                'no' => '1',
+                'text-color' => 'text-[#FACC15]',
+                'bg' => 'bg-[#FEF3C7]',
+                'title' => 'Mengunjungi Ratusan Sekolah',
+                'description' =>
+                    'Sekolah menginspirasi lebih dari <strong> 2.000 siswa </strong> dari jenjang SD hingga SMA di <strong> seluruh Indonesia </strong> melalui kegiatan workshop dan demo teknologi.',
+            ],
+            [
+                'no' => '2',
+                'text-color' => 'text-primary',
+                'bg' => 'bg-[#B3FFE6]',
+                'title' => 'Terdapat Program After School',
+                'description' =>
+                    'Kolaborasi langsung dengan sekolah untuk menghadirkan kelas coding reguler bersama <strong>tutor profesional</strong> dari Alhazen.',
+            ],
+            [
+                'no' => '3',
+                'text-color' => 'text-[#3B82F6]',
+                'bg' => 'bg-[#CADEFF]',
+                'title' => 'Membangun Rasa Percaya Diri Anak',
+                'description' =>
+                    'Setiap sesi dirancang untuk membantu anak <strong> berani berkreasi, berpikir logis,</strong> dan menjadi <strong>pemimpin masa depan</strong> di era digital.',
+            ],
+        ]" />
 </x-layout>
