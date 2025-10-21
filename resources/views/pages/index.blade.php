@@ -170,4 +170,42 @@
             ],
         ]"
     />
+
+    <x-student-review title="Review Murid Alhazen"
+        description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
+        :cards="[
+            [
+                'image' => asset('assets/kids/student-review/thumbnail/thumbnail-review-1.png'),
+                'name' => 'Alya',
+                'quote' =>
+                    'Belajar di Alhazen itu seru banget! Aku bisa bikin game sendiri pakai Scratch dan ngerti logika program tanpa merasa sulit. Sekarang aku malah bantu teman lain buat belajar coding juga!',
+                'school' => 'SMPN 1 Jonggol',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => 'youtube', // atau 'mp4'
+                'video_url' => 'https://www.youtube.com/embed/TD_mEqbTlcM', // untuk youtube pakai /embed
+            ],
+            [
+                'image' => asset('assets/kids/student-review/thumbnail/thumbnail-review-2.jpg'),
+                'name' => 'Malfy',
+                'quote' =>
+                    'Seru, belajarnya santai dan kakak tutornya baik. Jelasinnya pelan² jadi gampang buat paham materinya, dan juga dapat tantangan baru belajar dunia coding',
+                'school' => 'SMP',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => 'mp4', // atau 'mp4'
+                'video_url' => asset('assets/kids/student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+            ],
+            [
+                'image' => asset('assets/kids/student-review/thumbnail/thumbnail-review-3.jpg'),
+                'name' => 'Rauf Deriel',
+                'quote' =>
+                    'Menurutku kelas ini sangat menyenangkan, dan materi dapat dipahami dengan mudah.',
+                'school' => 'SMP',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => 'mp4', // atau 'mp4'
+                'video_url' => asset('assets/kids/student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+            ],]" 
+    />
 </x-layout>

@@ -43,3 +43,56 @@ export const worksSwiper = new Swiper(".student-works-swiper", {
   observer: true,
   observeParents: true,
 });
+
+export const reviewSwiper = new Swiper('.swiper-review', {
+  modules: [Navigation, Pagination, A11y],
+  slidesPerView: 1.5,
+  spaceBetween: 24,
+  speed: 500,
+  grabCursor: true,
+  loop: true,
+  autoHeight: false,
+  breakpoints: {
+    0:    { slidesPerView: 1.05, spaceBetween: 16 },
+    640:  { slidesPerView: 1.25, spaceBetween: 20 },
+    1024: { slidesPerView: 1.5,  spaceBetween: 24 },
+  },
+  navigation: { nextEl: '.review-next', prevEl: '.review-prev' },
+  pagination: { el: '.review-pagination', clickable: true },
+  on: {
+    init() { requestAnimationFrame(stickMascotToActive) },
+    slideChangeTransitionEnd() { requestAnimationFrame(stickMascotToActive) },
+    resize() { requestAnimationFrame(stickMascotToActive) },
+  }
+})
+
+function stickMascotToActive() {
+  const anchor = document.getElementById('reviews-stack')
+  const mascot = document.getElementById('mascot-review')
+  const swiperEl = document.querySelector('.swiper-review')
+  if (!anchor || !mascot || !swiperEl) return
+
+  const active = swiperEl.querySelector('.swiper-slide-active')
+  const card = active?.querySelector('article') || active
+  if (!card) return
+
+  const aRect = anchor.getBoundingClientRect()
+  const cRect = card.getBoundingClientRect()
+
+  const Y_OFFSET =
+    window.innerWidth >= 1024 ? -156 :
+    window.innerWidth >= 640  ? -138 : -70
+
+  const X_OFFSET =  window.innerWidth >= 1024 ? -90 :
+    window.innerWidth >= 640  ? -90 : -40
+
+  mascot.style.top  = `${(cRect.top  - aRect.top) + Y_OFFSET}px`
+  mascot.style.left = `${(cRect.left - aRect.left) + X_OFFSET}px`
+}
+
+window.addEventListener('load', () => requestAnimationFrame(stickMascotToActive))
+window.addEventListener('orientationchange', () => setTimeout(stickMascotToActive, 50))
+const firstImg = document.querySelector('.swiper-review .swiper-slide img')
+if (firstImg && !firstImg.complete) {
+  firstImg.addEventListener('load', () => requestAnimationFrame(stickMascotToActive), { once: true })
+}
