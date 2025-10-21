@@ -208,4 +208,8 @@
                 'video_url' => asset('assets/kids/student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
             ],]" 
     />
+    <x-cta-whatsapp title="Ayo konsultasi sekarang dan klaim diskon hingga jutaan rupiah!"
+        placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
+        wa-message="Halo, saya mau konsultasi program belajar di Alhazen." 
+    />
 </x-layout>
