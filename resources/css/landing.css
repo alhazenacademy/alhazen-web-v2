@@ -29,17 +29,27 @@
   }
 
   /* Fredoka (Kids headings) */
+  /* Regular (400) */
   @font-face {
     font-family: 'Fredoka';
-    src: url('../fonts/fredoka/fredoka-latin-300-normal.woff2') format('woff2');
+    src: url('../fonts/fredoka/fredoka-latin-400-normal.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
+  /* Semiold (500) */
   @font-face {
     font-family: 'Fredoka';
-    src: url('../fonts/fredoka/fredoka-latin-400-normal.woff2') format('woff2');
+    src: url('../fonts/fredoka/fredoka-latin-500-normal.woff2') format('woff2');
     font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Bold (700) */
+  @font-face {
+    font-family: 'Fredoka';
+    src: url('../fonts/fredoka/fredoka-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
   }
@@ -115,7 +125,6 @@
   .text-h5 { font-size: var(--font-size-h5); line-height: 1.4; }
   .text-body { font-size: var(--font-size-body); line-height: 1.6; }
   .text-small { font-size: var(--font-size-small); line-height: 1.5; }
-  .text-button { font-size: var(--font-size-button); line-height: 1.4; }
 }
 
 /* Overrides untuk themes & dark mode */
