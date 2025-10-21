@@ -127,5 +127,47 @@
                 'description' =>
                     'Setiap sesi dirancang untuk membantu anak <strong> berani berkreasi, berpikir logis,</strong> dan menjadi <strong>pemimpin masa depan</strong> di era digital.',
             ],
-        ]" />
+        ]"
+    />
+
+    <x-student-work title="Hasil Karya Murid Alhazen Academy"
+        description="Siswa anak nya imajinasi bisa luar biasa. Di Alhazzen kami membantunya mengembangkan imajinasi nya dengan cara digital yang nyata - dari game, aplikasi, hingga robot pintar!"
+        :cards="[
+            [
+                'image' => asset('assets/kids/student-work/student-work-1.avif'),
+                'title' => 'Learning tumbuhan',
+                'description' => 'Dibuat oleh Ghazan Akhyar (Kelas 2 SD) menggunakan Scratch',
+                'category' => 'Game & Animation',
+                'bg-text' => 'bg-[#EB5353]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-2.avif'),
+                'title' => 'Ping-Pong Game',
+                'description' => 'Dibuat oleh Tsaqif Luqmana (Kelas 5 SD) menggunakan Scratch',
+                'category' => 'Game & Animation',
+                'bg-text' => 'bg-[#EB5353]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-3.avif'),
+                'title' => 'Car Race Game',
+                'description' => 'Dibuat oleh Muhammad Karim (Kelas 3 SD) menggunakan Scratch',
+                'category' => 'Game & Animation',
+                'bg-text' => 'bg-[#EB5353]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-4.jpg'),
+                'title' => 'Dzikir App',
+                'description' => 'Dibuat oleh Shofiyya Edi (Kelas 5 SD) menggunakan Thunkable',
+                'category' => 'Application',
+                'bg-text' => 'bg-[#faa52d]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-5.jpg'),
+                'title' => 'Camping and Glamping',
+                'description' => 'Dibuat oleh Karenita (Kelas 4 SD) menggunakan Thunkable',
+                'category' => 'Application',
+                'bg-text' => 'bg-[#faa52d]',
+            ],
+        ]"
+    />
 </x-layout>

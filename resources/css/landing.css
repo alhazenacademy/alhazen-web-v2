@@ -162,3 +162,36 @@
   --color-background: #111827;
   --color-text: #F9FAFB;
 }
+
+/* Student Work */
+.student-work-category{
+  display:inline-block;
+  line-height:1;
+  width:fit-content;
+}
+
+.student-works-swiper .swiper-slide{ height:auto; }
+
+.student-works-swiper .swiper-slide > article{ height:100%; }
+
+.student-works-swiper .swiper-wrapper{ padding-bottom: 2rem; }
+
+.student-works-swiper .swiper-pagination{
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.student-works-swiper .swiper-pagination-bullet{
+  display:inline-block;
+  margin:0 4px;
+  width:12px; height:12px;
+  background:#E5E7EB;
+  opacity:.6;
+  border-radius:50%;
+  transition:transform .2s, opacity .2s;
+}
+.student-works-swiper .swiper-pagination-bullet-active{
+  background:#059669;
+  opacity:1; transform:scale(1.05);
+}
+/* End Student Work */
