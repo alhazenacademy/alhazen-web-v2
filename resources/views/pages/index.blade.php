@@ -212,4 +212,38 @@
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
         wa-message="Halo, saya mau konsultasi program belajar di Alhazen." 
     />
+
+    <x-clients title="Partner  & Kolaborator Kami" description="Kami berkolaborasi dengan berbagai sekolah, lembaga, dan komunitas pendidikan untuk menghadirkan pembelajaran teknologi terbaik bagi anak Indonesia." 
+        :logos="
+        [
+            [
+                'src' => asset('assets/kids/client/al-wafi-islamic-boarding-school.png'),
+                'alt' => 'al-wafi-islamic-boarding-school',
+            ],
+            [
+                'src' => asset('assets/kids/client/ibnu-taimiyah-islamic-boarding-school.png'), 
+                'alt' => 'ibnu-taimiyah-islamic-boarding-school'
+            ],
+            [
+                'src' => asset('assets/kids/client/madrasah-aliyah-salafiyah-ulya.jpg'),
+                'alt' => 'madrasah-aliyah-salafiyah-ulya',
+            ],
+            [
+                'src' => asset('assets/kids/client/metropolitan-islamic-school.jpg'), 
+                'alt' => 'metropolitan-islamic-school'
+            ],
+            [
+                'src' => asset('assets/kids/client/pendidikan-integral-hidayatullah.png'),
+                'alt' => 'pendidikan-integral-hidayatullah',
+            ],
+            [
+                'src' => asset('assets/kids/client/sekolah-bina-insan-mandiri.jpeg'), 
+                'alt' => 'sekolah-bina-insan-mandiri'
+            ],
+            [
+                'src' => asset('assets/kids/client/sma-it-putri-al-hanif.jpg'),
+                'alt' => 'sma-it-putri-al-hanif',
+            ],
+        ]"
+    />
 </x-layout>
