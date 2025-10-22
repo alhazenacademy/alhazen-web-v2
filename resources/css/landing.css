@@ -292,3 +292,18 @@
 }
 /* End Client/Partner */
 
+/* Article */
+@layer utilities {
+  .date-notch{
+    position: relative;
+    display: inline-block;
+    padding: .35rem .6rem;
+    border-radius: .75rem;
+    background: white;
+    color: #111827;
+    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  }
+}
+/* End Article */
+
+

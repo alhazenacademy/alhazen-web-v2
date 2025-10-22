@@ -208,6 +208,7 @@
                 'video_url' => asset('assets/kids/student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
             ],]" 
     />
+
     <x-cta-whatsapp title="Ayo konsultasi sekarang dan klaim diskon hingga jutaan rupiah!"
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
         wa-message="Halo, saya mau konsultasi program belajar di Alhazen." 
@@ -246,4 +247,41 @@
             ],
         ]"
     />
+
+    @php
+        $featured = [
+            'title' => 'Alhazen Academy Bagikan 1000 Beasiswa Coding Gratis untuk Siswa Tanah Datar!',
+            'date' => 'July 9, 2025',
+            'image' => asset('assets/kids/artikel/thumbnail-article-1.avif'),
+            'url' => 'https://alhazen.academy/1000-beasiswa-coding-gratis-untuk-siswa-tanah-datar/',
+        ];
+        $posts = [
+            [
+                'title' => 'Coding Starter Kit: Langkah Awal Menjadi Guru Koding',
+                'date' => 'October 15, 2025',
+                'image' => asset('assets/kids/artikel/thumbnail-article-2.webp'),
+                'url' => 'https://alhazen.academy/coding-starter-kit/',
+            ],
+            [
+                'title' => '10 Cara Mendampingi Anak Belajar untuk Orang Tua yang Bekerja',
+                'date' => 'July 9, 2025',
+                'image' => asset('assets/kids/artikel/thumbnail-article-3.webp'),
+                'url' => 'https://alhazen.academy/cara-mendampingi-anak-belajar-untuk-orang-tua-bekerja/',
+            ],
+            [
+                'title' => '5 Keunggulan Program Kursus Coding Anak di Alhazen Academy',
+                'date' => 'June 17, 2025',
+                'image' => asset('assets/kids/artikel/thumbnail-article-4.webp'),
+                'url' => 'https://alhazen.academy/keunggulan-kursus-coding-anak-alhazen-academy/',
+            ],
+            [
+                'title' => 'Wih! 15 Cara Mengetahui Bakat Anak Sejak Dini',
+                'date' => 'June 17, 2025',
+                'image' => asset('assets/kids/artikel/thumbnail-article-5.webp'),
+                'url' => 'https://alhazen.academy/cara-mengetahui-bakat-anak/',
+            ],
+        ];
+    @endphp
+
+    <x-articles title="Artikel & Insight Terbaru" description="Bacaan seru dan inspiratif seputar teknologi, pendidikan, dan dunia digital untuk anak dan guru." allUrl="https://alhazen.academy/artikel/" :featured="$featured" :posts="$posts"/>
 </x-layout>
