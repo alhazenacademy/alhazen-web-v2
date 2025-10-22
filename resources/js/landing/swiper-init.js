@@ -96,3 +96,55 @@ const firstImg = document.querySelector('.swiper-review .swiper-slide img')
 if (firstImg && !firstImg.complete) {
   firstImg.addEventListener('load', () => requestAnimationFrame(stickMascotToActive), { once: true })
 }
+
+export const tutorsSwiper = new Swiper('.swiper-tutors', {
+  modules: [Navigation, Pagination, A11y],
+  slidesPerView: 2,
+  spaceBetween: 20,
+  speed: 500,
+  grabCursor: true,
+  loop: true,
+  breakpoints: {
+    0:    { slidesPerView: 1.1, spaceBetween: 14 },
+    640:  { slidesPerView: 1.6, spaceBetween: 16 },
+    1024: { slidesPerView: 2.2, spaceBetween: 20 },
+  },
+  navigation: { nextEl: '.tutors-next', prevEl: '.tutors-prev' },
+  pagination: { el: '.tutors-pagination', clickable: true },
+  on: {
+    init() { requestAnimationFrame(stickMascotTutorToActive) },
+    slideChangeTransitionEnd() { requestAnimationFrame(stickMascotTutorToActive) },
+    resize() { requestAnimationFrame(stickMascotTutorToActive) },
+  }
+})
+
+function stickMascotTutorToActive() {
+  const anchor = document.getElementById('tutors-stack')
+  const mascot = document.getElementById('mascot-tutor')
+  const swiperEl = document.querySelector('.swiper-tutors')
+  if (!anchor || !mascot || !swiperEl) return
+
+  const active = swiperEl.querySelector('.swiper-slide-active')
+  const card = active?.querySelector('article') || active
+  if (!card) return
+
+  const aRect = anchor.getBoundingClientRect()
+  const cRect = card.getBoundingClientRect()
+
+  const Y_OFFSET =
+    window.innerWidth >= 1024 ? -156 :
+    window.innerWidth >= 640  ? -138 : -70
+
+  const X_OFFSET =  window.innerWidth >= 1024 ? -90 :
+    window.innerWidth >= 640  ? -90 : -40
+
+  mascot.style.top  = `${(cRect.top  - aRect.top) + Y_OFFSET}px`
+  mascot.style.left = `${(cRect.left - aRect.left) + X_OFFSET}px`
+}
+
+window.addEventListener('load', () => requestAnimationFrame(stickMascotTutorToActive))
+window.addEventListener('orientationchange', () => setTimeout(stickMascotTutorToActive, 50))
+const firstImgTutor = document.querySelector('.swiper-tutors .swiper-slide img')
+if (firstImgTutor && !firstImgTutor.complete) {
+  firstImgTutor.addEventListener('load', () => requestAnimationFrame(stickMascotTutorToActive), { once: true })
+}

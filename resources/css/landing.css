@@ -306,4 +306,40 @@
 }
 /* End Article */
 
+/* Tutors */
+@layer base {
+  .swiper-tutors { position: relative; overflow: visible; }
+  .swiper-tutors .swiper-slide { height: auto; }
+}
 
+@layer utilities {
+  .tutor-card{ position:relative; z-index:30; }
+  .swiper-tutors .swiper-pagination,
+  .tutors-pagination{
+    position: static !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center; gap: 8px; margin: 0;
+  }
+  .swiper-tutors .swiper-pagination-bullet{
+    width:9px;height:9px;
+    background: color-mix(in oklab,var(--color-primary) 55%, #d1d5db);
+    opacity:.45; transition:transform .2s, opacity .2s;
+  }
+  .swiper-tutors .swiper-pagination-bullet-active{
+    width:10px;height:10px; opacity:1; transform:scale(1.1);
+    background: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in oklab,var(--color-primary) 18%, transparent);
+  }
+
+  .tutors-prev,.tutors-next{ color:var(--color-text) }
+  .swiper-button-disabled.tutors-prev,
+  .swiper-button-disabled.tutors-next{ opacity:.4; cursor:not-allowed }
+}
+
+@layer utilities {
+  .tutor-card-minh{ min-height: 160px; }
+  @media (min-width: 768px){ .tutor-card-minh{ min-height: 180px; } }
+  @media (min-width: 1024px){ .tutor-card-minh{ min-height: 200px; } }
+}
+/* End Tutors */

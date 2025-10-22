@@ -284,4 +284,31 @@
     @endphp
 
     <x-articles title="Artikel & Insight Terbaru" description="Bacaan seru dan inspiratif seputar teknologi, pendidikan, dan dunia digital untuk anak dan guru." allUrl="https://alhazen.academy/artikel/" :featured="$featured" :posts="$posts"/>
+
+    <x-tutors title="Tim Pengajar Alhazen" description="Setiap pengajar di Alhazen adalah praktisi teknologi, pendidik kreatif, dan sahabat belajar anak."
+        :cards="
+        [
+            [
+            'name' => 'Bagus Adam Farizi',
+            'years' => 3,
+            'skills' => 'HTML, JavaScript, PHP',
+            'photo' => asset('assets/kids/berita-2.avif'),
+            'bio'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+            ],
+            [
+            'name' => 'Bagus Adam Farizi',
+            'years' => 3,
+            'skills' => 'HTML, JavaScript, PHP',
+            'photo' => asset('assets/kids/berita-2.avif'),
+            'bio'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+            ],
+            [
+            'name' => 'Bagus Adam Farizi',
+            'years' => 3,
+            'skills' => 'HTML, JavaScript, PHP',
+            'photo' => asset('assets/kids/berita-2.avif'),
+            'bio'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+            ],
+        ]" 
+    />
 </x-layout>

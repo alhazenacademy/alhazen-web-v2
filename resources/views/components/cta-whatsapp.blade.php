@@ -15,7 +15,7 @@
                     {!! $title !!}
                 </h3>
                 <div class="w-full lg:w-auto flex items-stretch gap-3">
-                    <input x-model="phone" x-ref="input" type="tel" inputmode="numeric" autocomplete="tel"
+                    <input x-ref="input" type="tel" inputmode="numeric" autocomplete="tel"
                         placeholder="{{ $placeholder }}"
                         class="w-full lg:w-[360px] h-11 sm:h-12 rounded-xl bg-white text-slate-800
                         placeholder:text-slate-400 px-4 outline-none
