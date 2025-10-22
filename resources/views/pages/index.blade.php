@@ -328,4 +328,14 @@
         cta-label="Lihat Semua Pertanyaan"
         cta-href="#"
     />
+
+    <x-footer address="Plaza Kaha, Lt 4 unit 402B Jl. KH. Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Tebet, Jakarta Selatan, DKI Jakarta, 12840, Indonesia"
+        :socials="[
+            ['name' => 'facebook',  'href' => '#', 'img' => asset('assets/kids/icon-facebook.png')],
+            ['name' => 'instagram', 'href' => '#', 'img' => asset('assets/kids/icon-instagram.png')],
+            ['name' => 'linkedin',  'href' => '#', 'img' => asset('assets/kids/icon-linkedin.png')],
+            ['name' => 'youtube',   'href' => '#', 'img' => asset('assets/kids/icon-youtube.png')]
+        ]"
+        :contact="['phone'=>'+62-813-90000-332','email' => 'info@alhazen.academy', 'site'  => 'www.alhazen.academy']"
+    />
 </x-layout>

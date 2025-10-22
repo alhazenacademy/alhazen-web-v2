@@ -343,3 +343,16 @@
   @media (min-width: 1024px){ .tutor-card-minh{ min-height: 200px; } }
 }
 /* End Tutors */
+
+/* Footer */
+@layer utilities {
+  .full-bg-footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}
+/* End Footer */
