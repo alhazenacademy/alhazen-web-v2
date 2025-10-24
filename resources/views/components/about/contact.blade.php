@@ -1,19 +1,22 @@
 <section class="relative py-12 lg:py-20">
-    {{-- MOTIF HIJAU --}}
-    <div class="absolute inset-0 -z-10" style="background-image:url('{{ $bgPattern }}')"></div>
+    {{-- BG pattern: jadikan <img> agar bisa lazy --}}
+    <img src="{{ $bgPattern }}" alt="" class="absolute inset-0 w-full h-full object-cover -z-10" loading="lazy"
+        decoding="async" fetchpriority="low" aria-hidden="true" />
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {{-- KARTU PUTIH --}}
         <div
             class="rounded-[32px] bg-white/98 backdrop-blur border border-[var(--color-neutral)]/60 shadow-[0_20px_40px_rgba(0,0,0,.12)] p-4 sm:p-6 lg:p-8">
             <div class="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
+
                 {{-- LEFT: MAP --}}
                 <div>
                     @if ($mapEmbed)
                         <div class="rounded-[22px] overflow-hidden border border-[var(--color-neutral)]/70">
                             <iframe src="{!! $mapEmbed !!}" class="w-full h-[320px] md:h-[380px] lg:h-[420px]"
-                                style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                style="border:0;" allowfullscreen loading="lazy" decoding="async"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
                     @endif
                 </div>
@@ -23,7 +26,8 @@
                     {{-- Heading + spark --}}
                     <div class="text-center place-items-center relative">
                         <img src="{{ $icon4 }}" alt=""
-                            class="absolute left-1/2 top-1 -translate-x-1/2 -translate-y-1/2 -z-10 w-85  pointer-events-none select-none" aria-hidden="true">
+                            class="absolute left-1/2 top-1 -translate-x-1/2 -translate-y-1/2 -z-10 w-85 pointer-events-none select-none"
+                            loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                         <h2 class="text-h3 lg:text-h2 font-bold text-[var(--color-primary)]">
                             {{ $title }}
                         </h2>
@@ -37,6 +41,7 @@
                         {{-- ADDRESS --}}
                         <li class="grid grid-cols-[2.25rem_1fr] items-center gap-3">
                             <span class="grid place-items-center size-9 rounded-full bg-[var(--color-text)]">
+                                {{-- inline SVG tidak perlu lazy --}}
                                 <svg class="size-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" aria-hidden="true">
                                     <path d="M12 21s7-4.35 7-10a7 7 0 1 0-14 0c0 5.65 7 10 7 10z" />
@@ -97,6 +102,7 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </div>

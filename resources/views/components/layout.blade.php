@@ -1,6 +1,7 @@
 @props([
     'title' => 'Alhazen Academy',
-    'description' => 'Belajar Coding dengan tutor berpengalaman dan professional di Alhazen Academy. Kami menyediakan program pelatihan online, offline, dan privat',
+    'description' =>
+        'Belajar Coding dengan tutor berpengalaman dan professional di Alhazen Academy. Kami menyediakan program pelatihan online, offline, dan privat',
     'ogImage' => 'https://alhazen.academy/wp-content/uploads/2024/01/alhazen-logo-transparent-background.png',
     'theme' => 'kids', // 'kids' | 'adult'
 ])
@@ -30,6 +31,8 @@
 
     <title>{{ $title }}</title>
     <x-og :title="$title" :description="$description" :image="$ogImage" />
+    <link rel="icon" href="{{ asset('assets/logo.png') }}" type="image/x-icon">
+
 
     @vite(['resources/css/landing.css', 'resources/js/landing.js'])
 </head>
@@ -42,8 +45,14 @@
     {{-- Back-to-top --}}
     <button x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show"
         @click="window.scrollTo({top:0,behavior:'smooth'})"
-        class="fixed bottom-5 right-5 z-50 rounded-full p-3 shadow-lg bg-primary/80 text-white dark:bg-accent dark:text-background"
-        aria-label="Back to top">↑</button>
+        class="fixed bottom-5 right-5 z-50 rounded-full p-4 shadow-lg bg-primary/80 text-white dark:bg-accent dark:text-background cursor-pointer"
+        aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+            stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </svg>
+
+    </button>
 </body>
 
 </html>

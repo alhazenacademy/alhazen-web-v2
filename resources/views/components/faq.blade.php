@@ -15,7 +15,7 @@
                     <h3>
                         <button :aria-expanded="open.toString()" :class="open ? 'rounded-t-2xl' : 'rounded-2xl'"
                             @click="open = !open"
-                            class="w-full text-left px-5 sm:px-6 py-4 sm:py-5 flex items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-primary)]/60"
+                            class="w-full text-left px-5 sm:px-6 py-4 sm:py-5 flex items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-primary)]/60 cursor-pointer"
                             aria-controls="{{ $qid }}">
                             <span class="flex-1 font-medium text-[color:var(--color-text)]">
                                 {{ $item['q'] ?? '' }}
@@ -43,7 +43,7 @@
 
         <div class="text-center mt-8 sm:mt-10">
             <a href="{{ $ctaHref }}"
-                class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[color:var(--color-primary)] text-white text-button hover:opacity-95 active:opacity-90 transition">
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[color:var(--color-primary)] text-white text-button  hover:scale-105 transition-all duration-200 ease-in-out text-button">
                 {{ $ctaLabel }}
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor">
