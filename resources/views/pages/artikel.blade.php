@@ -1,54 +1,62 @@
 <x-layout title="Artikel — Alhazen Academy" description="Artikel Alhazen Academy">
     <x-navbar variant="kids" />
-    <x-article.hero title="Artikel Alhazen Academy"
+    <x-artikel.hero title="Artikel Alhazen Academy"
         subtitle="Telusuri artikel kami untuk mendapatkan saran praktis dan wawasan tentang pembelajaran di setiap tahap, bersama dengan studi kasus, testimoni, dan berita terbaru dari komunitas sekolah kami."
         icon1="/assets/kids/artikel/icon1.png" />
     @php
         $posts = [
             [
                 'title' => 'Coding Starter Kit: Langkah Awal Menjadi Guru Koding',
+                'slug' => 'coding-starter-kit-langkah-awal-menjadi-guru-koding',
                 'date' => 'October 15, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-2.webp'),
                 'url' => 'https://alhazen.academy/coding-starter-kit/',
             ],
             [
                 'title' => '10 Cara Mendampingi Anak Belajar untuk Orang Tua yang Bekerja',
+                'slug' => '10-cara-mendampingi-anak-belajar-untuk-orang-tua-yang-bekerja',
                 'date' => 'July 9, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-3.webp'),
                 'url' => 'https://alhazen.academy/cara-mendampingi-anak-belajar-untuk-orang-tua-bekerja/',
             ],
             [
                 'title' => '5 Keunggulan Program Kursus Coding Anak di Alhazen Academy',
+                'slug' => '5-keunggulan-program-kursus-coding-anak-di-alhazen-academy',
                 'date' => 'June 17, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-4.webp'),
                 'url' => 'https://alhazen.academy/keunggulan-kursus-coding-anak-alhazen-academy/',
             ],
             [
                 'title' => 'Wih! 15 Cara Mengetahui Bakat Anak Sejak Dini',
+                'slug' => 'wih-15-cara-mengetahui-bakat-anak-sejak-dini',
                 'date' => 'June 17, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-5.webp'),
                 'url' => 'https://alhazen.academy/cara-mengetahui-bakat-anak/',
             ],
             [
                 'title' => 'Coding Starter Kit: Langkah Awal Menjadi Guru Koding',
+                'slug' => 'coding-starter-kit-langkah-awal-menjadi-guru-koding',
                 'date' => 'October 15, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-2.webp'),
                 'url' => 'https://alhazen.academy/coding-starter-kit/',
             ],
             [
                 'title' => '10 Cara Mendampingi Anak Belajar untuk Orang Tua yang Bekerja',
+                'slug' => '10-cara-mendampingi-anak-belajar-untuk-orang-tua-yang-bekerja',
                 'date' => 'July 9, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-3.webp'),
                 'url' => 'https://alhazen.academy/cara-mendampingi-anak-belajar-untuk-orang-tua-bekerja/',
             ],
             [
                 'title' => '5 Keunggulan Program Kursus Coding Anak di Alhazen Academy',
+                'slug' => '5-keunggulan-program-kursus-coding-anak-di-alhazen-academy',
                 'date' => 'June 17, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-4.webp'),
                 'url' => 'https://alhazen.academy/keunggulan-kursus-coding-anak-alhazen-academy/',
             ],
             [
                 'title' => 'Wih! 15 Cara Mengetahui Bakat Anak Sejak Dini',
+                'slug' => 'wih-15-cara-mengetahui-bakat-anak-sejak-dini',
                 'date' => 'June 17, 2025',
                 'image' => asset('assets/kids/artikel/thumbnail-article-5.webp'),
                 'url' => 'https://alhazen.academy/cara-mengetahui-bakat-anak/',
@@ -56,7 +64,7 @@
         ];
     @endphp
 
-    <x-article.list :posts="$posts" :categories="[
+    <x-artikel.list :posts="$posts" :categories="[
         ['label' => 'Blog', 'href' => route('artikel', ['cat' => 'blog']), 'active' => true],
         ['label' => 'Our Community', 'href' => route('artikel', ['cat' => 'community'])],
         ['label' => 'Coding For Kids', 'href' => route('artikel', ['cat' => 'kids'])],

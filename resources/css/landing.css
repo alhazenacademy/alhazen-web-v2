@@ -4,6 +4,7 @@
 @source '../views/components/*.blade.php';
 @source '../views/components/layout.blade.php';
 @source '../views/pages/*.blade.php';
+@source '../views/pages/artikel/*.blade.php';
 @source '../js/landing.js';
 @source '../js/landing/*.js';
 
