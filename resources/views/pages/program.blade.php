@@ -1,11 +1,10 @@
 <x-layout title="Program — Alhazen Academy" description="Berbagai Program Alhazen Academy">
     <x-navbar variant="kids" />
 
-    <x-program.hero title="Bangun Kreativitas Anak Lewat Teknologi !',
-    'subtitle"
+    <x-program.hero title="Bangun Kreativitas Anak Lewat Teknologi !"
         subtitle="Alhazen Academy membantu anak memahami teknologi lewat program coding, animasi, robotika, dan desain interaktif."
         ctaText="Daftar Kelas Gratis" ctaHref="#" imgHero="assets/kids/program/card-photo.jpg" />
-        
+
     <x-cta-whatsapp title="Ayo konsultasi sekarang dan klaim diskon hingga jutaan rupiah!"
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
         wa-message="Halo, saya mau konsultasi program belajar di Alhazen." />
