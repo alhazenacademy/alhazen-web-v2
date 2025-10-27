@@ -2,8 +2,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div id="reviews-stack" class="relative overflow-visible px-2 sm:px-4">
 
-            <img id="mascot-review" src="{{ asset('assets/kids/icon-anak-toa.png') }}" alt="Maskot Alhazen"
-                class="pointer-events-none select-none absolute z-0 w-32 sm:w-40 lg:w-52 mascot-pop" loading="lazy" />
+            <img id="mascot-review" src="{{ asset('assets/kids/index-student-review/maskot-toa.png') }}" alt="Maskot Alhazen" class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 sm:w-50 lg:w-70 drop-shadow-xl" loading="lazy" />
 
             <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
                 <h2 class="text-h2 font-bold text-primary mb-4">{!! $title !!}</h2>
@@ -28,7 +27,7 @@
                                             </div>
 
                                             <button type="button" aria-label="Putar video testimoni"
-                                                class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-black/35 group-hover:bg-black/45 backdrop-blur-sm grid place-items-center">
+                                                class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-black/35 group-hover:bg-black/45 backdrop-blur-sm grid place-items-center hover:cursor-pointer transition">
                                                 <svg viewBox="0 0 24 24" class="w-7 h-7 text-white" fill="currentColor"
                                                     aria-hidden="true">
                                                     <path d="M8 5v14l11-7z" />
@@ -56,7 +55,7 @@
                                                     </div>
 
                                                     <button @click="closeModal()" aria-label="Tutup video"
-                                                        class="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-white text-slate-700 shadow-md grid place-items-center z-[9999]">
+                                                        class="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-white text-slate-700 shadow-md grid place-items-center z-[9999] hover:cursor-pointer transition">
                                                         <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none"
                                                             stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                             <path d="M6 6l12 12M6 18L18 6" />

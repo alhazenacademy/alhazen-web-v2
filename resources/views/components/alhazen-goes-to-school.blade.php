@@ -3,26 +3,22 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-24 items-center mb-6 lg:mb-16">
             <div class="text-left order-2 lg:order-1">
                 <div class="flex justify-center mb-6">
-                    <img src="{{ asset('assets/kids/icon-bus.svg') }}" alt="Bus Icon" class="w-12 h-12 sm:w-16 sm:h-16">
+                    <img src="{{ asset('assets/kids/index-alhazen-goes-to-school/icon1.png') }}" alt="Bus Icon" class="w-15 h-15">
                 </div>
-                <h2 class="text-h2 font-bold text-primary mb-4 text-center lg:text-left">
+                <h2 class="text-h2 font-bold text-primary leading-tight text-center mb-4">
                     {{ $title }}
                 </h2>
-                <p class="text-body text-text max-w-full sm:max-w-2xl leading-relaxed text-justify">
-                    {!! $description !!}
-                </p>
-                <p class="text-small mt-4 max-w-full sm:max-w-2xl text-justify">
+                <p class="text-body text-text text-justify">
                     {!! $content !!}
                 </p>
             </div>
 
             <div class="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-6 lg:mb-0">
-                <div
-                    class="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-4 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-80 lg:h-80 bg-[#10B981] rounded-full opacity-12 z-0">
+                <div class="hidden lg:block absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-4 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-80 lg:h-80 bg-[#10B981] rounded-full opacity-12 z-0">
                 </div>
 
                 <img src="{{ $image }}" alt="Students in Classroom"
-                    class="relative rounded-2xl shadow-lg max-w-sm sm:max-w-md lg:max-w-lg w-full rotate-[4deg] transform-gpu mr-4 sm:mr-8 mb-4 sm:mb-8 z-10 hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out">
+                    class="hidden lg:block relative rounded-2xl shadow-lg max-w-sm sm:max-w-md lg:max-w-lg w-full rotate-[4deg] transform-gpu mr-4 sm:mr-8 mb-4 sm:mb-8 z-10" loading="lazy" decoding="async">
             </div>
         </div>
 
@@ -37,7 +33,7 @@
                         </div>
                     </div>
                     <h3
-                        class="text-h4 font-bold text-text mb-6 md:mb-8 h-12 md:h-16 flex items-start leading-tight text-base md:text-h4">
+                        class="text-h4 font-bold text-text mb-5 flex items-start leading-tight text-base md:text-h4">
                         {!! $card['title'] !!}
                     </h3>
                     <p class="text-small leading-relaxed flex-1 text-justify text-sm md:text-small">

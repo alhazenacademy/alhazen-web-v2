@@ -1,13 +1,3 @@
-@props([
-    'title' => 'Bangun Kreativitas Anak Lewat Teknologi !',
-    'subtitle' =>
-        'Alhazen Academy membantu anak memahami teknologi lewat program coding, animasi, robotika, dan desain interaktif.',
-    'ctaText' => 'Daftar Kelas Gratis',
-    'ctaHref' => '#',
-    'imgHero' => asset('assets/kids/program/card-photo.jpg'),
-    'imgHeroAlt' => 'Stiker kode pemrograman',
-])
-
 <section class="relative overflow-hidden">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-10">
         {{-- Teks lebih lebar: 1.35fr vs 1fr --}}
@@ -17,10 +7,10 @@
             <div class="relative hidden md:block">
                 <picture>
                     {{-- Hanya load gambar mulai lg+ --}}
-                    <source media="(min-width:1024px)" srcset="{{ $imgHero }}">
+                    <source media="(min-width:1024px)" srcset="{{ asset($imgHero) }}">
                     {{-- Placeholder 1×1 agar tidak request gambar saat < lg --}}
                     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                        alt="{{ $imgHeroAlt }}" class="block w-[90%] lg:w-full" loading="lazy" decoding="async"
+                        alt="Hero Image" class="block w-[90%] lg:w-full" loading="lazy" decoding="async"
                         fetchpriority="low">
                 </picture>
             </div>

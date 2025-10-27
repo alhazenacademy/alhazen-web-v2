@@ -1,16 +1,13 @@
 <section class="relative py-14 sm:py-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-            <h2 class="text-h2 font-bold text-primary mb-3">{!! $title !!}</h2>
-            <p class="text-body text-neutral-content">{!! $description !!}</p>
+            <h2 class="text-h2 font-bold text-primary mb-4">{!! $title !!}</h2>
+            <p class="text-body max-w-2xl mx-auto text-neutral-content">{!! $description !!}</p>
         </div>
         @if ($featured)
             <a href="{{ $featured['url'] ?? '#' }}" class="block group">
                 <figure
-                    class="relative rounded-[28px] overflow-hidden
-                 shadow-[0_24px_60px_rgba(0,0,0,.15)]
-                 transition-shadow duration-300
-                 group-hover:shadow-[0_28px_70px_rgba(0,0,0,.18)]">
+                    class="relative rounded-[28px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,.15)] transition-shadow duration-300 group-hover:shadow-[0_28px_70px_rgba(0,0,0,.18)]">
 
                     <img src="{{ $featured['image'] }}" alt="{{ $featured['title'] }}"
                         class="w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover
@@ -24,8 +21,7 @@
 
                     <div class="absolute left-5 top-5">
                         <span
-                            class="inline-block px-3 py-1 rounded-full text-[13px] font-semibold
-                   bg-white text-slate-800 shadow">Artikel
+                            class="inline-block px-3 py-1 rounded-full text-[13px] font-semibold bg-white text-slate-800 shadow">Artikel
                             Unggulan</span>
                     </div>
 
@@ -35,18 +31,14 @@
                                 {{ $featured['date'] }}
                             </div>
                             <h3
-                                class="text-h4 sm:text-body md:text-h5 font-medium leading-snug
-                   text-slate-900 transition-colors duration-300
-                   group-hover:text-[var(--color-primary)]">
+                                class="text-h4 sm:text-body md:text-h5 font-medium leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[var(--color-primary)]">
                                 {{ $featured['title'] }}
                             </h3>
                         </div>
 
                         <span class="ml-auto hidden sm:inline-flex">
                             <span
-                                class="inline-flex items-center gap-2 px-4 py-3 rounded-xl
-                     bg-[#F59E0B] text-white font-semibold shadow
-                     hover:brightness-105">
+                                class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#F59E0B] text-white font-semibold shadow hover:brightness-105">
                                 Baca Artikel
                                 <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -65,17 +57,14 @@
                     <a href="{{ $p['url'] ?? '#' }}" class="group block rounded-[20px] p-3 ">
                         <div class="relative rounded-[16px] overflow-hidden">
                             <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}"
-                                class="w-full h-[160px] object-cover
-                transition-transform duration-500 ease-out will-change-transform
-                group-hover:scale-[1.06]" />
+                                class="w-full h-[160px] object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06]" />
                             <div class="absolute right-0 bottom-0">
                                 <span class="date-notch text-[12px] font-semibold">{{ $p['date'] }}</span>
                             </div>
                         </div>
 
                         <h4
-                            class="text-body mt-3 font-medium text-slate-900 transition-colors
-             group-hover:text-[var(--color-primary)]">
+                            class="text-body mt-3 font-medium text-slate-900 transition-colors group-hover:text-[var(--color-primary)]">
                             {{ $p['title'] }}
                         </h4>
                     </a>
@@ -85,8 +74,7 @@
 
         <div class="text-center mt-8 sm:mt-10">
             <a href="{{ $allUrl }}"
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-emerald-300 text-emerald-700
-                hover:bg-emerald-50 transition text-body">
+                class="mt-3 mb-5 inline-flex items-center gap-2 rounded-xl px-8 py-3 bg-transparent border-1 border-primary text-primary font-semibold shadow-xl hover:scale-105 transition-all duration-300 drop-shadow-2xl">
                 Lihat Semua Artikel
             </a>
         </div>

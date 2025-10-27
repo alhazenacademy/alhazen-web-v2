@@ -83,8 +83,8 @@ function stickMascotToActive() {
     window.innerWidth >= 1024 ? -156 :
     window.innerWidth >= 640  ? -138 : -70
 
-  const X_OFFSET =  window.innerWidth >= 1024 ? -90 :
-    window.innerWidth >= 640  ? -90 : -40
+  const X_OFFSET =  window.innerWidth >= 1024 ? -130 :
+    window.innerWidth >= 640  ? -110 : -40
 
   mascot.style.top  = `${(cRect.top  - aRect.top) + Y_OFFSET}px`
   mascot.style.left = `${(cRect.left - aRect.left) + X_OFFSET}px`
@@ -107,7 +107,7 @@ export const tutorsSwiper = new Swiper('.swiper-tutors', {
   breakpoints: {
     0:    { slidesPerView: 1.1, spaceBetween: 14 },
     640:  { slidesPerView: 1.6, spaceBetween: 16 },
-    1024: { slidesPerView: 2.2, spaceBetween: 20 },
+    1024: { slidesPerView: 2, spaceBetween: 20 },
   },
   navigation: { nextEl: '.tutors-next', prevEl: '.tutors-prev' },
   pagination: { el: '.tutors-pagination', clickable: true },
@@ -135,8 +135,8 @@ function stickMascotTutorToActive() {
     window.innerWidth >= 1024 ? -156 :
     window.innerWidth >= 640  ? -138 : -70
 
-  const X_OFFSET =  window.innerWidth >= 1024 ? -90 :
-    window.innerWidth >= 640  ? -90 : -40
+  const X_OFFSET =  window.innerWidth >= 1024 ? -130 :
+    window.innerWidth >= 640  ? -110 : -40
 
   mascot.style.top  = `${(cRect.top  - aRect.top) + Y_OFFSET}px`
   mascot.style.left = `${(cRect.left - aRect.left) + X_OFFSET}px`

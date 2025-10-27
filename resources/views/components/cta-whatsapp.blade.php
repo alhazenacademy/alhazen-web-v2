@@ -1,8 +1,8 @@
 <section class="relative py-8">
     <div x-data="" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <img src="{{ asset('assets/kids/icon-start.png') }}" alt=""
+        <img src="{{ asset('assets/kids/index-cta-whatsapp/icon-star.png') }}" alt=""
             class="pointer-events-none select-none absolute -left-2 sm:-left-2 -top-6 w-14 sm:w-16 z-50" loading="lazy" />
-        <img src="{{ asset('assets/kids/icon-start.png') }}" alt=""
+        <img src="{{ asset('assets/kids/index-cta-whatsapp/icon-star.png') }}" alt=""
             class="pointer-events-none select-none absolute -right-2 sm:-right-1 -bottom-5 w-14 sm:w-16 z-50"
             loading="lazy" />
         <div

@@ -4,7 +4,7 @@
         <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:min-h-[480px] mb-10">
             {{-- LEFT: logo --}}
             <div class="relative lg:basis-[54%] lg:shrink-0 min-w-0 flex items-center justify-center p-4">
-                <img src="{{ $logo }}" alt="{{ $logoAlt }}"
+                <img src="{{ $logo }}" alt="Logo Alhazen Academy"
                     class="w-full max-w-[620px] max-h-full object-contain rounded-[20px]" loading="lazy" decoding="async"
                     fetchpriority="low">
             </div>
@@ -12,14 +12,12 @@
             {{-- RIGHT: card teks --}}
             <div class="space-y-6 lg:basis-[46%] min-w-0 w-full">
                 <article class="relative rounded-2xl px-6 sm:px-8 py-7">
-                    @if ($icon1)
-                        <div class="flex justify-center mb-3">
-                            <img src="{{ $icon1 }}" alt="" class="w-15 h-15 opacity-80" loading="lazy"
-                                decoding="async" fetchpriority="low">
-                        </div>
-                    @endif
+                    <div class="flex justify-center mb-3">
+                        <img src="{{ asset('/assets/kids/about/icon1.png') }}" alt="" class="w-15 h-15 "
+                            loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
 
-                    <h3 class="text-h3 font-bold text-[var(--color-primary)] text-center mb-4">
+                    <h3 class="text-h3 font-bold text-primary text-center mb-4">
                         {{ $titleWho }}
                     </h3>
 
@@ -37,14 +35,12 @@
             {{-- LEFT: card teks --}}
             <div class="space-y-6 lg:basis-[46%] min-w-0 w-full">
                 <article class="relative rounded-2xl px-6 sm:px-8 py-7">
-                    @if ($icon2)
-                        <div class="flex justify-center mb-3">
-                            <img src="{{ $icon2 }}" alt="" class="w-15 h-15 opacity-80" loading="lazy"
-                                decoding="async" fetchpriority="low">
-                        </div>
-                    @endif
+                    <div class="flex justify-center mb-3">
+                        <img src="{{ asset('/assets/kids/about/icon2.png') }}" alt="" class="w-15 h-15 "
+                            loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
 
-                    <h3 class="text-h3 font-bold text-[var(--color-primary)] text-center mb-4">
+                    <h3 class="text-h3 font-bold text-primary text-center mb-4">
                         {{ $titleVision }}
                     </h3>
                     <div class="space-y-4 text-body text-text text-justify">
@@ -69,7 +65,7 @@
         {{-- content-3 --}}
         <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:min-h-[480px] mb-20">
             {{-- LEFT: img --}}
-            <div class="relative inline-block w-full mx-auto max-w-[620px]">
+            <div class="relative inline-block w-full mx-auto max-w-[620px] order-2 lg:order-1">
                 <div class="absolute right-[30px] top-[30px] -z-10 w-full h-full rounded-[20px] bg-[#E5E7EB]"></div>
                 <div class="w-full rounded-[20px] overflow-hidden">
                     <img src="{{ $imgMision }}" alt="{{ $imgMisionAlt }}"
@@ -79,16 +75,14 @@
             </div>
 
             {{-- RIGHT: card teks --}}
-            <div class="space-y-6 lg:basis-[46%] min-w-0 w-full">
+            <div class="space-y-6 lg:basis-[46%] min-w-0 w-full order-1 lg:order-2">
                 <article class="relative rounded-2xl px-6 sm:px-8 py-7">
-                    @if ($icon3)
-                        <div class="flex justify-center mb-3">
-                            <img src="{{ $icon3 }}" alt="" class="w-15 h-15 opacity-80" loading="lazy"
-                                decoding="async" fetchpriority="low">
-                        </div>
-                    @endif
+                    <div class="flex justify-center mb-3">
+                        <img src="{{ asset('/assets/kids/about/icon3.png') }}" alt="" class="w-15 h-15"
+                            loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
 
-                    <h3 class="text-h3 font-semibold text-[var(--color-primary)] text-center mb-4">
+                    <h3 class="text-h3 font-semibold text-primary text-center mb-4">
                         {{ $titleMision }}
                     </h3>
                     <div class="space-y-4 text-body text-text text-justify">
@@ -99,6 +93,7 @@
                 </article>
             </div>
         </div>
+
 
         {{-- content-4 --}}
         <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:min-h-[480px] mb-20">

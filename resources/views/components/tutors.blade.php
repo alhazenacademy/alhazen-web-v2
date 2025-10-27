@@ -1,8 +1,8 @@
 <section id="tutors" class="relative py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div id="tutors-stack" class="relative overflow-visible px-2 sm:px-4">
-            <img src="{{ asset('assets/kids/icon-anak-toa.png') }}" alt="Maskot" id="mascot-tutor"
-                class="pointer-events-none select-none absolute z-0 w-32 sm:w-40 lg:w-52 mascot-pop" loading="lazy" />
+            <img src="{{ asset('assets/kids/index-tutor/maskot-laptop.png') }}" alt="Maskot" id="mascot-tutor"
+                class="hidden lg:block pointer-events-none select-none absolute z-0 w-70 drop-shadow-xl" loading="lazy" />
 
             <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
                 <h2 class="text-h2 font-bold text-primary mb-4">{!! $title !!}</h2>
@@ -15,15 +15,18 @@
                         @foreach ($cards as $card)
                             <div class="swiper-slide">
                                 <article
-                                    class="tutor-card-minh bg-white rounded-[18px] p-4 ring-1 ring-[var(--color-neutral)]/60 shadow-[0_8px_18px_rgba(0,0,0,.06)] grid grid-cols-[minmax(160px,220px)_1fr] gap-4 items-stretch">
+                                    class="tutor-card-minh bg-white rounded-[18px] p-4 ring-1 ring-[var(--color-neutral)]/60 shadow-[0_8px_18px_rgba(0,0,0,.06)] grid grid-cols-1 md:grid-cols-[minmax(160px,220px)_1fr] gap-4 items-stretch">
+
+                                    <!-- FOTO -->
                                     <div
-                                        class="relative rounded-[12px] overflow-hidden ring-1 ring-black/5 shadow-[0_4px_12px_rgba(0,0,0,.06)]">
+                                        class="relative rounded-[12px] overflow-hidden ring-1 ring-black/5 shadow-[0_4px_12px_rgba(0,0,0,.06)] h-50">
                                         <img src="{{ $card['photo'] }}" alt="{{ $card['name'] }}"
                                             class="absolute inset-0 w-full h-full object-cover mix-blend-multiply"
                                             loading="lazy">
                                     </div>
 
-                                    <div class="min-w-0 flex flex-col">
+                                    <!-- TEKS -->
+                                    <div class="min-w-0 flex flex-col py-2">
                                         <h3 class="text-[16px] md:text-[17px] font-extrabold text-[#0F172A] mb-1.5">
                                             {{ $card['name'] }}
                                         </h3>
@@ -55,18 +58,16 @@
                                         </p>
                                     </div>
                                 </article>
-
                             </div>
                         @endforeach
+
                     </div>
                 </div>
 
-
                 <div class="mt-6">
-                    <nav class="mx-auto flex items-center justify-center gap-4">
+                    <nav class="mx-auto flex items-center justify-center gap-4 lg:ml-[38%] lg:mx-0 lg:justify-start">
                         <button
-                            class="tutors-prev w-9 h-9 rounded-full border border-[var(--color-neutral)]
-                     flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
+                            class="tutors-prev w-9 h-9 rounded-full border border-[var(--color-neutral)] flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
                             <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M15 18l-6-6 6-6" />
@@ -76,8 +77,7 @@
                         <div class="tutors-pagination swiper-pagination"></div>
 
                         <button
-                            class="tutors-next w-9 h-9 rounded-full border border-[var(--color-neutral)]
-                     flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
+                            class="tutors-next w-9 h-9 rounded-full border border-[var(--color-neutral)] flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
                             <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M9 18l6-6-6-6" />

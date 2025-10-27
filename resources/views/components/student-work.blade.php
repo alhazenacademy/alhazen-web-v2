@@ -2,9 +2,9 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
             class="mb-8 lg:mb-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-8 relative z-10">
-            <div class="text-center flex-1">
-                <h2 class="text-h2 font-semibold text-primary mb-4">{!! $title !!}</h2>
-                <p class="text-body max-w-2xl mx-auto text-neutral-content">{!! $description !!}</p>
+            <div class="text-center mx-auto">
+                <h2 class="text-h2 font-bold text-primary leading-tight text-center mb-4">{!! $title !!}</h2>
+                <p class="text-body text-text max-w-xl md:max-w-2xl mx-auto md:mx-0">{!! $description !!}</p>
             </div>
         </div>
 
@@ -14,7 +14,7 @@
                     @foreach ($cards as $card)
                         <div class="swiper-slide h-auto">
                             <article
-                                class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-[26rem] sm:h-[27rem] lg:h-[28rem]">
+                                class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-[26rem] sm:h-[27rem] lg:h-[28rem] py-5">
                                 <div class="mb-4 flex-shrink-0 rounded-x">
                                     <div
                                         class="w-full h-48 sm:h-56 lg:h-60 flex items-center justify-center overflow-hidden rounded-xl">
@@ -42,7 +42,8 @@
                 <div class="swiper-pagination mt-8"></div>
             </div>
 
-            <div class="absolute top-0 right-3 z-10 pointer-events-none select-none translate-y-[calc(-100%+1rem)]"> <img src="{{ asset('assets/kids/icon-anak-medali.png') }}" class="w-32 sm:w-40 lg:w-52 object-contain drop-shadow-xl" alt="">
+            <div class="hidden lg:block absolute top-0 right-3 z-10 pointer-events-none select-none translate-y-[calc(-100%+1rem)]"> 
+                <img src="{{ asset('assets/kids/index-student-work/maskot-mendali.png') }}" class="w-32 sm:w-40 lg:w-52 object-contain drop-shadow-xl" alt="" loading="lazy" decoding="async">
             </div>
         </div>
     </div>

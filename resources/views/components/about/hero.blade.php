@@ -22,11 +22,11 @@
 
             <!-- Kolom Tengah (konten) -->
             <div class="md:w-3/5 text-center md:pt-6">
-                <h1 class="text-h2 font-bold text-primary leading-tight">{{ $title }}</h1>
-                <p class="mt-3 text-body text-text/80 max-w-3xl mx-auto">{{ $subtitle }}</p>
+                <h1 class="text-h2 font-bold text-primary leading-tight text-center">{{ $title }}</h1>
+                <p class="mt-3 text-body text-text max-w-3xl mx-auto">{{ $subtitle }}</p>
 
                 <a href="{{ $ctaHref }}" aria-label="{{ $ctaText }} - Mulai belajar sekarang"
-                    class="mt-3 mb-5 inline-flex items-center gap-2 rounded-xl px-8 py-3 bg-transparent border-2 border-primary text-primary font-semibold shadow-xl hover:scale-105 transition-all duration-300 drop-shadow-2xl">
+                    class="mt-3 mb-5 inline-flex items-center gap-2 rounded-xl px-8 py-3 bg-transparent border-1 border-primary text-primary font-semibold shadow-xl hover:scale-105 transition-all duration-300 drop-shadow-2xl">
                     {{ $ctaText }}
                 </a>
 
