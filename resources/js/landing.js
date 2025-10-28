@@ -3,6 +3,39 @@ window.Alpine = Alpine
 
 import './landing/swiper-init'
 import './landing/theme'
+import './landing/booking.js';
+
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+import { Indonesian } from "flatpickr/dist/l10n/id.js";
+
+
+function initDatepickers(root = document) {
+  root.querySelectorAll("[data-datepicker]").forEach((el) => {
+    if (el._flatpickr) return; 
+    const opts = {
+      dateFormat: "Y-m-d",
+      altInput: true,
+      altFormat: "d F Y",
+      allowInput: true,
+      locale: Indonesian,
+      ...JSON.parse(el.dataset.options || "{}"),
+    };
+    flatpickr(el, opts);
+  });
+}
+document.addEventListener("DOMContentLoaded", () => initDatepickers());
+document.addEventListener("alpine:init", () => {
+  initDatepickers();
+  const mo = new MutationObserver((muts) => {
+    for (const m of muts) {
+      m.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) initDatepickers(node);
+      });
+    }
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+});
 
 window.reviewVideoModal = function (type, url) {
   return {
