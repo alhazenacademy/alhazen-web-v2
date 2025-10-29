@@ -4,7 +4,7 @@
     <x-hero
         heroTitle="Build the <span class='text-secondary' style='font-family: inherit'>Future</span>, One Code at a Time!"
         heroSubtitle="Temukan dunia seru penuh imajinasi lewat Coding, AI, dan Robotika! Belajar teknologi kini bisa semenyenangkan bermain."
-        heroCtaText="Daftar Kelas Gratis" heroCtaHref="#contact" :heroImages="[asset('assets/kids/index-hero/banner.png')]"
+        heroCtaText="Daftar Kelas Gratis" heroCtaHref="{{ route('trial') }}" :heroImages="[asset('assets/kids/index-hero/banner.png')]"
         stemIcon="{{ asset('assets/kids/index-hero/logo-stem.png') }}" googleIcon="{{ asset('assets/kids/index-hero/google-rate.png') }}" />
 
     <x-about-section id="about"
