@@ -19,33 +19,21 @@ class ArticlesTable
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('author.name')
+                    ->label('Author')
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
-                TextColumn::make('excerpt')
-                    ->searchable(),
-                ImageColumn::make('cover_image'),
-                TextColumn::make('status')
-                    ->badge(),
                 TextColumn::make('published_at')
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('reading_time')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('views')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('meta_title')
-                    ->searchable(),
-                TextColumn::make('meta_description')
-                    ->searchable(),
-                IconColumn::make('is_featured')
-                    ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
