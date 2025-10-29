@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call(ProgramSeeder::class);
         $this->call(TrialTimeSeeder::class);
-        $this->call(SourceInformationSeeder::class);
+        $this->call(InformationSourceSeeder::class);
     }
 }
