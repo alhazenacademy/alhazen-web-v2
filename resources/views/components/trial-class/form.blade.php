@@ -1,4 +1,8 @@
-<div x-data="trialForm({ times: @js($times), postUrl: '{{ route('trial.store') }}' })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
+@php
+  $waText = 'Halo Admin Alhazen, saya sudah daftar kelas trial.';
+  $waHref = 'https://wa.me/'.$salesPhone.'?text='.urlencode($waText)
+@endphp
+<div x-data="trialForm({ times: @js($times), postUrl: '{{ route('trial.store') }}', leadUrl: '{{ route('leads.store') }}' })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
     style="background-image: url('{{ asset('assets/kids/bg-booking.png') }}');">
 
     <section class="relative w-full py-10 md:py-14 bg-[var(--color-background)]/0">
@@ -26,6 +30,7 @@
                             <!-- STEP 1 -->
                             <template x-if="step===1">
                                 <form @submit.prevent="submitStep1" class="grid gap-4 pt-6">
+                                    <input type="hidden" x-ref="csrf" value="{{ csrf_token() }}">
                                     <p class="text-small text-body text-center">
                                         Masukkan nomor WhatsApp aktif kamu ya
                                     </p>
@@ -61,8 +66,10 @@
 
                                     <div class="mt-2">
                                         <button type="submit"
-                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition disabled:opacity-60 disabled:cursor-not-allowed">
-                                            Next
+                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition disabled:opacity-60 disabled:cursor-not-allowed"
+                                            :disabled="creatingLead || waStatus!=='valid'"
+                                            :aria-busy="creatingLead ? 'true' : 'false'">
+                                            <span>Next</span>
                                         </button>
                                     </div>
                                 </form>
@@ -293,7 +300,7 @@
                             <!-- STEP 4 -->
                             <template x-if="step===4">
                                 <form @submit.prevent="submit()" class="grid gap-4 pt-6">
-                                    <input type="hidden" name="_token" x-ref="csrf" value="{{ csrf_token() }}">
+                                    <input type="hidden" x-ref="csrf_trial" value="{{ csrf_token() }}">
                                     <p
                                         class="text-small text-center text-[color-mix(in_oklab,var(--color-text)_72%,#6b7280)]">
                                         Data kontak untuk konfirmasi jadwal trial.
@@ -407,15 +414,19 @@
                                                 onerror="this.style.display='none'">
                                         </div>
 
-                                        <div class="mt-6 flex items-center justify-center gap-3">
+                                        <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
                                             <a href="{{ url('/') }}"
-                                                class="rounded-xl px-4 py-3 font-semibold border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)] hover:bg-[color-mix(in_oklab,var(--color-neutral)_12%,#fff)] transition">
+                                                class="w-full sm:w-auto text-center rounded-xl px-4 py-3 font-semibold
+                                                border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)]
+                                                hover:bg-[color-mix(in_oklab,var(--color-neutral)_12%,#fff)]
+                                                transition">
                                                 Kembali ke Beranda
                                             </a>
 
-                                            <a href="https://wa.me/6281234567890?text=Halo%20Alhazen%2C%20saya%20sudah%20daftar%20kelas%20trial."
-                                                target="_blank" rel="noopener"
-                                                class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold text-white bg-[var(--color-accent)] hover:opacity-90 transition">
+                                            <a href="{{ $waHref }}"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold
+                                                text-white bg-[var(--color-accent)] hover:opacity-90 transition">
                                                 <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt=""
                                                     class="h-5 w-5" aria-hidden="true">
                                                 Chat CS

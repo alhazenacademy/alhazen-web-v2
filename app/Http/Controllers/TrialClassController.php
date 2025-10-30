@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\InformationSource;
 use App\Models\TrialClass;
+use App\Models\LeadNumber;
+use App\Models\SalesNumber;
 
 class TrialClassController extends Controller
 {
@@ -16,7 +18,8 @@ class TrialClassController extends Controller
         $programs = Program::select('id', 'name')->where('is_active', 1)->orderBy('sort_order')->get();
         $times = TrialTime::select('time')->where('is_active', 1)->orderBy('sort_order')->get();
         $sources = InformationSource::select('id','name')->where('is_active', 1)->orderBy('sort_order')->get();
-        return view('pages.trial_class', compact('programs', 'times', 'sources'));
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+        return view('pages.trial_class', compact('programs', 'times', 'sources', 'salesPhone'));
     }
 
     public function store(Request $r)
@@ -37,12 +40,23 @@ class TrialClassController extends Controller
             'schedule_date' => ['required','date'],
             'schedule_time' => ['required','date_format:H:i'],
         ]);
-        // simpan
         $trial = TrialClass::create($data);
 
         return response()->json([
             'ok' => true,
-            'id' => $trial->id,
+        ]);
+    }
+
+    public function storeLead(Request $r)
+    {
+        $data = $r->validate([
+            'phone_number' => ['required','string','max:20'],
+            'source'       => ['nullable','string','max:100'],
+        ]);
+        $lead = LeadNumber::create($data);
+
+        return response()->json([
+            'ok' => true,
         ]);
     }
 }

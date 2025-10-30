@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProgramSeeder::class);
         $this->call(TrialTimeSeeder::class);
         $this->call(InformationSourceSeeder::class);
+        $this->call(SalesNumberSeeder::class);
     }
 }

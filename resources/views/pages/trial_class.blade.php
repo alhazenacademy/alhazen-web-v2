@@ -1,6 +1,4 @@
 <x-layout>
     <x-navbar variant="kids" />
-   <x-trial-class.form :programs="$programs" :times="$times" :sources="$sources" />
-
-    
+    <x-trial-class.form :programs="$programs" :times="$times" :sources="$sources" :sales-phone="$salesPhone" />
 </x-layout>
