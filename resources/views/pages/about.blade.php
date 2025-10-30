@@ -2,7 +2,7 @@
     <x-navbar variant="kids" />
     <x-about.hero title="Tentang Alhazen Academy"
         subtitle="Menginspirasi generasi digital dengan cara belajar yang menyenangkan dan bermakna."
-        ctaText="Pelajari Program Kami" ctaHref="#" imgLT="assets/kids/about/hero-1.jpg"
+        ctaText="Pelajari Program Kami" ctaHref="{{ route('program') }}" imgLT="assets/kids/about/hero-1.jpg"
         imgLB="assets/kids/about/hero-2.jpg" imgRT="assets/kids/about/hero-3.jpg" imgRB="assets/kids/about/hero-4.jpg"
         mascot="/assets/kids/about/mascot-about.png" />
     <x-about.who logo="/assets/kids/about/logo-about.png"

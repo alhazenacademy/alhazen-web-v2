@@ -1,6 +1,6 @@
 <section id="reviews" class="relative py-16 sm:py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div id="reviews-stack" class="relative overflow-visible px-2 sm:px-4">
+    <div class="mx-auto max-w-8xl">
+        <div id="reviews-stack" class="relative overflow-visible">
 
             <img id="mascot-review" src="{{ asset('assets/kids/index-student-review/maskot-toa.png') }}" alt="Maskot Alhazen" class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 sm:w-50 lg:w-70 drop-shadow-xl" loading="lazy" />
 
@@ -9,7 +9,7 @@
                 <p class="text-body max-w-2xl mx-auto text-neutral-content">{!! $description !!}</p>
             </div>
 
-            <div class="ml-auto w-full max-w-[90%]">
+            <div class="ml-auto w-full max-w-[85%]">
                 <div class="swiper swiper-review relative z-10 overflow-visible">
                     <div class="swiper-wrapper">
                         @foreach ($cards as $card)
@@ -103,28 +103,28 @@
                     </div>
                 </div>
 
-                <div class="mt-6">
-                    <nav class="mx-auto flex items-center justify-center gap-4">
-                        <button
-                            class="review-prev w-9 h-9 rounded-full border border-[var(--color-neutral)] flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
-                            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M15 18l-6-6 6-6" />
-                            </svg>
-                        </button>
-
-                        <div class="review-pagination swiper-pagination"></div>
-
-                        <button
-                            class="review-next w-9 h-9 rounded-full border border-[var(--color-neutral)] flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
-                            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M9 18l6-6-6-6" />
-                            </svg>
-                        </button>
-                    </nav>
-                </div>
             </div>
         </div>
+    </div>
+    <div class="mt-6">
+        <nav class="mx-auto flex items-center justify-center gap-4">
+            <button
+                class="review-prev w-9 h-9 rounded-full border border-[var(--color-neutral)] flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
+                <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+
+            <div class="review-pagination swiper-pagination"></div>
+
+            <button
+                class="review-next w-9 h-9 rounded-full border border-[var(--color-neutral)] flex items-center justify-center hover:bg-[var(--color-neutral)]/30 transition">
+                <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
+        </nav>
     </div>
 </section>

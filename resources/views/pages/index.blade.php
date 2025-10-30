@@ -5,10 +5,10 @@
         heroTitle="Build the <span class='text-secondary' style='font-family: inherit'>Future</span>, One Code at a Time!"
         heroSubtitle="Temukan dunia seru penuh imajinasi lewat Coding, AI, dan Robotika! Belajar teknologi kini bisa semenyenangkan bermain."
         heroCtaText="Daftar Kelas Gratis" heroCtaHref="{{ route('trial') }}" :heroImages="[asset('assets/kids/index-hero/banner.png')]"
-        stemIcon="{{ asset('assets/kids/index-hero/logo-stem.png') }}" googleIcon="{{ asset('assets/kids/index-hero/google-rate.png') }}" />
+        stemIcon="{{ asset('assets/kids/index-hero/logo-stem.png') }}"
+        googleIcon="{{ asset('assets/kids/index-hero/google-rate.png') }}" />
 
-    <x-about-section id="about"
-        title="Tentang Alhazen Academy"
+    <x-about-section id="about" title="Tentang Alhazen Academy"
         content="<strong>Alhazen Academy</strong> adalah lembaga kursus dan konsultan pendidikan teknologi yang berfokus menyiapkan generasi muda untuk era industri 4.0. Pendekatannya memadukan nilai <strong>Islamic Leadership</strong> dan kerangka <strong>STEM (Science, Technology, Engineering, Math)</strong> agar belajar teknologi tetap berkarakter dan relevan.  <br> <br> Layanan Alhazen meliputi program belajar yang menyenangkan dan terstruktur untuk anak—mulai dari <strong>coding, AI, hingga robotika</strong>. Mereka juga aktif menjangkau sekolah melalui program “Alhazen goes to School” untuk menghadirkan kurikulum dan ekskul coding langsung di lingkungan belajar siswa." />
 
     <x-why-alhazen title="Kenapa Belajar di Alhazen Academy?" :cards="[
@@ -135,6 +135,47 @@
                 'title' => 'Membangun Rasa Percaya Diri Anak',
                 'description' =>
                     'Setiap sesi dirancang untuk membantu anak <strong> berani berkreasi, berpikir logis,</strong> dan menjadi <strong>pemimpin masa depan</strong> di era digital.',
+            ],
+        ]" />
+
+    <x-program-kerjasama title="Program Kerjasama Alhazen"
+        subtitle="Alhazen membuka program kerjasama untuk sekolah SD, SMP, SMA/K berupa Kurikulum Teknologi dan Ekskul Coding. Kami hadir untuk membentuk generasi muda yang siap menghadapi tantangan teknologi."
+        :cards="[
+            [
+                'title' => 'Curriculum',
+                'sub' => 'Technology curriculum',
+                'bg' => 'bg-[#0EA5A0]',
+                'text-color' => 'text-[#F9FAFB]',
+                'icon' => asset('assets/kids/program-kerjasama/icon1.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'url' => '#',
+            ],
+            [
+                'title' => 'Textbook',
+                'sub' => 'School material books',
+                'bg' => 'bg-[#FACC15]',
+                'text-color' => 'text-[#F9FAFB]',
+                'icon' => asset('assets/kids/program-kerjasama/icon2.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'url' => '#',
+            ],
+            [
+                'title' => 'Coding Club',
+                'sub' => 'Coding extracurricular',
+                'bg' => 'bg-[#9333EA]',
+                'text-color' => 'text-[#F9FAFB]',
+                'icon' => asset('assets/kids/program-kerjasama/icon3.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'url' => '#',
+            ],
+            [
+                'title' => 'Other Collab',
+                'sub' => 'Special cooperation',
+                'bg' => 'bg-[#E5E7EB]',
+                'text-color' => 'text-[#0F172A]',
+                'icon' => asset('assets/kids/program-kerjasama/icon4.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'url' => '#',
             ],
         ]" />
 
@@ -294,6 +335,30 @@
     <x-tutors title="Tim Pengajar Alhazen"
         description="Setiap pengajar di Alhazen adalah praktisi teknologi, pendidik kreatif, dan sahabat belajar anak."
         :cards="[
+            [
+                'name' => 'Bagus Adam Farizi',
+                'years' => 3,
+                'skills' => 'HTML, JavaScript, PHP',
+                'photo' => asset('assets/kids/index-tutor/tutor-pic1.png'),
+                'bio' =>
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+            ],
+            [
+                'name' => 'Bagus Adam Farizi',
+                'years' => 3,
+                'skills' => 'HTML, JavaScript, PHP',
+                'photo' => asset('assets/kids/index-tutor/tutor-pic2.png'),
+                'bio' =>
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+            ],
+            [
+                'name' => 'Bagus Adam Farizi',
+                'years' => 3,
+                'skills' => 'HTML, JavaScript, PHP',
+                'photo' => asset('assets/kids/index-tutor/tutor-pic3.png'),
+                'bio' =>
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+            ],
             [
                 'name' => 'Bagus Adam Farizi',
                 'years' => 3,
