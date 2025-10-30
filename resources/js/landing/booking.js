@@ -39,10 +39,10 @@ window.selectProgram = function selectProgram({
         choose(i) {
             const chosen = this.options[i];
             if (!chosen) return;
-            this.value = chosen.id; 
+            this.value = chosen.id;
             this.activeIndex = i;
             this.open = false;
-            onPick(this.value); 
+            onPick(this.value);
         },
 
         move(step) {
@@ -77,11 +77,11 @@ window.selectUmur = function selectUmur({
         activeIndex: 0,
         init() {
             this.setFrom(initial);
-        }, 
+        },
 
         setFrom(v) {
             this.value = v ?? "";
-            onPick(this.value); 
+            onPick(this.value);
         },
         displayLabel() {
             return this.value || this.placeholder;
@@ -155,7 +155,7 @@ window.selectSource = function selectSource({
         choose(i) {
             const chosen = this.options[i];
             if (!chosen) return;
-            this.value = chosen.id; 
+            this.value = chosen.id;
             this.activeIndex = i;
             this.open = false;
             onPick(this.value);
@@ -179,7 +179,6 @@ window.selectSource = function selectSource({
     };
 };
 
-
 window.trialForm = function trialForm(opts = {}) {
     return {
         step: 1,
@@ -195,8 +194,8 @@ window.trialForm = function trialForm(opts = {}) {
         },
         waNormalized: "",
         waError: "",
+        creatingLead: false,
         onWaInput(v) {
-            
             const digits = String(v || "").replace(/\D/g, "");
             this.form.phone = digits;
 
@@ -219,7 +218,7 @@ window.trialForm = function trialForm(opts = {}) {
                 return;
             }
 
-            this.waError = ""; 
+            this.waError = "";
         },
 
         get waStatus() {
@@ -227,11 +226,48 @@ window.trialForm = function trialForm(opts = {}) {
             return this.waError ? "invalid" : "valid";
         },
 
-        submitStep1() {
+        async createLead() {
+            if (this.creatingLead) return;
+            if (this.waStatus !== "valid") return;
+
+            this.creatingLead = true;
+            const csrf = this.$refs.csrf?.value;
+
+            try {
+                const r = await fetch(opts.leadUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-TOKEN": csrf,
+                    },
+                    body: JSON.stringify({
+                        phone_number: this.form.phone,
+                        source: "trial_form_kids",
+                    }),
+                    credentials: "same-origin",
+                });
+                if (!r.ok) throw new Error("Gagal menyimpan lead");
+                const data = await r.json().catch(() => ({}));
+                return true;
+            } catch (e) {
+                console.error(e);
+                alert("Maaf, gagal menyimpan nomor. Coba lagi.");
+                return false;
+            } finally {
+                this.creatingLead = false;
+            }
+        },
+
+        async submitStep1() {
+            // validasi terakhir
             this.onWaInput(this.form.phone);
             if (this.waStatus !== "valid") return;
-            
-            this.go(2);
+
+            // kirim ke lead_numbers dulu
+            const ok = await this.createLead();
+            if (ok) this.go(2);
         },
 
         go(s) {
@@ -268,7 +304,7 @@ window.trialForm = function trialForm(opts = {}) {
 
             const nextValid = (d) => {
                 let t = new Date(d);
-                while (t.getDay() === 0) t.setDate(t.getDate() + 1); 
+                while (t.getDay() === 0) t.setDate(t.getDate() + 1);
                 return t;
             };
             const prevValid = (d) => {
@@ -295,14 +331,13 @@ window.trialForm = function trialForm(opts = {}) {
                 maxDate: max,
                 defaultDate: def,
                 monthSelectorType: "dropdown",
-                disable: [(date) => date.getDay() === 0], 
+                disable: [(date) => date.getDay() === 0],
                 onChange: (_sel, dateStr) => {
                     this.form.schedule_date = dateStr;
                 },
                 disableMobile: true,
             });
 
-           
             if (!this.form.schedule_date && def) {
                 const yyyy = def.getFullYear();
                 const mm = String(def.getMonth() + 1).padStart(2, "0");
@@ -312,7 +347,7 @@ window.trialForm = function trialForm(opts = {}) {
         },
 
         submit() {
-            const csrf = this.$refs.csrf?.value;
+            const csrf = this.$refs.csrf_trial?.value;
 
             fetch(opts.postUrl, {
                 method: "POST",
@@ -327,12 +362,10 @@ window.trialForm = function trialForm(opts = {}) {
             })
                 .then((r) => {
                     if (!r.ok) throw new Error("Gagal menyimpan");
-                    return r.json().catch(() => ({})); 
+                    return r.json().catch(() => ({}));
                 })
                 .then(() => {
-                   
                     this.step = "success";
-                    
                 })
                 .catch((err) => {
                     console.error(err);
