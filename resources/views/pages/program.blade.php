@@ -181,14 +181,14 @@
                     'Halo! Aku Fariha - tutor coding mu, belajar sambil bersenang-senang. Belajar coding itu seperti kita sedang bermain game tetapi kamu tidak akan sadar kalau sebetulnya kita sedang belajar! Membuat project game lalu memainkan game buatan mu sendiri, menyenangkan bukan?',
             ],
             [
-                'name' => 'Tutor',
-                'years' => 2,
-                'skills' => 'HTML, JavaScript, PHP',
+                'name' => 'Yendri Ikhlas Fernando',
+                'years' => 1,
+                'skills' => 'HTML CSS, PHP, Python, C++, SQL, Scratch, Blender, gdevelop',
                 'photo' => null,
                 'bg-photo' => '#F97316',
                 'gender' => 'male',
                 'bio' =>
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+                    'Halo! Aku Yendir - tutor coding mu—belajar sambil bersenang-senang. Bayangin coding itu seperti main game: kita bikin misi, naik level, dan tiba-tiba… kamu jago! Aku berpengalaman sebagai web developer yang biasa ngurus WordPress, Flask, dan Django, jadi kita bisa bikin project seru dari website sampai mini-game, lalu kamu mainin karya mu sendiri.',
             ],
         ]" />
 
