@@ -1,6 +1,6 @@
 @php
-  $waText = 'Halo Admin Alhazen, saya sudah daftar kelas trial.';
-  $waHref = 'https://wa.me/'.$salesPhone.'?text='.urlencode($waText)
+    $waText = 'Halo Admin Alhazen, saya sudah daftar kelas trial.';
+    $waHref = 'https://wa.me/' . $salesPhone . '?text=' . urlencode($waText);
 @endphp
 <div x-data="trialForm({ times: @js($times), postUrl: '{{ route('trial.store') }}', leadUrl: '{{ route('leads.store') }}' })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
     style="background-image: url('{{ asset('assets/kids/bg-booking.png') }}');">
@@ -25,7 +25,7 @@
                     </template>
 
                     <div class="px-6 pb-6">
-                        <div class="min-h-[420px] md:min-h-[460px] flex flex-col justify-between">
+                        <div class="min-h-[420px] md:min-h-fit flex flex-col justify-between">
 
                             <!-- STEP 1 -->
                             <template x-if="step===1">
@@ -414,7 +414,8 @@
                                                 onerror="this.style.display='none'">
                                         </div>
 
-                                        <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
+                                        <div
+                                            class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
                                             <a href="{{ url('/') }}"
                                                 class="w-full sm:w-auto text-center rounded-xl px-4 py-3 font-semibold
                                                 border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)]
@@ -423,8 +424,7 @@
                                                 Kembali ke Beranda
                                             </a>
 
-                                            <a href="{{ $waHref }}"
-                                                target="_blank" rel="noopener noreferrer"
+                                            <a href="{{ $waHref }}" target="_blank" rel="noopener noreferrer"
                                                 class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold
                                                 text-white bg-[var(--color-accent)] hover:opacity-90 transition">
                                                 <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt=""

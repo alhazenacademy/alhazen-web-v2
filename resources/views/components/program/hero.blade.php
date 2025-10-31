@@ -4,7 +4,7 @@
         <div class="grid lg:grid-cols-[1fr_1.25fr] items-center gap-10 lg:gap-16">
 
             {{-- LEFT (gambar) — sembunyikan di HP, dan hindari download di layar kecil --}}
-            <div class="relative hidden md:block">
+            <div class="relative hidden lg:block">
                 <picture>
                     {{-- Hanya load gambar mulai lg+ --}}
                     <source media="(min-width:1024px)" srcset="{{ asset($imgHero) }}">

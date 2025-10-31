@@ -34,17 +34,23 @@
 
             <!-- Grid card -->
             <div
-                class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-7 max-w-4xl mx-auto z-10">
+                class="relative grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 lg:gap-7 max-w-4xl mx-auto justify-items-center lg:justify-items-stretch">
                 @foreach ($cards as $card)
-                    <div class="basis-full sm:basis-1/2 lg:basis-1/4 max-w-[280px] w-full">
+                    <div class="w-full max-w-[280px]">
+                        @php
+                            $isViewAll = isset($card['title']) && strcasecmp($card['title'], 'View All') === 0;
+                        @endphp
                         <div class="group mx-auto rounded-xl relative overflow-hidden {{ $card['bg'] }} hover:shadow-xl transition-all duration-300 h-28 sm:h-36 lg:h-44 will-change-transform hover:cursor-pointer"
-                            onclick="location.href='{{ route($card['url']) }}'">
+                            onclick="location.href='{{ $isViewAll
+                                ? route($card['url'], absolute: false)
+                                : route($card['url'], ['tab' => $card['key'] ?? Str::slug($card['title'])], false) . '#program' }}'">
 
                             <img src="{{ $card['child'] }}" alt="{{ $card['title'] }} child"
                                 class="absolute right-2 top-5 w-1/2 h-full object-cover z-20 pointer-events-none select-none"
                                 loading="lazy">
 
-                            <div class="absolute bottom-4 left-6 w-17 h-17 flex items-center justify-center transition-transform duration-300 ease-out will-change-transform origin-bottom-left group-hover:-rotate-12 group-hover:-translate-y-1 group-hover:translate-x-1">
+                            <div
+                                class="absolute bottom-4 left-6 w-17 h-17 flex items-center justify-center transition-transform duration-300 ease-out will-change-transform origin-bottom-left group-hover:-rotate-12 group-hover:-translate-y-1 group-hover:translate-x-1">
                                 <img src="{{ $card['icon'] }}" alt="{{ $card['title'] }} icon"
                                     class="w-auto h-full pointer-events-none select-none" loading="lazy">
                             </div>
@@ -57,7 +63,8 @@
                                 <p class="text-small sm:text-xs leading-tight opacity-90">{{ $card['sub'] }}</p>
                             </div>
 
-                            <span class="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5"></span>
+                            <span
+                                class="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5"></span>
                         </div>
                     </div>
                 @endforeach

@@ -856,12 +856,10 @@
 
 /* Active Card Detail Program */
 @layer utilities {
-        #detail-program .card-zoom {
-        transform: translateZ(0) scale(1);
-    }
-
-    #detail-program .is-active .card-zoom {
-        transform: translateZ(0) scale(1.05);
+    @media (max-width: 1023.98px) {
+        .lg\:hidden nav::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 

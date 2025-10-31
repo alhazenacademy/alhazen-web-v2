@@ -4,6 +4,7 @@ window.Alpine = Alpine
 import './landing/swiper-init'
 import './landing/theme'
 import './landing/booking.js';
+import './landing/tabs.js';
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
