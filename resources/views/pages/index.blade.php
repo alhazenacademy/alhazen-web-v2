@@ -258,7 +258,7 @@
 
     <x-cta-whatsapp title="Ambil kesempatan konsultasi sekarang juga dan raih diskon hingga jutaan rupiah!"
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
-        wa-message="Halo, saya mau konsultasi program belajar di Alhazen." />
+        wa-message="Halo, saya mau konsultasi program belajar di Alhazen." source="konsultasi_index_page" :sales-phone="$salesPhone" />
 
     <x-clients title="Partner  & Kolaborator Kami"
         description="Kami berkolaborasi dengan berbagai sekolah, lembaga, dan komunitas pendidikan untuk menghadirkan pembelajaran teknologi terbaik bagi anak Indonesia."
@@ -426,9 +426,9 @@
     <x-footer
         address="Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840"
         :socials="[
-            ['name' => 'facebook', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-fb.png')],
-            ['name' => 'instagram', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-ig.png')],
-            ['name' => 'linkedin', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-lkn.png')],
-            ['name' => 'youtube', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-ytb.png')],
+            ['name' => 'facebook', 'href' => 'https://www.facebook.com/alhazenacademy', 'img' => asset('assets/kids/index-footer/icon-fb.png')],
+            ['name' => 'instagram', 'href' => 'https://www.instagram.com/alhazenacademy/', 'img' => asset('assets/kids/index-footer/icon-ig.png')],
+            ['name' => 'linkedin', 'href' => 'https://www.linkedin.com/company/alhazen-academy', 'img' => asset('assets/kids/index-footer/icon-lkn.png')],
+            ['name' => 'youtube', 'href' => 'https://www.youtube.com/@alhazenacademy', 'img' => asset('assets/kids/index-footer/icon-ytb.png')],
         ]" :contact="['phone' => '+62-813-90000-332', 'email' => 'info@alhazen.academy', 'site' => 'www.alhazen.academy']" />
 </x-layout>

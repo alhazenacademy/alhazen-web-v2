@@ -66,7 +66,7 @@
 
                                     <div class="mt-2">
                                         <button type="submit"
-                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition disabled:opacity-60 disabled:cursor-not-allowed hover:cursor-pointer"
+                                            class=" inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition disabled:opacity-60 disabled:cursor-not-allowed hover:cursor-pointer"
                                             :disabled="creatingLead || waStatus!=='valid'"
                                             :aria-busy="creatingLead ? 'true' : 'false'">
                                             <span>Next</span>
@@ -218,7 +218,7 @@
                                             </button>
 
                                             <button type="submit"
-                                                class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
+                                                class=" inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
                                                 Next
                                             </button>
                                         </div>
@@ -285,7 +285,7 @@
                                             </button>
 
                                             <button type="submit"
-                                                class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
+                                                class=" inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
                                                 Next
                                             </button>
                                         </div>
@@ -380,7 +380,7 @@
                                         </button>
 
                                         <button type="submit"
-                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
+                                            class=" inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
                                             Submit
                                         </button>
                                     </div>

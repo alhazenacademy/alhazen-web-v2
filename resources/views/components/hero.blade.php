@@ -35,7 +35,7 @@
 
                 <!-- CTA Button Accent Only -->
                 <a href="{{ $heroCtaHref }}" aria-label="{{ $heroCtaText }} - Mulai belajar sekarang"
-                    class="inline-flex items-center gap-2 rounded-xl px-8 py-3 bg-accent text-background shadow-xl hover:scale-105 transition-all duration-200 drop-shadow-2xl">
+                    class="btn-shine shine-loop inline-flex items-center gap-2 rounded-xl px-8 py-3 bg-accent text-background shadow-xl hover:scale-105 transition-all duration-200 drop-shadow-2xl">
                     {{ $heroCtaText }}
                 </a>
             </div>

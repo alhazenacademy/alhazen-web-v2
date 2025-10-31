@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrialClassController;
+use App\Http\Controllers\LandingController;
 
-Route::view('/', 'pages.index')->name('home');
-Route::view('/program', 'pages.program')->name('program');
+Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/program', [LandingController::class, 'program'])->name('program');
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/artikel', 'pages.artikel')->name('artikel');
 Route::view('/artikel/{slug}', 'pages.artikel.show')->name('artikel.show');

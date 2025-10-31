@@ -194,7 +194,7 @@
 
     <x-cta-whatsapp title="Ambil kesempatan konsultasi sekarang juga dan raih diskon hingga jutaan rupiah!"
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
-        wa-message="Halo, saya mau konsultasi program belajar di Alhazen." />
+        wa-message="Halo, saya mau konsultasi program belajar di Alhazen." source="konsultasi_program_page" :sales-phone="$salesPhone" />
 
     @php
         $faqs = [

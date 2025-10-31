@@ -78,4 +78,40 @@ window.reviewVideoModal = function (type, url) {
   };
 };
 
+window.leadForm = function leadForm(opts = {}) {
+    return {
+        form: {
+            phone: ''
+        },
+        async storeLead() {
+            const csrf = this.$refs.csrf_cta_wa?.value;
+            
+            const r = await fetch(opts.leadUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRF-TOKEN": csrf,
+                },
+                body: JSON.stringify({
+                    phone_number: this.form.phone,
+                    source: opts.source,
+                }),
+                credentials: "same-origin",
+            });
+            const data = await r.json().catch(() => ({}));
+            return true;
+        },
+        async handleWhatsApp() {
+            try {
+                await this.storeLead();
+                window.open(opts.waHref, '_blank');
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
+}
+
 Alpine.start()
