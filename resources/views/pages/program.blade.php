@@ -131,56 +131,68 @@
         description="Setiap pengajar di Alhazen adalah praktisi teknologi, pendidik kreatif, dan sahabat belajar anak."
         :cards="[
             [
-                'name' => 'Bagus Adam Farizi',
-                'years' => 3,
-                'skills' => 'HTML, JavaScript, PHP',
-                'photo' => asset('assets/kids/index-tutor/tutor-pic1.png'),
+                'name' => 'Aldi Afrizarman',
+                'years' => 2,
+                'skills' => 'Python',
+                'photo' => null,
+                'bg-photo' => '#FACC15',
+                'gender' => 'male',
                 'bio' =>
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+                    'Hi! Aku Aldi - kamu bisa panggil aku bang atau kaka ya. Bareng aku, kita bakalan belajar Python dan kita akan bicara tentang website dan data. Sampai ketemu di kelas ya.',
+            ],
+            [
+                'name' => 'Ade Nuryana',
+                'years' => 2,
+                'skills' => 'HTML CSS, JavaScript, PHP, Python',
+                'photo' => null,
+                'bg-photo' => '#059669',
+                'gender' => 'male',
+                'bio' =>
+                    'Hai! Aku Ade - sekarang lagi kuliah s2 di salah satu swasta di Indonesia, saya sedang mendalami ke bagian data scientist, nah data scientist saya bisa memasukan ke dalam website , bisa menggunakan Django. Nah Django merupakan salah satu framework python yang sejalan dengan data scientist karena sama sama menggunakan python',
             ],
             [
                 'name' => 'Bagus Adam Farizi',
-                'years' => 3,
-                'skills' => 'HTML, JavaScript, PHP',
-                'photo' => asset('assets/kids/index-tutor/tutor-pic2.png'),
+                'years' => 2,
+                'skills' => 'HTML, JavaScript, PHP, SQL',
+                'photo' => null,
+                'bg-photo' => '#F97316',
+                'gender' => 'male',
                 'bio' =>
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+                    'Hai! Aku Adam — tutor web kamu yang santai dan ramah. Aku suka menjelajah cara kerja dunia digital dan bikin coding jadi seru serta mudah dipahami. Yuk belajar sambil praktik, ubah ide jadi proyek beneran, dan kembangkan skill bareng-bareng. Ayo mulai petualangan ngoding!',
             ],
             [
-                'name' => 'Bagus Adam Farizi',
-                'years' => 3,
-                'skills' => 'HTML, JavaScript, PHP',
-                'photo' => asset('assets/kids/index-tutor/tutor-pic3.png'),
+                'name' => 'Mozadilla Sabina',
+                'years' => 1,
+                'skills' => 'HTML CSS, JavaScript, PHP, Python, Scratch, UI/UX Design',
+                'photo' => null,
+                'bg-photo' => '#FACC15',
+                'gender' => 'female',
                 'bio' =>
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+                    'Hai! Aku Mozadilla - seorang perempuan lulusan Sistem Informasi yang passionate di dunia teknologi dan pendidikan. Bagiku, belajar dan berbagi ilmu adalah cara terbaik untuk tumbuh bersama.',
             ],
             [
-                'name' => 'Bagus Adam Farizi',
-                'years' => 3,
-                'skills' => 'HTML, JavaScript, PHP',
-                'photo' => asset('assets/kids/index-tutor/tutor-pic1.png'),
+                'name' => 'Fariha Ulya',
+                'years' => 2,
+                'skills' => 'Python, SQL, Scratch, Code.org',
+                'photo' => null,
+                'bg-photo' => '#059669',
+                'gender' => 'female',
                 'bio' =>
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+                    'Halo! Aku Fariha - tutor coding mu, belajar sambil bersenang-senang. Belajar coding itu seperti kita sedang bermain game tetapi kamu tidak akan sadar kalau sebetulnya kita sedang belajar! Membuat project game lalu memainkan game buatan mu sendiri, menyenangkan bukan?',
             ],
             [
-                'name' => 'Bagus Adam Farizi',
-                'years' => 3,
+                'name' => 'Tutor',
+                'years' => 2,
                 'skills' => 'HTML, JavaScript, PHP',
-                'photo' => asset('assets/kids/index-tutor/tutor-pic2.png'),
-                'bio' =>
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-            ],
-            [
-                'name' => 'Bagus Adam Farizi',
-                'years' => 3,
-                'skills' => 'HTML, JavaScript, PHP',
-                'photo' => asset('assets/kids/index-tutor/tutor-pic3.png'),
+                'photo' => null,
+                'bg-photo' => '#F97316',
+                'gender' => 'male',
                 'bio' =>
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
             ],
         ]" />
 
-    <x-cta-whatsapp title="Ayo konsultasi sekarang dan klaim diskon hingga jutaan rupiah!"
+    <x-cta-whatsapp title="Ambil kesempatan konsultasi sekarang juga dan raih diskon hingga jutaan rupiah!"
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
         wa-message="Halo, saya mau konsultasi program belajar di Alhazen." />
 

@@ -20,10 +20,21 @@
                                     class="tutor-card-minh bg-white rounded-[18px] p-4 ring-1 ring-[var(--color-neutral)]/60 shadow-[0_8px_18px_rgba(0,0,0,.06)] grid grid-cols-1 md:grid-cols-[minmax(160px,220px)_1fr] gap-4 items-stretch">
 
                                     <!-- FOTO -->
+                                    @php
+                                        $fallback =
+                                            ($card['gender'] ?? 'male') === 'female'
+                                                ? asset('assets/kids/index-tutor/female-pic.png')
+                                                : asset('assets/kids/index-tutor/male-pic.png');
+
+                                        $photo = $card['photo'] ?? null;
+                                    @endphp
                                     <div
-                                        class="relative rounded-[12px] overflow-hidden ring-1 ring-black/5 shadow-[0_4px_12px_rgba(0,0,0,.06)] h-50">
-                                        <img src="{{ $card['photo'] }}" alt="{{ $card['name'] }}"
-                                            class="absolute inset-0 w-full h-full object-cover mix-blend-multiply"
+                                        class="relative rounded-[12px] overflow-hidden ring-1 ring-black/5 shadow-[0_4px_12px_rgba(0,0,0,.06)] h-50 bg-[{{ $card['bg-photo'] ?? '#FEE2E2' }}]">
+                                        <div class="absolute inset-0 -z-10 rounded-[12px] [background:var(--photo-bg)]"></div>
+                                        <img src="{{ $photo ?: $fallback }}"
+                                            onerror="this.onerror=null;this.src='{{ $fallback }}';"
+                                            alt="{{ $card['name'] ?? 'Tutor' }}"
+                                            class="absolute inset-0 w-full h-full object-cover "
                                             loading="lazy">
                                     </div>
 

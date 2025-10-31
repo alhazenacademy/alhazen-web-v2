@@ -1,5 +1,6 @@
 <x-layout title="Judul Artikel Dummy — Artikel" description="Halaman baca artikel">
-    <x-navbar variant="kids" />
+    <x-error.not-found />
+    {{-- <x-navbar variant="kids" />
 
     <x-artikel.post />
 
@@ -46,7 +47,7 @@
 
     <x-artikel.related :posts="$related" />
 
-    <x-cta-whatsapp title="Ayo konsultasi sekarang dan klaim diskon hingga jutaan rupiah!"
+    <x-cta-whatsapp title="Ambil kesempatan konsultasi sekarang juga dan raih diskon hingga jutaan rupiah!"
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
         wa-message="Halo, saya mau konsultasi program belajar di Alhazen." 
     />
@@ -58,6 +59,6 @@
             ['name' => 'instagram', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-ig.png')],
             ['name' => 'linkedin', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-lkn.png')],
             ['name' => 'youtube', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-ytb.png')],
-        ]" :contact="['phone' => '+62-813-90000-332', 'email' => 'info@alhazen.academy', 'site' => 'www.alhazen.academy']" />
+        ]" :contact="['phone' => '+62-813-90000-332', 'email' => 'info@alhazen.academy', 'site' => 'www.alhazen.academy']" /> --}}
 
 </x-layout>

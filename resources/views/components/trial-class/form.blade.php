@@ -66,7 +66,7 @@
 
                                     <div class="mt-2">
                                         <button type="submit"
-                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition disabled:opacity-60 disabled:cursor-not-allowed"
+                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition disabled:opacity-60 disabled:cursor-not-allowed hover:cursor-pointer"
                                             :disabled="creatingLead || waStatus!=='valid'"
                                             :aria-busy="creatingLead ? 'true' : 'false'">
                                             <span>Next</span>
@@ -97,7 +97,7 @@
                                                 @keydown.arrow-up.prevent="move(-1)"
                                                 @keydown.enter.prevent="choose(activeIndex)"
                                                 @keydown.space.prevent="toggle()" @keydown.escape.prevent="close()"
-                                                class="select-button">
+                                                class="select-button hover:cursor-pointer">
                                                 <span class="block pr-8" x-text="displayLabel()" x-cloak></span>
                                                 <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-70 transition"
                                                     :class="open && 'rotate-180'" viewBox="0 0 20 20"
@@ -146,7 +146,7 @@
                                                 @keydown.arrow-up.prevent="move(-1)"
                                                 @keydown.enter.prevent="choose(activeIndex)"
                                                 @keydown.space.prevent="toggle()" @keydown.escape.prevent="close()"
-                                                class="select-button">
+                                                class="select-button hover:cursor-pointer">
                                                 <span class="block pr-8" x-text="displayLabel()" x-cloak></span>
                                                 <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-70 transition"
                                                     :class="open && 'rotate-180'" viewBox="0 0 20 20"
@@ -207,7 +207,7 @@
 
                                         <div class="mt-2 flex items-center gap-3">
                                             <button type="button" @click="go(1)"
-                                                class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-[var(--color-neutral)] text-[var(--color-text)]/80 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50">
+                                                class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-[var(--color-neutral)] text-[var(--color-text)]/80 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50 hover:cursor-pointer">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                     class="w-5 h-5" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -218,7 +218,7 @@
                                             </button>
 
                                             <button type="submit"
-                                                class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition">
+                                                class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
                                                 Next
                                             </button>
                                         </div>
@@ -262,7 +262,7 @@
                                                                 @click="form.schedule_time = t.time"
                                                                 class="shrink-0 whitespace-nowrap rounded-2xl px-5 py-3 font-semibold transition border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)]
                                                                 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px]
-                                                                focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
+                                                                focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 hover:cursor-pointer"
                                                                 :class="form.schedule_time === t.time ?
                                                                     'bg-[color-mix(in_oklab,var(--color-accent)_20%,#fff)] text-[var(--color-accent)] border-transparent' :
                                                                     'bg-[color-mix(in_oklab,var(--color-neutral)_14%,#fff)] hover:bg-[color-mix(in_oklab,var(--color-neutral)_22%,#fff)]'"
@@ -278,7 +278,7 @@
 
                                         <div class="mt-2 flex items-center gap-3">
                                             <button type="button" @click="go(2)"
-                                                class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-[var(--color-neutral)] text-[var(--color-text)]/80 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50">
+                                                class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-[var(--color-neutral)] text-[var(--color-text)]/80 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50 hover:cursor-pointer">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                     class="w-5 h-5" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -289,7 +289,7 @@
                                             </button>
 
                                             <button type="submit"
-                                                class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition">
+                                                class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
                                                 Next
                                             </button>
                                         </div>
@@ -327,7 +327,7 @@
                                                 @keydown.arrow-up.prevent="move(-1)"
                                                 @keydown.enter.prevent="choose(activeIndex)"
                                                 @keydown.space.prevent="toggle()" @keydown.escape.prevent="close()"
-                                                class="select-button">
+                                                class="select-button hover:cursor-pointer">
                                                 <span class="block pr-8" x-text="displayLabel()" x-cloak></span>
                                                 <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-70 transition"
                                                     :class="open && 'rotate-180'" viewBox="0 0 20 20"
@@ -373,7 +373,7 @@
 
                                     <div class="mt-2 flex items-center gap-3">
                                         <button type="button" @click="go(3)"
-                                            class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-[var(--color-neutral)] text-[var(--color-text)]/80 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50">
+                                            class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-[var(--color-neutral)] text-[var(--color-text)]/80 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50 hover:cursor-pointer">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                 class="w-5 h-5" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -384,7 +384,7 @@
                                         </button>
 
                                         <button type="submit"
-                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition">
+                                            class="btn-shine shine-loop inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
                                             Submit
                                         </button>
                                     </div>
@@ -420,13 +420,13 @@
                                                 class="w-full sm:w-auto text-center rounded-xl px-4 py-3 font-semibold
                                                 border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)]
                                                 hover:bg-[color-mix(in_oklab,var(--color-neutral)_12%,#fff)]
-                                                transition">
+                                                transition hover:cursor-pointer">
                                                 Kembali ke Beranda
                                             </a>
 
                                             <a href="{{ $waHref }}" target="_blank" rel="noopener noreferrer"
                                                 class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold
-                                                text-white bg-[var(--color-accent)] hover:opacity-90 transition">
+                                                text-white bg-[var(--color-accent)] hover:opacity-90 transition hover:cursor-pointer">
                                                 <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt=""
                                                     class="h-5 w-5" aria-hidden="true">
                                                 Chat CS

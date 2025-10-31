@@ -36,7 +36,7 @@
                     </li>
                 @endforeach
             </ul>
-            <a href="#"
+            <a href="https://apps.alhazen.academy/#/login"
                 class="my-5 px-8 py-3  inline-flex items-center rounded-2xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out text-button">
                 Dashboard
             </a>
@@ -60,7 +60,7 @@
                         </li>
                     @endforeach
                     <li class="px-4 py-3">
-                        <a href="#"
+                        <a href="https://apps.alhazen.academy/#/login"
                             class="my-5 w-full px-8 py-3 inline-flex justify-center rounded-xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out text-button">
                             Dashboard
                         </a>
