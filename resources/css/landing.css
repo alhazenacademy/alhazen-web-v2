@@ -284,6 +284,11 @@
     --color-text: #f9fafb;
 }
 
+:root {
+    --swiper-theme-color: var(--color-primary);
+    --swiper-pagination-color: var(--color-primary);
+}
+
 /* Student Work */
 .student-work-category {
     display: inline-block;

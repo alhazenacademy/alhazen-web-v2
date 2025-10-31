@@ -51,7 +51,7 @@
         description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"
         cta-label="Lihat Semua Pertanyaan" cta-href="#" />
     <x-footer
-        address="Plaza Kaha, Lt 4 unit 402B Jl. KH. Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Tebet, Jakarta Selatan, DKI Jakarta, 12840, Indonesia"
+        address="Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840"
         :socials="[
             ['name' => 'facebook', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-fb.png')],
             ['name' => 'instagram', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-ig.png')],

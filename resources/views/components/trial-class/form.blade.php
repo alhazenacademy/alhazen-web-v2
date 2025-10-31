@@ -5,8 +5,8 @@
 <div x-data="trialForm({ times: @js($times), postUrl: '{{ route('trial.store') }}', leadUrl: '{{ route('leads.store') }}' })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
     style="background-image: url('{{ asset('assets/kids/bg-booking.png') }}');">
 
-    <section class="relative w-full py-10 md:py-14 bg-[var(--color-background)]/0">
-        <div class="mx-auto w-full max-w-[620px] px-4">
+    <section class="relative w-full py-10 md:py-14 bg-[var(--color-background)]/0 ">
+        <div class="mx-auto w-full max-w-[700px] px-4">
             <div class="relative">
                 <div class="absolute left-[22px] top-[22px] -z-10 w-full h-full rounded-2xl bg-[var(--color-neutral)]">
                 </div>
@@ -25,7 +25,7 @@
                     </template>
 
                     <div class="px-6 pb-6">
-                        <div class="min-h-[420px] md:min-h-fit flex flex-col justify-between">
+                        <div class="min-h-fit flex flex-col justify-between">
 
                             <!-- STEP 1 -->
                             <template x-if="step===1">
@@ -240,10 +240,10 @@
                                             <input type="hidden" name="schedule_time" :value="form.schedule_time"
                                                 required>
 
-                                            <div class="grid items-start gap-4 md:grid-cols-2"
-                                                x-data="{ selectedTime: form.schedule_time }">
+                                            <div
+                                                class="grid items-start gap-4 md:[grid-template-columns:minmax(320px,1fr)_1fr]">
                                                 <!-- KIRI: Kalender -->
-                                                <div class="calendar-wrap rounded-xl h-full
+                                                <div class="calendar-wrap rounded-xl h-full overflow-visible md:min-w-[320px] md:pr-1
                                                     [&_.flatpickr-calendar]:block
                                                     [&_.flatpickr-calendar]:w-full
                                                     [&_.flatpickr-calendar]:max-w-full
@@ -254,25 +254,21 @@
                                                 </div>
 
                                                 <!-- KANAN: Pilih Waktu -->
-                                                <div class="h-full">
+                                                <div class="h-full md:pl-1">
                                                     <div
                                                         class="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(110px,1fr))]">
                                                         <template x-for="t in times" :key="t.time">
-                                                            <button type="button"
-                                                                @click="form.schedule_time = t.time"
-                                                                class="shrink-0 whitespace-nowrap rounded-2xl px-5 py-3 font-semibold transition border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)]
-                                                                cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px]
-                                                                focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 hover:cursor-pointer"
+                                                            <button type="button" @click="form.schedule_time = t.time"
+                                                                class="shrink-0 whitespace-nowrap rounded-2xl px-5 py-3 font-semibold transition border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)] cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
                                                                 :class="form.schedule_time === t.time ?
                                                                     'bg-[color-mix(in_oklab,var(--color-accent)_20%,#fff)] text-[var(--color-accent)] border-transparent' :
                                                                     'bg-[color-mix(in_oklab,var(--color-neutral)_14%,#fff)] hover:bg-[color-mix(in_oklab,var(--color-neutral)_22%,#fff)]'"
-                                                                :aria-pressed="(form.schedule_time === t).toString()"
+                                                                :aria-pressed="(form.schedule_time === t.time).toString()"
                                                                 x-text="t.time">
                                                             </button>
                                                         </template>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
 
@@ -319,8 +315,8 @@
                                         })" x-init="setFrom(form.student_age)"
                                             x-bind:data-open="open" x-bind:data-filled="String(value).length > 0"
                                             class="relative">
-                                            <input type="text" name="student_age" x-model="form.student_age"
-                                                required tabindex="-1" autocomplete="off" class="sr-only" />
+                                            <input type="text" name="student_age" x-model="form.student_age" required
+                                                tabindex="-1" autocomplete="off" class="sr-only" />
 
                                             <button type="button" @click="toggle()"
                                                 @keydown.arrow-down.prevent="move(1)"

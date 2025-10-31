@@ -10,7 +10,7 @@
 
         <div class="relative overflow-visible pt-4">
             <div class="swiper student-works-swiper relative z-20">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper mb-8">
                     @foreach ($cards as $card)
                         <div class="swiper-slide h-auto">
                             <article
@@ -39,7 +39,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="swiper-pagination mt-8"></div>
+                <div class="swiper-pagination"></div>
             </div>
 
             <div class="hidden lg:block absolute top-0 right-3 z-10 pointer-events-none select-none translate-y-[calc(-100%+1rem)]"> 

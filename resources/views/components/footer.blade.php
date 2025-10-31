@@ -9,21 +9,20 @@
         [
             'title' => 'Program',
             'links' => [
-                ['label' => 'Coding', 'href' => '#'],
-                ['label' => 'Animation', 'href' => '#'],
-                ['label' => 'IoT', 'href' => '#'],
-                ['label' => 'Roblox', 'href' => '#'],
-                ['label' => 'Design', 'href' => '#'],
-                ['label' => 'View All', 'href' => '#'],
+                ['label' => 'Coding', 'url' => 'program', 'key' => 'coding'],
+                ['label' => 'Animation', 'url' => 'program', 'key' => 'animation'],
+                ['label' => 'IoT', 'url' => 'program', 'key' => 'iot'],
+                ['label' => 'Roblox', 'url' => 'program', 'key' => 'roblox'],
+                ['label' => 'Design', 'url' => 'program', 'key' => 'design'],
             ],
         ],
         [
             'title' => 'Lainnya',
             'links' => [
-                ['label' => 'Profil Alhazen', 'href' => '#'],
-                ['label' => 'Program Kerjasama', 'href' => '#'],
-                ['label' => 'Artikel', 'href' => '#'],
-                ['label' => 'Lokasi Alhazen', 'href' => '#'],
+                ['label' => 'Program', 'href' => 'program'],
+                ['label' => 'Event', 'href' => 'event'],
+                ['label' => 'Artikel', 'href' => 'program'],
+                ['label' => 'Tentang Kami', 'href' => 'about'],
             ],
         ],
     ],
@@ -73,7 +72,7 @@
                 <ul class="space-y-2">
                     @foreach ($programCol['links'] as $ln)
                         <li>
-                            <a href="{{ $ln['href'] }}"
+                            <a href="{{ route($ln['url'], ['tab' => $ln['key']], false) . '#program' }}"
                                 class="text-sm text-white/90 hover:text-white underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded">
                                 {{ $ln['label'] }}
                             </a>
@@ -100,7 +99,7 @@
                 <ul class="space-y-2">
                     @foreach ($otherCol['links'] as $ln)
                         <li>
-                            <a href="{{ $ln['href'] }}"
+                            <a href="{{ route($ln['href']) }}"
                                 class="text-sm text-white/90 hover:text-white underline-offset-4 hover:underline">
                                 {{ $ln['label'] }}
                             </a>
@@ -122,7 +121,8 @@
             <!-- Alamat -->
             <div class="md:col-span-3 md:pl-6 space-y-2">
                 <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">{{ $addressTitle }}</h4>
-                <p class="text-sm text-white/90 text-sm leading-relaxed">{{ $address }}</p>
+                <a href="https://maps.google.com/?q={{ urlencode($address) }}" target="_blank" rel="noopener"
+                    class="text-sm text-white/90 text-sm leading-relaxed underline">{{ $address }}</a>
             </div>
         </div>
     </div>
