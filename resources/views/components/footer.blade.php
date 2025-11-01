@@ -1,0 +1,129 @@
+@props([
+    'bgDecor' => asset('assets/kids/index-footer/bg-footer.png'),
+    'socials' => [],
+    'logo' => asset('assets/kids/index-footer/Alhazen-Logo-white.png'),
+    'logoAlt' => 'Alhazen Academy',
+    'about' =>
+        'Alhazen adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif.',
+    'columns' => [
+        [
+            'title' => 'Program',
+            'links' => [
+                ['label' => 'Coding', 'url' => 'program', 'key' => 'coding'],
+                ['label' => 'Animation', 'url' => 'program', 'key' => 'animation'],
+                ['label' => 'IoT', 'url' => 'program', 'key' => 'iot'],
+                ['label' => 'Roblox', 'url' => 'program', 'key' => 'roblox'],
+                ['label' => 'Design', 'url' => 'program', 'key' => 'design'],
+            ],
+        ],
+        [
+            'title' => 'Lainnya',
+            'links' => [
+                ['label' => 'Program', 'href' => 'program'],
+                ['label' => 'Event', 'href' => 'event'],
+                ['label' => 'Artikel', 'href' => 'program'],
+                ['label' => 'Tentang Kami', 'href' => 'about'],
+            ],
+        ],
+    ],
+    'contact' => [],
+    'addressTitle' => 'Kantor Pusat',
+    'address' => '',
+    'certificateImg' => asset('assets/kids/index-footer/logo-stem.png'),
+    'certificateAlt' => 'STEM Certified',
+])
+
+@php
+    $programCol = $columns[0] ?? ['title' => 'Program', 'links' => []];
+    $otherCol = $columns[1] ?? ['title' => 'Lainnya', 'links' => []];
+@endphp
+
+<footer class="overflow-hidden relative rounded-t-[56px] inset-0 bg-gradient-to-b from-[#10B981] to-[#065F46]">
+    <!-- Decorative icons background -->
+    <img src="{{ $bgDecor }}" alt="Footer Decoration"
+        class="absolute bottom-0 left-0 w-full object-cover object-bottom opacity-95 pointer-events-none select-none"
+        loading="lazy" decoding="async" />
+
+    <!-- Footer content -->
+    <div class="relative mx-auto max-w-7xl px-5 sm:px-8 py-12 sm:py-16 text-white">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-y-12 md:gap-x-12 xl:gap-x-16">
+
+            <!-- Logo & About -->
+            <div class="md:col-span-3 space-y-3 md:space-y-6">
+                <img src="{{ $logo }}" alt="{{ $logoAlt }}" class="h-10 w-auto" loading="lazy"
+                    decoding="async">
+                <div class="flex items-center gap-3">
+                    @foreach ($socials as $s)
+                        <a href="{{ $s['href'] }}" target="_blank" rel="noopener"
+                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition ring-1 ring-white/10 hover:ring-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                            aria-label="{{ ucfirst($s['name']) }}">
+                            <img src="{{ $s['img'] }}" alt="{{ ucfirst($s['name']) }} icon"
+                                class="w-8 h-auto object-contain select-none transition-transform duration-200 will-change-transform hover:scale-[1.05]"
+                                loading="lazy" decoding="async" />
+                        </a>
+                    @endforeach
+                </div>
+                <p class="text-white/90 text-sm max-w-sm leading-relaxed text-justify">{{ $about }}</p>
+            </div>
+
+            <!-- Program -->
+            <div class="md:col-span-3 md:pl-6 space-y-4">
+                <h4 style="font-family: Poppins" class="text-xl font-medium">{{ $programCol['title'] }}</h4>
+                <ul class="space-y-2">
+                    @foreach ($programCol['links'] as $ln)
+                        <li>
+                            <a href="{{ route($ln['url'], ['tab' => $ln['key']], false) . '#program' }}"
+                                class="text-sm text-white/90 hover:text-white underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded">
+                                {{ $ln['label'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <div class="mt-6">
+                    <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">Hubungi Kami</h4>
+                    <ul class="space-y-2 text-white/90 text-sm">
+                        <li><a href="tel:{{ preg_replace('/\s+/', '', $contact['phone']) }}"
+                                class="hover:underline hover:text-white">{{ $contact['phone'] }}</a></li>
+                        <li><a href="mailto:{{ $contact['email'] }}"
+                                class="hover:underline hover:text-white">{{ $contact['email'] }}</a></li>
+                        <li><a href="https://{{ $contact['site'] }}" target="_blank" rel="noopener"
+                                class="hover:underline hover:text-white">{{ $contact['site'] }}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lainnya -->
+            <div class="md:col-span-3 md:pl-6 space-y-4">
+                <h4 style="font-family: Poppins" class="text-xl font-medium">{{ $otherCol['title'] }}</h4>
+                <ul class="space-y-2">
+                    @foreach ($otherCol['links'] as $ln)
+                        <li>
+                            <a href="{{ route($ln['href']) }}"
+                                class="text-sm text-white/90 hover:text-white underline-offset-4 hover:underline">
+                                {{ $ln['label'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <div class="pt-4">
+                    <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">Tersertifikasi</h4>
+                    <div
+                        class="group relative w-44 rounded-2xl bg-white p-3 shadow-lg shadow-black/10 overflow-hidden transition hover:ring-2 hover:ring-primary/20">
+                        <img src="{{ $certificateImg }}" alt="{{ $certificateAlt }}"
+                            class="w-full h-auto transition-transform duration-300 ease-out group-hover:scale-[1.06] group-hover:-translate-y-0.5"
+                            loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alamat -->
+            <div class="md:col-span-3 md:pl-6 space-y-2">
+                <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">{{ $addressTitle }}</h4>
+                <a href="https://maps.google.com/?q={{ urlencode($address) }}" target="_blank" rel="noopener"
+                    class="text-sm text-white/90 text-sm leading-relaxed underline">{{ $address }}</a>
+            </div>
+        </div>
+    </div>
+</footer>
