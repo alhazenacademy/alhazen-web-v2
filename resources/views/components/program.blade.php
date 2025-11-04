@@ -29,7 +29,7 @@
         <div class="relative">
             <!-- Gambar background di pojok kiri atas -->
             <img src="{{ asset('assets/kids/index-program/maskot-hi.png') }}" alt="Kid waving"
-                class="hidden lg:block absolute left-20 bottom-75 -rotate-20 w-auto h-60 translate-y-2 md:-translate-y-4 opacity-90 hidden sm:block object-contain z-0 pointer-events-none drop-shadow-xl"
+                class="hidden lg:block absolute left-20 bottom-75 -rotate-20 w-auto h-60 translate-y-2 md:-translate-y-4 opacity-90 hidden object-contain z-0 pointer-events-none drop-shadow-xl"
                 loading="lazy">
 
             <!-- Grid card -->
