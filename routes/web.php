@@ -14,4 +14,4 @@ Route::get('/booking', [TrialClassController::class, 'index'])->name('trial');
 Route::post('/trial', [TrialClassController::class, 'store'])->name('trial.store');
 Route::post('/leads', [TrialClassController::class, 'storeLead'])->name('leads.store');
 
-Route::view('/adult', 'pages.adult')->name('adult');
+// Route::view('/pro', 'pro')->name('adult');

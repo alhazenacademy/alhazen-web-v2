@@ -29,8 +29,6 @@
     'contact' => [],
     'addressTitle' => 'Kantor Pusat',
     'address' => '',
-    'certificateImg' => asset('assets/kids/index-footer/logo-stem.png'),
-    'certificateAlt' => 'STEM Certified',
 ])
 
 @php
@@ -111,9 +109,16 @@
                     <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">Tersertifikasi</h4>
                     <div
                         class="group relative w-44 rounded-2xl bg-white p-3 shadow-lg shadow-black/10 overflow-hidden transition hover:ring-2 hover:ring-primary/20">
-                        <img src="{{ $certificateImg }}" alt="{{ $certificateAlt }}"
-                            class="w-full h-auto transition-transform duration-300 ease-out group-hover:scale-[1.06] group-hover:-translate-y-0.5"
-                            loading="lazy" decoding="async">
+                        <a id="link-1616-2" class="ct-link"
+                            href="https://blockchain.stem.org/9faa3d1f-7825-4b4c-8967-525fa6eb08f0#gs.c2374s"
+                            target="_blank" rel="noopener noreferral">
+                            <img id="image-1533-2" alt="Badge Sertifikasi STEM.org"
+                                src="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png"
+                                class="ct-image w-full h-auto transition-transform duration-300 ease-out group-hover:scale-[1.06] group-hover:-translate-y-0.5"
+                                srcset="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png 400w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-300x300.png 300w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-150x150.png 150w"
+                                sizes="(max-width: 400px) 100vw, 400px" width="400" height="400" loading="lazy"
+                                decoding="async">
+                        </a>
                     </div>
                 </div>
             </div>
