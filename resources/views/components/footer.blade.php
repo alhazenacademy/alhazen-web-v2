@@ -127,7 +127,7 @@
             <div class="md:col-span-3 md:pl-6 space-y-2">
                 <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">{{ $addressTitle }}</h4>
                 <a href="https://maps.google.com/?q={{ urlencode($address) }}" target="_blank" rel="noopener"
-                    class="text-sm text-white/90 text-sm leading-relaxed underline">{{ $address }}</a>
+                    class="text-sm text-white/90 leading-relaxed underline">{{ $address }}</a>
             </div>
         </div>
     </div>
