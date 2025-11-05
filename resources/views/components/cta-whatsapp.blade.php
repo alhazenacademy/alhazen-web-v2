@@ -15,7 +15,7 @@
                 <h3 class="flex-1 font-semibold leading-tight text-[20px] sm:text-[24px] lg:text-[28px] tracking-wide">
                     {!! $title !!}
                 </h3>
-                <div x-data="leadForm({ leadUrl: '{{ route('leads.store') }}', source: '{{ $source }}', waHref: '{{ $waHref }}' })" class="w-full lg:w-auto flex items-stretch gap-3">
+                <div x-data="leadForm({ leadUrl: @js(route("leads.store", [], false)), source: '{{ $source }}', waHref: '{{ $waHref }}' })" class="w-full lg:w-auto flex items-stretch gap-3">
                     <input type="hidden" x-ref="csrf_cta_wa" value="{{ csrf_token() }}">
                     <input x-ref="input" type="tel" inputmode="numeric" autocomplete="tel"
                         placeholder="{{ $placeholder }}" x-model="form.phone"
