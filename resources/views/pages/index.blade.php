@@ -1,17 +1,16 @@
 <x-layout>
     <x-navbar variant="kids" />
 
-    <x-hero
+    <x-index.hero
         heroTitle="Build the <span class='text-secondary' style='font-family: inherit'>Future</span>, One Code at a Time!"
         heroSubtitle="Temukan dunia seru penuh imajinasi lewat Coding, AI, dan Robotika! Belajar teknologi kini bisa semenyenangkan bermain."
         heroCtaText="Daftar Kelas Gratis" heroCtaHref="{{ route('trial') }}" :heroImages="[asset('assets/kids/index-hero/banner.png')]"
-        stemIcon="{{ asset('assets/kids/index-hero/logo-stem.png') }}"
         googleIcon="{{ asset('assets/kids/index-hero/google-rate.png') }}" />
 
-    <x-about-section id="about" title="Tentang Alhazen Academy"
+    <x-index.about-section id="about" title="Tentang Alhazen Academy"
         content="<strong>Alhazen Academy</strong> adalah lembaga kursus dan konsultan pendidikan teknologi yang berfokus menyiapkan generasi muda untuk era industri 4.0. Pendekatannya memadukan nilai <strong>Islamic Leadership</strong> dan kerangka <strong>STEM (Science, Technology, Engineering, Math)</strong> agar belajar teknologi tetap berkarakter dan relevan.  <br> <br> Layanan Alhazen meliputi program belajar yang menyenangkan dan terstruktur untuk anak—mulai dari <strong>coding, AI, hingga robotika</strong>. Mereka juga aktif menjangkau sekolah melalui program “Alhazen goes to School” untuk menghadirkan kurikulum dan ekskul coding langsung di lingkungan belajar siswa." />
 
-    <x-why-alhazen title="Kenapa Belajar di Alhazen Academy?" :cards="[
+    <x-index.why-alhazen title="Kenapa Belajar di Alhazen Academy?" :cards="[
         [
             'icon' => asset('assets/kids/index-why/icon-why1.png'),
             'title' => 'Tutor Profesional',
@@ -50,7 +49,7 @@
         ],
     ]" />
 
-    <x-program title="Program Belajar di Alhazen Academy"
+    <x-index.program title="Program Belajar di Alhazen Academy"
         subtitle="Setiap program dirancang agar anak belajar sambil bermain, menumbuhkan rasa ingin tahu dan semangat berkreasi."
         view-all-href="" :cards="[
             [
@@ -109,7 +108,7 @@
             ],
         ]" />
 
-    <x-alhazen-goes-to-school title="Alhazen Goes to School"
+    <x-index.alhazen-goes-to-school title="Alhazen Goes to School"
         content="<strong>Alhazen goes to School</strong> adalah program yang bekerjasama dengan beberapa sekolah maupun pesantren dalam bentuk ekstrakulikuler maupun tambahan kurikulum koding di sekolah/pesantren.<br><br>Bertujuan untuk melihat <strong>peluang, kesiapan kemajuan pendidikan, dan perkembangan teknologi</strong> masa kini dan masa yang akan datang sehingga dapat meluluskan SDM Muslim yang berkualitas dan dapat bersaing di era teknologi 4.0."
         image="{{ asset('assets/kids/index-alhazen-goes-to-school/coding-school.jpg') }}" :cards="[
             [
@@ -138,7 +137,7 @@
             ],
         ]" />
 
-    <x-program-kerjasama title="Program Kerjasama Alhazen"
+    <x-index.program-kerjasama title="Program Kerjasama Alhazen"
         subtitle="Alhazen membuka program kerjasama untuk sekolah SD, SMP, SMA/K berupa Kurikulum Teknologi dan Ekskul Coding. Kami hadir untuk membentuk generasi muda yang siap menghadapi tantangan teknologi."
         :cards="[
             [
@@ -179,7 +178,7 @@
             ],
         ]" />
 
-    <x-student-work title="Hasil Karya Murid Alhazen Academy"
+    <x-index.student-work title="Hasil Karya Murid Alhazen Academy"
         description="Siswa anak nya imajinasi bisa luar biasa. Di Alhazzen kami membantunya mengembangkan imajinasi nya dengan cara digital yang nyata - dari game, aplikasi, hingga robot pintar!"
         :cards="[
             [
@@ -219,7 +218,7 @@
             ],
         ]" />
 
-    <x-student-review title="Review Murid Alhazen"
+    <x-index.student-review title="Review Murid Alhazen"
         description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
         :cards="[
             [
@@ -260,7 +259,7 @@
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
         wa-message="Halo, saya mau konsultasi program belajar di Alhazen." source="konsultasi_index_page" :sales-phone="$salesPhone" />
 
-    <x-clients title="Partner  & Kolaborator Kami"
+    <x-index.clients title="Partner  & Kolaborator Kami"
         description="Kami berkolaborasi dengan berbagai sekolah, lembaga, dan komunitas pendidikan untuk menghadirkan pembelajaran teknologi terbaik bagi anak Indonesia."
         :logos="[
             [

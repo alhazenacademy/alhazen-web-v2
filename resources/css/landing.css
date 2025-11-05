@@ -131,7 +131,7 @@
     }
     */
 
-    /* Inter (Adult body) */
+    /* Inter (pro body) */
     @font-face {
         font-family: "Inter";
         src: url("../fonts/inter/inter-latin-300-normal.woff2") format("woff2");
@@ -147,7 +147,7 @@
         font-display: swap;
     }
 
-    /* Nunito Sans (Adult headings) */
+    /* Nunito Sans (pro headings) */
     @font-face {
         font-family: "Nunito Sans";
         src: url("../fonts/nunito-sans/nunito-sans-latin-300-normal.woff2")
@@ -180,7 +180,7 @@
             font-family: "Fredoka", ui-sans-serif, system-ui, sans-serif;
         }
     }
-    .theme-adult {
+    .theme-pro {
         body,
         * {
             font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -257,7 +257,7 @@
     --color-neutral: #e5e7eb;
 }
 
-.theme-adult {
+.theme-pro {
     --color-secondary: #065f46;
     --color-accent: #27391c;
     --color-background: #ffffff;
@@ -277,7 +277,7 @@
     --color-secondary: #fcd34d;
 }
 
-.dark .theme-adult {
+.dark .theme-pro {
     --color-secondary: #047857;
     --color-accent: #166534;
     --color-background: #111827;

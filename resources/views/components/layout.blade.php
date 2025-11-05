@@ -3,7 +3,7 @@
     'description' =>
         'Belajar Coding dengan tutor berpengalaman dan professional di Alhazen Academy. Kami menyediakan program pelatihan online, offline, dan privat',
     'ogImage' => 'https://alhazen.academy/wp-content/uploads/2024/01/alhazen-logo-transparent-background.png',
-    'theme' => 'kids', // 'kids' | 'adult'
+    'theme' => 'kids', // 'kids' | 'pro'
 ])
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@
 </head>
 
 <body class="min-h-dvh bg-background text-text dark:bg-background dark:text-text antialiased">
-    <div class="{{ $theme === 'adult' ? 'theme-adult' : 'theme-kids' }}">
+    <div class="{{ $theme === 'pro' ? 'theme-pro' : 'theme-kids' }}">
         {{ $slot }}
     </div>
 

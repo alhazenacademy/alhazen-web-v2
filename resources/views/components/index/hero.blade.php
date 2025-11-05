@@ -47,25 +47,21 @@
                 <!-- Left: Text + STEM Logo -->
                 <div class="flex flex-col sm:flex-row items-center gap-4">
                     <span class="text-small font-medium text-text">Bersertifikasi & Aman untuk Anak:</span>
-                    @php
-                        $stem400 = $stemIcon;
-                        $stem300 = preg_replace('/(\.(png|webp|jpg|jpeg|avif))$/i', '-300x300$1', $stem400);
-                        $stem150 = preg_replace('/(\.(png|webp|jpg|jpeg|avif))$/i', '-150x150$1', $stem400);
-                    @endphp
-
-                    <a href="{{ $stemHref ?? 'https://www.stem.org/' }}" target="_blank" rel="noopener"
-                        aria-label="Lihat sertifikasi STEM.org (terbuka di tab baru)" class="inline-block align-middle">
-                        <img src="{{ $stem400 }}"
-                            srcset="{{ $stem400 }} 400w, {{ $stem300 }} 300w, {{ $stem150 }} 150w"
-                            sizes="(max-width: 400px) 100vw, 400px" alt="Badge Sertifikasi STEM.org"
-                            class="h-20 w-auto block" width="400" height="400" loading="lazy" decoding="async"
-                            fetchpriority="low">
+                    <a id="link-1616-2" class="ct-link"
+                        href="https://blockchain.stem.org/9faa3d1f-7825-4b4c-8967-525fa6eb08f0#gs.c2374s"
+                        target="_blank" rel="noopener noreferral">
+                        <img id="image-1533-2" alt="Badge Sertifikasi STEM.org"
+                            src="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png"
+                            class="ct-image h-20 w-auto block"
+                            srcset="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png 400w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-300x300.png 300w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-150x150.png 150w"
+                            sizes="(max-width: 400px) 100vw, 400px" width="400" height="400" loading="lazy"
+                            decoding="async">
                     </a>
                 </div>
 
                 <!-- Right: Google Logo + Rating -->
                 <div class="flex items-center gap-2"> {{-- Logo Google + stars + text --}}
-                    <img src="{{ $googleIcon }}" alt="Google Logo" class="h-20 w-auto">
+                    <script defer async src='https://cdn.trustindex.io/loader.js?f62c52357a1b638fb516a849021'></script>
                 </div>
             </div>
         </div>

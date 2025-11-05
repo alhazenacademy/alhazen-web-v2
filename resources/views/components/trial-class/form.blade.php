@@ -2,7 +2,7 @@
     $waText = 'Halo Admin Alhazen, saya sudah daftar kelas trial.';
     $waHref = 'https://wa.me/' . $salesPhone . '?text=' . urlencode($waText);
 @endphp
-<div x-data="trialForm({ times: @js($times), postUrl: '{{ route('trial.store') }}', leadUrl: '{{ route('leads.store') }}' })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
+<div x-data="trialForm({ times: @js($times), postUrl: '{{ url('/trial') }}', leadUrl: '{{ url('/leads') }}' })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
     style="background-image: url('{{ asset('assets/kids/bg-booking.png') }}');">
 
     <section class="relative w-full py-10 md:py-14 bg-[var(--color-background)]/0 ">
