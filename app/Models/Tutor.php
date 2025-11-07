@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tutor extends Model
@@ -47,6 +48,28 @@ class Tutor extends Model
                 $model->bg_color = '#' . ltrim($model->bg_color, '#');
             }
         });
+
+        // HAPUS FOTO LAMA SAAT FOTO DIGANTI
+        static::updating(function (self $model) {
+            if ($model->isDirty('photo')) {
+                $original = $model->getOriginal('photo');
+
+                if ($original &&
+                    ! Str::startsWith($original, ['http://', 'https://'])
+                ) {
+                    Storage::disk('public')->delete($original);
+                }
+            }
+        });
+
+        // HAPUS FOTO SAAT TUTOR DIHAPUS
+        static::deleting(function (self $model) {
+            if (! empty($model->photo) &&
+                ! Str::startsWith($model->photo, ['http://', 'https://'])
+            ) {
+                Storage::disk('public')->delete($model->photo);
+            }
+        });
     }
 
 
@@ -54,10 +77,18 @@ class Tutor extends Model
     public function getPhotoUrlAttribute(): string
     {
         if (!empty($this->photo)) {
-            // Jika sudah absolute URL, tetap; jika path storage, bisa pakai asset()
-            return Str::startsWith($this->photo, ['http://', 'https://'])
-                ? $this->photo
-                : asset($this->photo);
+            // Kalau sudah absolute URL (misal dari CDN), langsung pakai itu
+            if (Str::startsWith($this->photo, ['http://', 'https://'])) {
+                return $this->photo;
+            }
+
+            // Anggap nilai 'photo' adalah path relatif di disk 'public',
+            // misalnya: "uploads/tutors/xxx.jpg"
+            if (Storage::disk('public')->exists($this->photo)) {
+                // File di storage/app/public/uploads/tutors/...
+                // URL publiknya: /storage/uploads/tutors/...
+                return asset('storage/' . ltrim($this->photo, '/'));
+            }
         }
 
         $fallback = $this->gender === 'female'

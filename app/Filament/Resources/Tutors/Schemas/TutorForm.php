@@ -12,6 +12,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\FileUpload;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class TutorForm
 {
@@ -76,7 +77,16 @@ class TutorForm
 
                         FileUpload::make('photo')
                             ->label('Foto Tutor')
+                            ->disk('public')
                             ->directory('uploads/tutors')
+                            ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file, callable $get) {
+                                // Ambil slug kalau sudah ada, kalau belum slug dari name
+                                $slug = $get('slug') ?? Str::slug($get('name') ?? 'tutor');
+
+                                $extension = $file->getClientOriginalExtension();
+
+                                return "{$slug}-photo.{$extension}";
+                            })
                             ->image()
                             ->imageEditor()
                             ->previewable()
