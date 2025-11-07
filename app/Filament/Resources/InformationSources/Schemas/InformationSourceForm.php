@@ -4,6 +4,7 @@ namespace App\Filament\Resources\InformationSources\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class InformationSourceForm
@@ -12,14 +13,27 @@ class InformationSourceForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
-                Toggle::make('is_active')
-                    ->required(),
-                TextInput::make('sort_order')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                Section::make('Detail Sumber Informasi')
+                    ->description('Atur detail sumber informasi untuk trial class.')
+                    ->columns(columns: 1)
+                    ->columnSpan('full')
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Sumber Informasi')
+                            ->required()
+                            ->maxLength(150),
+
+                        Toggle::make('is_active')
+                            ->label('Aktif')
+                            ->required()
+                            ->default(true),
+
+                        TextInput::make('sort_order')
+                            ->label('Urutan')
+                            ->required()
+                            ->numeric()
+                            ->default(0),
+                    ]),
             ]);
     }
 }
