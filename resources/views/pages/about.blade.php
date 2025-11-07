@@ -5,21 +5,18 @@
         ctaText="Pelajari Program Kami" ctaHref="{{ route('program') }}" imgLT="assets/kids/about/hero-1.jpg"
         imgLB="assets/kids/about/hero-2.jpg" imgRT="assets/kids/about/hero-3.jpg" imgRB="assets/kids/about/hero-4.jpg"
         mascot="/assets/kids/about/mascot-about.png" />
-    <x-about.who logo="/assets/kids/about/logo-about.png"
-        titleWho="Siapa Kami ?" :paragraphsWho="[
-            'Alhazen Academy merupakan lembaga kursus dan konsultan Pendidikan khususnya dalam bidang pendidikan teknologi, mendukung pengembangan teknologi industri 4.0 dengan Islamic Leadership dan STEM (Science, Technology, Engineering, Math).',
-            'Berdiri pada tahun 2022 dengan nama <strong>PT. Alhazen Global Teknologi</strong>, Alhazen Academy dengan lebih dari 2000 alumni murid yang telah kami edukasi, merupakan destinasi utama bagi siapa saja yang mencari pendidikan coding berkualitas.',
-            'Dengan kolaborasi yang telah kami bangun dengan lebih dari 10 sekolah terkemuka dan program inovatif <strong>Alhazen goes to School</strong> yang telah menjangkau lebih dari 100 sekolah di seluruh Indonesia, kami menawarkan pengalaman belajar yang menyenangkan. ',
-            'Ditunjang oleh puluhan trainer profesional kami, Alhazen Academy bukan hanya tentang belajar coding, tapi tentang membentuk inovator masa depan yang siap menghadapi tantangan teknologi.',
-        ]"
-        imgVision="/assets/kids/about/img-vision.png" imgVisionAlt="Visi Alhazen Academy"
-        titleVision="Visi Kami"
+    <x-about.who logo="/assets/kids/about/logo-about.png" titleWho="Siapa Kami ?" :paragraphsWho="[
+        'Alhazen Academy merupakan lembaga kursus dan konsultan Pendidikan khususnya dalam bidang pendidikan teknologi, mendukung pengembangan teknologi industri 4.0 dengan Islamic Leadership dan STEM (Science, Technology, Engineering, Math).',
+        'Berdiri pada tahun 2022 dengan nama <strong>PT. Alhazen Global Teknologi</strong>, Alhazen Academy dengan lebih dari 2000 alumni murid yang telah kami edukasi, merupakan destinasi utama bagi siapa saja yang mencari pendidikan coding berkualitas.',
+        'Dengan kolaborasi yang telah kami bangun dengan lebih dari 10 sekolah terkemuka dan program inovatif <strong>Alhazen goes to School</strong> yang telah menjangkau lebih dari 100 sekolah di seluruh Indonesia, kami menawarkan pengalaman belajar yang menyenangkan. ',
+        'Ditunjang oleh puluhan trainer profesional kami, Alhazen Academy bukan hanya tentang belajar coding, tapi tentang membentuk inovator masa depan yang siap menghadapi tantangan teknologi.',
+    ]"
+        imgVision="/assets/kids/about/img-vision.png" imgVisionAlt="Visi Alhazen Academy" titleVision="Visi Kami"
         :paragraphsVision="[
             'Alhazen Academy berkomitmen untuk menjadi pelopor dalam pendidikan teknologi untuk anak-anak di Indonesia.',
             'Dengan visi mempersiapkan generasi muda yang kreatif, inovatif, dan siap menghadapi tantangan era digital, Alhazen Academy menawarkan pendekatan pembelajaran coding yang tidak hanya menyenangkan tetapi juga mendalam.',
         ]"
-        imgMision="/assets/kids/about/img-mision.jpg" imgMisionAlt="Misi Alhazen Academy"
-        titleMision="Misi Kami"
+        imgMision="/assets/kids/about/img-mision.jpg" imgMisionAlt="Misi Alhazen Academy" titleMision="Misi Kami"
         :paragraphsMision="[
             'Alhazen Academy memiliki misi untuk membangun fondasi kuat dalam pemrograman bagi anak-anak, dengan mengajarkan mereka mulai dari konsep dasar hingga lanjutan melalui cara yang interaktif dan menarik.',
             'Kami bertujuan menginspirasi siswa agar berinovasi dan berkreasi dengan teknologi, mendorong mereka untuk menerapkan pengetahuan dalam proyek nyata yang memecahkan masalah sehari-hari.',
@@ -35,28 +32,35 @@
         ]" />
     <x-about.contact title="Hubungi Kami"
         desc="Kami hadir di berbagai kota untuk mendukung pendidikan teknologi anak Indonesia. Hubungi tim kami untuk konsultasi program atau kerja sama sekolah."
-        address="Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840"
-        phone="+62 812-3456-7890" email="info@alhazen.academy" website="www.alhazen.academy"
-        mapEmbed="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2950397039335!2d106.85549089999999!3d-6.2247745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ae3f3cba0d1cdbb%3A0xd971366e80cf58ca!2sAlhazen%20Academy%20-%20Kursus%20Coding%20dan%20Animasi!5e0!3m2!1sen!2sid!4v1760929596637!5m2!1sen!2sid"
+        :address="$address"
+        :phone="$whatsapp" :email="$email" :website="$website"
+        :mapEmbed="$mapembed"
         bgPattern="/assets/kids/about/bg-contact.jpg" icon4="/assets/kids/about/icon4.png" />
     @php
-    $faqs = [
-        ['q' => 'Untuk usia berapa kelas di Alhazen Academy?', 'a' => 'Kelas tersedia untuk TK hingga Dewasa. Kami membagi kurikulum per level agar nyaman untuk setiap usia.'],
-        ['q' => 'Apakah kelas dilakukan secara online atau offline?', 'a' => 'Keduanya tersedia. Kamu bisa pilih kelas online via Zoom/Meet atau offline di cabang terdekat.'],
-        ['q' => 'Apakah anak harus punya pengalaman coding sebelumnya?', 'a' => 'Tidak wajib. Untuk pemula kami mulai dari konsep dasar dan proyek seru yang ramah anak.'],
-        ['q' => 'Berapa lama durasi setiap pertemuan?', 'a' => 'Rata-rata 60–90 menit per sesi, tergantung program yang dipilih.'],
-    ];
+        $faqs = [
+            [
+                'q' => 'Untuk usia berapa kelas di Alhazen Academy?',
+                'a' =>
+                    'Kelas tersedia untuk TK hingga Dewasa. Kami membagi kurikulum per level agar nyaman untuk setiap usia.',
+            ],
+            [
+                'q' => 'Apakah kelas dilakukan secara online atau offline?',
+                'a' => 'Keduanya tersedia. Kamu bisa pilih kelas online via Zoom/Meet atau offline di cabang terdekat.',
+            ],
+            [
+                'q' => 'Apakah anak harus punya pengalaman coding sebelumnya?',
+                'a' => 'Tidak wajib. Untuk pemula kami mulai dari konsep dasar dan proyek seru yang ramah anak.',
+            ],
+            [
+                'q' => 'Berapa lama durasi setiap pertemuan?',
+                'a' => 'Rata-rata 60–90 menit per sesi, tergantung program yang dipilih.',
+            ],
+        ];
     @endphp
     <x-faq :items="$faqs" title="Frequently Asked Questions"
         description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"
         cta-label="Lihat Semua Pertanyaan" cta-href="#" />
-    <x-footer
-        address="Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840"
-        :socials="[
-            ['name' => 'facebook', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-fb.png')],
-            ['name' => 'instagram', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-ig.png')],
-            ['name' => 'linkedin', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-lkn.png')],
-            ['name' => 'youtube', 'href' => '#', 'img' => asset('assets/kids/index-footer/icon-ytb.png')],
-        ]" :contact="['phone' => '+62-813-90000-332', 'email' => 'info@alhazen.academy', 'site' => 'www.alhazen.academy']" />
+
+    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" />
 
 </x-layout>

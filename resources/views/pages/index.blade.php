@@ -361,12 +361,5 @@
         description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"
         cta-label="Lihat Semua Pertanyaan" cta-href="#" />
 
-    <x-footer
-        address="Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840"
-        :socials="[
-            ['name' => 'facebook', 'href' => 'https://www.facebook.com/alhazenacademy', 'img' => asset('assets/kids/index-footer/icon-fb.png')],
-            ['name' => 'instagram', 'href' => 'https://www.instagram.com/alhazenacademy/', 'img' => asset('assets/kids/index-footer/icon-ig.png')],
-            ['name' => 'linkedin', 'href' => 'https://www.linkedin.com/company/alhazen-academy', 'img' => asset('assets/kids/index-footer/icon-lkn.png')],
-            ['name' => 'youtube', 'href' => 'https://www.youtube.com/@alhazenacademy', 'img' => asset('assets/kids/index-footer/icon-ytb.png')],
-        ]" :contact="['phone' => '+62-813-90000-332', 'email' => 'info@alhazen.academy', 'site' => 'www.alhazen.academy']" />
+    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" />
 </x-layout>
