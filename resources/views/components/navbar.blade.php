@@ -1,5 +1,5 @@
 @php
-    $logo = $variant === 'pro' ? asset('assets/pro/logo.svg') : asset('assets/kids/logo.svg');
+    $logo = asset('assets/nav-logo.png');
 
     $nav = [
         ['route' => 'home', 'label' => 'Home'],
