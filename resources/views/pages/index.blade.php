@@ -292,44 +292,11 @@
             ],
         ]" />
 
-    @php
-        $featured = [
-            'title' => 'Alhazen Academy Bagikan 1000 Beasiswa Coding Gratis untuk Siswa Tanah Datar!',
-            'date' => 'July 9, 2025',
-            'image' => asset('assets/kids/artikel/thumbnail-article-1.avif'),
-            'url' => 'https://alhazen.academy/1000-beasiswa-coding-gratis-untuk-siswa-tanah-datar/',
-        ];
-        $posts = [
-            [
-                'title' => 'Coding Starter Kit: Langkah Awal Menjadi Guru Koding',
-                'date' => 'October 15, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-2.webp'),
-                'url' => 'https://alhazen.academy/coding-starter-kit/',
-            ],
-            [
-                'title' => '10 Cara Mendampingi Anak Belajar untuk Orang Tua yang Bekerja',
-                'date' => 'July 9, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-3.webp'),
-                'url' => 'https://alhazen.academy/cara-mendampingi-anak-belajar-untuk-orang-tua-bekerja/',
-            ],
-            [
-                'title' => '5 Keunggulan Program Kursus Coding Anak di Alhazen Academy',
-                'date' => 'June 17, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-4.webp'),
-                'url' => 'https://alhazen.academy/keunggulan-kursus-coding-anak-alhazen-academy/',
-            ],
-            [
-                'title' => 'Wih! 15 Cara Mengetahui Bakat Anak Sejak Dini',
-                'date' => 'June 17, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-5.webp'),
-                'url' => 'https://alhazen.academy/cara-mengetahui-bakat-anak/',
-            ],
-        ];
-    @endphp
+
 
     <x-articles title="Artikel & Insight Terbaru"
         description="Bacaan seru dan inspiratif seputar teknologi, pendidikan, dan dunia digital untuk anak dan guru."
-        allUrl="https://alhazen.academy/artikel/" :featured="$featured" :posts="$posts" />
+        allUrl="{{ route('artikel') }}" :featured="$featured" :posts="$latestArticle" />
 
     <x-tutors title="Tim Pengajar Alhazen"
         description="Setiap pengajar di Alhazen adalah praktisi teknologi, pendidik kreatif, dan sahabat belajar anak."

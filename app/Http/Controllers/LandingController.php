@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SalesNumber;
 use App\Models\SiteSetting;
 use App\Models\Tutor;
+use App\Models\Article;
 
 class LandingController extends Controller
 {
@@ -35,7 +36,15 @@ class LandingController extends Controller
       ->where('is_active', true)
       ->sortBy('sort_order');
 
-    return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials'));
+    // Article
+    $featured = Article::featureArticle()->first();
+    $latestArticle = Article::published()
+        ->when($featured, fn ($q) => $q->where('id', '!=', $featured->id))
+        ->latest('published_at')
+        ->take(4)
+        ->get();
+
+    return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle'));
   }
 
   public function program()

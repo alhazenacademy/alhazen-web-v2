@@ -28,7 +28,11 @@ class ArticleForm
                     ->required(),
                 DateTimePicker::make('published_at'),
                 FileUpload::make('cover_image')
+                    ->disk('public')
                     ->image(),
+                Toggle::make('is_featured')
+                    ->label('Article Featured')
+                    ->default(false),
                 Select::make('status')
                     ->options([
                         'draft' => 'Draft',
@@ -37,6 +41,14 @@ class ArticleForm
                         'archived' => 'Archived',
                     ])
                     ->default('draft')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                Select::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
                     ->required(),
                 TextInput::make('title')
                     ->columnSpanFull()
@@ -72,6 +84,7 @@ class ArticleForm
                         'table',
                         'undo',
                         'redo',
+                        'textColor',
                         'attachFiles',
                     ])
                     ->extraInputAttributes(['style' => 'min-height: 200px;']),
