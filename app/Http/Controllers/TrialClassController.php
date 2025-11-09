@@ -10,6 +10,8 @@ use App\Models\InformationSource;
 use App\Models\TrialClass;
 use App\Models\LeadNumber;
 use App\Models\SalesNumber;
+use App\Jobs\SendTrialToExternalApi;
+
 
 class TrialClassController extends Controller
 {
@@ -42,6 +44,8 @@ class TrialClassController extends Controller
         ]);
         $trial = TrialClass::create($data);
 
+        SendTrialToExternalApi::dispatchSync($trial);
+        
         return response()->json([
             'ok' => true,
         ]);
