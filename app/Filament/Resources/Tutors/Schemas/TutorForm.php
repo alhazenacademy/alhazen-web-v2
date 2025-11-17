@@ -94,12 +94,13 @@ class TutorForm
 
                         Toggle::make('is_active')
                             ->label('Aktif')
-                            ->default(true)
-                            ->required(),
+                            ->required()
+                            ->default(true),
 
                         TextInput::make('sort_order')
                             ->label('Urutan')
                             ->numeric()
+                            ->required()
                             ->default(fn() => (Tutor::max('sort_order') ?? 0) + 1),
                     ]),
             ]);

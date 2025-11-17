@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\InformationSources\Schemas;
 
+use App\Models\InformationSource;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
@@ -32,7 +33,7 @@ class InformationSourceForm
                             ->label('Urutan')
                             ->required()
                             ->numeric()
-                            ->default(0),
+                            ->default(fn() => (InformationSource::max('sort_order') ?? 0) + 1),
                     ]),
             ]);
     }

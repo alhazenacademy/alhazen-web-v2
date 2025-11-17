@@ -32,34 +32,10 @@
         ]" />
     <x-about.contact title="Hubungi Kami"
         desc="Kami hadir di berbagai kota untuk mendukung pendidikan teknologi anak Indonesia. Hubungi tim kami untuk konsultasi program atau kerja sama sekolah."
-        :address="$address"
-        :phone="$whatsapp" :email="$email" :website="$website"
-        :mapEmbed="$mapembed"
+        :address="$address" :phone="$whatsapp" :email="$email" :website="$website" :mapEmbed="$mapembed"
         bgPattern="/assets/kids/about/bg-contact.jpg" icon4="/assets/kids/about/icon4.png" />
-    @php
-        $faqs = [
-            [
-                'q' => 'Untuk usia berapa kelas di Alhazen Academy?',
-                'a' =>
-                    'Kelas tersedia untuk TK hingga Dewasa. Kami membagi kurikulum per level agar nyaman untuk setiap usia.',
-            ],
-            [
-                'q' => 'Apakah kelas dilakukan secara online atau offline?',
-                'a' => 'Keduanya tersedia. Kamu bisa pilih kelas online via Zoom/Meet atau offline di cabang terdekat.',
-            ],
-            [
-                'q' => 'Apakah anak harus punya pengalaman coding sebelumnya?',
-                'a' => 'Tidak wajib. Untuk pemula kami mulai dari konsep dasar dan proyek seru yang ramah anak.',
-            ],
-            [
-                'q' => 'Berapa lama durasi setiap pertemuan?',
-                'a' => 'Rata-rata 60–90 menit per sesi, tergantung program yang dipilih.',
-            ],
-        ];
-    @endphp
-    <x-faq :items="$faqs" title="Frequently Asked Questions"
-        description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"
-        cta-label="Lihat Semua Pertanyaan" cta-href="#" />
+
+    <x-faq :items="$faqs" title="Frequently Asked Questions" description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"/>
 
     <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" />
 

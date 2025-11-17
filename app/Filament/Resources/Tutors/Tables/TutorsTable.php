@@ -45,6 +45,10 @@ class TutorsTable
                     ->label('Gender')
                     ->sortable(),
 
+                ColorColumn::make('bg_color')
+                    ->label('Warna Latar')
+                    ->sortable(),
+
                 IconColumn::make('is_active')
                     ->label('Aktif')
                     ->boolean()
@@ -52,10 +56,6 @@ class TutorsTable
 
                 TextColumn::make('sort_order')
                     ->label('Urutan')
-                    ->sortable(),
-
-                ColorColumn::make('bg_color')
-                    ->label('Warna Latar')
                     ->sortable(),
             ])
             ->filters([

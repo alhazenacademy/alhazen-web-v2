@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\TrialTimes\Schemas;
 
+use App\Models\TrialTime;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
@@ -25,13 +26,14 @@ class TrialTimeForm
 
                         Toggle::make('is_active')
                             ->label('Aktif')
-                            ->required(),
+                            ->required()
+                            ->default(true),
 
                         TextInput::make('sort_order')
                             ->label('Urutan')
                             ->required()
                             ->numeric()
-                            ->default(0),
+                            ->default(fn() => (TrialTime::max('sort_order') ?? 0) + 1),
                     ]),
             ]);
     }

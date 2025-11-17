@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SalesNumber;
-use App\Models\SiteSetting;
+use App\Models\Faq;
 use App\Models\Tutor;
 use App\Models\Article;
+use App\Models\SalesNumber;
+use App\Models\SiteSetting;
 
 class LandingController extends Controller
 {
@@ -39,12 +40,14 @@ class LandingController extends Controller
     // Article
     $featured = Article::featureArticle()->first();
     $latestArticle = Article::published()
-        ->when($featured, fn ($q) => $q->where('id', '!=', $featured->id))
-        ->latest('published_at')
-        ->take(4)
-        ->get();
+      ->when($featured, fn($q) => $q->where('id', '!=', $featured->id))
+      ->latest('published_at')
+      ->take(4)
+      ->get();
 
-    return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle'));
+    $faqs = Faq::active()->ordered()->get();
+
+    return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs'));
   }
 
   public function program()
@@ -74,10 +77,13 @@ class LandingController extends Controller
       ->where('is_active', true)
       ->sortBy('sort_order');
 
-    return view('pages.program', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials'));
+    $faqs = Faq::active()->ordered()->get();
+
+    return view('pages.program', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs'));
   }
 
-  public function event(){
+  public function event()
+  {
     return view('pages.event');
   }
 
@@ -96,6 +102,8 @@ class LandingController extends Controller
       ->where('is_active', true)
       ->sortBy('sort_order');
 
-    return view('pages.about', compact('mapembed','whatsapp', 'email', 'address', 'website', 'socials'));
+    $faqs = Faq::active()->ordered()->get();
+
+    return view('pages.about', compact('mapembed', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs'));
   }
 }

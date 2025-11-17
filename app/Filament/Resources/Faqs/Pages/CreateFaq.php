@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\TrialTimes\Pages;
+namespace App\Filament\Resources\Faqs\Pages;
 
-use App\Filament\Resources\TrialTimes\TrialTimeResource;
+use App\Filament\Resources\Faqs\FaqResource;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateTrialTime extends CreateRecord
+class CreateFaq extends CreateRecord
 {
-    protected static string $resource = TrialTimeResource::class;
+    protected static string $resource = FaqResource::class;
     
     protected function getRedirectUrl(): string
     {
