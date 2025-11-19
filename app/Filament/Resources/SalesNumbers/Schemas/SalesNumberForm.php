@@ -14,6 +14,7 @@ class SalesNumberForm
         return $schema
             ->components([
                 Section::make('Detail Nomor Sales')
+                    ->lazy()
                     ->description('Atur data nomor sales untuk trial class.')
                     ->columns(columns: 1)
                     ->columnSpan('full')
@@ -58,7 +59,7 @@ class SalesNumberForm
                                 $set('phone_number', $number);
                             })
                             ->rule('regex:/^[0-9]+$/'),
-                            
+
                         Toggle::make('is_active')
                             ->label('Aktif')
                             ->required()

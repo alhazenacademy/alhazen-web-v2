@@ -15,6 +15,7 @@ class InformationSourceForm
         return $schema
             ->components([
                 Section::make('Detail Sumber Informasi')
+                    ->lazy()
                     ->description('Atur detail sumber informasi untuk trial class.')
                     ->columns(columns: 1)
                     ->columnSpan('full')

@@ -16,6 +16,7 @@ class TrialTimeForm
         return $schema
             ->components([
                 Section::make('Detail Waktu Trial Class')
+                    ->lazy()
                     ->description('Atur waktu trial class yang tersedia.')
                     ->columns(columns: 1)
                     ->columnSpan('full')

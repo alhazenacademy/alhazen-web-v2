@@ -16,6 +16,7 @@ class FaqForm
         return $schema
             ->components([
                 Section::make('FAQ Details')
+                    ->lazy()
                     ->description('Isi pertanyaan dan jawabannya di bawah ini.')
                     ->columns(1)
                     ->columnSpan('full')

@@ -21,6 +21,7 @@ class TutorForm
         return $schema
             ->components([
                 Section::make('Profil Pengajar')
+                    ->lazy()
                     ->description('Data dasar pengajar Alhazen.')
                     ->columns(columns: 2)
                     ->columnSpan('full')

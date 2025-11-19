@@ -20,6 +20,7 @@ class SiteSettingForm
         return $schema
             ->components([
                 Section::make('Site Settings')
+                    ->lazy()
                     ->description('Konfigurasi pengaturan situs, termasuk field JSON dan social media.')
                     ->columns(1)
                     ->columnSpanFull()

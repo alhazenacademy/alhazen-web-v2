@@ -23,6 +23,7 @@ class ProgramForm
             ->components([
                 // 🚩 Bagian utama Program (tabel programs)
                 Section::make('Program')
+                    ->lazy()
                     ->description('Data utama program yang dipakai di sistem dan trial class.')
                     ->columns(2)
                     ->columnSpan('full')
@@ -76,6 +77,7 @@ class ProgramForm
 
                 // 🧩 Bagian Landing / Detail (tabel program_infos, relasi hasOne: info)
                 Section::make('Landing / Detail Program')
+                    ->lazy()
                     ->description('Konten yang dipakai di landing page program.')
                     ->relationship('info') // <-- penting: ini binding ke ProgramInfo
                     ->columns(2)
@@ -196,6 +198,7 @@ class ProgramForm
 
                 // 🔹 Section pengaturan tampilan (is_active, is_home, is_trial)
                 Section::make('Pengaturan Tampilan')
+                    ->lazy()
                     ->description('Atur apakah program muncul di halaman home dan form trial.')
                     ->columns(3)
                     ->columnSpan('full')
