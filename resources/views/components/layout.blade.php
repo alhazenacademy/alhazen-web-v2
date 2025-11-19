@@ -6,6 +6,10 @@
     'theme' => 'kids', // 'kids' | 'pro'
 ])
 
+@php
+    $waHref = 'https://wa.me/' . $salesPhone . '?text=' . urlencode($waMessage);
+@endphp
+
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 
@@ -41,6 +45,14 @@
     <div class="{{ $theme === 'pro' ? 'theme-pro' : 'theme-kids' }}">
         {{ $slot }}
     </div>
+
+    @if ($waHref)
+        <a href="{{ $waHref }}" target="_blank" rel="noopener noreferrer" x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show"
+            class="fixed z-40 bottom-18 right-5 sm:bottom-22 w-14 h-14 rounded-full shadow-lg shadow-black/20 bg-[#25D366] flex items-center justify-center hover:scale-[1.05] hover:shadow-xl active:scale-95 transition">
+            <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt="WhatsApp" class="w-7 h-7">
+        </a>
+    @endif
+
 
     {{-- Back-to-top --}}
     <button x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show"

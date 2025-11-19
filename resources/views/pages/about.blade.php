@@ -1,4 +1,4 @@
-<x-layout title="Tentang Kami — Alhazen Academy" description="Profil, misi, nilai, dan tim Alhazen.">
+<x-layout title="Tentang Kami — Alhazen Academy" description="Profil, misi, nilai, dan tim Alhazen." wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
     <x-about.hero title="Tentang Alhazen Academy"
         subtitle="Menginspirasi generasi digital dengan cara belajar yang menyenangkan dan bermakna."

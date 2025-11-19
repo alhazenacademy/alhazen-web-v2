@@ -1,4 +1,4 @@
-<x-layout title="Artikel — Alhazen Academy" description="Artikel Alhazen Academy">
+<x-layout title="Artikel — Alhazen Academy" description="Artikel Alhazen Academy" wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
     <x-error.not-found />
     {{-- <x-navbar variant="kids" />
     <x-artikel.hero title="Artikel Alhazen Academy"

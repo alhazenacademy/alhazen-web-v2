@@ -1,4 +1,4 @@
-<x-layout title="Judul Artikel Dummy — Artikel" description="Halaman baca artikel">
+<x-layout title="Judul Artikel Dummy — Artikel" description="Halaman baca artikel" wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
     <x-error.not-found />
     {{-- <x-navbar variant="kids" />
 

@@ -197,11 +197,15 @@ class LandingController extends Controller
 
   public function event()
   {
-    return view('pages.event');
+    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+    return view('pages.event', compact('salesPhone'));
   }
 
   public function about()
   {
+    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
     $settings = SiteSetting::companySettings();
 
     $mapembed = $settings['map_embed'] ?? null;
@@ -228,6 +232,6 @@ class LandingController extends Controller
 
     $faqs = Faq::active()->ordered()->get();
 
-    return view('pages.about', compact('mapembed', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
+    return view('pages.about', compact('mapembed', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
   }
 }
