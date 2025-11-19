@@ -27,6 +27,7 @@ class TrialTimeForm
                         Toggle::make('is_active')
                             ->label('Aktif')
                             ->required()
+                            ->helperText('Jika nonaktif, waktu trial class ini tidak akan ditampilkan di halaman publik.')
                             ->default(true),
 
                         TextInput::make('sort_order')

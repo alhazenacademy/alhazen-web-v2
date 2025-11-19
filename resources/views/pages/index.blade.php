@@ -51,62 +51,7 @@
 
     <x-index.program title="Program Belajar di Alhazen Academy"
         subtitle="Setiap program dirancang agar anak belajar sambil bermain, menumbuhkan rasa ingin tahu dan semangat berkreasi."
-        view-all-href="" :cards="[
-            [
-                'bg' => 'bg-[#38BDF8]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program1.png'),
-                'title' => 'Coding',
-                'sub' => 'Create with logic',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#F97316]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program2.png'),
-                'title' => 'Animation',
-                'sub' => 'Bring stories to life',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#059669]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program3.png'),
-                'title' => 'IoT',
-                'sub' => 'Connect the real world',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#6366F1]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program4.png'),
-                'title' => 'Roblox',
-                'sub' => 'Build your own game',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#F43F5E]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program5.png'),
-                'title' => 'Design',
-                'sub' => 'Create with imagination',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#E5E7EB]',
-                'text-color' => 'text-[#0F172A]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program6.png'),
-                'title' => 'View All',
-                'sub' => 'Explore all our courses',
-                'url' => 'program',
-            ],
-        ]" />
+        view-all-href="" :cards="$programCards" />
 
     <x-index.alhazen-goes-to-school title="Alhazen Goes to School"
         content="<strong>Alhazen goes to School</strong> adalah program yang bekerjasama dengan beberapa sekolah maupun pesantren dalam bentuk ekstrakulikuler maupun tambahan kurikulum koding di sekolah/pesantren.<br><br>Bertujuan untuk melihat <strong>peluang, kesiapan kemajuan pendidikan, dan perkembangan teknologi</strong> masa kini dan masa yang akan datang sehingga dapat meluluskan SDM Muslim yang berkualitas dan dapat bersaing di era teknologi 4.0."
@@ -304,5 +249,5 @@
 
     <x-faq :items="$faqs" title="Frequently Asked Questions" description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"/>
 
-    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" />
+    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" :program-links="$programLinks" />
 </x-layout>

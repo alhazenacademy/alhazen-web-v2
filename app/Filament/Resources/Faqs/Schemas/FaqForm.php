@@ -34,6 +34,7 @@ class FaqForm
                         Toggle::make('is_active')
                             ->label('Aktif')
                             ->required()
+                            ->helperText('Jika nonaktif, FAQ ini tidak akan ditampilkan di halaman publik.')
                             ->default(true),
 
                         TextInput::make('sort_order')

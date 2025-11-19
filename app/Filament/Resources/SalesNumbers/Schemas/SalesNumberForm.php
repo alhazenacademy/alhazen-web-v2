@@ -62,6 +62,7 @@ class SalesNumberForm
                         Toggle::make('is_active')
                             ->label('Aktif')
                             ->required()
+                            ->helperText('Jika nonaktif, nomor sales ini tidak akan ditampilkan di halaman publik.')
                             ->default(true),
                     ]),
             ]);

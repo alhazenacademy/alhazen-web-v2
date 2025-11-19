@@ -17,7 +17,7 @@ class TrialClassController extends Controller
 {
     public function index()
     {
-        $programs = Program::select('id', 'name')->where('is_active', 1)->orderBy('sort_order')->get();
+        $programs = Program::select('id', 'name')->where('is_active', true)->where('is_trial', true)->orderBy('sort_order')->get();
         $times = TrialTime::select('time')->where('is_active', 1)->orderBy('sort_order')->get();
         $sources = InformationSource::select('id','name')->where('is_active', 1)->orderBy('sort_order')->get();
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;

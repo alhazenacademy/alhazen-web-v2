@@ -3,34 +3,38 @@
     'socials' => [],
     'logo' => asset('assets/kids/index-footer/Alhazen-Logo-white.png'),
     'logoAlt' => 'Alhazen Academy',
-    'about' => 'Alhazen adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif.',
-    'columns' => [
-        [
-            'title' => 'Program',
-            'links' => [
-                ['label' => 'Coding', 'url' => 'program', 'key' => 'coding'],
-                ['label' => 'Animation', 'url' => 'program', 'key' => 'animation'],
-                ['label' => 'IoT', 'url' => 'program', 'key' => 'iot'],
-                ['label' => 'Roblox', 'url' => 'program', 'key' => 'roblox'],
-                ['label' => 'Design', 'url' => 'program', 'key' => 'design'],
-            ],
-        ],
-        [
-            'title' => 'Lainnya',
-            'links' => [
-                ['label' => 'Program', 'href' => 'program'],
-                ['label' => 'Event', 'href' => 'event'],
-                ['label' => 'Artikel', 'href' => 'program'],
-                ['label' => 'Tentang Kami', 'href' => 'about'],
-            ],
-        ],
-    ],
+    'about' =>
+        'Alhazen adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif.',
+
+    // terima dari controller
+    'programLinks' => [],
+
+    // bisa di-override dari luar, tapi kalau kosong kita isi default di bawah
+    'columns' => null,
+
     'contact' => [],
     'addressTitle' => 'Kantor Pusat',
     'address' => '',
 ])
 
 @php
+    // kalau $columns tidak dikirim, kita pakai default yang include $programLinks dari controller
+    $columns = $columns ?? [
+        [
+            'title' => 'Program',
+            'links' => $programLinks,
+        ],
+        [
+            'title' => 'Lainnya',
+            'links' => [
+                ['label' => 'Program', 'href' => 'program'],
+                ['label' => 'Event', 'href' => 'event'],
+                ['label' => 'Artikel', 'href' => 'artikel'],
+                ['label' => 'Tentang Kami', 'href' => 'about'],
+            ],
+        ],
+    ];
+    
     $programCol = $columns[0] ?? ['title' => 'Program', 'links' => []];
     $otherCol = $columns[1] ?? ['title' => 'Lainnya', 'links' => []];
 @endphp

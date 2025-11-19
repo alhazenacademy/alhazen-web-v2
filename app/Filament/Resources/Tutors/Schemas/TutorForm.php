@@ -95,6 +95,7 @@ class TutorForm
                         Toggle::make('is_active')
                             ->label('Aktif')
                             ->required()
+                            ->helperText('Jika nonaktif, data tutor ini tidak akan ditampilkan di halaman publik.')
                             ->default(true),
 
                         TextInput::make('sort_order')

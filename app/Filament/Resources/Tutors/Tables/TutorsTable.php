@@ -61,10 +61,10 @@ class TutorsTable
             ->filters([
                 SelectFilter::make('gender')
                     ->options([
-                        'male' => 'Laki-laki',
-                        'female' => 'Perempuan',
+                        'male' => 'Male',
+                        'female' => 'Female',
                     ])
-                    ->label('Jenis Kelamin'),
+                    ->label('Gender'),
 
                 TernaryFilter::make('is_active')
                     ->label('Status Aktif'),
