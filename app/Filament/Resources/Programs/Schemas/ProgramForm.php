@@ -97,45 +97,55 @@ class ProgramForm
 
                         TextInput::make('title')
                             ->label('Judul Utama')
+                            ->required()
                             ->maxLength(150),
 
                         TextInput::make('subtitle')
                             ->label('Subjudul')
+                            ->required()
                             ->maxLength(200),
 
                         TextInput::make('short_tagline')
                             ->label('Tagline Pendek')
+                            ->required()
                             ->maxLength(200)
                             ->helperText('Boleh sama dengan subjudul.'),
 
                         TextInput::make('modules_label')
                             ->label('Total Modul')
+                            ->required()
                             ->placeholder('10'),
 
                         TextInput::make('students_label')
                             ->label('Total Siswa')
+                            ->required()
                             ->placeholder('100+'),
 
                         Textarea::make('description')
                             ->label('Deskripsi')
+                            ->required()
                             ->rows(4)
                             ->columnSpanFull(),
 
                         TagsInput::make('tools')
                             ->label('Tools yang Dipakai')
+                            ->required()
                             ->placeholder('Tambah nama tools...')
                             ->helperText('Disimpan sebagai array, misalnya: Scratch, Roblox Studio, Figma.'),
 
                         TextInput::make('price_label')
                             ->label('Label Harga')
+                            ->required()
                             ->maxLength(100),
 
                         TextInput::make('cta_text')
                             ->label('Teks Tombol CTA')
+                            ->required()
                             ->maxLength(100),
 
                         TextInput::make('cta_href')
                             ->label('Link CTA')
+                            ->required()
                             ->maxLength(200),
 
                         FileUpload::make('icon_path')
@@ -147,6 +157,7 @@ class ProgramForm
                             ->preserveFilenames()
                             ->openable()
                             ->downloadable()
+                            ->required()
                             ->getUploadedFileNameForStorageUsing(
                                 /**
                                  * @param  TemporaryUploadedFile  $file
@@ -160,12 +171,13 @@ class ProgramForm
 
                                     return 'icon-program' . $number . '.' . $extension;
                                 }
-                            ),
+                            )
+                            ->helperText('Icon program disimpan di /assets/kids/program-detail dan path-nya disimpan di kolom icon_path.'),
 
                         FileUpload::make('child_image_path')
                             ->label('Gambar Anak / Hero')
-                            ->disk('public_assets')
-                            ->directory('assets/kids/program-detail')
+                            ->disk('public')
+                            ->directory('uploads/program')
                             ->image()
                             ->preserveFilenames()
                             ->openable()
@@ -183,16 +195,19 @@ class ProgramForm
 
                                     return 'anak' . $number . '.' . $extension;
                                 }
-                            ),
+                            )
+                            ->helperText('Biarkan kosong untuk memakai gambar default.'),
 
                         TextInput::make('bg_class')
                             ->label('BG Class (Tailwind)')
                             ->placeholder('bg-[#E5E7EB]')
+                            ->required()
                             ->default('bg-[#E5E7EB]'),
 
                         TextInput::make('text_color_class')
                             ->label('Text Color Class (Tailwind)')
                             ->placeholder('text-[#0F172A]')
+                            ->required()
                             ->default('text-[#0F172A]'),
                     ]),
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Program;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -40,50 +41,88 @@ class ProgramInfo extends Model
         'tools' => 'array',
     ];
 
+    protected static function booted(): void
+    {
+        // Hapus file lama saat child_image_path diubah / dikosongkan
+        static::updating(function (self $model) {
+            $originalPath = $model->getOriginal('child_image_path');
+            $newPath = $model->child_image_path;
+
+            // Kalau tidak berubah, tidak perlu apa-apa
+            if ($originalPath === $newPath || empty($originalPath)) {
+                return;
+            }
+
+            // Hanya urus path di uploads/program (storage disk 'public')
+            if (!Str::startsWith($originalPath, 'uploads/program')) {
+                return;
+            }
+
+            // Cek apakah masih ada record lain yang pakai path yang sama
+            $stillUsed = self::query()
+                ->where('child_image_path', $originalPath)
+                ->whereKeyNot($model->getKey())
+                ->exists();
+
+            if (!$stillUsed) {
+                Storage::disk('public')->delete($originalPath);
+            }
+        });
+
+        // Hapus file saat ProgramInfo dihapus
+        static::deleting(function (self $model) {
+            $path = $model->child_image_path;
+
+            if (empty($path)) {
+                return;
+            }
+
+            if (!Str::startsWith($path, 'uploads/program')) {
+                return;
+            }
+
+            // Cek apakah masih dipakai record lain
+            $stillUsed = self::query()
+                ->where('child_image_path', $path)
+                ->whereKeyNot($model->getKey())
+                ->exists();
+
+            if (!$stillUsed) {
+                Storage::disk('public')->delete($path);
+            }
+        });
+    }
+
+
+    public function getChildImageUrlAttribute(): string
+    {
+        $path = $this->child_image_path ?? null;
+
+        if (!empty($path)) {
+            // Kalau sudah absolute URL (CDN, dll)
+            if (Str::startsWith($path, ['http://', 'https://'])) {
+                return $path;
+            }
+
+            // Kalau file ada di storage/app/public/...
+            if (Storage::disk('public')->exists($path)) {
+                return asset('storage/' . ltrim($path, '/'));
+            }
+
+            // Kalau path diarahkan ke public/assets (optional)
+            if (Str::startsWith($path, 'assets/')) {
+                return asset($path);
+            }
+        }
+
+        // Fallback default anak
+        return asset('assets/kids/program-detail/anak.png');
+    }
+
     /** Relasi balik ke Program
      */
     public function program(): BelongsTo
     {
         return $this->belongsTo(Program::class);
-    }
-
-    protected static function booted(): void
-    {
-        // Copy icon ke folder program-detail setiap kali disimpan
-        static::saved(function (self $info) {
-            if (! $info->icon_path) {
-                return;
-            }
-
-            $disk = Storage::disk('public_assets');
-
-            $sourcePath = $info->icon_path; // contoh: assets/kids/index-program/icon-program1.png
-
-            if (! $disk->exists($sourcePath)) {
-                return;
-            }
-
-            $fileName   = basename($sourcePath);                  // icon-program1.png
-            $targetDir  = 'assets/kids/program-detail';
-            $targetPath = $targetDir . '/' . $fileName;
-
-            // copy (overwrite kalau sudah ada)
-            $disk->put($targetPath, $disk->get($sourcePath));
-        });
-
-        // Hapus icon di kedua folder ketika ProgramInfo dihapus
-        static::deleting(function (self $info) {
-            $disk = Storage::disk('public_assets');
-
-            // Hapus icon utama (sekarang hanya ada di program-detail)
-            if ($info->icon_path && $disk->exists($info->icon_path)) {
-                $disk->delete($info->icon_path);
-            }
-
-            // (Opsional) hapus juga gambar anak/hero jika disimpan di disk yang sama
-            if ($info->child_image_path && $disk->exists($info->child_image_path)) {
-                $disk->delete($info->child_image_path);
-            }
-        });
     }
 }

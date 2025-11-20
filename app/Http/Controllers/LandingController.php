@@ -73,9 +73,9 @@ class LandingController extends Controller
             return [
                 'bg'         => $info->bg_class ?? 'bg-[#E5E7EB]',
                 'text-color' => $info->text_color_class ?? 'text-[#0F172A]',
-                'child'      => $info && $info->child_image_path
-                    ? asset($info->child_image_path)
-                    : null,
+                'child'     => $info
+                        ? $info->child_image_url   // <-- ini pakai accessor
+                        : asset('assets/kids/program-detail/anak.png'),
                 'icon'       => $info && $info->icon_path
                     ? asset($info->icon_path)
                     : null,
@@ -164,9 +164,9 @@ class LandingController extends Controller
                             : null,
             'bg'        => $info->bg_class ?? 'bg-[#E5E7EB]',
             'textColor' => $info->text_color_class ?? 'text-[#0F172A]',
-            'child'     => $info && $info->child_image_path
-                            ? asset($info->child_image_path)
-                            : null,
+            'child'     => $info
+                        ? $info->child_image_url   // <-- ini pakai accessor
+                        : asset('assets/kids/program-detail/anak.png'),
             'sub'       => $info->short_tagline
                             ?? $info->subtitle
                             ?? '',

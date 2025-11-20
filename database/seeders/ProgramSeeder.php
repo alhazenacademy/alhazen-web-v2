@@ -18,7 +18,7 @@ class ProgramSeeder extends Seeder
                 'icon'       => 'assets/kids/program-detail/icon-program1.png',
                 'bg'         => 'bg-[#38BDF8]',
                 'textColor'  => 'text-[#F9FAFB]',
-                'child'      => 'assets/kids/program-detail/anak.png',
+                'child'      => null,
                 'sub'        => 'Create with logic',
             ],
             [
@@ -27,7 +27,7 @@ class ProgramSeeder extends Seeder
                 'icon'       => 'assets/kids/program-detail/icon-program2.png',
                 'bg'         => 'bg-[#F97316]',
                 'textColor'  => 'text-[#F9FAFB]',
-                'child'      => 'assets/kids/program-detail/anak.png',
+                'child'      => null,
                 'sub'        => 'Bring stories to life',
             ],
             [
@@ -36,7 +36,7 @@ class ProgramSeeder extends Seeder
                 'icon'       => 'assets/kids/program-detail/icon-program3.png',
                 'bg'         => 'bg-[#059669]',
                 'textColor'  => 'text-[#F9FAFB]',
-                'child'      => 'assets/kids/program-detail/anak.png',
+                'child'      => null,
                 'sub'        => 'Connect the real world',
             ],
             [
@@ -45,7 +45,7 @@ class ProgramSeeder extends Seeder
                 'icon'       => 'assets/kids/program-detail/icon-program4.png',
                 'bg'         => 'bg-[#6366F1]',
                 'textColor'  => 'text-[#F9FAFB]',
-                'child'      => 'assets/kids/program-detail/anak.png',
+                'child'      => null,
                 'sub'        => 'Build your own game',
             ],
             [
@@ -54,7 +54,7 @@ class ProgramSeeder extends Seeder
                 'icon'       => 'assets/kids/program-detail/icon-program5.png',
                 'bg'         => 'bg-[#F43F5E]',
                 'textColor'  => 'text-[#F9FAFB]',
-                'child'      => 'assets/kids/program-detail/anak.png',
+                'child'      => null,
                 'sub'        => 'Create with imagination',
             ],
         ];

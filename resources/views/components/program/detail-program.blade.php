@@ -81,9 +81,11 @@
                                         :aria-current="is(t.key) ? 'page' : null">
 
                                         <!-- Anak/figure kanan (opsional) -->
-                                        <img :src="t.child ?? contents[t.key]?.img ?? ''" alt=""
+                                        <img :src="t.child || (contents[t.key] && contents[t.key].img) ||
+                                            @js(asset('assets/kids/program-detail/anak.png'))"
+                                            alt=""
                                             class="absolute right-2 top-3 w-1/2 h-[110%] object-contain z-20 pointer-events-none select-none"
-                                            loading="lazy" decoding="async" x-show="(t.child || contents[t.key]?.img)">
+                                            loading="lazy" decoding="async" />
 
                                         <!-- Ikon kiri -->
                                         <div
