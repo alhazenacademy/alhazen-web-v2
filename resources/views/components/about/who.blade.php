@@ -95,6 +95,7 @@
         </div>
 
 
+        <!--
         {{-- content-4 --}}
         <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:min-h-[480px] mb-20">
             {{-- LEFT: card teks --}}
@@ -136,5 +137,7 @@
                     decoding="async" fetchpriority="low">
             </div>
         </div>
+        -->
+
     </div>
 </section>

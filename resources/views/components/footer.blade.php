@@ -4,7 +4,7 @@
     'logo' => asset('assets/kids/index-footer/Alhazen-Logo-white.png'),
     'logoAlt' => 'Alhazen Academy',
     'about' =>
-        'Alhazen adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif.',
+        'PT. Alhazen Global Teknologi adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif. ',
 
     // terima dari controller
     'programLinks' => [],

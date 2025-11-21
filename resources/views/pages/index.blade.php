@@ -92,7 +92,7 @@
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon1.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama kurikulum di Alhazen.'),
             ],
             [
                 'title' => 'Textbook',
@@ -101,7 +101,7 @@
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon2.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama buku pelajaran di Alhazen.'),
             ],
             [
                 'title' => 'Coding Club',
@@ -110,7 +110,7 @@
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon3.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama coding extracurricular di Alhazen.'),
             ],
             [
                 'title' => 'Other Collab',
@@ -119,7 +119,7 @@
                 'text-color' => 'text-[#0F172A]',
                 'icon' => asset('assets/kids/program-kerjasama/icon4.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama di Alhazen.'),
             ],
         ]" />
 
@@ -167,11 +167,11 @@
         description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
         :cards="[
             [
-                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.png'),
-                'name' => 'Alya',
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.jpg'),
+                'name' => 'Faiz',
                 'quote' =>
-                    'Belajar di Alhazen itu seru banget! Aku bisa bikin game sendiri pakai Scratch dan ngerti logika program tanpa merasa sulit. Sekarang aku malah bantu teman lain buat belajar coding juga!',
-                'school' => 'SMPN 1 Jonggol',
+                    'Belajar di Alhazen itu seru banget! Aku bisa bikin game sendiri dan ngerti logika program tanpa merasa sulit. Sekarang aku malah bantu teman lain buat belajar coding juga!',
+                'school' => 'Mahasiswa IT BINUS',
                 'mode' => 'Online',
                 'rating' => 5,
                 'video_type' => 'youtube', // atau 'mp4'
@@ -182,17 +182,17 @@
                 'name' => 'Malfy',
                 'quote' =>
                     'Seru, belajarnya santai dan kakak tutornya baik. Jelasinnya pelan² jadi gampang buat paham materinya, dan juga dapat tantangan baru belajar dunia coding',
-                'school' => 'SMP',
+                'school' => 'Siswa SMP',
                 'mode' => 'Online',
                 'rating' => 5,
                 'video_type' => 'mp4', // atau 'mp4'
-                'video_url' => asset('assets/index-kids/student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+                'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
             ],
             [
                 'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-3.jpg'),
                 'name' => 'Rauf Deriel',
                 'quote' => 'Menurutku kelas ini sangat menyenangkan, dan materi dapat dipahami dengan mudah.',
-                'school' => 'SMP',
+                'school' => 'Siswa SMP',
                 'mode' => 'Online',
                 'rating' => 5,
                 'video_type' => 'mp4', // atau 'mp4'

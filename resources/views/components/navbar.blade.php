@@ -4,7 +4,7 @@
     $nav = [
         ['route' => 'home', 'label' => 'Home'],
         ['route' => 'program', 'label' => 'Program'],
-        ['route' => 'event', 'label' => 'Event'],
+        // ['route' => 'event', 'label' => 'Event'],
         ['route' => 'artikel', 'label' => 'Artikel'],
         ['route' => 'about', 'label' => 'Tentang Kami'],
     ];
@@ -36,9 +36,17 @@
                     </li>
                 @endforeach
             </ul>
+
+            {{-- Button: Daftar Kelas Gratis (primary, hover accent) --}}
+            <a href="{{ route('trial') }}"
+                class="my-5 px-4 py-3 inline-flex items-center rounded-2xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out">
+                Daftar Kelas Gratis
+            </a>
+
+            {{-- Link: Masuk / Login (underlined) --}}
             <a href="https://apps.alhazen.academy/#/login"
-                class="my-5 px-8 py-3  inline-flex items-center rounded-2xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out text-button">
-                Dashboard
+                class="my-5 inline-flex items-center text-button text-primary underline hover:text-accent transition-all duration-200 ease-in-out">
+                Masuk / Login
             </a>
         </div>
 
@@ -54,15 +62,28 @@
                 <ul class="py-2">
                     @foreach ($nav as $item)
                         <li>
-                            <a href="{{ route($item['route']) }}" class="{{ $isActive($item['route']) }} text-body block px-4 py-2"  @click="open=false">
+                            <a href="{{ route($item['route']) }}"
+                                class="{{ $isActive($item['route']) }} text-body block px-4 py-2" @click="open=false">
                                 {{ $item['label'] }}
                             </a>
                         </li>
                     @endforeach
-                    <li class="px-4 py-3">
+
+                    {{-- Mobile: Daftar Kelas Gratis (primary, hover accent) --}}
+                    <li class="px-4 pt-3">
+                        <a href="{{ route('trial') }}"
+                            class="w-full px-4 py-3 inline-flex justify-center rounded-xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out"
+                            @click="open=false">
+                            Daftar Kelas Gratis
+                        </a>
+                    </li>
+
+                    {{-- Mobile: Masuk / Login (link underlined) --}}
+                    <li class="px-4 pb-3">
                         <a href="https://apps.alhazen.academy/#/login"
-                            class="my-5 w-full px-8 py-3 inline-flex justify-center rounded-xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out text-button">
-                            Dashboard
+                            class="mt-3 w-full inline-flex justify-center text-button text-primary underline hover:text-accent transition-all duration-200 ease-in-out"
+                            @click="open=false">
+                            Masuk / Login
                         </a>
                     </li>
                 </ul>
