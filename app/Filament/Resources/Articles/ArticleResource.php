@@ -29,6 +29,22 @@ class ArticleResource extends Resource
         return ArticleForm::configure($schema);
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        $user  = auth()->user();
+
+        $query = parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+
+        if ($user && $user->hasAnyRole(['super_admin', 'admin'])) {
+            return $query;
+        }
+
+        return $query->where('user_id', $user->id);
+    }
+
     public static function table(Table $table): Table
     {
         return ArticlesTable::configure($table);

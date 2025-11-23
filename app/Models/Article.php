@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
@@ -15,7 +16,7 @@ class Article extends Model
     protected $fillable = [
         'user_id','title','slug','excerpt','content','cover_image',
         'status','published_at','reading_time','views','meta_title',
-        'meta_description','is_featured',
+        'meta_description','is_featured', 'author_info'
     ];
 
     protected $casts = [
@@ -70,5 +71,10 @@ class Article extends Model
     public function getUrlAttribute(): string
     {
         return route('artikel.show', $this->slug);
+    }
+
+    public function getPreviewAttribute(): string
+    {
+        return Str::words(strip_tags($this->content ?? ''), 25, ' [...]');
     }
 }

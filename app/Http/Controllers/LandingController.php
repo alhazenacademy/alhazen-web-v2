@@ -8,6 +8,9 @@ use App\Models\Article;
 use App\Models\Program;
 use App\Models\SalesNumber;
 use App\Models\SiteSetting;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LandingController extends Controller
 {
@@ -233,5 +236,140 @@ class LandingController extends Controller
     $faqs = Faq::active()->ordered()->get();
 
     return view('pages.about', compact('mapembed', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
+  }
+  
+  public function article(Request $request)
+  {
+    $cat = $request->query('cat');
+    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+    $categories = Category::select('name','slug')
+        ->orderBy('name')
+        ->get()
+        ->map(fn ($c) => [
+            'label'  => $c->name,
+            'href'   => route('artikel', ['cat' => $c->slug]),
+            'active' => $cat === $c->slug,
+        ])
+        ->values()
+        ->toArray();
+
+    array_unshift($categories, [
+        'label'  => 'All',
+        'href'   => route('artikel'),
+        'active' => $cat === null,
+    ]);
+
+    $query = Article::query()
+        ->published()
+        ->when($cat, fn($q) => $q->whereRelation('category', 'slug', $cat))
+        ->latest('published_at')
+        ->select(['id','title','slug','cover_image','published_at','content']);
+
+    $posts = $query->get()->map(function (Article $a) {
+        return [
+            'title' => $a->title,
+            'slug'  => $a->slug,
+            'date'  => optional($a->published_at)->translatedFormat('F d, Y'),
+            'image' => $a->cover_image_url,
+            'url'   => route('artikel.show', $a->slug),
+            'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
+
+        ];
+    })->toArray();
+
+    $settings = SiteSetting::companySettings();
+    $whatsapp = $settings['whatsapp'] ?? null;
+    $email = $settings['email'] ?? null;
+    $website = $settings['website'] ?? null;
+    $address = $settings['address'] ?? null;
+    $socials = collect($settings['socials'] ?? [])
+      ->where('is_active', true)
+      ->sortBy('sort_order');
+    $programLinks = Program::active()
+        ->ordered()
+        ->get()
+        ->map(function (Program $program) {
+            return [
+                'label' => $program->name,
+                'url'   => 'program',
+                'key'   => $program->key,
+            ];
+        })
+        ->all();
+
+    $faqs = Faq::active()->ordered()->get();
+
+    return view('pages.artikel', compact('salesPhone', 'categories', 'posts', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
+  }
+
+  public function articleShow(Request $request, string $slug)
+  {
+    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+    $article = Article::query()
+            ->with([
+                'author:id,name,profile_photo_path',
+                'category:id,name,slug',
+            ])
+            ->where('slug', $slug)
+            ->where('status', 'published')
+            ->whereNotNull('published_at')
+            ->firstOrFail();
+    
+    $related = Article::query()
+            ->published()
+            ->where('category_id', $article->category_id)
+            ->whereKeyNot($article->getKey())
+            ->latest('published_at')
+            ->take(6)
+            ->get(['title','slug','cover_image','published_at', 'content'])
+            ->map(function (Article $a) {
+                $image = $a->cover_image_url;
+
+                return [
+                    'title' => $a->title,
+                    'slug'  => $a->slug,
+                    'date'  => $a->published_at_formatted,
+                    'image' => $image,
+                    'url'   => route('artikel.show', $a->slug),
+                    'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
+                ];
+            })
+            ->toArray();
+
+    $coverPath = $article->cover_image_url;
+
+    if ($coverPath) {
+        if (Str::startsWith($coverPath, ['http://', 'https://'])) {
+            $ogImage = $coverPath;
+        } else {
+            $ogImage = url($coverPath);
+        }
+    } else {
+        $ogImage = asset('assets/nav-logo.png');
+    }
+    
+    $settings = SiteSetting::companySettings();
+    
+    $whatsapp = $settings['whatsapp'] ?? null;
+    $email = $settings['email'] ?? null;
+    $website = $settings['website'] ?? null;
+    $address = $settings['address'] ?? null;
+    $socials = collect($settings['socials'] ?? [])
+      ->where('is_active', true)
+      ->sortBy('sort_order');
+    $programLinks = Program::active()
+        ->ordered()
+        ->get()
+        ->map(function (Program $program) {
+            return [
+                'label' => $program->name,
+                'url'   => 'program',
+                'key'   => $program->key,
+            ];
+        })
+        ->all();
+    
+    return view('pages.artikel.show', compact('salesPhone', 'article', 'related', 'whatsapp', 'email', 'address', 'website', 'socials', 'programLinks', 'ogImage'));
+      
   }
 }

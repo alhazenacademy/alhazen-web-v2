@@ -11,6 +11,12 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use Illuminate\Database\Eloquent\Builder;
+
+
+
+
 
 
 class ArticleForm
@@ -21,18 +27,25 @@ class ArticleForm
             ->components([
                 Select::make('user_id')
                     ->label('Author')
-                    ->relationship('author', 'name')
+                    ->relationship(
+                        name: 'author',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: function (Builder $query) {
+                            $user = auth()->user();
+                            if ($user->hasAnyRole(['super_admin', 'admin'])) {
+                                return $query;
+                            }
+                            return $query->where('id', $user->id);
+                        },
+                    )
                     ->searchable()
                     ->preload()
-                    ->default(fn() => auth()->id())
+                    ->default(fn () => auth()->id())
                     ->required(),
+                TextInput::make('author_info')
+                    ->label('Author Information')
+                    ->default('Penulis di Alhazen Academy'),
                 DateTimePicker::make('published_at'),
-                FileUpload::make('cover_image')
-                    ->disk('public')
-                    ->image(),
-                Toggle::make('is_featured')
-                    ->label('Article Featured')
-                    ->default(false),
                 Select::make('status')
                     ->options([
                         'draft' => 'Draft',
@@ -50,44 +63,26 @@ class ArticleForm
                     ->searchable()
                     ->preload()
                     ->required(),
+                Toggle::make('is_featured')
+                    ->label('Article Featured')
+                    ->helperText('Artikel unggulan yang akan muncul di Home Page')
+                    ->default(false),
                 TextInput::make('title')
                     ->columnSpanFull()
                     ->required(),
-                RichEditor::make('excerpt')
-                    ->label('Summary')
-                    ->required()
+                FileUpload::make('cover_image')
+                    ->disk('public')
                     ->columnSpanFull()
-                    ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'underline',
-                    ])
-                    ->extraInputAttributes(['style' => 'min-height: 80px;']),
-                RichEditor::make('content')
+                    ->image(),
+                TinyEditor::make('content')
                     ->label('Content')
-                    ->required()
+                    ->profile('default')
                     ->columnSpanFull()
-                    ->toolbarButtons([
-                        'h1',
-                        'h2',
-                        'h3',
-                        'bold',
-                        'italic',
-                        'underline',
-                        'strike',
-                        'blockquote',
-                        'codeBlock',
-                        'orderedList',
-                        'bulletList',
-                        'link',
-                        'horizontalRule',
-                        'table',
-                        'undo',
-                        'redo',
-                        'textColor',
-                        'attachFiles',
-                    ])
-                    ->extraInputAttributes(['style' => 'min-height: 200px;']),
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsDirectory('articles/body')
+                    ->resize('both')
+                    ->required(),
                 Textarea::make('meta_title'),
                 Textarea::make('meta_description'),
             ]);

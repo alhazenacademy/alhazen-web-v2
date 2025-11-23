@@ -15,7 +15,7 @@
                     <a href="{{ route('artikel.show', $p['slug']) }}" class="group block rounded-[20px] p-3 ">
                         <div class="relative rounded-[16px] overflow-hidden mb-3">
                             <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}"
-                                class="w-full lg:h-[200px] h-[160px] object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06]" loading="lazy" decoding="async" />
+                                class="w-full object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06]" loading="lazy" decoding="async" />
                         </div>
                         @if ($p['date'])
                             <div class="text-small text-text/60 mb-1">{{ $p['date'] }}</div>
@@ -24,6 +24,14 @@
                             class="text-h5 mt-3 font-medium text-slate-900 transition-colors group-hover:text-[var(--color-primary)]">
                             {{ $p['title'] }}
                         </h4>
+                        <p class="mt-2 text-sm text-slate-600">
+                            {{ $p['excerpt'] }}
+                        </p>
+                        <span
+                            class="mt-3 inline-flex items-center text-sm font-semibold text-[var(--color-primary)] hover:underline cursor-pointer">
+                                Read more
+                                <span class="ml-1">→</span>
+                        </span>
                     </a>
                 @empty
                     <p class="text-body text-text/70">Belum ada artikel.</p>

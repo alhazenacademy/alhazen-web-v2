@@ -2,7 +2,7 @@
     'title' => 'Alhazen Academy',
     'description' =>
         'Belajar Coding dengan tutor berpengalaman dan professional di Alhazen Academy. Kami menyediakan program pelatihan online, offline, dan privat',
-    'ogImage' => 'https://alhazen.academy/wp-content/uploads/2024/01/alhazen-logo-transparent-background.png',
+    'ogImage' => asset('assets/nav-logo.png'),
     'theme' => 'kids', // 'kids' | 'pro'
 ])
 
