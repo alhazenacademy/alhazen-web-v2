@@ -23,7 +23,8 @@ class FaqResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedQuestionMarkCircle;
 
     protected static string|UnitEnum|null $navigationGroup = 'Content';
-
+    
+    protected static ?int $navigationSort = 4;
 
     public static function form(Schema $schema): Schema
     {

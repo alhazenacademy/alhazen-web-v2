@@ -52,14 +52,14 @@
 
         <div class="flex items-center gap-3">
                 {{-- Twitter (X) --}}
-                <a href="https://twitter.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareText }}"
+                {{-- <a href="https://twitter.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareText }}"
                 target="_blank" rel="noopener"
                 class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition ring-1 ring-white/10 hover:ring-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                 aria-label="Twitter">
                     <img src="{{ asset('assets/kids/icon-twitter.png') }}" alt="Twitter icon"
                         class="w-8 h-auto object-contain select-none transition-transform duration-200 will-change-transform hover:scale-[1.05]"
                         loading="lazy" decoding="async" />
-                </a>
+                </a> --}}
 
                 {{-- Facebook --}}
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ $shareUrl }}"
@@ -106,14 +106,14 @@
             </div>
             <div class="flex items-center gap-3">
                 {{-- Twitter (X) --}}
-                <a href="https://twitter.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareText }}"
+                {{-- <a href="https://twitter.com/intent/tweet?url={{ $shareUrl }}&text={{ $shareText }}"
                 target="_blank" rel="noopener"
                 class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition ring-1 ring-white/10 hover:ring-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                 aria-label="Twitter">
                     <img src="{{ asset('assets/kids/icon-twitter.png') }}" alt="Twitter icon"
                         class="w-8 h-auto object-contain select-none transition-transform duration-200 will-change-transform hover:scale-[1.05]"
                         loading="lazy" decoding="async" />
-                </a>
+                </a> --}}
 
                 {{-- Facebook --}}
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ $shareUrl }}"

@@ -39,7 +39,7 @@
 
             {{-- Button: Daftar Kelas Gratis (primary, hover accent) --}}
             <a href="{{ route('trial') }}"
-                class="my-5 px-4 py-3 inline-flex items-center rounded-2xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out">
+                class="my-5 px-4 py-3 inline-flex items-center rounded-xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out">
                 Daftar Kelas Gratis
             </a>
 

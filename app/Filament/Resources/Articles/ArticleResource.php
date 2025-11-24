@@ -16,13 +16,19 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use UnitEnum;
+
 class ArticleResource extends Resource
 {
     protected static ?string $model = Article::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
 
     protected static ?string $recordTitleAttribute = 'Artikel';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Content';
+    
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {
@@ -31,7 +37,7 @@ class ArticleResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        $user  = auth()->user();
+        $user = auth()->user();
 
         $query = parent::getEloquentQuery()
             ->withoutGlobalScopes([
