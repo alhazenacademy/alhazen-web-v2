@@ -9,13 +9,13 @@
 ])
 
 <section class="relative py-16 sm:py-20">
-    <div class="mx-auto max-w-8xl">
+    <div class="mx-auto max-w-7xl">
         <div class="relative overflow-visible">
             <img src="{{ asset('assets/kids/program-detail/maskot-toa-program.png') }}" alt="Maskot"
                 class="hidden lg:block pointer-events-none select-none absolute -top-12 right-20 z-0 w-40 lg:w-70 drop-shadow-xl"
                 loading="lazy" />
 
-            <div class="max-w-3xl ml-10 md:ml-30 mb-8 sm:mb-10">
+            <div class="max-w-3xl ml-10 md:ml-20 mb-8 sm:mb-10">
                 <p class="text-h4 font-semibold text-[var(--color-accent)] max-w-xl md:max-w-2xl">
                     {{ $slogan }}
                 </p>
@@ -81,9 +81,11 @@
                                         :aria-current="is(t.key) ? 'page' : null">
 
                                         <!-- Anak/figure kanan (opsional) -->
-                                        <img :src="t.child ?? contents[t.key]?.img ?? ''" alt=""
+                                        <img :src="t.child || (contents[t.key] && contents[t.key].img) ||
+                                            @js(asset('assets/kids/program-detail/anak.png'))"
+                                            alt=""
                                             class="absolute right-2 top-3 w-1/2 h-[110%] object-contain z-20 pointer-events-none select-none"
-                                            loading="lazy" decoding="async" x-show="(t.child || contents[t.key]?.img)">
+                                            loading="lazy" decoding="async" />
 
                                         <!-- Ikon kiri -->
                                         <div

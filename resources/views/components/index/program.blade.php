@@ -45,9 +45,16 @@
                                 ? route($card['url'], absolute: false)
                                 : route($card['url'], ['tab' => $card['key'] ?? Str::slug($card['title'])], false) . '#program' }}'">
 
-                            <img src="{{ $card['child'] }}" alt="{{ $card['title'] }} child"
+                            @php
+                                $fallback = asset('assets/kids/program-detail/anak.png');
+
+                                $photo = $card['child'] ?? null;
+                            @endphp
+                            <img src="{{ $photo ?: $fallback }}"
+                                onerror="this.onerror=null;this.src='{{ $fallback }}';"
+                                alt="{{ $card['title'] }} child"
                                 class="absolute right-2 top-5 w-1/2 h-full object-cover z-20 pointer-events-none select-none"
-                                loading="lazy">
+                                loading="lazy" />
 
                             <div
                                 class="absolute bottom-4 left-6 w-17 h-17 flex items-center justify-center transition-transform duration-300 ease-out will-change-transform origin-bottom-left group-hover:-rotate-12 group-hover:-translate-y-1 group-hover:translate-x-1">

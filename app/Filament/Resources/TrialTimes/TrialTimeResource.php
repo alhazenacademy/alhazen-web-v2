@@ -14,11 +14,17 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use UnitEnum;
+
 class TrialTimeResource extends Resource
 {
     protected static ?string $model = TrialTime::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClock;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Trial Class';
+    
+    protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'Trial Time';
 

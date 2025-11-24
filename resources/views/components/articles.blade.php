@@ -9,7 +9,7 @@
                 <figure
                     class="relative rounded-[28px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,.15)] transition-shadow duration-300 group-hover:shadow-[0_28px_70px_rgba(0,0,0,.18)]">
 
-                    <img src="{{ $featured['image'] }}" alt="{{ $featured['title'] }}"
+                    <img src="{{ $featured->cover_image_url }}" alt="{{ $featured->title }}"
                         class="w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover
                 transition-transform duration-500 ease-out will-change-transform
                 group-hover:scale-[1.06]" />
@@ -28,11 +28,11 @@
                     <figcaption class="absolute left-5 right-5 bottom-5 flex items-end gap-3">
                         <div class="bg-white rounded-2xl px-5 py-4 shadow-[0_12px_30px_rgba(0,0,0,.15)] max-w-[720px]">
                             <div class="text-[12px] font-semibold text-slate-500 mb-1">
-                                {{ $featured['date'] }}
+                                {{ $featured->published_at_formatted }}
                             </div>
                             <h3
                                 class="text-h4 sm:text-body md:text-h5 font-medium leading-snug text-slate-900 transition-colors duration-300 group-hover:text-[var(--color-primary)]">
-                                {{ $featured['title'] }}
+                                {{ $featured->title }}
                             </h3>
                         </div>
 
@@ -54,18 +54,18 @@
         @if (count($posts))
             <div class="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach ($posts as $p)
-                    <a href="{{ $p['url'] ?? '#' }}" class="group block rounded-[20px] p-3 ">
+                    <a href="{{ $p->url ?? '#' }}" class="group block rounded-[20px] p-3 ">
                         <div class="relative rounded-[16px] overflow-hidden">
-                            <img src="{{ $p['image'] }}" alt="{{ $p['title'] }}"
+                            <img src="{{ $p->cover_image_url }}" alt="{{ $p->title }}"
                                 class="w-full h-[160px] object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06]" />
                             <div class="absolute right-0 bottom-0">
-                                <span class="date-notch text-[12px] font-semibold">{{ $p['date'] }}</span>
+                                <span class="date-notch text-[12px] font-semibold">{{ $p->published_at_formatted }}</span>
                             </div>
                         </div>
 
                         <h4
                             class="text-body mt-3 font-medium text-slate-900 transition-colors group-hover:text-[var(--color-primary)]">
-                            {{ $p['title'] }}
+                            {{ $p->title }}
                         </h4>
                     </a>
                 @endforeach

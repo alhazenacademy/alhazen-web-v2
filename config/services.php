@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'trial_api' => [
+        'url' => env('TRIAL_API_URL'),
+    ],
+
 ];

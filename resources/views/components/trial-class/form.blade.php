@@ -380,7 +380,7 @@
                                         </button>
 
                                         <button type="submit"
-                                            class=" inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer">
+                                            class=" inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer hover:bg-accent/90 hover:shadow-lg active:translate-y-0">
                                             Submit
                                         </button>
                                     </div>

@@ -24,9 +24,12 @@ class ArticlesTable
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
+                TextColumn::make('category.name')
+                    ->label('Category')
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('title')
-                    ->searchable(),
-                TextColumn::make('slug')
                     ->searchable(),
                 TextColumn::make('published_at')
                     ->dateTime()

@@ -14,11 +14,17 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use UnitEnum;
+
 class SalesNumberResource extends Resource
 {
     protected static ?string $model = SalesNumber::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDevicePhoneMobile;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Trial Class';
+    
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $recordTitleAttribute = 'SalesNumber';
 

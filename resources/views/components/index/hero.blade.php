@@ -61,7 +61,7 @@
 
                 <!-- Right: Google Logo + Rating -->
                 <div class="flex items-center gap-2"> {{-- Logo Google + stars + text --}}
-                    <script defer async src='https://cdn.trustindex.io/loader.js?f62c52357a1b638fb516a849021'></script>
+                    {{-- <script defer async src='https://cdn.trustindex.io/loader.js?f62c52357a1b638fb516a849021'></script> --}}
                 </div>
             </div>
         </div>

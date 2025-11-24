@@ -23,5 +23,11 @@ class DatabaseSeeder extends Seeder
         $this->call(TrialTimeSeeder::class);
         $this->call(InformationSourceSeeder::class);
         $this->call(SalesNumberSeeder::class);
+        $this->call(TutorSeeder::class);
+        $this->call(SiteSettingSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(FaqSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(SuperAdminSeeder::class);
     }
 }

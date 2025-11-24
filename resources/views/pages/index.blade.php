@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-index.hero
@@ -51,62 +51,7 @@
 
     <x-index.program title="Program Belajar di Alhazen Academy"
         subtitle="Setiap program dirancang agar anak belajar sambil bermain, menumbuhkan rasa ingin tahu dan semangat berkreasi."
-        view-all-href="" :cards="[
-            [
-                'bg' => 'bg-[#38BDF8]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program1.png'),
-                'title' => 'Coding',
-                'sub' => 'Create with logic',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#F97316]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program2.png'),
-                'title' => 'Animation',
-                'sub' => 'Bring stories to life',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#059669]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program3.png'),
-                'title' => 'IoT',
-                'sub' => 'Connect the real world',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#6366F1]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program4.png'),
-                'title' => 'Roblox',
-                'sub' => 'Build your own game',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#F43F5E]',
-                'text-color' => 'text-[#F9FAFB]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program5.png'),
-                'title' => 'Design',
-                'sub' => 'Create with imagination',
-                'url' => 'program',
-            ],
-            [
-                'bg' => 'bg-[#E5E7EB]',
-                'text-color' => 'text-[#0F172A]',
-                'child' => asset('assets/kids/index-program/anak.png'),
-                'icon' => asset('assets/kids/index-program/icon-program6.png'),
-                'title' => 'View All',
-                'sub' => 'Explore all our courses',
-                'url' => 'program',
-            ],
-        ]" />
+        view-all-href="" :cards="$programCards" />
 
     <x-index.alhazen-goes-to-school title="Alhazen Goes to School"
         content="<strong>Alhazen goes to School</strong> adalah program yang bekerjasama dengan beberapa sekolah maupun pesantren dalam bentuk ekstrakulikuler maupun tambahan kurikulum koding di sekolah/pesantren.<br><br>Bertujuan untuk melihat <strong>peluang, kesiapan kemajuan pendidikan, dan perkembangan teknologi</strong> masa kini dan masa yang akan datang sehingga dapat meluluskan SDM Muslim yang berkualitas dan dapat bersaing di era teknologi 4.0."
@@ -147,7 +92,7 @@
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon1.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama kurikulum di Alhazen.'),
             ],
             [
                 'title' => 'Textbook',
@@ -156,7 +101,7 @@
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon2.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama buku pelajaran di Alhazen.'),
             ],
             [
                 'title' => 'Coding Club',
@@ -165,7 +110,7 @@
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon3.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama coding extracurricular di Alhazen.'),
             ],
             [
                 'title' => 'Other Collab',
@@ -174,7 +119,7 @@
                 'text-color' => 'text-[#0F172A]',
                 'icon' => asset('assets/kids/program-kerjasama/icon4.png'),
                 'child' => asset('assets/kids/program-kerjasama/anak.png'),
-                'url' => '#',
+                'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama di Alhazen.'),
             ],
         ]" />
 
@@ -222,11 +167,11 @@
         description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
         :cards="[
             [
-                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.png'),
-                'name' => 'Alya',
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.jpg'),
+                'name' => 'Faiz',
                 'quote' =>
-                    'Belajar di Alhazen itu seru banget! Aku bisa bikin game sendiri pakai Scratch dan ngerti logika program tanpa merasa sulit. Sekarang aku malah bantu teman lain buat belajar coding juga!',
-                'school' => 'SMPN 1 Jonggol',
+                    'Belajar di Alhazen itu seru banget! Aku bisa bikin game sendiri dan ngerti logika program tanpa merasa sulit. Sekarang aku malah bantu teman lain buat belajar coding juga!',
+                'school' => 'Mahasiswa IT BINUS',
                 'mode' => 'Online',
                 'rating' => 5,
                 'video_type' => 'youtube', // atau 'mp4'
@@ -237,17 +182,17 @@
                 'name' => 'Malfy',
                 'quote' =>
                     'Seru, belajarnya santai dan kakak tutornya baik. Jelasinnya pelan² jadi gampang buat paham materinya, dan juga dapat tantangan baru belajar dunia coding',
-                'school' => 'SMP',
+                'school' => 'Siswa SMP',
                 'mode' => 'Online',
                 'rating' => 5,
                 'video_type' => 'mp4', // atau 'mp4'
-                'video_url' => asset('assets/index-kids/student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+                'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
             ],
             [
                 'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-3.jpg'),
                 'name' => 'Rauf Deriel',
                 'quote' => 'Menurutku kelas ini sangat menyenangkan, dan materi dapat dipahami dengan mudah.',
-                'school' => 'SMP',
+                'school' => 'Siswa SMP',
                 'mode' => 'Online',
                 'rating' => 5,
                 'video_type' => 'mp4', // atau 'mp4'
@@ -292,142 +237,17 @@
             ],
         ]" />
 
-    @php
-        $featured = [
-            'title' => 'Alhazen Academy Bagikan 1000 Beasiswa Coding Gratis untuk Siswa Tanah Datar!',
-            'date' => 'July 9, 2025',
-            'image' => asset('assets/kids/artikel/thumbnail-article-1.avif'),
-            'url' => 'https://alhazen.academy/1000-beasiswa-coding-gratis-untuk-siswa-tanah-datar/',
-        ];
-        $posts = [
-            [
-                'title' => 'Coding Starter Kit: Langkah Awal Menjadi Guru Koding',
-                'date' => 'October 15, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-2.webp'),
-                'url' => 'https://alhazen.academy/coding-starter-kit/',
-            ],
-            [
-                'title' => '10 Cara Mendampingi Anak Belajar untuk Orang Tua yang Bekerja',
-                'date' => 'July 9, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-3.webp'),
-                'url' => 'https://alhazen.academy/cara-mendampingi-anak-belajar-untuk-orang-tua-bekerja/',
-            ],
-            [
-                'title' => '5 Keunggulan Program Kursus Coding Anak di Alhazen Academy',
-                'date' => 'June 17, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-4.webp'),
-                'url' => 'https://alhazen.academy/keunggulan-kursus-coding-anak-alhazen-academy/',
-            ],
-            [
-                'title' => 'Wih! 15 Cara Mengetahui Bakat Anak Sejak Dini',
-                'date' => 'June 17, 2025',
-                'image' => asset('assets/kids/artikel/thumbnail-article-5.webp'),
-                'url' => 'https://alhazen.academy/cara-mengetahui-bakat-anak/',
-            ],
-        ];
-    @endphp
+
 
     <x-articles title="Artikel & Insight Terbaru"
         description="Bacaan seru dan inspiratif seputar teknologi, pendidikan, dan dunia digital untuk anak dan guru."
-        allUrl="https://alhazen.academy/artikel/" :featured="$featured" :posts="$posts" />
+        allUrl="{{ route('artikel') }}" :featured="$featured" :posts="$latestArticle" />
 
     <x-tutors title="Tim Pengajar Alhazen"
         description="Setiap pengajar di Alhazen adalah praktisi teknologi, pendidik kreatif, dan sahabat belajar anak."
-        :cards="[
-            [
-                'name' => 'Aldi Afrizarman',
-                'years' => 2,
-                'skills' => 'Python',
-                'photo' => null,
-                'bg-photo' => '#FACC15',
-                'gender' => 'male',
-                'bio' =>
-                    'Hi! Aku Aldi - kamu bisa panggil aku bang atau kaka ya. Bareng aku, kita bakalan belajar Python dan kita akan bicara tentang website dan data. Sampai ketemu di kelas ya.',
-            ],
-            [
-                'name' => 'Ade Nuryana',
-                'years' => 2,
-                'skills' => 'HTML CSS, JavaScript, PHP, Python',
-                'photo' => null,
-                'bg-photo' => '#059669',
-                'gender' => 'male',
-                'bio' =>
-                    'Hai! Aku Ade - sekarang lagi kuliah s2 di salah satu swasta di Indonesia, saya sedang mendalami ke bagian data scientist, nah data scientist saya bisa memasukan ke dalam website , bisa menggunakan Django. Nah Django merupakan salah satu framework python yang sejalan dengan data scientist karena sama sama menggunakan python',
-            ],
-            [
-                'name' => 'Bagus Adam Farizi',
-                'years' => 2,
-                'skills' => 'HTML, JavaScript, PHP, SQL',
-                'photo' => null,
-                'bg-photo' => '#F97316',
-                'gender' => 'male',
-                'bio' =>
-                    'Hai! Aku Adam — tutor web kamu yang santai dan ramah. Aku suka menjelajah cara kerja dunia digital dan bikin coding jadi seru serta mudah dipahami. Yuk belajar sambil praktik, ubah ide jadi proyek beneran, dan kembangkan skill bareng-bareng. Ayo mulai petualangan ngoding!',
-            ],
-            [
-                'name' => 'Mozadilla Sabina',
-                'years' => 1,
-                'skills' => 'HTML CSS, JavaScript, PHP, Python, Scratch, UI/UX Design',
-                'photo' => null,
-                'bg-photo' => '#FACC15',
-                'gender' => 'female',
-                'bio' =>
-                    'Hai! Aku Mozadilla - seorang perempuan lulusan Sistem Informasi yang passionate di dunia teknologi dan pendidikan. Bagiku, belajar dan berbagi ilmu adalah cara terbaik untuk tumbuh bersama.',
-            ],
-            [
-                'name' => 'Fariha Ulya',
-                'years' => 2,
-                'skills' => 'Python, SQL, Scratch, Code.org',
-                'photo' => null,
-                'bg-photo' => '#059669',
-                'gender' => 'female',
-                'bio' =>
-                    'Halo! Aku Fariha - tutor coding mu, belajar sambil bersenang-senang. Belajar coding itu seperti kita sedang bermain game tetapi kamu tidak akan sadar kalau sebetulnya kita sedang belajar! Membuat project game lalu memainkan game buatan mu sendiri, menyenangkan bukan?',
-            ],
-            [
-                'name' => 'Yendri Ikhlas Fernando',
-                'years' => 1,
-                'skills' => 'HTML CSS, PHP, Python, C++, SQL, Scratch, Blender, gdevelop',
-                'photo' => null,
-                'bg-photo' => '#F97316',
-                'gender' => 'male',
-                'bio' =>
-                    'Halo! Aku Yendir - tutor coding mu—belajar sambil bersenang-senang. Bayangin coding itu seperti main game: kita bikin misi, naik level, dan tiba-tiba… kamu jago! Aku berpengalaman sebagai web developer yang biasa ngurus WordPress, Flask, dan Django, jadi kita bisa bikin project seru dari website sampai mini-game, lalu kamu mainin karya mu sendiri.',
-            ],
-        ]" />
+        :cards="$cards" />
 
-    @php
-        $faqs = [
-            [
-                'q' => 'Untuk usia berapa kelas di Alhazen Academy?',
-                'a' =>
-                    'Kelas tersedia untuk TK hingga Dewasa. Kami membagi kurikulum per level agar nyaman untuk setiap usia.',
-            ],
-            [
-                'q' => 'Apakah kelas dilakukan secara online atau offline?',
-                'a' => 'Keduanya tersedia. Kamu bisa pilih kelas online via Zoom/Meet atau offline di cabang terdekat.',
-            ],
-            [
-                'q' => 'Apakah anak harus punya pengalaman coding sebelumnya?',
-                'a' => 'Tidak wajib. Untuk pemula kami mulai dari konsep dasar dan proyek seru yang ramah anak.',
-            ],
-            [
-                'q' => 'Berapa lama durasi setiap pertemuan?',
-                'a' => 'Rata-rata 60–90 menit per sesi, tergantung program yang dipilih.',
-            ],
-        ];
-    @endphp
+    <x-faq :items="$faqs" title="Frequently Asked Questions" description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"/>
 
-    <x-faq :items="$faqs" title="Frequently Asked Questions"
-        description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!"
-        cta-label="Lihat Semua Pertanyaan" cta-href="#" />
-
-    <x-footer
-        address="Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840"
-        :socials="[
-            ['name' => 'facebook', 'href' => 'https://www.facebook.com/alhazenacademy', 'img' => asset('assets/kids/index-footer/icon-fb.png')],
-            ['name' => 'instagram', 'href' => 'https://www.instagram.com/alhazenacademy/', 'img' => asset('assets/kids/index-footer/icon-ig.png')],
-            ['name' => 'linkedin', 'href' => 'https://www.linkedin.com/company/alhazen-academy', 'img' => asset('assets/kids/index-footer/icon-lkn.png')],
-            ['name' => 'youtube', 'href' => 'https://www.youtube.com/@alhazenacademy', 'img' => asset('assets/kids/index-footer/icon-ytb.png')],
-        ]" :contact="['phone' => '+62-813-90000-332', 'email' => 'info@alhazen.academy', 'site' => 'www.alhazen.academy']" />
+    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" :program-links="$programLinks" />
 </x-layout>

@@ -4,34 +4,37 @@
     'logo' => asset('assets/kids/index-footer/Alhazen-Logo-white.png'),
     'logoAlt' => 'Alhazen Academy',
     'about' =>
-        'Alhazen adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif.',
-    'columns' => [
-        [
-            'title' => 'Program',
-            'links' => [
-                ['label' => 'Coding', 'url' => 'program', 'key' => 'coding'],
-                ['label' => 'Animation', 'url' => 'program', 'key' => 'animation'],
-                ['label' => 'IoT', 'url' => 'program', 'key' => 'iot'],
-                ['label' => 'Roblox', 'url' => 'program', 'key' => 'roblox'],
-                ['label' => 'Design', 'url' => 'program', 'key' => 'design'],
-            ],
-        ],
-        [
-            'title' => 'Lainnya',
-            'links' => [
-                ['label' => 'Program', 'href' => 'program'],
-                ['label' => 'Event', 'href' => 'event'],
-                ['label' => 'Artikel', 'href' => 'program'],
-                ['label' => 'Tentang Kami', 'href' => 'about'],
-            ],
-        ],
-    ],
+        'PT. Alhazen Global Teknologi adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif. ',
+
+    // terima dari controller
+    'programLinks' => [],
+
+    // bisa di-override dari luar, tapi kalau kosong kita isi default di bawah
+    'columns' => null,
+
     'contact' => [],
     'addressTitle' => 'Kantor Pusat',
     'address' => '',
 ])
 
 @php
+    // kalau $columns tidak dikirim, kita pakai default yang include $programLinks dari controller
+    $columns = $columns ?? [
+        [
+            'title' => 'Program',
+            'links' => $programLinks,
+        ],
+        [
+            'title' => 'Lainnya',
+            'links' => [
+                ['label' => 'Program', 'href' => 'program'],
+                ['label' => 'Event', 'href' => 'event'],
+                ['label' => 'Artikel', 'href' => 'artikel'],
+                ['label' => 'Tentang Kami', 'href' => 'about'],
+            ],
+        ],
+    ];
+    
     $programCol = $columns[0] ?? ['title' => 'Program', 'links' => []];
     $otherCol = $columns[1] ?? ['title' => 'Lainnya', 'links' => []];
 @endphp
@@ -54,8 +57,8 @@
                     @foreach ($socials as $s)
                         <a href="{{ $s['href'] }}" target="_blank" rel="noopener"
                             class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition ring-1 ring-white/10 hover:ring-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-                            aria-label="{{ ucfirst($s['name']) }}">
-                            <img src="{{ $s['img'] }}" alt="{{ ucfirst($s['name']) }} icon"
+                            aria-label="{{ ucfirst($s['label']) }}">
+                            <img src="{{ asset($s['icon_path'] ?? 'assets/kids/index-footer/Alhazen-Logo-white.png') }}" alt="{{ ucfirst($s['label']) }} icon"
                                 class="w-8 h-auto object-contain select-none transition-transform duration-200 will-change-transform hover:scale-[1.05]"
                                 loading="lazy" decoding="async" />
                         </a>

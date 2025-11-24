@@ -2,12 +2,13 @@
 
 namespace App\Filament\Resources\InformationSources\Tables;
 
+use Filament\Tables\Table;
+use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
+use Filament\Tables\Filters\TernaryFilter;
 
 class InformationSourcesTable
 {
@@ -16,23 +17,33 @@ class InformationSourcesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Sumber Informasi')
+                    ->sortable()
                     ->searchable(),
+
                 IconColumn::make('is_active')
+                    ->label('Aktif')
+                    ->sortable()
                     ->boolean(),
+
                 TextColumn::make('sort_order')
+                    ->label('Urutan')
                     ->numeric()
                     ->sortable(),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                TernaryFilter::make('is_active')
+                    ->label('Status Aktif'),
             ])
             ->recordActions([
                 EditAction::make(),
