@@ -2,6 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\OverviewStats;
+use App\Filament\Widgets\RecentArticles;
+use App\Filament\Widgets\TrialOverview;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Enums\ThemeMode;
@@ -45,10 +48,12 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                AccountWidget::class,
-                // FilamentInfoWidget::class,
+                // AccountWidget::class,
+                TrialOverview::class,
+                OverviewStats::class,
+                RecentArticles::class,
             ])
             ->middleware([
                 EncryptCookies::class,
