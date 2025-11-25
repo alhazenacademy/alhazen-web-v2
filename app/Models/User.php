@@ -9,7 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Storage;
 
-class User extends Authenticatable
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasRoles;
@@ -49,9 +52,21 @@ class User extends Authenticatable
         ];
     }
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        // 1. super_admin selalu boleh masuk Filament
+        if ($this->hasRole('super_admin')) {
+            return true;
+        }
+
+        // 2. (opsional) kalau nanti mau pakai permission Panel ala Shield:
+        //    access_admin, access_something, dll.
+        return $this->can('access_' . $panel->getId());
+    }
+
     public function getAvatarUrlAttribute(): ?string
     {
-        if (! $this->profile_photo_path) {
+        if (!$this->profile_photo_path) {
             return null;
         }
 
