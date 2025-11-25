@@ -19,6 +19,7 @@ class TrialOverview extends StatsOverviewWidget
 
         $trialToday = TrialClass::whereDate('created_at', $today)->count();   // misal TrialRegistration::whereDate('date', $today)->count();
         $trialMonth = TrialClass::whereMonth('created_at', now()->month)->count();   // misal TrialRegistration::whereMonth('date', now()->month)->count();
+        $trialMonth = TrialClass::whereYear('created_at', now()->year)->count();   // misal TrialRegistration::whereMonth('date', now()->month)->count();
 
         return [
             Stat::make('Trial Hari Ini', $trialToday)
@@ -27,7 +28,11 @@ class TrialOverview extends StatsOverviewWidget
 
             Stat::make('Trial Bulan Ini', $trialMonth)
                 ->description('Total pendaftar trial bulan ini')
-                ->icon('heroicon-o-chart-bar'),
+                ->icon('heroicon-o-calendar-days'),
+
+            Stat::make('Trial Tahun Ini', $trialMonth)
+                ->description('Total pendaftar trial tahun ini')
+                ->icon('heroicon-o-calendar-days'),
         ];
     }
 }
