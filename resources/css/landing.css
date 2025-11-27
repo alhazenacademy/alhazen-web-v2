@@ -869,3 +869,47 @@
 }
 
 /* End Active Card Detail Program */
+
+@layer utilities {
+    .books-pagination,
+    .books-swiper .swiper-pagination {
+        position: static !important;
+        width: auto !important;
+        display: inline-flex !important;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        justify-content: center;
+    }
+
+    .books-pagination .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: color-mix(in oklab, var(--color-primary) 35%, #d1d5db);
+        opacity: 0.5;
+        transition: transform 0.2s ease, opacity 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+    .books-pagination .swiper-pagination-bullet-active {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+        transform: scale(1.05);
+        background: var(--color-primary);
+    }
+
+    .books-prev,
+    .books-next {
+        color: var(--color-text);
+        transition: background-color 0.2s ease, color 0.2s ease,
+            border-color 0.2s ease;
+    }
+
+    .swiper-button-disabled.books-prev,
+    .swiper-button-disabled.books-next {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+}

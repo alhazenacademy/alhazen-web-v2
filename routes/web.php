@@ -10,12 +10,15 @@ Route::get('/program', [LandingController::class, 'program'])->name('program');
 Route::get('/about', [LandingController::class, 'about'])->name('about');
 Route::get('/artikel', [LandingController::class, 'article'])->name('artikel');
 Route::get('/event', [LandingController::class, 'event'])->name('event');
+Route::get('/katalog', action: [LandingController::class, 'katalog'])->name('katalog');
 Route::get('/booking', [TrialClassController::class, 'index'])->name('trial');
 Route::post('/trial', [TrialClassController::class, 'store'])->name('trial.store');
 Route::post('/leads', [TrialClassController::class, 'storeLead'])->name('leads.store');
-Route::get('/{slug}', [LandingController::class, 'articleShow'])->name('artikel.show');
 
 // Route::view('/pro', 'pro')->name('adult');
 
 /** PREVIEW: dummy data (tanpa kirim) — buka http://localhost:8000/_preview/email/trial */
 Route::get('/_preview/email/trial', [TrialClassController::class, 'testTrialToEmail']);
+
+// wildcard
+Route::get('/{slug}', [LandingController::class, 'articleShow'])->name('artikel.show');

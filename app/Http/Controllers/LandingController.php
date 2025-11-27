@@ -372,4 +372,35 @@ class LandingController extends Controller
     return view('pages.artikel.show', compact('salesPhone', 'article', 'related', 'whatsapp', 'email', 'address', 'website', 'socials', 'programLinks', 'ogImage'));
       
   }
+
+  public function katalog()
+  {
+    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+    $settings = SiteSetting::companySettings();
+
+    // Footer settings
+    $whatsapp = $settings['whatsapp'] ?? null;
+    $email = $settings['email'] ?? null;
+    $website = $settings['website'] ?? null;
+    $address = $settings['address'] ?? null;
+    $socials = collect($settings['socials'] ?? [])
+      ->where('is_active', true)
+      ->sortBy('sort_order');
+    $programLinks = Program::active()
+        ->ordered()
+        ->get()
+        ->map(function (Program $program) {
+            return [
+                'label' => $program->name,
+                'url'   => 'program',      // nama route: route('program', ['tab' => key])
+                'key'   => $program->key,  // dipakai sebagai tab
+            ];
+        })
+        ->all();
+
+    $faqs = Faq::active()->ordered()->get();
+
+    return view('pages.katalog', compact('whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
+  }
 }
