@@ -120,9 +120,9 @@ class TrialClassController extends Controller
             'homeUrl'       => url('/'),
             'heroUrl'       => public_path('assets/kids/email/hero-email.png'),
 
-            'location'      => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
+            'location'      => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
             'mapsUrl'       => 'https://maps.app.goo.gl/4oxbeBq5hcua9xw17',
-            'orgAddress'    => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
+            'orgAddress'    => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
 
             'privacyUrl'    => '#',
             'managePrefUrl' => '#',
