@@ -83,8 +83,7 @@
                         <tr>
                             <td style="padding:24px 16px 8px 16px;" align="left">
                                 <a href="{{ $homeUrl ?? url('/') }}" target="_blank" style="display:inline-block;">
-                                    <img src="{{ asset('assets/nav-logo.png') }}" alt="Alhazen Academy" width="160"
-                                        height="auto">
+                                    <img src="{{ $message->embed(public_path('assets/nav-logo.png')) }}" alt="Alhazen Academy" width="160" height="auto">
                                 </a>
                             </td>
                         </tr>
@@ -128,7 +127,7 @@
                                             <td align="center" style="padding:6px 0 0 0;">
                                                 <div
                                                     style="width:560px; height:150px; max-width:100%; border-radius:12px; overflow:hidden;">
-                                                    <img src="{{ asset($heroUrl) }}" alt="Trial Class" width="560"
+                                                    <img src="{{ $message->embed($heroUrl) }}" alt="Trial Class" width="560"
                                                         height="200"
                                                         style="display:block; width:560px; max-width:100%; height:150px; border:0; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; object-fit:cover; object-position:center;">
                                                 </div>

@@ -197,3 +197,25 @@ if (firstImgTutor && !firstImgTutor.complete) {
         { once: true }
     );
 }
+
+export const booksSwiper = new Swiper(".books-swiper", {
+    modules: [Navigation, Pagination, A11y],
+    speed: 500,
+    grabCursor: true,
+    loop: false,
+    centeredSlides: false,
+    spaceBetween: 24,
+
+    // 1 halaman = 1 grid (4x4 di desktop)
+    slidesPerView: 1,
+
+    navigation: {
+        nextEl: ".books-next",
+        prevEl: ".books-prev",
+    },
+
+    pagination: {
+        el: ".books-pagination",
+        clickable: true,
+    },
+});

@@ -11,7 +11,7 @@ use App\Models\TrialClass;
 use App\Models\LeadNumber;
 use App\Models\SalesNumber;
 use App\Jobs\SendTrialToExternalApi;
-
+use App\Jobs\SendTrialEmailJob;
 
 class TrialClassController extends Controller
 {
@@ -45,10 +45,16 @@ class TrialClassController extends Controller
         $trial = TrialClass::create($data);
 
         SendTrialToExternalApi::dispatchSync($trial);
+        $program = Program::find($trial->program_id);
+        $emailData = $this->mapTrialToEmailData($trial->toArray(), $program->toArray());
 
-        return response()->json([
+        $response = response()->json([
             'ok' => true,
         ]);
+
+        dispatch(new SendTrialEmailJob($emailData))->afterResponse();
+
+        return $response;
     }
 
     public function storeLead(Request $r)
@@ -66,14 +72,30 @@ class TrialClassController extends Controller
 
     protected function mapTrialToEmailData(array $trial, ?array $program = null): array
     {
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
         $tz = 'Asia/Jakarta';
 
         $schedule = null;
-        if (! empty($trial['schedule_date']) && ! empty($trial['schedule_time'])) {
-            $schedule = Carbon::parse(
-                $trial['schedule_date'].' '.$trial['schedule_time'],
-                $tz
+        if (!empty($trial['schedule_date']) && !empty($trial['schedule_time'])) {
+
+            $date = Carbon::parse($trial['schedule_date'])->setTimezone($tz)->format('Y-m-d');
+
+            $schedule = Carbon::createFromFormat('Y-m-d H:i', "$date {$trial['schedule_time']}", $tz)->setTimezone($tz);
+        }
+
+        if ($schedule) {
+            $startUtc = $schedule->copy()->setTimezone('UTC')->format('Ymd\THis\Z');
+            $endUtc   = $schedule->copy()->addHour()->setTimezone('UTC')->format('Ymd\THis\Z');
+
+            $googleCalendarUrl = $this->generateGoogleCalendarUrl(
+                $program['name'] ?? 'Trial Class',
+                $startUtc,
+                $endUtc,
+                'Zoom Meeting',
+                'Trial kelas coding bersama Alhazen Academy'
             );
+        } else {
+            $googleCalendarUrl = null;
         }
 
         return [
@@ -90,23 +112,23 @@ class TrialClassController extends Controller
             'joinUrl'       => null,                                        // isi jika sudah ada link
             'meetingId'     => null,
             'passcode'      => null,
-            'googleCalendarUrl' => '#',
+            'googleCalendarUrl' => $googleCalendarUrl,
 
-            'waUrl'         => 'https://wa.me/6281234567890',
-            'waLabel'       => '+62 812-3456-7890',
+            'waUrl'         => 'https://wa.me/'.$salesPhone,
+            'waLabel'       => $this->formatPhone($salesPhone),
 
             'homeUrl'       => url('/'),
-            'heroUrl'       => asset('assets/kids/email/hero-email.png'),
+            'heroUrl'       => public_path('assets/kids/email/hero-email.png'),
 
-            'location'      => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
+            'location'      => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
             'mapsUrl'       => 'https://maps.app.goo.gl/4oxbeBq5hcua9xw17',
-            'orgAddress'    => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, RT.5/RW.6, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
+            'orgAddress'    => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
 
             'privacyUrl'    => '#',
             'managePrefUrl' => '#',
 
             // tambahan (jaga-jaga)
-            'phone'         => $trial['phone'] ?? null,
+            'phone'         =>  $this->formatPhone($trial['phone']) ?? null,
             'email'         => $trial['email'] ?? null,
         ];
     }
@@ -138,4 +160,33 @@ class TrialClassController extends Controller
         // Render langsung file view email
         return view('emails.trial-confirmation', $data);
     }
+
+    protected function formatPhone($number)
+    {
+        $number = preg_replace('/\D/', '', $number);
+
+        if (str_starts_with($number, '62')) {
+            $number = '+'.$number;
+        } elseif (str_starts_with($number, '0')) {
+            $number = '+62'.substr($number, 1);
+        } else {
+            $number = '+62'.$number;
+        }
+
+        $num = substr($number, 3);
+
+        return '+62 '.substr($num,0,3).'-'.substr($num,3,4).'-'.substr($num,7);
+    }
+
+    protected function generateGoogleCalendarUrl($title, $start, $end, $location = '', $details = '')
+    {
+        return 'https://www.google.com/calendar/render?action=TEMPLATE'
+            .'&text=Free Class '.urlencode($title)
+            .'&dates='.$start.'/'.$end
+            .'&details='.urlencode($details)
+            .'&location='.urlencode($location)
+            .'&sf=true&output=xml';
+    }
+
+
 }
