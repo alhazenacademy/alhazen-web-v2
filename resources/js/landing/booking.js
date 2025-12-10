@@ -182,6 +182,7 @@ window.selectSource = function selectSource({
 window.trialForm = function trialForm(opts = {}) {
     return {
         step: 1,
+        loading: false,
         form: {
             phone: "",
             program: "",
@@ -346,32 +347,35 @@ window.trialForm = function trialForm(opts = {}) {
             }
         },
 
-        submit() {
+        async submit() {
+            if (this.loading) return;
+            this.loading = true;
             const csrf = this.$refs.csrf_trial?.value;
 
-            fetch(opts.postUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                    "X-Requested-With": "XMLHttpRequest",
-                    "X-CSRF-TOKEN": csrf,
-                },
-                body: JSON.stringify(this.form),
-                credentials: "same-origin",
-            })
-                .then((r) => {
-                    if (!r.ok) throw new Error("Gagal menyimpan");
-                    return r.json().catch(() => ({}));
-                })
-                .then(() => {
+            try {
+                const r = await fetch(opts.postUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                        "X-CSRF-TOKEN": csrf,
+                    },
+                    body: JSON.stringify(this.form),
+                    credentials: "same-origin",
+                });
+
+                if (!r.ok) throw new Error();
+
+                setTimeout(() => {
                     this.step = "success";
-                })
-                .catch((err) => {
-                    console.error(err);
-                    alert("Maaf, terjadi kesalahan. Coba lagi ya.");
-                })
-                .finally(() => (this.loading = false));
+                }, 500);
+
+            } catch(e) {
+                alert("Oops, something went wrong. Please try again");
+            } finally {
+                this.loading = false;
+            }
         },
 
         resetForm() {

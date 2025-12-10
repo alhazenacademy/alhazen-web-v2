@@ -380,9 +380,26 @@
                                         </button>
 
                                         <button type="submit"
-                                            class=" inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent transition hover:cursor-pointer hover:bg-accent/90 hover:shadow-lg active:translate-y-0">
-                                            Submit
-                                        </button>
+                                        class="inline-flex w-full items-center justify-center rounded-xl px-4 py-3 font-semibold text-white bg-accent
+                                            transition hover:bg-accent/90 disabled:bg-accent/40 disabled:cursor-not-allowed"
+                                        :disabled="loading">
+
+                                        <template x-if="!loading">
+                                            <span>Submit</span>
+                                        </template>
+
+                                        <template x-if="loading">
+                                            <span class="flex items-center gap-2">
+                                                <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                                                    <circle class="opacity-30" cx="12" cy="12" r="10" stroke="white" stroke-width="3" fill="none"/>
+                                                    <path class="opacity-100" fill="white"
+                                                        d="M12 2a10 10 0 0 1 10 10h-4a6 6 0 0 0-6-6V2z"/>
+                                                </svg>
+                                                Hold on, we're sending your request 🚀
+                                            </span>
+                                        </template>
+                                    </button>
+
                                     </div>
                                 </form>
                             </template>
