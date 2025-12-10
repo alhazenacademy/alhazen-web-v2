@@ -54,14 +54,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        // 1. super_admin selalu boleh masuk Filament
-        if ($this->hasRole('super_admin')) {
-            return true;
-        }
-
-        // 2. (opsional) kalau nanti mau pakai permission Panel ala Shield:
-        //    access_admin, access_something, dll.
-        return $this->can('access_' . $panel->getId());
+       return $this->roles()->exists();
     }
 
     public function getAvatarUrlAttribute(): ?string
