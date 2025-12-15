@@ -5,8 +5,8 @@
                 <div class="mx-auto max-w-4xl flex flex-col md:flex-row items-start justify-center gap-5">
 
                     {{-- Icon kiri (muncul mulai md) --}}
-                    <img src="{{ asset('assets/kids/index-program/icon1.png') }}" alt="Grad cap icon"
-                        class="hidden md:block w-15 h-15 md:me-2 -rotate-45" loading="lazy" aria-hidden="true">
+                    {{-- <img src="{{ asset('assets/kids/index-program/icon1.png') }}" alt="Grad cap icon"
+                        class="hidden md:block w-15 h-15 md:me-2 -rotate-45" loading="lazy" aria-hidden="true"> --}}
 
                     {{-- Judul + subjudul --}}
                     <div class="text-center pt-5">
@@ -19,8 +19,8 @@
                     </div>
 
                     {{-- Icon kanan (muncul mulai md) --}}
-                    <img src="{{ asset('assets/kids/index-program/icon2.png') }}" alt="Laptop icon"
-                        class="hidden md:block w-15 h-15 md:ms-2 rotate-45" loading="lazy" aria-hidden="true">
+                    {{-- <img src="{{ asset('assets/kids/index-program/icon2.png') }}" alt="Laptop icon"
+                        class="hidden md:block w-15 h-15 md:ms-2 rotate-45" loading="lazy" aria-hidden="true"> --}}
 
                 </div>
             </div>

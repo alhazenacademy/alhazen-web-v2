@@ -2,8 +2,8 @@
     <div class="mx-auto max-w-8xl">
         <div id="tutors-stack" class="relative overflow-visible">
 
-            <img src="{{ asset('assets/kids/index-tutor/maskot-laptop.png') }}" alt="Maskot" id="mascot-tutor"
-                class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 lg:w-70 drop-shadow-xl"
+            <img src="{{ asset('assets/kids/index-tutor/maskot-laptop.png') }}" alt="Maskot"
+                class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 lg:w-70 drop-shadow-xl ml-20"
                 loading="lazy" />
 
             <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
@@ -15,7 +15,7 @@
                 <div class="swiper swiper-tutors relative z-10 overflow-visible">
                     <div class="swiper-wrapper">
                         @foreach ($cards as $card)
-                            <div class="swiper-slide">
+                            <div class="swiper-slide pb-10">
                                 <article
                                     class="tutor-card-minh bg-white rounded-[18px] p-4 ring-1 ring-[var(--color-neutral)]/60 shadow-[0_8px_18px_rgba(0,0,0,.06)] grid grid-cols-1 md:grid-cols-[minmax(160px,220px)_1fr] gap-4 items-stretch">
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\TrialClassController;
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/kursus-coding-anak', [LandingController::class, 'kursus_coding_anak'])->name('kursus-coding-anak');
+Route::get('/kursus-roblox', [LandingController::class, 'kursus_roblox'])->name('kursus-roblox');
 Route::get('/program', [LandingController::class, 'program'])->name('program');
 Route::get('/about', [LandingController::class, 'about'])->name('about');
 Route::get('/artikel', [LandingController::class, 'article'])->name('artikel');

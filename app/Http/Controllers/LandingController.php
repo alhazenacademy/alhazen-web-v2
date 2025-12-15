@@ -14,298 +14,315 @@ use Illuminate\Support\Str;
 
 class LandingController extends Controller
 {
-  public function index()
-  {
-    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+    public function index()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
-    $tutors = Tutor::active()->ordered()->get();
-    $cards = $tutors->map(function (Tutor $t) {
-      return [
-        'name' => $t->name,
-        'years' => $t->years,
-        'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
-        'photo' => $t->photo_url,     // accessor di model (fallback male/female jika null)
-        'bg-photo' => $t->bg_color_safe, // accessor di model (default aman k$s['img']alau null)
-        'gender' => $t->gender,        // 'male' | 'female'
-        'bio' => $t->bio,
-      ];
-    })->all();
-
-    // Footer settings
-    $settings = SiteSetting::companySettings();
-    $whatsapp = $settings['whatsapp'] ?? null;
-    $email = $settings['email'] ?? null;
-    $website = $settings['website'] ?? null;
-    $address = $settings['address'] ?? null;
-    $socials = collect($settings['socials'] ?? [])
-      ->where('is_active', true)
-      ->sortBy('sort_order');
-    $programLinks = Program::active()
-        ->ordered()
-        ->get()
-        ->map(function (Program $program) {
+        // Section Tutors
+        $tutors = Tutor::active()->ordered()->get();
+        $cards = $tutors->map(function (Tutor $t) {
             return [
-                'label' => $program->name,
-                'url'   => 'program',      // nama route: route('program', ['tab' => key])
-                'key'   => $program->key,  // dipakai sebagai tab
+                'name' => $t->name,
+                'years' => $t->years,
+                'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
+                'photo' => $t->photo_url,     // accessor di model (fallback male/female jika null)
+                'bg-photo' => $t->bg_color_safe, // accessor di model (default aman k$s['img']alau null)
+                'gender' => $t->gender,        // 'male' | 'female'
+                'bio' => $t->bio,
             ];
-        })
-        ->all();
+        })->all();
 
-    // Article
-    $featured = Article::featureArticle()->first();
-    $latestArticle = Article::published()
-      ->when($featured, fn($q) => $q->where('id', '!=', $featured->id))
-      ->latest('published_at')
-      ->take(4)
-      ->get();
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'key' => $program->key,  // dipakai sebagai tab
+                ];
+            })
+            ->all();
 
-    $faqs = Faq::active()->ordered()->get();
+        // Section Articles
+        $featured = Article::featureArticle()->first();
+        $latestArticle = Article::published()
+            ->when($featured, fn($q) => $q->where('id', '!=', $featured->id))
+            ->latest('published_at')
+            ->take(4)
+            ->get();
+        
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
+        
+        // Section Program Cards
+        $programCards = Program::query()
+            ->with([
+                'info' => function ($q) {
+                    $q->where('context', 'kids_landing');
+                }
+            ])
+            ->active()   // scopeActive()
+            ->home()     // scopeHome()
+            ->ordered()  // scopeOrdered()
+            ->get()
+            ->map(function (Program $program) {
+                $info = $program->info;
 
-    $programCards = Program::query()
-        ->with(['info' => function ($q) {
-            $q->where('context', 'kids_landing');
-        }])
-        ->active()   // scopeActive()
-        ->home()     // scopeHome()
-        ->ordered()  // scopeOrdered()
-        ->get()
-        ->map(function (Program $program) {
-            $info = $program->info;
-
-            return [
-                'bg'         => $info->bg_class ?? 'bg-[#E5E7EB]',
-                'text-color' => $info->text_color_class ?? 'text-[#0F172A]',
-                'child'     => $info
+                return [
+                    'bg' => $info->bg_class ?? 'bg-[#E5E7EB]',
+                    'text-color' => $info->text_color_class ?? 'text-[#0F172A]',
+                    'child' => $info
                         ? $info->child_image_url   // <-- ini pakai accessor
                         : asset('assets/kids/program-detail/anak.png'),
-                'icon'       => $info && $info->icon_path
+                    'icon' => $info && $info->icon_path
+                        ? asset($info->icon_path)
+                        : null,
+                    'title' => $info->title ?? $program->name,
+                    'sub' => $info->short_tagline
+                        ?? $info->subtitle
+                        ?? '',
+                    // sesuaikan route detail programmu
+                    'url' => 'program',
+                ];
+            })
+            ->values()
+            ->toArray();
+        // Tambah 1 kartu "View All" manual (seperti di hardcoded-mu)
+        $programCards[] = [
+            'bg' => 'bg-[#E5E7EB]',
+            'text-color' => 'text-[#0F172A]',
+            'child' => asset('assets/kids/program-detail/anak.png'),
+            'icon' => asset('assets/kids/program-detail/icon-program6.png'),
+            'title' => 'View All',
+            'sub' => 'Explore all our courses',
+            'url' => 'program', // ganti sesuai route index
+        ];
+
+        return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs', 'programCards', 'programLinks'));
+    }
+
+    public function program()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        // Section Tutors
+        $tutors = Tutor::active()->ordered()->get();
+        $cards = $tutors->map(function (Tutor $t) {
+            return [
+                'name' => $t->name,
+                'years' => $t->years,
+                'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
+                'photo' => $t->photo_url,     // accessor di model (fallback male/female jika null)
+                'bg-photo' => $t->bg_color_safe, // accessor di model (default aman kalau null)
+                'gender' => $t->gender,        // 'male' | 'female'
+                'bio' => $t->bio,
+            ];
+        })->all();
+
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'key' => $program->key,  // dipakai sebagai tab
+                ];
+            })
+            ->all();
+        
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
+        
+        // Section Program Tabs & Content
+        $programs = Program::query()
+            ->with([
+                'info' => function ($q) {
+                    $q->where('context', 'kids_landing');
+                }
+            ])
+            ->active()   // scopeActive()
+            ->ordered()  // scopeOrdered()
+            ->get();
+        // === Gantikan $tabs ===
+        $tabs = $programs->map(function (Program $program) {
+            $info = $program->info;
+            return [
+                'key' => $program->key,
+                'label' => $info->title ?? $program->name,
+                'icon' => $info && $info->icon_path
                     ? asset($info->icon_path)
                     : null,
-                'title'      => $info->title ?? $program->name,
-                'sub'        => $info->short_tagline
+                'bg' => $info->bg_class ?? 'bg-[#E5E7EB]',
+                'textColor' => $info->text_color_class ?? 'text-[#0F172A]',
+                'child' => $info
+                    ? $info->child_image_url   // <-- ini pakai accessor
+                    : asset('assets/kids/program-detail/anak.png'),
+                'sub' => $info->short_tagline
                     ?? $info->subtitle
                     ?? '',
-                // sesuaikan route detail programmu
-                'url'        => 'program',
             ];
-        })
-        ->values()
-        ->toArray();
-
-    // Tambah 1 kartu "View All" manual (seperti di hardcoded-mu)
-    $programCards[] = [
-        'bg'         => 'bg-[#E5E7EB]',
-        'text-color' => 'text-[#0F172A]',
-        'child'      => asset('assets/kids/program-detail/anak.png'),
-        'icon'       => asset('assets/kids/program-detail/icon-program6.png'),
-        'title'      => 'View All',
-        'sub'        => 'Explore all our courses',
-        'url'        => 'program', // ganti sesuai route index
-    ];
-
-    return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs', 'programCards', 'programLinks'));
-  }
-
-  public function program()
-  {
-    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
-
-    $tutors = Tutor::active()->ordered()->get();
-    $cards = $tutors->map(function (Tutor $t) {
-      return [
-        'name' => $t->name,
-        'years' => $t->years,
-        'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
-        'photo' => $t->photo_url,     // accessor di model (fallback male/female jika null)
-        'bg-photo' => $t->bg_color_safe, // accessor di model (default aman kalau null)
-        'gender' => $t->gender,        // 'male' | 'female'
-        'bio' => $t->bio,
-      ];
-    })->all();
-
-    // Footer settings
-    $settings = SiteSetting::companySettings();
-    $whatsapp = $settings['whatsapp'] ?? null;
-    $email = $settings['email'] ?? null;
-    $website = $settings['website'] ?? null;
-    $address = $settings['address'] ?? null;
-    $socials = collect($settings['socials'] ?? [])
-      ->where('is_active', true)
-      ->sortBy('sort_order');
-    $programLinks = Program::active()
-        ->ordered()
-        ->get()
-        ->map(function (Program $program) {
+        })->values()->toArray();
+        // === Gantikan $content ===
+        $content = $programs->mapWithKeys(function (Program $program) {
+            $info = $program->info;
             return [
-                'label' => $program->name,
-                'url'   => 'program',      // nama route: route('program', ['tab' => key])
-                'key'   => $program->key,  // dipakai sebagai tab
+                $program->key => [
+                    'title' => $info->title ?? $program->name,
+                    'subtitle' => $info->subtitle ?? '',
+                    'modules' => $info->modules_label ?? '',
+                    'students' => $info->students_label ?? '',
+                    'desc' => $info->description ?? '',
+                    'tools' => $info->tools ?? [],         // dicast array di model
+                    'price' => $info->price_label ?? '',
+                    'ctaText' => $info->cta_text ?? '',
+                    'ctaHref' => $info->cta_href,            // boleh null
+                ],
             ];
-        })
-        ->all();
+        })->toArray();
 
-    $faqs = Faq::active()->ordered()->get();
+        return view('pages.program', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'tabs', 'content', 'programLinks'));
+    }
 
-    $programs = Program::query()
-        ->with(['info' => function ($q) {
-            $q->where('context', 'kids_landing');
-        }])
-        ->active()   // scopeActive()
-        ->ordered()  // scopeOrdered()
-        ->get();
+    public function event()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
-    // === Gantikan $tabs ===
-    $tabs = $programs->map(function (Program $program) {
-        $info = $program->info;
+        return view('pages.event', compact('salesPhone'));
+    }
 
-        return [
-            'key'       => $program->key,
-            'label'     => $info->title ?? $program->name,
-            'icon'      => $info && $info->icon_path
-                            ? asset($info->icon_path)
-                            : null,
-            'bg'        => $info->bg_class ?? 'bg-[#E5E7EB]',
-            'textColor' => $info->text_color_class ?? 'text-[#0F172A]',
-            'child'     => $info
-                        ? $info->child_image_url   // <-- ini pakai accessor
-                        : asset('assets/kids/program-detail/anak.png'),
-            'sub'       => $info->short_tagline
-                            ?? $info->subtitle
-                            ?? '',
-        ];
-    })->values()->toArray();
+    public function about()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
-    // === Gantikan $content ===
-    $content = $programs->mapWithKeys(function (Program $program) {
-        $info = $program->info;
+        // Section Map Embed
+        $settings = SiteSetting::companySettings();
+        $mapembed = $settings['map_embed'] ?? null;
 
-        return [
-            $program->key => [
-                'title'    => $info->title ?? $program->name,
-                'subtitle' => $info->subtitle ?? '',
-                'modules'  => $info->modules_label ?? '',
-                'students' => $info->students_label ?? '',
-                'desc'     => $info->description ?? '',
-                'tools'    => $info->tools ?? [],         // dicast array di model
-                'price'    => $info->price_label ?? '',
-                'ctaText'  => $info->cta_text ?? '',
-                'ctaHref'  => $info->cta_href,            // boleh null
-            ],
-        ];
-    })->toArray();
+        // Section Footer
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'key' => $program->key,  // dipakai sebagai tab
+                ];
+            })
+            ->all();
+        
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
 
-    return view('pages.program', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'tabs', 'content', 'programLinks'));
-  }
+        return view('pages.about', compact('mapembed', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
+    }
 
-  public function event()
-  {
-    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+    public function article(Request $request)
+    {
+        $cat = $request->query('cat');
 
-    return view('pages.event', compact('salesPhone'));
-  }
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
-  public function about()
-  {
-    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+        // Section Article Categories
+        $categories = Category::select('name', 'slug')
+            ->orderBy('name')
+            ->get()
+            ->map(fn($c) => [
+                'label' => $c->name,
+                'href' => route('artikel', ['cat' => $c->slug]),
+                'active' => $cat === $c->slug,
+            ])
+            ->values()
+            ->toArray();
 
-    $settings = SiteSetting::companySettings();
-
-    $mapembed = $settings['map_embed'] ?? null;
-
-    // Footer settings
-    $whatsapp = $settings['whatsapp'] ?? null;
-    $email = $settings['email'] ?? null;
-    $website = $settings['website'] ?? null;
-    $address = $settings['address'] ?? null;
-    $socials = collect($settings['socials'] ?? [])
-      ->where('is_active', true)
-      ->sortBy('sort_order');
-    $programLinks = Program::active()
-        ->ordered()
-        ->get()
-        ->map(function (Program $program) {
+        array_unshift($categories, [
+            'label' => 'All',
+            'href' => route('artikel'),
+            'active' => $cat === null,
+        ]);
+        $query = Article::query()
+            ->published()
+            ->when($cat, fn($q) => $q->whereRelation('category', 'slug', $cat))
+            ->latest('published_at')
+            ->select(['id', 'title', 'slug', 'cover_image', 'published_at', 'content']);
+        $posts = $query->get()->map(function (Article $a) {
             return [
-                'label' => $program->name,
-                'url'   => 'program',      // nama route: route('program', ['tab' => key])
-                'key'   => $program->key,  // dipakai sebagai tab
+                'title' => $a->title,
+                'slug' => $a->slug,
+                'date' => optional($a->published_at)->translatedFormat('F d, Y'),
+                'image' => $a->cover_image_url,
+                'url' => route('artikel.show', $a->slug),
+                'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
+
             ];
-        })
-        ->all();
+        })->toArray();
 
-    $faqs = Faq::active()->ordered()->get();
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',
+                    'key' => $program->key,
+                ];
+            })
+            ->all();
+        
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
 
-    return view('pages.about', compact('mapembed', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
-  }
-  
-  public function article(Request $request)
-  {
-    $cat = $request->query('cat');
-    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
-    $categories = Category::select('name','slug')
-        ->orderBy('name')
-        ->get()
-        ->map(fn ($c) => [
-            'label'  => $c->name,
-            'href'   => route('artikel', ['cat' => $c->slug]),
-            'active' => $cat === $c->slug,
-        ])
-        ->values()
-        ->toArray();
+        return view('pages.artikel', compact('salesPhone', 'categories', 'posts', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
+    }
 
-    array_unshift($categories, [
-        'label'  => 'All',
-        'href'   => route('artikel'),
-        'active' => $cat === null,
-    ]);
+    public function articleShow(Request $request, string $slug)
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
-    $query = Article::query()
-        ->published()
-        ->when($cat, fn($q) => $q->whereRelation('category', 'slug', $cat))
-        ->latest('published_at')
-        ->select(['id','title','slug','cover_image','published_at','content']);
-
-    $posts = $query->get()->map(function (Article $a) {
-        return [
-            'title' => $a->title,
-            'slug'  => $a->slug,
-            'date'  => optional($a->published_at)->translatedFormat('F d, Y'),
-            'image' => $a->cover_image_url,
-            'url'   => route('artikel.show', $a->slug),
-            'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
-
-        ];
-    })->toArray();
-
-    $settings = SiteSetting::companySettings();
-    $whatsapp = $settings['whatsapp'] ?? null;
-    $email = $settings['email'] ?? null;
-    $website = $settings['website'] ?? null;
-    $address = $settings['address'] ?? null;
-    $socials = collect($settings['socials'] ?? [])
-      ->where('is_active', true)
-      ->sortBy('sort_order');
-    $programLinks = Program::active()
-        ->ordered()
-        ->get()
-        ->map(function (Program $program) {
-            return [
-                'label' => $program->name,
-                'url'   => 'program',
-                'key'   => $program->key,
-            ];
-        })
-        ->all();
-
-    $faqs = Faq::active()->ordered()->get();
-
-    return view('pages.artikel', compact('salesPhone', 'categories', 'posts', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
-  }
-
-  public function articleShow(Request $request, string $slug)
-  {
-    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
-    $article = Article::query()
+        // Section Article Detail
+        $article = Article::query()
             ->with([
                 'author:id,name,profile_photo_path',
                 'category:id,name,slug',
@@ -314,93 +331,183 @@ class LandingController extends Controller
             ->where('status', 'published')
             ->whereNotNull('published_at')
             ->firstOrFail();
-    
-    $related = Article::query()
+        $related = Article::query()
             ->published()
             ->where('category_id', $article->category_id)
             ->whereKeyNot($article->getKey())
             ->latest('published_at')
             ->take(6)
-            ->get(['title','slug','cover_image','published_at', 'content'])
+            ->get(['title', 'slug', 'cover_image', 'published_at', 'content'])
             ->map(function (Article $a) {
                 $image = $a->cover_image_url;
 
                 return [
                     'title' => $a->title,
-                    'slug'  => $a->slug,
-                    'date'  => $a->published_at_formatted,
+                    'slug' => $a->slug,
+                    'date' => $a->published_at_formatted,
                     'image' => $image,
-                    'url'   => route('artikel.show', $a->slug),
+                    'url' => route('artikel.show', $a->slug),
                     'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
                 ];
             })
             ->toArray();
-
-    $coverPath = $article->cover_image_url;
-
-    if ($coverPath) {
-        if (Str::startsWith($coverPath, ['http://', 'https://'])) {
-            $ogImage = $coverPath;
+        $coverPath = $article->cover_image_url;
+        if ($coverPath) {
+            if (Str::startsWith($coverPath, ['http://', 'https://'])) {
+                $ogImage = $coverPath;
+            } else {
+                $ogImage = url($coverPath);
+            }
         } else {
-            $ogImage = url($coverPath);
+            $ogImage = asset('assets/nav-logo.png');
         }
-    } else {
-        $ogImage = asset('assets/nav-logo.png');
+
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',
+                    'key' => $program->key,
+                ];
+            })
+            ->all();
+
+        return view('pages.artikel.show', compact('salesPhone', 'article', 'related', 'whatsapp', 'email', 'address', 'website', 'socials', 'programLinks', 'ogImage'));
+
     }
-    
-    $settings = SiteSetting::companySettings();
-    
-    $whatsapp = $settings['whatsapp'] ?? null;
-    $email = $settings['email'] ?? null;
-    $website = $settings['website'] ?? null;
-    $address = $settings['address'] ?? null;
-    $socials = collect($settings['socials'] ?? [])
-      ->where('is_active', true)
-      ->sortBy('sort_order');
-    $programLinks = Program::active()
-        ->ordered()
-        ->get()
-        ->map(function (Program $program) {
+
+    public function katalog()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'key' => $program->key,  // dipakai sebagai tab
+                ];
+            })
+            ->all();
+        
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
+
+        return view('pages.katalog', compact('whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
+    }
+
+    public function kursus_coding_anak()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        // Section Tutors
+        $tutors = Tutor::active()->ordered()->get();
+        $cards = $tutors->map(function (Tutor $t) {
             return [
-                'label' => $program->name,
-                'url'   => 'program',
-                'key'   => $program->key,
+                'name' => $t->name,
+                'years' => $t->years,
+                'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
+                'photo' => $t->photo_url,     // accessor di model (fallback male/female jika null)
+                'bg-photo' => $t->bg_color_safe, // accessor di model (default aman kalau null)
+                'gender' => $t->gender,        // 'male' | 'female'
+                'bio' => $t->bio,
             ];
-        })
-        ->all();
-    
-    return view('pages.artikel.show', compact('salesPhone', 'article', 'related', 'whatsapp', 'email', 'address', 'website', 'socials', 'programLinks', 'ogImage'));
-      
-  }
+        })->all();
 
-  public function katalog()
-  {
-    $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'key' => $program->key,  // dipakai sebagai tab
+                ];
+            })
+            ->all();
 
-    $settings = SiteSetting::companySettings();
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
 
-    // Footer settings
-    $whatsapp = $settings['whatsapp'] ?? null;
-    $email = $settings['email'] ?? null;
-    $website = $settings['website'] ?? null;
-    $address = $settings['address'] ?? null;
-    $socials = collect($settings['socials'] ?? [])
-      ->where('is_active', true)
-      ->sortBy('sort_order');
-    $programLinks = Program::active()
-        ->ordered()
-        ->get()
-        ->map(function (Program $program) {
+        return view('pages.program.kursus_coding_anak', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
+    }
+
+    public function kursus_roblox()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        // Section Tutors
+        $tutors = Tutor::active()->ordered()->get();
+        $cards = $tutors->map(function (Tutor $t) {
             return [
-                'label' => $program->name,
-                'url'   => 'program',      // nama route: route('program', ['tab' => key])
-                'key'   => $program->key,  // dipakai sebagai tab
+                'name' => $t->name,
+                'years' => $t->years,
+                'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
+                'photo' => $t->photo_url,     // accessor di model (fallback male/female jika null)
+                'bg-photo' => $t->bg_color_safe, // accessor di model (default aman kalau null)
+                'gender' => $t->gender,        // 'male' | 'female'
+                'bio' => $t->bio,
             ];
-        })
-        ->all();
+        })->all();
 
-    $faqs = Faq::active()->ordered()->get();
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'key' => $program->key,  // dipakai sebagai tab
+                ];
+            })
+            ->all();
 
-    return view('pages.katalog', compact('whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
-  }
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
+
+        return view('pages.program.kursus_roblox', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
+    }
 }
