@@ -117,7 +117,7 @@
         description="Program kami menghadirkan pengalaman belajar coding yang seru dan aplikatif melalui proyek game, animasi, dan aplikasi yang dibuat langsung oleh anak."
         :cards="$card_paket" />
     
-    <x-program.panduan-ortu />
+    <x-program.panduan-ortu :umur="7" />
 
     @php
         $image_preview = [

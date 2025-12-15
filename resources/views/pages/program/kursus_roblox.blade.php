@@ -91,7 +91,7 @@
         description="Program ini mengajak anak belajar membuat game Roblox sendiri menggunakan Roblox Studio. Mulai dari dasar pembuatan game hingga membangun dunia 3D yang seru dan interaktif."
         :cards="$card_paket" />
     
-    <x-program.panduan-ortu />
+    <x-program.panduan-ortu :umur="10" />
 
     @php
         $image_preview = [

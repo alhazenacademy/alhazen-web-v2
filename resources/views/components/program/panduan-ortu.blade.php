@@ -1,13 +1,12 @@
+@props(['umur' => 7])
 <section class="relative py-5">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Star decoration --}}
         <img src="{{ asset('assets/kids/index-cta-whatsapp/icon-star.png') }}" alt=""
-            class="pointer-events-none select-none absolute -left-2 -top-6 w-14 sm:w-16 z-10"
-            loading="lazy" />
+            class="pointer-events-none select-none absolute -left-2 -top-6 w-14 sm:w-16 z-10" loading="lazy" />
         <img src="{{ asset('assets/kids/index-cta-whatsapp/icon-star.png') }}" alt=""
-            class="pointer-events-none select-none absolute -right-2 -bottom-6 w-14 sm:w-16 z-10"
-            loading="lazy" />
+            class="pointer-events-none select-none absolute -right-2 -bottom-6 w-14 sm:w-16 z-10" loading="lazy" />
 
         {{-- Card --}}
         <div
@@ -33,7 +32,7 @@
                     </h3>
 
                     <p class="text-white/90 leading-relaxed mb-4">
-                        Program ini paling sesuai untuk anak usia <strong>7 tahun ke atas</strong>.
+                        Program ini paling sesuai untuk anak usia <strong>{{ $umur }} tahun ke atas</strong>.
                         Untuk anak yang lebih kecil, <strong>pendampingan orang tua sangat dianjurkan</strong>,
                         terutama saat anak perlu menyelesaikan kendala teknis selama sesi belajar.
                     </p>
