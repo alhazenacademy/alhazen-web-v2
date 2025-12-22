@@ -248,10 +248,8 @@ class LandingController extends Controller
         return view('pages.about', compact('mapembed', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks', 'salesPhone'));
     }
 
-    public function article(Request $request)
+    public function article()
     {
-        $cat = $request->query('cat');
-
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -259,35 +257,32 @@ class LandingController extends Controller
         $categories = Category::select('name', 'slug')
             ->orderBy('name')
             ->get()
-            ->map(fn($c) => [
+            ->map(fn ($c) => [
                 'label' => $c->name,
-                'href' => route('artikel', ['cat' => $c->slug]),
-                'active' => $cat === $c->slug,
+                'href'  => route('category.show', $c->slug),
+                'active'=> false,
             ])
             ->values()
             ->toArray();
 
         array_unshift($categories, [
             'label' => 'All',
-            'href' => route('artikel'),
-            'active' => $cat === null,
+            'href'  => route('artikel'),
+            'active'=> true,
         ]);
-        $query = Article::query()
-            ->published()
-            ->when($cat, fn($q) => $q->whereRelation('category', 'slug', $cat))
-            ->latest('published_at')
-            ->select(['id', 'title', 'slug', 'cover_image', 'published_at', 'content']);
-        $posts = $query->get()->map(function (Article $a) {
-            return [
-                'title' => $a->title,
-                'slug' => $a->slug,
-                'date' => optional($a->published_at)->translatedFormat('F d, Y'),
-                'image' => $a->cover_image_url,
-                'url' => route('artikel.show', $a->slug),
-                'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
-
-            ];
-        })->toArray();
+        
+        $posts = Article::published()
+        ->latest('published_at')
+        ->get()
+        ->map(fn (Article $a) => [
+            'title'   => $a->title,
+            'slug'    => $a->slug,
+            'date'    => optional($a->published_at)->translatedFormat('F d, Y'),
+            'image'   => $a->cover_image_url,
+            'url'     => route('artikel.show', $a->slug),
+            'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
+        ])
+        ->toArray();
 
         // Section Footer
         $settings = SiteSetting::companySettings();
@@ -510,4 +505,84 @@ class LandingController extends Controller
 
         return view('pages.program.kursus_roblox', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
     }
+
+    public function category(string $slug)
+    {
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        // Sidebar kategori
+        $categories = Category::select('name', 'slug')
+            ->orderBy('name')
+            ->get()
+            ->map(fn ($c) => [
+                'label'  => $c->name,
+                'href'   => route('category.show', $c->slug),
+                'active' => $c->slug === $slug,
+            ])
+            ->values()
+            ->toArray();
+
+        array_unshift($categories, [
+            'label'  => 'All',
+            'href'   => route('artikel'),
+            'active' => false,
+        ]);
+
+
+        // Artikel per kategori
+        $posts = Article::published()
+            ->where('category_id', $category->id)
+            ->latest('published_at')
+            ->get()
+            ->map(fn ($a) => [
+                'title'   => $a->title,
+                'slug'    => $a->slug,
+                'date'    => optional($a->published_at)->translatedFormat('F d, Y'),
+                'image'   => $a->cover_image_url,
+                'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, '...'),
+            ])
+            ->toArray();
+        
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => 'program',
+                    'key' => $program->key,
+                ];
+            })
+            ->all();
+        
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
+
+        return view('pages.artikel', [
+            'posts'      => $posts,
+            'categories' => $categories,
+            'catTitle'   => 'Kategori',
+            'title'      => $category->name,
+            'description'=> $category->description,
+            'salesPhone' => $salesPhone,
+            'socials' => $socials,
+            'faqs' => $faqs,
+            'programLinks' => $programLinks,
+            'website' => $website,
+            'address' => $address,
+            'whatsapp' => $whatsapp,
+            'email' => $email,
+        ]);
+    }
+
 }

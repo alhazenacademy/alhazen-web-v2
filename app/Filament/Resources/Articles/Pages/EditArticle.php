@@ -19,10 +19,6 @@ class EditArticle extends EditRecord
             $data['user_id'] = auth()->id();
         }
 
-        if (blank($data['slug'] ?? null) && !blank($data['title'] ?? null)) {
-            $data['slug'] = Str::slug($data['title']);
-        }
-
         if (($data['status'] ?? null) === 'published' && blank($data['published_at'] ?? null)) {
             $data['published_at'] = now();
         }
