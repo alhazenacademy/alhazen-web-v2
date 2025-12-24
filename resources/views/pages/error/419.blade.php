@@ -10,7 +10,7 @@
         subtitle="Silakan muat ulang halaman dan coba lagi."
         buttonText="Muat Ulang Halaman"
         :buttonHref="url()->previous() ?? route('home', absolute: false)"
-        :image="asset('assets/kids/error/img-419.png')"
+        :image="asset('assets/kids/error/img-419.webp')"
         imageAlt="Session expired"
         note="Untuk keamanan, sesi berakhir jika halaman terbuka terlalu lama."
     />

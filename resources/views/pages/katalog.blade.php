@@ -5,22 +5,22 @@
 
     @php
     $books = [
-        ['title' => 'Math', 'image' => asset('assets/kids/katalog-book/1.png')],
-        ['title' => 'Science', 'image' => asset('assets/kids/katalog-book/2.png')],
-        ['title' => 'English', 'image' => asset('assets/kids/katalog-book/3.png')],
-        ['title' => 'Bahasa Indonesia', 'image' => asset('assets/kids/katalog-book/4.png')],
-        ['title' => 'Mathematics', 'image' => asset('assets/kids/katalog-book/5.png')],
-        ['title' => 'Civic Education', 'image' => asset('assets/kids/katalog-book/6.png')],
-        ['title' => 'Physical Education', 'image' => asset('assets/kids/katalog-book/7.png')],
-        ['title' => 'Arts', 'image' => asset('assets/kids/katalog-book/8.png')],
-        ['title' => 'Natural and Social Sciences', 'image' => asset('assets/kids/katalog-book/9.png')],
-        ['title' => 'Aqidah and Islamic Manner', 'image' => asset('assets/kids/katalog-book/10.png')],
-        ['title' => 'Fiqh', 'image' => asset('assets/kids/katalog-book/11.png')],
-        ['title' => 'Sirah Nabawiyah', 'image' => asset('assets/kids/katalog-book/12.png')],
-        ["title" => "Al - Qur'an", "image" => asset('assets/kids/katalog-book/13.png')],
-        ['title' => 'Arabic', 'image' => asset('assets/kids/katalog-book/14.png')],
-        ['title' => 'Coding', 'image' => asset('assets/kids/katalog-book/15.png')],
-        ['title' => 'Microsoft Office', 'image' => asset('assets/kids/katalog-book/16.png')],
+        ['title' => 'Math', 'image' => asset('assets/kids/katalog-book/1.webp')],
+        ['title' => 'Science', 'image' => asset('assets/kids/katalog-book/2.webp')],
+        ['title' => 'English', 'image' => asset('assets/kids/katalog-book/3.webp')],
+        ['title' => 'Bahasa Indonesia', 'image' => asset('assets/kids/katalog-book/4.webp')],
+        ['title' => 'Mathematics', 'image' => asset('assets/kids/katalog-book/5.webp')],
+        ['title' => 'Civic Education', 'image' => asset('assets/kids/katalog-book/6.webp')],
+        ['title' => 'Physical Education', 'image' => asset('assets/kids/katalog-book/7.webp')],
+        ['title' => 'Arts', 'image' => asset('assets/kids/katalog-book/8.webp')],
+        ['title' => 'Natural and Social Sciences', 'image' => asset('assets/kids/katalog-book/9.webp')],
+        ['title' => 'Aqidah and Islamic Manner', 'image' => asset('assets/kids/katalog-book/10.webp')],
+        ['title' => 'Fiqh', 'image' => asset('assets/kids/katalog-book/11.webp')],
+        ['title' => 'Sirah Nabawiyah', 'image' => asset('assets/kids/katalog-book/12.webp')],
+        ["title" => "Al - Qur'an", "image" => asset('assets/kids/katalog-book/13.webp')],
+        ['title' => 'Arabic', 'image' => asset('assets/kids/katalog-book/14.webp')],
+        ['title' => 'Coding', 'image' => asset('assets/kids/katalog-book/15.webp')],
+        ['title' => 'Microsoft Office', 'image' => asset('assets/kids/katalog-book/16.webp')],
     ]
     @endphp
 

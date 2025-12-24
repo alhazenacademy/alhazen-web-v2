@@ -1,8 +1,8 @@
 @props([
-    'title' => 'Alhazen Academy',
+    'title' => 'Kursus Coding dan Animasi Terbaik #1 - Alhazen Academy',
     'description' =>
         'Belajar Coding dengan tutor berpengalaman dan professional di Alhazen Academy. Kami menyediakan program pelatihan online, offline, dan privat',
-    'ogImage' => asset('assets/nav-logo.png'),
+    'ogImage' => asset('assets/nav-logo.webp'),
     'theme' => 'kids', // 'kids' | 'pro'
 ])
 
@@ -33,9 +33,12 @@
         // })();
     </script>
 
+    {{-- Meta Title & Description --}}
     <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+
     <x-og :title="$title" :description="$description" :image="$ogImage" />
-    <link rel="icon" href="{{ asset('assets/logo.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/logo.webp') }}" type="image/x-icon">
 
 
     @vite(['resources/css/landing.css', 'resources/js/landing.js'])

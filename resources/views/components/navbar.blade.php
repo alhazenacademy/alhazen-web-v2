@@ -1,18 +1,18 @@
 @php
-    $logo = asset('assets/nav-logo.png');
+    $logo = asset('assets/nav-logo.webp');
 
     $nav = [
         ['route' => 'home', 'label' => 'Home'],
-        ['route' => 'program', 'label' => 'Program'],
         ['route' => 'artikel', 'label' => 'Artikel'],
         ['route' => 'about', 'label' => 'Tentang Kami'],
+        ['route' => 'katalog', 'label' => 'Katalog Buku'],
     ];
 
     // Dropdown "Lainnya"
     $moreNav = [
-        ['route' => 'katalog', 'label' => 'Katalog Buku'],
-        // Tambah halaman lain di sini kalau perlu
-        // ['route' => 'event', 'label' => 'Event', 'desc' => 'Jadwal event & workshop'],
+        ['route' => 'kursus-coding-anak', 'label' => 'Kursus Coding Anak'],
+        ['route' => 'kursus-roblox', 'label' => 'Kursus Roblox Studio'],
+        ['route' => 'program', 'label' => 'Program Lainnya'],
     ];
 
     $isActive = fn($name) => (request()->routeIs($name)
@@ -39,38 +39,35 @@
                             {{ $item['label'] }}
                         </a>
                     </li>
-                @endforeach
 
-                {{-- Dropdown: Lainnya --}}
-                @if (!empty($moreNav))
-                    <li x-data="{ openMore: false }" class="relative">
-                        <button type="button" @click="openMore = !openMore" @keydown.escape.window="openMore = false"
-                            class="inline-flex items-center gap-1 text-body {{ request()->routeIs(collect($moreNav)->pluck('route')->all()) ? 'font-medium text-[var(--color-text)]/100' : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }} pb-1 transition-all duration-200 ease-in-out">
-                            <span>Lainnya</span>
-                            <svg class="w-3.5 h-3.5" :class="{ 'rotate-180': openMore }" viewBox="0 0 20 20"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
+                    {{-- Dropdown Program --}}
+                    @if ($item['route'] === 'home' && !empty($moreNav))
+                        <li x-data="{ openMore: false }" class="relative">
+                            <button type="button"
+                                @click="openMore = !openMore"@keydown.escape.window="openMore = false"
+                                class="inline-flex items-center gap-1 text-body {{ request()->routeIs(collect($moreNav)->pluck('route')->all()) ? 'font-medium text-[var(--color-text)]/100' : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }} pb-1 transition-all duration-200 ease-in-out">
+                                <span>Program</span>
+                                <svg class="w-3.5 h-3.5" :class="{ 'rotate-180': openMore }" viewBox="0 0 20 20"
+                                    fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
 
-                        <div x-show="openMore" x-cloak @click.outside="openMore = false" x-transition.origin.top.right
-                            class="absolute right-0 mt-3 w-56 rounded-xl border border-neutral bg-background shadow-lg py-2 z-50">
-                            @foreach ($moreNav as $more)
-                                @php
-                                    $isMoreActive = request()->routeIs($more['route']);
-                                @endphp
+                            <div x-show="openMore" x-cloak @click.outside="openMore = false"
+                                x-transition.origin.top.right
+                                class="absolute left-0 mt-3 w-56 rounded-xl border border-neutral bg-background shadow-lg py-2 z-50">
 
-                                <a href="{{ route($more['route']) }}"
-                                    class="block px-4 py-2.5 text-sm {{ $isMoreActive ? 'font-medium text-[var(--color-text)]/100' : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }} hover:bg-neutral/40 transition">
-                                    <div>
+                                @foreach ($moreNav as $more)
+                                    <a href="{{ route($more['route']) }}"
+                                        class="block px-4 py-2.5 text-sm {{ request()->routeIs($more['route']) ? 'font-medium text-[var(--color-text)]/100' : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }} hover:bg-neutral/40 transition">
                                         {{ $more['label'] }}
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
-                    </li>
-                @endif
+                                    </a>
+                                @endforeach
+                            </div>
+                        </li>
+                    @endif
+                @endforeach
             </ul>
 
             {{-- Button: Daftar Kelas Gratis (primary, hover accent) --}}
@@ -99,6 +96,7 @@
                 <hr class="border-neutral">
                 <ul class="py-2">
                     @foreach ($nav as $item)
+                        {{-- Menu utama --}}
                         <li>
                             <a href="{{ route($item['route']) }}"
                                 class="{{ $isActive($item['route']) }} text-body block px-4 py-2"
@@ -106,36 +104,41 @@
                                 {{ $item['label'] }}
                             </a>
                         </li>
+
+                        {{-- Program dropdown (setelah Home) --}}
+                        @if ($item['route'] === 'home' && !empty($moreNav))
+                            <li x-data="{ openProgram: false }">
+                                <button type="button" @click="openProgram = !openProgram"
+                                    class="w-full flex items-center justify-between px-4 py-2 text-body
+                    {{ request()->routeIs(collect($moreNav)->pluck('route')->all())
+                        ? 'font-medium text-[var(--color-text)]/100'
+                        : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }}
+                    transition-all duration-200 ease-in-out">
+
+                                    <span>Program</span>
+                                    <svg class="w-3.5 h-3.5" :class="{ 'rotate-180': openProgram }" viewBox="0 0 20 20"
+                                        fill="none">
+                                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+
+                                <div x-show="openProgram" x-cloak class="mt-1 pb-1">
+                                    @foreach ($moreNav as $more)
+                                        <a href="{{ route($more['route']) }}"
+                                            class="block px-6 py-2 text-sm
+                            {{ request()->routeIs($more['route'])
+                                ? 'font-medium text-[var(--color-text)]/100'
+                                : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }}
+                            hover:bg-neutral/40 transition"
+                                            @click="open = false; openProgram = false">
+                                            {{ $more['label'] }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </li>
+                        @endif
                     @endforeach
-
-                    {{-- Mobile dropdown: Lainnya --}}
-                    @if (!empty($moreNav))
-                        <li class="border-t border-neutral/60 mt-2 pt-2">
-                            <button type="button" @click="openMore = !openMore"
-                                class="w-full flex items-center justify-between px-4 py-2 text-body {{ request()->routeIs(collect($moreNav)->pluck('route')->all()) ? 'font-medium text-[var(--color-text)]/100' : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }} transition-all duration-200 ease-in-out">
-                                <span>Lainnya</span>
-                                <svg class="w-3.5 h-3.5" :class="{ 'rotate-180': openMore }" viewBox="0 0 20 20"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
-
-                            <div x-show="openMore" x-cloak class="mt-1 pb-1">
-                                @foreach ($moreNav as $more)
-                                    @php
-                                        $isMoreActive = request()->routeIs($more['route']);
-                                    @endphp
-
-                                    <a href="{{ route($more['route']) }}"
-                                        class="block px-6 py-2 text-sm {{ $isMoreActive ? 'font-medium text-[var(--color-text)]/100' : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }} hover:bg-neutral/40 transition"
-                                        @click="open = false; openMore = false">
-                                        {{ $more['label'] }}
-                                    </a>
-                                @endforeach
-                            </div>
-                        </li>
-                    @endif
 
                     {{-- Mobile: Daftar Kelas Gratis --}}
                     <li class="px-4 pt-3">

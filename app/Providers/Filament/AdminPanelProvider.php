@@ -36,8 +36,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->profile(EditProfile::class, isSimple: false)
-            ->favicon(asset('assets/logo.png'))
-            ->brandLogo(asset('assets/cms-logo.png'))
+            ->favicon(asset('assets/logo.webp'))
+            ->brandLogo(asset('assets/cms-logo.webp'))
             ->brandName('Alhazen Academy CMS')
             ->colors([
                 'primary' => Color::hex('#059669'),

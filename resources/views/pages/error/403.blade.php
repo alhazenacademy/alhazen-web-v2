@@ -10,7 +10,7 @@
         subtitle="Akunmu tidak memiliki izin untuk membuka halaman ini."
         buttonText="Kembali ke Home"
         :buttonHref="route('home', absolute: false)"
-        :image="asset('assets/kids/error/img-403.png')"
+        :image="asset('assets/kids/error/img-403.webp')"
         imageAlt="403 Forbidden"
         note="Jika kamu merasa seharusnya punya akses, hubungi admin Alhazen."
     />

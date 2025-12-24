@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\MarkdownEditor;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Components\Utilities\Get;
+use Illuminate\Support\Str;
 
 class ArticleForm
 {
@@ -86,9 +89,27 @@ class ArticleForm
                     ->columns(1)
                     ->columnSpan('full')
                     ->schema([
-                        TextInput::make('title')
-                            ->label('Title')
+                    TextInput::make('title')
+                        ->label('Title')
+                        ->required()
+                        ->live(onBlur: true)
+                        ->live(debounce: 500)
+                        ->afterStateUpdated(function (?string $state, Set $set, Get $get) {
+                            if (blank($state)) {
+                                return;
+                            }
+
+                            if (blank($get('slug'))) {
+                                $set('slug', Str::slug($state));
+                            }
+                        })
+                        ->columnSpanFull(),
+
+                        TextInput::make('slug')
+                            ->label('Slug')
                             ->required()
+                            ->unique(ignoreRecord: true)
+                            ->dehydrateStateUsing(fn ($state) => Str::slug($state))
                             ->columnSpanFull(),
 
                         FileUpload::make('cover_image')

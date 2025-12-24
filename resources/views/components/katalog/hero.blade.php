@@ -6,9 +6,9 @@
     'buttonHref' => route('program'),
 
     // Gambar buku (dari depan ke belakang)
-    'coverFront' => 'assets/kids/katalog/1.png',
-    'coverMid' => 'assets/kids/katalog/2.png',
-    'coverBack' => 'assets/kids/katalog/3.png',
+    'coverFront' => 'assets/kids/katalog/1.webp',
+    'coverMid' => 'assets/kids/katalog/2.webp',
+    'coverBack' => 'assets/kids/katalog/3.webp',
 ])
 
 <section class="relative py-10 md:py-14 lg:py-16">

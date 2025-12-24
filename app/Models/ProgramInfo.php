@@ -116,7 +116,7 @@ class ProgramInfo extends Model
         }
 
         // Fallback default anak
-        return asset('assets/kids/program-detail/anak.png');
+        return asset('assets/kids/program-detail/anak.webp');
     }
 
     /** Relasi balik ke Program

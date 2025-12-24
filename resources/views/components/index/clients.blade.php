@@ -20,7 +20,7 @@
                                     $logo['src'] .
                                     '" alt="' .
                                     $logo['alt'] .
-                                    '" loading="lazy" class="block object-contain clients-img" style="height: 100px" />';
+                                    '" loading="lazy" class="block object-contain clients-img" style="height: 100px; max-width:180px;" />';
                             @endphp
 
                             @if (!empty($logo['url']))

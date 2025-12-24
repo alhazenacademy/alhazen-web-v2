@@ -82,7 +82,7 @@
 
                                         <!-- Anak/figure kanan (opsional) -->
                                         <img :src="t.child || (contents[t.key] && contents[t.key].img) ||
-                                            @js(asset('assets/kids/program-detail/anak.png'))"
+                                            @js(asset('assets/kids/program-detail/anak.webp'))"
                                             alt=""
                                             class="absolute right-2 top-3 w-1/2 h-[110%] object-contain z-20 pointer-events-none select-none"
                                             loading="lazy" decoding="async" />

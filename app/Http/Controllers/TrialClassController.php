@@ -12,6 +12,7 @@ use App\Models\LeadNumber;
 use App\Models\SalesNumber;
 use App\Jobs\SendTrialToExternalApi;
 use App\Jobs\SendTrialEmailJob;
+use Illuminate\Support\Facades\DB;
 
 class TrialClassController extends Controller
 {
@@ -42,19 +43,25 @@ class TrialClassController extends Controller
             'schedule_date' => ['required', 'date'],
             'schedule_time' => ['required', 'date_format:H:i'],
         ]);
-        $trial = TrialClass::create($data);
+        DB::beginTransaction();
+        try {
+            $trial = TrialClass::create($data);
+            DB::commit();
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return response()->json([
+                'ok'=>false,
+                'message'=>'Oops, something went wrong. Please try again'
+            ],500);
+        }
 
-        SendTrialToExternalApi::dispatchSync($trial);
+        SendTrialToExternalApi::dispatch($trial)->afterResponse();
+
         $program = Program::find($trial->program_id);
         $emailData = $this->mapTrialToEmailData($trial->toArray(), $program->toArray());
-
-        $response = response()->json([
-            'ok' => true,
-        ]);
-
         dispatch(new SendTrialEmailJob($emailData))->afterResponse();
 
-        return $response;
+        return response()->json(['ok'=>true]);
     }
 
     public function storeLead(Request $r)
@@ -118,7 +125,7 @@ class TrialClassController extends Controller
             'waLabel'       => $this->formatPhone($salesPhone),
 
             'homeUrl'       => url('/'),
-            'heroUrl'       => public_path('assets/kids/email/hero-email.png'),
+            'heroUrl'       => public_path('assets/kids/email/hero-email.webp'),
 
             'location'      => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
             'mapsUrl'       => 'https://maps.app.goo.gl/4oxbeBq5hcua9xw17',

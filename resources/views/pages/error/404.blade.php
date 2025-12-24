@@ -10,7 +10,7 @@
         subtitle="Tautan yang kamu buka tidak tersedia atau sudah dipindahkan."
         buttonText="Kembali ke Home"
         :buttonHref="route('home', absolute: false)"
-        :image="asset('assets/kids/error/img-404.png')"
+        :image="asset('assets/kids/error/img-404.webp')"
         imageAlt="404 Not Found"
         note="Periksa kembali URL untuk memastikan tidak ada kesalahan pengetikan."
     />

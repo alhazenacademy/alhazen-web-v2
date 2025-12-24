@@ -92,8 +92,8 @@ class Tutor extends Model
         }
 
         $fallback = $this->gender === 'female'
-            ? asset('assets/kids/index-tutor/female-pic.png')
-            : asset('assets/kids/index-tutor/male-pic.png');
+            ? asset('assets/kids/index-tutor/female-pic.webp')
+            : asset('assets/kids/index-tutor/male-pic.webp');
 
         return $fallback;
     }

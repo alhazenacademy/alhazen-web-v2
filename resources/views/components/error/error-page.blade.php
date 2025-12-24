@@ -33,7 +33,7 @@
     $title    = $title    ?? 'Ups! Terjadi kesalahan di server.';
     $subtitle = $subtitle ?? 'Kami sedang mencoba memperbaikinya. Silakan coba lagi beberapa saat lagi.';
 
-    $image    = $image    ?? asset('assets/kids/error/img-500.png');
+    $image    = $image    ?? asset('assets/kids/error/img-500.webp');
     $imageAlt = $imageAlt ?? ($code . ' Error');
 
     // Note optional: kalau kamu mau default, boleh diisi; kalau nggak, biarin null

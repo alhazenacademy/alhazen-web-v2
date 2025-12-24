@@ -913,3 +913,86 @@
         cursor: not-allowed;
     }
 }
+
+/* Paket */
+@layer base {
+    .swiper-paket {
+        position: relative;
+        overflow: visible;
+    }
+
+    .swiper-paket .swiper-slide {
+        height: auto; /* natural seperti tutor */
+    }
+}
+
+@layer utilities {
+    /* Card Paket */
+    .paket-card {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        /* TIDAK pakai height:100% */
+    }
+
+    /* Pagination */
+    .swiper-paket .swiper-pagination,
+    .paket-pagination {
+        position: static !important;
+        width: auto !important;
+        display: inline-flex !important;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+    }
+
+    .swiper-paket .swiper-pagination-bullet {
+        width: 9px;
+        height: 9px;
+        background: color-mix(in oklab, var(--color-primary) 55%, #d1d5db);
+        opacity: 0.45;
+        transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .swiper-paket .swiper-pagination-bullet-active {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+        transform: scale(1.1);
+        background: var(--color-primary);
+        box-shadow: 0 0 0 3px
+            color-mix(in oklab, var(--color-primary) 18%, transparent);
+    }
+
+    /* Navigation */
+    .paket-prev,
+    .paket-next {
+        color: var(--color-text);
+    }
+
+    .swiper-button-disabled.paket-prev,
+    .swiper-button-disabled.paket-next {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+}
+
+/* Padding ringan seperti tutor */
+@media (min-width: 1024px) {
+    .swiper-paket {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;     /* IE & Edge */
+    scrollbar-width: none;        /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari */
+}
+
+
+/* End Paket */

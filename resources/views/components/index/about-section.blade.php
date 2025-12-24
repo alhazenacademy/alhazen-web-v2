@@ -6,7 +6,7 @@
                     class="absolute -top-1 -left-4 sm:-top-1 sm:left-6 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-96 lg:h-96 bg-[#10B981] rounded-full opacity-12 z-0">
                 </div>
 
-                <img src="{{ asset('assets/kids/index-about/maskot-laptop.png') }}" alt="Maskot Alhazen Academy"
+                <img src="{{ asset('assets/kids/index-about/maskot-laptop.webp') }}" alt="Maskot Alhazen Academy"
                     class="w-3/4 md:w-4/5 h-auto object-cover relative z-10 mx-auto" loading="lazy">
             </div>
 

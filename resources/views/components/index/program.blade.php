@@ -5,8 +5,8 @@
                 <div class="mx-auto max-w-4xl flex flex-col md:flex-row items-start justify-center gap-5">
 
                     {{-- Icon kiri (muncul mulai md) --}}
-                    <img src="{{ asset('assets/kids/index-program/icon1.png') }}" alt="Grad cap icon"
-                        class="hidden md:block w-15 h-15 md:me-2 -rotate-45" loading="lazy" aria-hidden="true">
+                    {{-- <img src="{{ asset('assets/kids/index-program/icon1.png') }}" alt="Grad cap icon"
+                        class="hidden md:block w-15 h-15 md:me-2 -rotate-45" loading="lazy" aria-hidden="true"> --}}
 
                     {{-- Judul + subjudul --}}
                     <div class="text-center pt-5">
@@ -19,8 +19,8 @@
                     </div>
 
                     {{-- Icon kanan (muncul mulai md) --}}
-                    <img src="{{ asset('assets/kids/index-program/icon2.png') }}" alt="Laptop icon"
-                        class="hidden md:block w-15 h-15 md:ms-2 rotate-45" loading="lazy" aria-hidden="true">
+                    {{-- <img src="{{ asset('assets/kids/index-program/icon2.png') }}" alt="Laptop icon"
+                        class="hidden md:block w-15 h-15 md:ms-2 rotate-45" loading="lazy" aria-hidden="true"> --}}
 
                 </div>
             </div>
@@ -28,7 +28,7 @@
 
         <div class="relative">
             <!-- Gambar background di pojok kiri atas -->
-            <img src="{{ asset('assets/kids/index-program/maskot-hi.png') }}" alt="Kid waving"
+            <img src="{{ asset('assets/kids/index-program/maskot-hi.webp') }}" alt="Kid waving"
                 class="hidden lg:block absolute left-20 bottom-75 -rotate-20 w-auto h-60 translate-y-2 md:-translate-y-4 opacity-90 object-contain z-0 pointer-events-none drop-shadow-xl"
                 loading="lazy">
 
@@ -46,7 +46,7 @@
                                 : route($card['url'], ['tab' => $card['key'] ?? Str::slug($card['title'])], false) . '#program' }}'">
 
                             @php
-                                $fallback = asset('assets/kids/program-detail/anak.png');
+                                $fallback = asset('assets/kids/program-detail/anak.webp');
 
                                 $photo = $card['child'] ?? null;
                             @endphp
