@@ -84,7 +84,7 @@ class LandingController extends Controller
                     'text-color' => $info->text_color_class ?? 'text-[#0F172A]',
                     'child' => $info
                         ? $info->child_image_url   // <-- ini pakai accessor
-                        : asset('assets/kids/program-detail/anak.png'),
+                        : asset('assets/kids/program-detail/anak.webp'),
                     'icon' => $info && $info->icon_path
                         ? asset($info->icon_path)
                         : null,
@@ -102,7 +102,7 @@ class LandingController extends Controller
         $programCards[] = [
             'bg' => 'bg-[#E5E7EB]',
             'text-color' => 'text-[#0F172A]',
-            'child' => asset('assets/kids/program-detail/anak.png'),
+            'child' => asset('assets/kids/program-detail/anak.webp'),
             'icon' => asset('assets/kids/program-detail/icon-program6.png'),
             'title' => 'View All',
             'sub' => 'Explore all our courses',
@@ -178,7 +178,7 @@ class LandingController extends Controller
                 'textColor' => $info->text_color_class ?? 'text-[#0F172A]',
                 'child' => $info
                     ? $info->child_image_url   // <-- ini pakai accessor
-                    : asset('assets/kids/program-detail/anak.png'),
+                    : asset('assets/kids/program-detail/anak.webp'),
                 'sub' => $info->short_tagline
                     ?? $info->subtitle
                     ?? '',
@@ -354,7 +354,7 @@ class LandingController extends Controller
                 $ogImage = url($coverPath);
             }
         } else {
-            $ogImage = asset('assets/nav-logo.png');
+            $ogImage = asset('assets/nav-logo.webp');
         }
 
         // Section Footer

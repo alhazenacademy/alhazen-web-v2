@@ -3,7 +3,7 @@
     $waHref = 'https://wa.me/' . $salesPhone . '?text=' . urlencode($waText);
 @endphp
 <div x-data="trialForm({ times: @js($times), postUrl: @js(route("trial.store", [], false)), leadUrl: @js(route("leads.store", [], false)) })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
-    style="background-image: url('{{ asset('assets/kids/bg-booking.png') }}');">
+    style="background-image: url('{{ asset('assets/kids/bg-booking.webp') }}');">
 
     <section class="relative w-full py-10 md:py-14 bg-[var(--color-background)]/0 ">
         <div class="mx-auto w-full max-w-[700px] px-4">
@@ -421,7 +421,7 @@
                                         </p>
 
                                         <div class="mt-3 grid place-items-center">
-                                            <img src="{{ asset('assets/kids/kazen-laptop.png') }}"
+                                            <img src="{{ asset('assets/kids/kazen-laptop.webp') }}"
                                                 alt="Pendaftaran Berhasil"
                                                 class="max-w-[220px] h-auto select-none pointer-events-none"
                                                 onerror="this.style.display='none'">

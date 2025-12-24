@@ -1,6 +1,6 @@
 @props([
     // BG pattern
-    'bgPattern' => asset('assets/kids/katalog-cta/book-shop-bg.png'),
+    'bgPattern' => asset('assets/kids/katalog-cta/book-shop-bg.webp'),
 
     // Heading area
     'title' => 'Ingin pesan buku atau butuh rekomendasi yang paling cocok untuk anak?',
@@ -11,7 +11,7 @@
     'ctaAria' => 'Hubungi via WhatsApp',
 
     // Phone image tunggal
-    'phone' => asset('assets/kids/katalog-cta/phone.png'),
+    'phone' => asset('assets/kids/katalog-cta/phone.webp'),
 
     // >>> Baru: sumber nomor & pesan WA
     'salesPhone' => null, // contoh: 0812xxxx / +62812xxxx / 62812xxxx

@@ -125,7 +125,7 @@ class TrialClassController extends Controller
             'waLabel'       => $this->formatPhone($salesPhone),
 
             'homeUrl'       => url('/'),
-            'heroUrl'       => public_path('assets/kids/email/hero-email.png'),
+            'heroUrl'       => public_path('assets/kids/email/hero-email.webp'),
 
             'location'      => 'Plaza Kaha, Jl. KH Abdullah Syafei No.21 C, Bukit Duri, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12840',
             'mapsUrl'       => 'https://maps.app.goo.gl/4oxbeBq5hcua9xw17',

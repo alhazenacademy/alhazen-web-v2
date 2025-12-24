@@ -4,7 +4,7 @@
     <x-index.hero
         heroTitle="Build the <span class='text-secondary' style='font-family: inherit'>Future</span>, One Code at a Time!"
         heroSubtitle="Temukan dunia seru penuh imajinasi lewat Coding, AI, dan Robotika! Belajar teknologi kini bisa semenyenangkan bermain."
-        heroCtaText="Daftar Kelas Gratis" heroCtaHref="{{ route('trial') }}" :heroImages="[asset('assets/kids/index-hero/banner.png')]"
+        heroCtaText="Daftar Kelas Gratis" heroCtaHref="{{ route('trial') }}" :heroImages="[asset('assets/kids/index-hero/banner.webp')]"
         googleIcon="{{ asset('assets/kids/index-hero/google-rate.png') }}" />
 
     <x-index.about-section id="about" title="Tentang Alhazen Academy"
@@ -55,7 +55,7 @@
 
     <x-index.alhazen-goes-to-school title="Alhazen Goes to School"
         content="<strong>Alhazen goes to School</strong> adalah program yang bekerjasama dengan beberapa sekolah maupun pesantren dalam bentuk ekstrakulikuler maupun tambahan kurikulum koding di sekolah/pesantren.<br><br>Bertujuan untuk melihat <strong>peluang, kesiapan kemajuan pendidikan, dan perkembangan teknologi</strong> masa kini dan masa yang akan datang sehingga dapat meluluskan SDM Muslim yang berkualitas dan dapat bersaing di era teknologi 4.0."
-        image="{{ asset('assets/kids/index-alhazen-goes-to-school/coding-school.jpg') }}" :cards="[
+        image="{{ asset('assets/kids/index-alhazen-goes-to-school/coding-school.webp') }}" :cards="[
             [
                 'no' => '1',
                 'text-color' => 'text-[#FACC15]',
@@ -91,7 +91,7 @@
                 'bg' => 'bg-[#0EA5A0]',
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon1.png'),
-                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.webp'),
                 'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama kurikulum di Alhazen.'),
             ],
             [
@@ -100,7 +100,7 @@
                 'bg' => 'bg-[#FACC15]',
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon2.png'),
-                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.webp'),
                 'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama buku pelajaran di Alhazen.'),
             ],
             [
@@ -109,7 +109,7 @@
                 'bg' => 'bg-[#9333EA]',
                 'text-color' => 'text-[#F9FAFB]',
                 'icon' => asset('assets/kids/program-kerjasama/icon3.png'),
-                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.webp'),
                 'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama coding extracurricular di Alhazen.'),
             ],
             [
@@ -118,7 +118,7 @@
                 'bg' => 'bg-[#E5E7EB]',
                 'text-color' => 'text-[#0F172A]',
                 'icon' => asset('assets/kids/program-kerjasama/icon4.png'),
-                'child' => asset('assets/kids/program-kerjasama/anak.png'),
+                'child' => asset('assets/kids/program-kerjasama/anak.webp'),
                 'url' => 'https://wa.me/' . $salesPhone . '?text=' . urlencode('Halo, saya mau konsultasi program kerjasama di Alhazen.'),
             ],
         ]" />
@@ -148,14 +148,14 @@
                 'bg-text' => 'bg-[#EB5353]',
             ],
             [
-                'image' => asset('assets/kids/student-work/student-work-4.jpg'),
+                'image' => asset('assets/kids/student-work/student-work-4.webp'),
                 'title' => 'Dzikir App',
                 'description' => 'Dibuat oleh Shofiyya Edi (Kelas 5 SD) menggunakan Thunkable',
                 'category' => 'Application',
                 'bg-text' => 'bg-[#faa52d]',
             ],
             [
-                'image' => asset('assets/kids/student-work/student-work-5.jpg'),
+                'image' => asset('assets/kids/student-work/student-work-5.webp'),
                 'title' => 'Camping and Glamping',
                 'description' => 'Dibuat oleh Karenita (Kelas 4 SD) menggunakan Thunkable',
                 'category' => 'Application',
@@ -167,7 +167,7 @@
         description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
         :cards="[
             [
-                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.jpg'),
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.webp'),
                 'name' => 'Faiz',
                 'quote' =>
                     'Belajar di Alhazen itu seru banget! Aku bisa bikin game sendiri dan ngerti logika program tanpa merasa sulit. Sekarang aku malah bantu teman lain buat belajar coding juga!',
@@ -178,7 +178,7 @@
                 'video_url' => 'https://www.youtube.com/embed/TD_mEqbTlcM', // untuk youtube pakai /embed
             ],
             [
-                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-2.jpg'),
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-2.webp'),
                 'name' => 'Malfy',
                 'quote' =>
                     'Seru, belajarnya santai dan kakak tutornya baik. Jelasinnya pelan² jadi gampang buat paham materinya, dan juga dapat tantangan baru belajar dunia coding',
@@ -189,7 +189,7 @@
                 'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
             ],
             [
-                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-3.jpg'),
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-3.webp'),
                 'name' => 'Rauf Deriel',
                 'quote' => 'Menurutku kelas ini sangat menyenangkan, dan materi dapat dipahami dengan mudah.',
                 'school' => 'Siswa SMP',
@@ -208,31 +208,31 @@
         description="Kami berkolaborasi dengan berbagai sekolah, lembaga, dan komunitas pendidikan untuk menghadirkan pembelajaran teknologi terbaik bagi anak Indonesia."
         :logos="[
             [
-                'src' => asset('assets/kids/client/al-wafi-islamic-boarding-school.png'),
+                'src' => asset('assets/kids/client/al-wafi-islamic-boarding-school.webp'),
                 'alt' => 'al-wafi-islamic-boarding-school',
             ],
             [
-                'src' => asset('assets/kids/client/ibnu-taimiyah-islamic-boarding-school.png'),
+                'src' => asset('assets/kids/client/ibnu-taimiyah-islamic-boarding-school.webp'),
                 'alt' => 'ibnu-taimiyah-islamic-boarding-school',
             ],
             [
-                'src' => asset('assets/kids/client/madrasah-aliyah-salafiyah-ulya.jpg'),
+                'src' => asset('assets/kids/client/madrasah-aliyah-salafiyah-ulya.webp'),
                 'alt' => 'madrasah-aliyah-salafiyah-ulya',
             ],
             [
-                'src' => asset('assets/kids/client/metropolitan-islamic-school.jpg'),
+                'src' => asset('assets/kids/client/metropolitan-islamic-school.webp'),
                 'alt' => 'metropolitan-islamic-school',
             ],
             [
-                'src' => asset('assets/kids/client/pendidikan-integral-hidayatullah.png'),
+                'src' => asset('assets/kids/client/pendidikan-integral-hidayatullah.webp'),
                 'alt' => 'pendidikan-integral-hidayatullah',
             ],
             [
-                'src' => asset('assets/kids/client/sekolah-bina-insan-mandiri.jpeg'),
+                'src' => asset('assets/kids/client/sekolah-bina-insan-mandiri.webp'),
                 'alt' => 'sekolah-bina-insan-mandiri',
             ],
             [
-                'src' => asset('assets/kids/client/sma-it-putri-al-hanif.jpg'),
+                'src' => asset('assets/kids/client/sma-it-putri-al-hanif.webp'),
                 'alt' => 'sma-it-putri-al-hanif',
             ],
         ]" />

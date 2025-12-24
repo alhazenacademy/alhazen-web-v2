@@ -83,7 +83,7 @@
                         <tr>
                             <td style="padding:24px 16px 8px 16px;" align="left">
                                 <a href="{{ $homeUrl ?? url('/') }}" target="_blank" style="display:inline-block;">
-                                    <img src="{{ $message->embed(public_path('assets/nav-logo.png')) }}" alt="Alhazen Academy" width="160" height="auto">
+                                    <img src="{{ $message->embed(public_path('assets/nav-logo.webp')) }}" alt="Alhazen Academy" width="160" height="auto">
                                 </a>
                             </td>
                         </tr>

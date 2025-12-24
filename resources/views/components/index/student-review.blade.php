@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-8xl">
         <div id="reviews-stack" class="relative overflow-visible">
 
-            <img id="mascot-review" src="{{ asset('assets/kids/index-student-review/maskot-toa.png') }}" alt="Maskot Alhazen" class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 sm:w-50 lg:w-70 drop-shadow-xl" loading="lazy" />
+            <img id="mascot-review" src="{{ asset('assets/kids/index-student-review/maskot-toa.webp') }}" alt="Maskot Alhazen" class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 sm:w-50 lg:w-70 drop-shadow-xl" loading="lazy" />
 
             <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
                 <h2 class="text-h2 font-bold text-primary mb-4">{!! $title !!}</h2>

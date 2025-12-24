@@ -10,7 +10,7 @@
         subtitle="Kami sedang mencoba memperbaikinya. Silakan coba lagi beberapa saat lagi."
         buttonText="Kembali ke Home"
         :buttonHref="route('home', absolute: false)"
-        :image="asset('assets/kids/error/img-500.png')"
+        :image="asset('assets/kids/error/img-500.webp')"
         imageAlt="500 Server Error"
         note="Jika masalah terus berulang, hubungi tim Alhazen."
     />

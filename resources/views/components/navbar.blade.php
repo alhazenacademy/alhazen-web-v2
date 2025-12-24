@@ -1,5 +1,5 @@
 @php
-    $logo = asset('assets/nav-logo.png');
+    $logo = asset('assets/nav-logo.webp');
 
     $nav = [
         ['route' => 'home', 'label' => 'Home'],

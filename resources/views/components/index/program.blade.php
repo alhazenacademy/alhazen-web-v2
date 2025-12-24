@@ -28,7 +28,7 @@
 
         <div class="relative">
             <!-- Gambar background di pojok kiri atas -->
-            <img src="{{ asset('assets/kids/index-program/maskot-hi.png') }}" alt="Kid waving"
+            <img src="{{ asset('assets/kids/index-program/maskot-hi.webp') }}" alt="Kid waving"
                 class="hidden lg:block absolute left-20 bottom-75 -rotate-20 w-auto h-60 translate-y-2 md:-translate-y-4 opacity-90 object-contain z-0 pointer-events-none drop-shadow-xl"
                 loading="lazy">
 
@@ -46,7 +46,7 @@
                                 : route($card['url'], ['tab' => $card['key'] ?? Str::slug($card['title'])], false) . '#program' }}'">
 
                             @php
-                                $fallback = asset('assets/kids/program-detail/anak.png');
+                                $fallback = asset('assets/kids/program-detail/anak.webp');
 
                                 $photo = $card['child'] ?? null;
                             @endphp

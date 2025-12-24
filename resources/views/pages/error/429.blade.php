@@ -10,7 +10,7 @@
         subtitle="Silakan tunggu beberapa saat sebelum mencoba kembali."
         buttonText="Kembali ke Home"
         :buttonHref="route('home', absolute: false)"
-        :image="asset('assets/kids/error/img-429.png')"
+        :image="asset('assets/kids/error/img-429.webp')"
         imageAlt="429 Too Many Requests"
         note="Pembatasan ini membantu melindungi akunmu dari penyalahgunaan."
     />

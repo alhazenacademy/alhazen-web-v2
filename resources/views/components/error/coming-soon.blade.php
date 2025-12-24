@@ -5,7 +5,7 @@
     'buttonHref' => route('home', absolute: false),
     // target tanggal rilis (YYYY-MM-DDTHH:MM:SS)
     'launchAt' => '2024-12-31T00:00:00',
-    'image' => '/assets/kids/coming-soon/img-coming-soon.png',
+    'image' => '/assets/kids/coming-soon/img-coming-soon.webp',
     'imageAlt' => 'Coming Soon',
 ])
 

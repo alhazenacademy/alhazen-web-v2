@@ -8,7 +8,7 @@
         code="503"
         title="Alhazen sedang dalam perbaikan."
         subtitle="Kami sedang melakukan pemeliharaan sistem. Silakan coba lagi nanti."
-        :image="asset('assets/kids/error/img-503.png')"
+        :image="asset('assets/kids/error/img-503.webp')"
         imageAlt="Maintenance"
         note="Terima kasih sudah menunggu. Silakan coba reload halaman dalam beberapa menit."
     />

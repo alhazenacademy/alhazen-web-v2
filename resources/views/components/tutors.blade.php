@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-8xl">
         <div id="tutors-stack" class="relative overflow-visible">
 
-            <img src="{{ asset('assets/kids/index-tutor/maskot-laptop.png') }}" alt="Maskot"
+            <img src="{{ asset('assets/kids/index-tutor/maskot-laptop.webp') }}" alt="Maskot"
                 class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 lg:w-70 drop-shadow-xl ml-20"
                 loading="lazy" />
 
@@ -23,8 +23,8 @@
                                     @php
                                         $fallback =
                                             ($card['gender'] ?? 'male') === 'female'
-                                                ? asset('assets/kids/index-tutor/female-pic.png')
-                                                : asset('assets/kids/index-tutor/male-pic.png');
+                                                ? asset('assets/kids/index-tutor/female-pic.webp')
+                                                : asset('assets/kids/index-tutor/male-pic.webp');
 
                                         $photo = $card['photo'] ?? null;
                                     @endphp

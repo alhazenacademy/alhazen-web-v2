@@ -5,7 +5,7 @@
     // cards: bg, icon, child, title, sub, url, text-color
     'cards' => [],
     // opsional dekorasi maskot
-    'mascot' => asset('assets/kids/index-program/maskot-hi.png'),
+    'mascot' => asset('assets/kids/index-program/maskot-hi.webp'),
 ])
 
 <section class="relative py-10 md:py-14">

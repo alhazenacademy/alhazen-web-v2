@@ -43,7 +43,7 @@
             </div>
 
             <div class="hidden lg:block absolute top-0 right-3 z-10 pointer-events-none select-none translate-y-[calc(-100%+1rem)]"> 
-                <img src="{{ asset('assets/kids/index-student-work/maskot-mendali.png') }}" class="w-32 sm:w-40 lg:w-52 object-contain drop-shadow-xl" alt="" loading="lazy" decoding="async">
+                <img src="{{ asset('assets/kids/index-student-work/maskot-mendali.webp') }}" class="w-32 sm:w-40 lg:w-52 object-contain drop-shadow-xl" alt="" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
