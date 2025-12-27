@@ -4,6 +4,7 @@
         'Belajar Coding dengan tutor berpengalaman dan professional di Alhazen Academy. Kami menyediakan program pelatihan online, offline, dan privat',
     'ogImage' => asset('assets/nav-logo.webp'),
     'theme' => 'kids', // 'kids' | 'pro'
+    'canonical' => null,
 ])
 
 @php
@@ -37,9 +38,13 @@
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $description }}">
 
+    <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
+
     <x-og :title="$title" :description="$description" :image="$ogImage" />
     <link rel="icon" href="{{ asset('assets/logo.webp') }}" type="image/x-icon">
 
+    {{-- Prevent indexing on staging --}}
+    <meta name="robots" content="noindex, nofollow">
 
     @vite(['resources/css/landing.css', 'resources/js/landing.js'])
 </head>
