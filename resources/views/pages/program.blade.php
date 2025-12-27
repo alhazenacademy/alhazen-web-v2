@@ -3,7 +3,7 @@
 
     <x-program.hero title="Bangun Kreativitas Anak Lewat Teknologi !"
         subtitle="Alhazen Academy membantu anak memahami teknologi lewat program coding, animasi, robotika, dan desain interaktif."
-        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}" imgHero="assets/kids/program/card-photo.webp" />
+        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}" imgHero="assets/kids/program/lainnya-hero.webp" />
 
     <x-program.detail-program slogan="Sesuaikan Program, Maksimalkan Potensi Anak"
         title="Semua kurikulum telah terakreditasi STEM.org."
