@@ -1,14 +1,36 @@
-<x-layout title="Kursus Roblox Studio untuk Anak - Alhazen Academy" 
+<x-layout title="Kursus Roblox Studio untuk Anak - Alhazen Academy"
     description="Kursus Roblox untuk anak dengan metode pembelajaran yang fun dan interaktif. Asah logika dan kreativitas dengan membuat game 3D sendiri sejak dini."
     wa-message="Halo, saya mau konsultasi Roblox Studio di Alhazen." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-program.hero title="Belajar Coding dan Game Development dengan Roblox Studio"
         subtitle="Program pembelajaran yang membantu anak memahami logika pemrograman dan scripting Lua melalui pembuatan game Roblox."
-        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}"
-        imgHero="assets/kids/program/roblox-hero.webp" />
+        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}" imgHero="assets/kids/program/roblox-hero.webp" />
 
     @php
+        $whatIsItems = [
+            [
+                'title' => 'Roblox',
+                'icon' => 'assets/kids/program/roblox-icon.png',
+                'iconBg' => 'bg-primary/10',
+                'content' => [
+                    '<strong>Roblox</strong> adalah platform game online tempat anak-anak dapat bermain jutaan game yang dibuat oleh pengguna dari seluruh dunia.',
+                    'Di Roblox, anak tidak hanya bermain, tetapi juga belajar berinteraksi, memecahkan masalah, dan memahami cara kerja dunia digital.',
+                    'Dengan pengawasan dan panduan yang tepat, Roblox dapat menjadi sarana bermain yang positif sekaligus edukatif.',
+                ],
+            ],
+            [
+                'title' => 'Roblox Studio',
+                'icon' => 'assets/kids/program/roblox-studio-icon.png',
+                'iconBg' => 'bg-purple-100',
+                'content' => [
+                    '<strong>Roblox Studio</strong> adalah tools resmi dari Roblox yang digunakan untuk membuat game sendiri.',
+                    'Anak-anak belajar merancang dunia game, mengatur objek, dan menulis logika sederhana menggunakan bahasa pemrograman <strong>Lua</strong>.',
+                    'Di sinilah proses <em>belajar coding</em> terjadi secara menyenangkan — anak belajar berpikir logis, kreatif, dan sistematis melalui proyek game mereka sendiri.',
+                ],
+            ],
+        ];
+
         $formats = [
             [
                 '1',
@@ -45,7 +67,9 @@
         ];
     @endphp
 
-    <x-program.tentang-kursus :formats="$formats" :learns="$learns" :targets="$targets" />
+    <x-program.tentang-kursus whatIsTitle="Apa itu Roblox & Roblox Studio?"
+        whatIsSubtitle="Platform bermain dan belajar yang menggabungkan kreativitas, logika, dan teknologi"
+        :whatIsItems="$whatIsItems" :formats="$formats" :learns="$learns" :targets="$targets" />
 
     @php
         $card_paket = [
@@ -91,8 +115,19 @@
     <x-program.paket-kursus title="Program Belajar Kami"
         description="Program ini mengajak anak belajar membuat game Roblox sendiri menggunakan Roblox Studio. Mulai dari dasar pembuatan game hingga membangun dunia 3D yang seru dan interaktif."
         :cards="$card_paket" />
-    
-    <x-program.panduan-ortu :umur="10" />
+
+    @php
+        $requirementsRobloxStudio = [
+            'Anak memiliki <strong>minat pada game Roblox</strong> dan ingin belajar membuat game sendiri.',
+            'Sudah mengenal <strong>dasar penggunaan komputer</strong> (file, mouse, keyboard).',
+            'Memiliki <strong>laptop atau PC pribadi</strong> dengan spesifikasi minimal <strong>Intel Core i3</strong> atau setara dan <strong>RAM 8 GB</strong>.',
+            'Perangkat mendukung instalasi dan penggunaan <strong>Roblox Studio</strong>.',
+            'Mampu mengikuti pembelajaran daring menggunakan <strong>Zoom</strong> atau <strong>Google Meet</strong>.',
+            'Pendampingan orang tua sangat dianjurkan untuk anak usia <strong>di bawah 10 tahun</strong>.',
+        ];
+    @endphp
+
+    <x-program.panduan-ortu :umur="10" :requirements="$requirementsRobloxStudio" />
 
     @php
         $image_preview = [

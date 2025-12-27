@@ -1,14 +1,36 @@
-<x-layout title="Kursus Coding Anak Terbaik (SD - SMA) - Alhazen Academy" 
+<x-layout title="Kursus Coding Anak Terbaik (SD - SMA) - Alhazen Academy"
     description="Kursus coding anak terbaik dengan metode pembelajaran online dan offline. Latih pengetahuan logika anak usia 5 -17 tahun (SD Hingga SMA)."
     wa-message="Halo, saya mau konsultasi kursus coding anak di Alhazen." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-program.hero title="Saatnya Anak Belajar Coding dengan Cara yang Menyenangkan !"
         subtitle="Program interaktif yang membangun logika dan kreativitas lewat pembuatan game, animasi, dan aplikasi."
-        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}"
-        imgHero="assets/kids/program/scratch-hero.webp" />
+        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}" imgHero="assets/kids/program/scratch-hero.webp" />
 
     @php
+        $whatIsItems = [
+            [
+                'title' => 'Block Coding',
+                'icon' => 'assets/kids/program/block-coding-icon.png',
+                'iconBg' => 'bg-primary/10',
+                'content' => [
+                    '<strong>Block Coding</strong> adalah metode belajar coding dengan cara menyusun blok-blok visual seperti puzzle.',
+                    'Anak tidak perlu mengetik kode yang rumit, cukup menyusun blok perintah untuk membuat animasi, game, atau aplikasi sederhana.',
+                    'Metode ini membantu anak memahami logika, urutan, dan sebab–akibat dengan cara yang menyenangkan dan mudah dipahami.',
+                ],
+            ],
+            [
+                'title' => 'Scratch & Thunkable',
+                'icon' => 'assets/kids/program/scratch-thunkable-icon.png',
+                'iconBg' => 'bg-neutral/50',
+                'content' => [
+                    '<strong>Scratch</strong> adalah platform block coding populer untuk membuat animasi dan game interaktif.',
+                    '<strong>Thunkable</strong> memungkinkan anak membuat aplikasi Android & iOS dengan cara drag-and-drop tanpa coding rumit.',
+                    'Melalui Scratch dan Thunkable, anak belajar membuat karya digital nyata dari ide mereka sendiri.',
+                ],
+            ],
+        ];
+
         $formats = [
             [
                 '1',
@@ -20,16 +42,8 @@
                 'Tutor 1 on 1 Privat',
                 'Pelajari pemrograman sesuai kecepatan anak dengan guru yang fokus pada 1 anak.',
             ],
-            [
-                '3', 
-                'Sesi Pendampingan Tutor', 
-                'Interaksi dan umpan balik secara langsung dengan tutor yang ditunjuk.'
-            ],
-            [
-                '4', 
-                '60 Menit Setiap Sesi', 
-                'Pelajari topik secara mendalam dengan sesi terfokus selama 60 menit.'
-            ],
+            ['3', 'Sesi Pendampingan Tutor', 'Interaksi dan umpan balik secara langsung dengan tutor yang ditunjuk.'],
+            ['4', '60 Menit Setiap Sesi', 'Pelajari topik secara mendalam dengan sesi terfokus selama 60 menit.'],
         ];
 
         $learns = [
@@ -49,7 +63,9 @@
         ];
     @endphp
 
-    <x-program.tentang-kursus :formats="$formats" :learns="$learns" :targets="$targets" />
+    <x-program.tentang-kursus whatIsTitle="Apa itu Coding untuk Anak?"
+        whatIsSubtitle="Belajar berpikir logis, kreatif, dan problem solving melalui coding yang menyenangkan"
+        :whatIsItems="$whatIsItems" :formats="$formats" :learns="$learns" :targets="$targets" />
 
     @php
         $card_paket = [
@@ -117,8 +133,18 @@
     <x-program.paket-kursus title="Program Belajar Kami"
         description="Program kami menghadirkan pengalaman belajar coding yang seru dan aplikatif melalui proyek game, animasi, dan aplikasi yang dibuat langsung oleh anak."
         :cards="$card_paket" />
-    
-    <x-program.panduan-ortu :umur="7" />
+
+    @php
+        $requirementsCodingAnak = [
+            'Anak sudah mampu <strong>membaca dan memahami instruksi sederhana</strong> untuk mengikuti arahan tutor.',
+            'Memiliki <strong>laptop atau PC pribadi</strong> (disarankan) dengan koneksi internet yang stabil.',
+            'Mampu menggunakan <strong>mouse dan keyboard</strong> secara dasar.',
+            'Familiar atau bersedia belajar menggunakan aplikasi <strong>Zoom</strong> atau <strong>Google Meet</strong>.',
+            'Pendampingan orang tua dianjurkan, terutama untuk anak usia <strong>7–9 tahun</strong>.',
+        ];
+    @endphp
+
+    <x-program.panduan-ortu :umur="7" :requirements="$requirementsCodingAnak" />
 
     @php
         $image_preview = [

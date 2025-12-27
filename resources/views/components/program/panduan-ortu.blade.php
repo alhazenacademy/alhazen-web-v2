@@ -1,4 +1,8 @@
-@props(['umur' => 7])
+@props([
+    'umur' => 7,
+    'requirements' => [],
+])
+
 <section class="relative py-5">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -26,22 +30,42 @@
                 </div>
 
                 {{-- Content --}}
-                <div class="max-w-3xl">
+                <div>
                     <h3 class="font-semibold text-[20px] sm:text-[24px] mb-3">
                         Panduan untuk Orang Tua
                     </h3>
 
+                    {{-- Intro --}}
                     <p class="text-white/90 leading-relaxed mb-4">
                         Program ini paling sesuai untuk anak usia <strong>{{ $umur }} tahun ke atas</strong>.
                         Untuk anak yang lebih kecil, <strong>pendampingan orang tua sangat dianjurkan</strong>,
-                        terutama saat anak perlu menyelesaikan kendala teknis selama sesi belajar.
+                        terutama saat anak menghadapi kendala teknis selama sesi belajar.
                     </p>
 
-                    <p class="text-white/90 leading-relaxed">
+                    <p class="text-white/90 leading-relaxed mb-6">
                         Dukungan sederhana seperti membantu proses login, memastikan perangkat siap digunakan,
                         atau menjaga koneksi internet tetap stabil akan sangat membantu kelancaran pembelajaran
-                        dan membuat anak lebih percaya diri saat belajar.
+                        dan meningkatkan rasa percaya diri anak.
                     </p>
+
+                    {{-- Divider --}}
+                    @if (!empty($requirements))
+                        <div class="h-px bg-white/20 my-5"></div>
+
+                        <h4 class="font-semibold text-[16px] sm:text-[18px] mb-3">
+                            Hal yang Perlu Dipersiapkan
+                        </h4>
+
+                        <ul class="space-y-3 text-white/90 text-sm sm:text-base">
+                            @foreach ($requirements as $item)
+                                <li class="flex gap-3 items-start">
+                                    <span class="mt-1 w-2 h-2 rounded-full bg-white shrink-0"></span>
+                                    <span>{!! $item !!}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+
                 </div>
 
             </div>
