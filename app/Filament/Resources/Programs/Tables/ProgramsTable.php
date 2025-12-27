@@ -35,6 +35,10 @@ class ProgramsTable
                     ->label('Home')
                     ->boolean(),
 
+                IconColumn::make('is_lainnya')
+                    ->label('Lainnya')
+                    ->boolean(),
+
                 IconColumn::make('is_trial')
                     ->label('Trial')
                     ->boolean(),

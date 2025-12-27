@@ -83,7 +83,7 @@ class LandingController extends Controller
                     'bg' => $info->bg_class ?? 'bg-[#E5E7EB]',
                     'text-color' => $info->text_color_class ?? 'text-[#0F172A]',
                     'child' => $info
-                        ? $info->child_image_url   // <-- ini pakai accessor
+                        ? $info->child_image_url   // accessor
                         : asset('assets/kids/program-detail/anak.webp'),
                     'icon' => $info && $info->icon_path
                         ? asset($info->icon_path)
@@ -92,8 +92,13 @@ class LandingController extends Controller
                     'sub' => $info->short_tagline
                         ?? $info->subtitle
                         ?? '',
-                    // sesuaikan route detail programmu
-                    'url' => 'program',
+
+                    // URL berdasarkan nama program
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },
                 ];
             })
             ->values()
@@ -163,6 +168,7 @@ class LandingController extends Controller
                 }
             ])
             ->active()   // scopeActive()
+            ->lainnya()  // scopeLainnya()
             ->ordered()  // scopeOrdered()
             ->get();
         // === Gantikan $tabs ===
