@@ -13,6 +13,7 @@ Route::get('/tentang-kami', [LandingController::class, 'about'])->name('about');
 Route::get('/artikel', [LandingController::class, 'article'])->name('artikel');
 Route::get('/category/{slug}', [LandingController::class, 'category'])
     ->name('category.show');
+Route::get('/holiday-program', [LandingController::class, 'holiday_program'])->name('holiday-program');
 Route::get('/event', [LandingController::class, 'event'])->name('event');
 Route::get('/katalog', action: [LandingController::class, 'katalog'])->name('katalog');
 Route::get('/kelasgratis', [TrialClassController::class, 'index'])->name('trial');

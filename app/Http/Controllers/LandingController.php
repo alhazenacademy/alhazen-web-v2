@@ -627,4 +627,53 @@ class LandingController extends Controller
         ]);
     }
 
+    public function holiday_program()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        // Section Tutors
+        $tutors = Tutor::active()->ordered()->get();
+        $cards = $tutors->map(function (Tutor $t) {
+            return [
+                'name' => $t->name,
+                'years' => $t->years,
+                'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
+                'photo' => $t->photo_url,     // accessor di model (fallback male/female jika null)
+                'bg-photo' => $t->bg_color_safe, // accessor di model (default aman kalau null)
+                'gender' => $t->gender,        // 'male' | 'female'
+                'bio' => $t->bio,
+            ];
+        })->all();
+
+        // Section Footer
+        $settings = SiteSetting::companySettings();
+        $whatsapp = $settings['whatsapp'] ?? null;
+        $email = $settings['email'] ?? null;
+        $website = $settings['website'] ?? null;
+        $address = $settings['address'] ?? null;
+        $socials = collect($settings['socials'] ?? [])
+            ->where('is_active', true)
+            ->sortBy('sort_order');
+        $programLinks = Program::active()
+            ->ordered()
+            ->get()
+            ->map(function (Program $program) {
+                return [
+                    'label' => $program->name,
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },      // nama route: route('program', ['tab' => key])
+                    'key' => $program->key,  // dipakai sebagai tab
+                ];
+            })
+            ->all();
+
+        // Section FAQ
+        $faqs = Faq::active()->ordered()->get();
+
+        return view('pages.event.holiday_program', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
+    }
 }

@@ -3,7 +3,7 @@
     'requirements' => [],
 ])
 
-<section class="relative py-5">
+<section id="panduan-ortu" class="relative py-5">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Star decoration --}}
