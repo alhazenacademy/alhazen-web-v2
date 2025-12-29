@@ -48,7 +48,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },      // nama route: route('program', ['tab' => key])
                     'key' => $program->key,  // dipakai sebagai tab
                 ];
             })
@@ -111,7 +115,7 @@ class LandingController extends Controller
             'icon' => asset('assets/kids/program-detail/icon-program6.png'),
             'title' => 'View All',
             'sub' => 'Explore all our courses',
-            'url' => 'program', // ganti sesuai route index
+            'url' => 'program' // ganti sesuai route index
         ];
 
         return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs', 'programCards', 'programLinks'));
@@ -151,7 +155,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },      // nama route: route('program', ['tab' => key])
                     'key' => $program->key,  // dipakai sebagai tab
                 ];
             })
@@ -242,7 +250,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },      // nama route: route('program', ['tab' => key])
                     'key' => $program->key,  // dipakai sebagai tab
                 ];
             })
@@ -305,7 +317,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },
                     'key' => $program->key,
                 ];
             })
@@ -378,7 +394,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },
                     'key' => $program->key,
                 ];
             })
@@ -408,7 +428,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },      // nama route: route('program', ['tab' => key])
                     'key' => $program->key,  // dipakai sebagai tab
                 ];
             })
@@ -454,7 +478,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },      // nama route: route('program', ['tab' => key])
                     'key' => $program->key,  // dipakai sebagai tab
                 ];
             })
@@ -500,7 +528,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',      // nama route: route('program', ['tab' => key])
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },      // nama route: route('program', ['tab' => key])
                     'key' => $program->key,  // dipakai sebagai tab
                 ];
             })
@@ -565,7 +597,11 @@ class LandingController extends Controller
             ->map(function (Program $program) {
                 return [
                     'label' => $program->name,
-                    'url' => 'program',
+                    'url' => match (strtolower($program->name)) {
+                        'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
+                        'roblox', 'roblox studio' => 'kursus-roblox',
+                        default => 'program',
+                    },
                     'key' => $program->key,
                 ];
             })
