@@ -1,5 +1,5 @@
-<x-layout title="Holiday Program Alhazen Academy, Program Liburan Seru Anak"
-    description="Isi kegiatan libur anak dengan kelas yang seru dan bermanfaat. Asah logika dan kreativitas di Alhazen Holiday Program!"
+<x-layout title="Alhazen Holiday Program, Aktivitas Liburan Seru Anak"
+    description=" Isi kegiatan anak dengan kelas yang seru dan bermanfaat. Asah logika dan kreativitas di Alhazen Holiday Program."
     wa-message="Halo, saya mau konsultasi kursus coding anak di Alhazen." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
