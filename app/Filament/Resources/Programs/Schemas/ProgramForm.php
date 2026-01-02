@@ -215,7 +215,7 @@ class ProgramForm
                 Section::make('Pengaturan Tampilan')
                     ->lazy()
                     ->description('Atur apakah program muncul di halaman home dan form trial.')
-                    ->columns(3)
+                    ->columns(4)
                     ->columnSpan('full')
                     ->schema([
                         Toggle::make('is_active')
@@ -236,6 +236,12 @@ class ProgramForm
                             ->label('Muncul di Home')
                             ->default(false)
                             ->helperText('Tandai jika program ini ditampilkan sebagai kartu di halaman utama.')
+                            ->disabled(fn(Get $get) => !$get('is_active')),
+                        
+                        Toggle::make('is_lainnya')
+                            ->label('Muncul di Lainnya')
+                            ->default(false)
+                            ->helperText('Tandai jika program ini ditampilkan di bagian "Lainnya" pada halaman program.')
                             ->disabled(fn(Get $get) => !$get('is_active')),
 
                         Toggle::make('is_trial')

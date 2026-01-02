@@ -19,6 +19,7 @@ class Program extends Model
         'slug',
         'is_active',
         'is_home',
+        'is_lainnya',
         'is_trial',
         'sort_order',
     ];
@@ -48,6 +49,13 @@ class Program extends Model
     public function scopeHome(Builder $query): Builder
     {
         return $query->where('is_home', true);
+    }
+
+    /** Scope: hanya yang home
+     */
+    public function scopeLainnya(Builder $query): Builder
+    {
+        return $query->where('is_lainnya', true);
     }
 
     /** Scope: yang muncul di Trial Class

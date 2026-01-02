@@ -1,7 +1,7 @@
 @props([
-    'bgDecor' => asset('assets/kids/index-footer/bg-footer.webp'),
+    'bgDecor' => asset('assets/kids/image-footer/bg-footer.webp'),
     'socials' => [],
-    'logo' => asset('assets/kids/index-footer/Alhazen-Logo-white.webp'),
+    'logo' => asset('assets/kids/image-footer/Alhazen-Logo-white.webp'),
     'logoAlt' => 'Alhazen Academy',
     'about' =>
         'PT. Alhazen Global Teknologi adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif. ',

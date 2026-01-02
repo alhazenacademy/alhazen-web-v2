@@ -1,9 +1,9 @@
-<x-layout title="Program — Alhazen Academy" description="Berbagai Program Alhazen Academy" wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
+<x-layout title="Pilihan Beragam Program Kelas Terbaik - Alhazen Academy" description="Berbagai pilihan kelas coding dan teknologi Alhazen Academy untuk anak dan dewasa. Metode belajar fun & interaktif dengan materi paling update di era AI." wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-program.hero title="Bangun Kreativitas Anak Lewat Teknologi !"
         subtitle="Alhazen Academy membantu anak memahami teknologi lewat program coding, animasi, robotika, dan desain interaktif."
-        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}" imgHero="assets/kids/program/card-photo.webp" />
+        ctaText="Daftar Kelas Gratis" ctaHref="{{ route('trial') }}" imgHero="assets/kids/program/lainnya-hero.webp" />
 
     <x-program.detail-program slogan="Sesuaikan Program, Maksimalkan Potensi Anak"
         title="Semua kurikulum telah terakreditasi STEM.org."
