@@ -676,4 +676,53 @@ class LandingController extends Controller
 
         return view('pages.event.holiday_program', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
     }
+
+    public function kursus_blender()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        return view('pages.program.kursus_blender', compact('salesPhone'));
+    }
+
+    public function kursus_python()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        return view('pages.program.kursus_python', compact('salesPhone'));
+    }
+
+    public function kursus_php()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        return view('pages.program.kursus_php', compact('salesPhone'));
+    }
+
+    public function lokasi()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        return view('pages.lokasi', compact('salesPhone'));
+    }
+
+    public function alhazen_hackathon()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        return view('pages.event.alhazen_hackathon', compact('salesPhone'));
+    }
+
+    public function goes_to_school()
+    {   
+        // CTA Sales Phone
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+
+        return view('pages.goes_to_school', compact('salesPhone'));
+    }
+
 }
