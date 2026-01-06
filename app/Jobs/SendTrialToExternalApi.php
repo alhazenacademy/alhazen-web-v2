@@ -38,7 +38,8 @@ class SendTrialToExternalApi
             'TimeZone' => 'WIB',
             'ClassType' => 'Privat (1 on 1)',
             'Branch' => 'Pusat',
-            'Status' => 'Pending'
+            'Status' => 'Pending',
+            'ClassName' => 'Untuk Anak',
         ];
 
         $url = config('services.trial_api.url');

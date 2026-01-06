@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-8xl">
         <div id="reviews-stack" class="relative overflow-visible">
 
-            <img id="mascot-review" src="{{ asset('assets/kids/index-student-review/maskot-toa.webp') }}" alt="Maskot Alhazen" class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 sm:w-50 lg:w-70 drop-shadow-xl" loading="lazy" />
+            <img id="mascot-review" src="{{ asset('assets/kids/index-student-review/maskot-toa.webp') }}" alt="Maskot Alhazen Academy Review Student" class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 sm:w-50 lg:w-70 drop-shadow-xl" loading="lazy" />
 
             <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
                 <h2 class="text-h2 font-bold text-primary mb-4">{!! $title !!}</h2>
@@ -22,7 +22,7 @@
                                         <div @click="openModal()"
                                             class="relative rounded-[18px] overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,.08)] cursor-pointer group">
                                             <div class="aspect-[16/16] w-full rounded-[18px] overflow-hidden">
-                                                <img src="{{ $card['image'] }}" alt="Testimoni {{ $card['name'] }}"
+                                                <img src="{{ $card['image'] }}" alt="Foto siswa {{ $card['name'] }} memberikan testimoni selama belajar coding di Alhazen Academy"
                                                     class="block w-full h-full object-cover" loading="lazy" />
                                             </div>
 

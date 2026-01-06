@@ -41,7 +41,7 @@
 
 <footer class="overflow-hidden relative rounded-t-[56px] inset-0 bg-gradient-to-b from-[#10B981] to-[#065F46]">
     <!-- Decorative icons background -->
-    <img src="{{ $bgDecor }}" alt="Footer Decoration"
+    <img src="{{ $bgDecor }}" alt=""
         class="absolute bottom-0 left-0 w-full object-cover object-bottom opacity-95 pointer-events-none select-none"
         loading="lazy" decoding="async" />
 

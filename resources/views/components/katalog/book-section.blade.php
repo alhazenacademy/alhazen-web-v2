@@ -13,7 +13,7 @@
 <section class="relative py-20">
     <div class="mx-auto max-w-7xl">
         <div class="relative overflow-visible">
-            <img src="{{ asset('assets/kids/katalog-book/maskot-mendali-full.png') }}" alt="Maskot"
+            <img src="{{ asset('assets/kids/katalog-book/maskot-mendali-full.png') }}" alt="Maskot Alhazen Academy"
                 class="hidden lg:block pointer-events-none select-none absolute -top-25 right-40 z-[-1] w-20 lg:w-50 drop-shadow-xl"
                 loading="lazy" />
 

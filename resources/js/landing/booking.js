@@ -367,13 +367,10 @@ window.trialForm = function trialForm(opts = {}) {
 
                 if (!r.ok) throw new Error();
 
-                setTimeout(() => {
-                    this.step = "success";
-                }, 500);
+                this.step = "success";
 
             } catch(e) {
                 alert("Oops, something went wrong. Please try again");
-            } finally {
                 this.loading = false;
             }
         },

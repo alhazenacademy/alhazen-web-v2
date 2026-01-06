@@ -8,14 +8,14 @@
                 <!-- LEFT TOP -->
                 <figure
                     class="absolute left-[10%] top-[150px] rotate-[17deg] w-[120px] sm:w-[160px] lg:w-[200px] aspect-[4/5] rounded-[26px] overflow-hidden shadow-2xl">
-                    <img src="{{ $imgLB }}" alt="" class="w-full h-full object-cover" loading="lazy"
+                    <img src="{{ $imgLB }}" alt="Foto kegiatan Alhazen Hackathon" class="w-full h-full object-cover" loading="lazy"
                         decoding="async">
                 </figure>
 
                 <!-- LEFT BOTTOM -->
                 <figure
                     class="absolute left-[6%] top-[-10px] rotate-[-15deg] w-[120px] sm:w-[160px] lg:w-[200px] aspect-[4/5] rounded-[26px] overflow-hidden shadow-2xl">
-                    <img src="{{ $imgLT }}" alt="" class="w-full h-full object-cover" loading="lazy"
+                    <img src="{{ $imgLT }}" alt="Foto kegiatan Alhazen open booth di Jakarta" class="w-full h-full object-cover" loading="lazy"
                         decoding="async">
                 </figure>
             </div>
@@ -31,7 +31,7 @@
                 </a>
 
                 {{-- LCP image: jangan lazy --}}
-                <img src="{{ $mascot }}" alt="Maskot Alhazen"
+                <img src="{{ $mascot }}" alt="Maskot Alhazen Academy page Tentang Kami"
                     class="mx-auto w-[360px] md:w-[200px] lg:w-[300px] -mt-5 md:-mt-6" fetchpriority="high"
                     decoding="async">
             </div>
@@ -41,14 +41,14 @@
                 <!-- RIGHT TOP -->
                 <figure
                     class="absolute right-[6%] top-[40px] rotate-[12deg] w-[120px] sm:w-[160px] lg:w-[200px] aspect-[4/5] rounded-[26px] overflow-hidden shadow-2xl">
-                    <img src="{{ $imgRT }}" alt="" class="w-full h-full object-cover" loading="lazy"
+                    <img src="{{ $imgRT }}" alt="Foto kegiatan lomba coding Alhazen Academy" class="w-full h-full object-cover" loading="lazy"
                         decoding="async">
                 </figure>
 
                 <!-- RIGHT BOTTOM (lebih besar) -->
                 <figure
                     class="absolute right-[9%] top-[250px] rotate-[-12deg] w-[130px] sm:w-[210px] lg:w-[250px] aspect-[16/11] rounded-[26px] overflow-hidden shadow-2xl">
-                    <img src="{{ $imgRB }}" alt="" class="w-full h-full object-cover" loading="lazy"
+                    <img src="{{ $imgRB }}" alt="Foto kegiatan Alhazen goes to school" class="w-full h-full object-cover" loading="lazy"
                         decoding="async">
                 </figure>
             </div>

@@ -66,7 +66,7 @@
 
                     <img
                         src="{{ $banner }}"
-                        alt="{{ $title }}"
+                        alt="Event tentang {{ $title }}"
                         class="w-full h-auto object-cover"
                         loading="eager"
                     >

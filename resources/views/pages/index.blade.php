@@ -128,6 +128,7 @@
         :cards="[
             [
                 'image' => asset('assets/kids/student-work/student-work-1.avif'),
+                'alt' => 'Hasil karya siswa belajar coding berupa game edukasi Learning Tumbuhan',
                 'title' => 'Learning tumbuhan',
                 'description' => 'Dibuat oleh Ghazan Akhyar (Kelas 2 SD) menggunakan Scratch',
                 'category' => 'Game & Animation',
@@ -135,6 +136,7 @@
             ],
             [
                 'image' => asset('assets/kids/student-work/student-work-2.avif'),
+                'alt' => 'Hasil karya siswa belajar coding berupa game interaktif Ping-Pong',
                 'title' => 'Ping-Pong Game',
                 'description' => 'Dibuat oleh Tsaqif Luqmana (Kelas 5 SD) menggunakan Scratch',
                 'category' => 'Game & Animation',
@@ -142,6 +144,7 @@
             ],
             [
                 'image' => asset('assets/kids/student-work/student-work-3.avif'),
+                'alt' => 'Hasil karya siswa belajar coding berupa game balap mobil sederhana',
                 'title' => 'Car Race Game',
                 'description' => 'Dibuat oleh Muhammad Karim (Kelas 3 SD) menggunakan Scratch',
                 'category' => 'Game & Animation',
@@ -149,6 +152,7 @@
             ],
             [
                 'image' => asset('assets/kids/student-work/student-work-4.webp'),
+                'alt' => 'Hasil karya siswa belajar coding berupa aplikasi Dzikir sederhana',
                 'title' => 'Dzikir App',
                 'description' => 'Dibuat oleh Shofiyya Edi (Kelas 5 SD) menggunakan Thunkable',
                 'category' => 'Application',
@@ -156,27 +160,18 @@
             ],
             [
                 'image' => asset('assets/kids/student-work/student-work-5.webp'),
+                'alt' => 'Hasil karya siswa belajar coding berupa aplikasi Camping and Glamping',
                 'title' => 'Camping and Glamping',
                 'description' => 'Dibuat oleh Karenita (Kelas 4 SD) menggunakan Thunkable',
                 'category' => 'Application',
                 'bg-text' => 'bg-[#faa52d]',
             ],
-        ]" />
+        ]"
+        />
 
     <x-index.student-review title="Review Murid Alhazen"
         description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
         :cards="[
-            [
-                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.webp'),
-                'name' => 'Faiz',
-                'quote' =>
-                    'Belajar di Alhazen itu seru banget! Aku bisa bikin game sendiri dan ngerti logika program tanpa merasa sulit. Sekarang aku malah bantu teman lain buat belajar coding juga!',
-                'school' => 'Mahasiswa IT BINUS',
-                'mode' => 'Online',
-                'rating' => 5,
-                'video_type' => 'youtube', // atau 'mp4'
-                'video_url' => 'https://www.youtube.com/embed/TD_mEqbTlcM', // untuk youtube pakai /embed
-            ],
             [
                 'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-2.webp'),
                 'name' => 'Malfy',
@@ -185,8 +180,9 @@
                 'school' => 'Siswa SMP',
                 'mode' => 'Online',
                 'rating' => 5,
-                'video_type' => 'mp4', // atau 'mp4'
-                'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+                'video_type' => '', // atau 'mp4'
+                'video_url' => ''
+                // 'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
             ],
             [
                 'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-3.webp'),
@@ -195,8 +191,21 @@
                 'school' => 'Siswa SMP',
                 'mode' => 'Online',
                 'rating' => 5,
-                'video_type' => 'mp4', // atau 'mp4'
-                'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+                'video_type' => '', // atau 'mp4'
+                'video_url' => ''
+            ],
+            [
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-1.webp'),
+                'name' => 'Faiz',
+                'quote' =>
+                    'Menyenangkan, asik, cara mengajarnya pun oke, gampang dicerna otak',
+                'school' => 'Mahasiswa IT BINUS',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => '',
+                'video_url' => ''
+                // 'video_type' => 'youtube', // atau 'mp4'
+                // 'video_url' => 'https://www.youtube.com/embed/TD_mEqbTlcM', // untuk youtube pakai /embed
             ],
         ]" />
 
@@ -209,31 +218,31 @@
         :logos="[
             [
                 'src' => asset('assets/kids/client/al-wafi-islamic-boarding-school.webp'),
-                'alt' => 'al-wafi-islamic-boarding-school',
+                'alt' => 'Logo Al Wafi Islamic Boarding School',
             ],
             [
                 'src' => asset('assets/kids/client/ibnu-taimiyah-islamic-boarding-school.webp'),
-                'alt' => 'ibnu-taimiyah-islamic-boarding-school',
+                'alt' => 'Logo Ibnu Taimiyah Islamic Boarding School',
             ],
             [
                 'src' => asset('assets/kids/client/madrasah-aliyah-salafiyah-ulya.webp'),
-                'alt' => 'madrasah-aliyah-salafiyah-ulya',
+                'alt' => 'Logo Madrasah Aliyah Salafiyah Ulya Islamic Centre Bin Baz',
             ],
             [
                 'src' => asset('assets/kids/client/metropolitan-islamic-school.webp'),
-                'alt' => 'metropolitan-islamic-school',
+                'alt' => 'Logo Sekolah Emiisc Jakart',
             ],
             [
                 'src' => asset('assets/kids/client/pendidikan-integral-hidayatullah.webp'),
-                'alt' => 'pendidikan-integral-hidayatullah',
+                'alt' => 'Logo Pendidikan Integral Hidayatullah',
             ],
             [
                 'src' => asset('assets/kids/client/sekolah-bina-insan-mandiri.webp'),
-                'alt' => 'sekolah-bina-insan-mandiri',
+                'alt' => 'Logo SD Bina Insan Mandiri Jakarta',
             ],
             [
                 'src' => asset('assets/kids/client/sma-it-putri-al-hanif.webp'),
-                'alt' => 'sma-it-putri-al-hanif',
+                'alt' => 'Logo SMAIT Putri Al-Hanif',
             ],
         ]" />
 

@@ -18,7 +18,7 @@
                                 <div class="mb-4 flex-shrink-0 rounded-x">
                                     <div
                                         class="w-full h-48 sm:h-56 lg:h-60 flex items-center justify-center overflow-hidden rounded-xl">
-                                        <img src="{{ $card['image'] }}" alt="Student Work - {{ $card['title'] }}" loading="lazy" class="max-w-full max-h-full object-contain" />
+                                        <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}" loading="lazy" class="max-w-full max-h-full object-contain" />
                                     </div>
                                 </div>
 
@@ -43,7 +43,7 @@
             </div>
 
             <div class="hidden lg:block absolute top-0 right-3 z-10 pointer-events-none select-none translate-y-[calc(-100%+1rem)]"> 
-                <img src="{{ asset('assets/kids/index-student-work/maskot-mendali.webp') }}" class="w-32 sm:w-40 lg:w-52 object-contain drop-shadow-xl" alt="" loading="lazy" decoding="async">
+                <img src="{{ asset('assets/kids/index-student-work/maskot-mendali.webp') }}" class="w-32 sm:w-40 lg:w-52 object-contain drop-shadow-xl" alt="Maskot Alhazen Academy Student Work" loading="lazy" decoding="async">
             </div>
         </div>
     </div>

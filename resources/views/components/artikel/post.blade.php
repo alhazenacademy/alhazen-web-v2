@@ -31,7 +31,7 @@
         <header class="mt-6 mb-5">
             <h1 class="text-h2 md:text-h1 font-extrabold">{{ $article->title }}</h1>
             <div class="mt-4 flex flex-wrap items-center gap-3 text-small text-text/70">
-                <img src="{{ $authorAvatar }}" alt="{{ $article->author->name }}" class="size-9 object-cover"
+                <img src="{{ $authorAvatar }}" alt="Profil penulis {{ $article->author->name }}" class="size-9 object-cover"
                     loading="lazy" decoding="async">
                 <span class="font-medium text-text/90">{{ $article->author->name }}</span>
                 @if ($article->published_at_formatted )
@@ -46,7 +46,7 @@
         {{-- Cover --}}
         @if ($article->cover_image_url)
             <figure class="my-6">
-                <img src="{{ $article->cover_image_url }}" alt="" class="w-full h-auto rounded-2xl object-cover">
+                <img src="{{ $article->cover_image_url }}" alt="Artikel tentang {{ $article->title }}" class="w-full h-auto rounded-2xl object-cover">
             </figure>
         @endif
 
