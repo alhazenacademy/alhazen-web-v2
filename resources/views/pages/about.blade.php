@@ -13,12 +13,12 @@
         'Dengan kolaborasi yang telah kami bangun dengan lebih dari 10 sekolah terkemuka dan program inovatif <strong>Alhazen goes to School</strong> yang telah menjangkau lebih dari 100 sekolah di seluruh Indonesia, kami menawarkan pengalaman belajar yang menyenangkan. ',
         'Ditunjang oleh puluhan trainer profesional kami, Alhazen Academy bukan hanya tentang belajar coding, tapi tentang membentuk inovator masa depan yang siap menghadapi tantangan teknologi.',
     ]"
-        imgVision="/assets/kids/about/img-vision.webp" imgVisionAlt="Visi Alhazen Academy" titleVision="Visi Kami"
+        imgVision="/assets/kids/about/img-vision.webp" imgVisionAlt="Kerjasama Alhazen dan Sekolah Al-Azhar" titleVision="Visi Kami"
         :paragraphsVision="[
             'Alhazen Academy berkomitmen untuk menjadi pelopor dalam pendidikan teknologi untuk anak-anak di Indonesia.',
             'Dengan visi mempersiapkan generasi muda yang kreatif, inovatif, dan siap menghadapi tantangan era digital, Alhazen Academy menawarkan pendekatan pembelajaran coding yang tidak hanya menyenangkan tetapi juga mendalam.',
         ]"
-        imgMision="/assets/kids/about/img-mision.webp" imgMisionAlt="Misi Alhazen Academy" titleMision="Misi Kami"
+        imgMision="/assets/kids/about/img-mision.webp" imgMisionAlt="Profil Alhazen Academy" titleMision="Misi Kami"
         :paragraphsMision="[
             'Alhazen Academy memiliki misi untuk membangun fondasi kuat dalam pemrograman bagi anak-anak, dengan mengajarkan mereka mulai dari konsep dasar hingga lanjutan melalui cara yang interaktif dan menarik.',
             'Kami bertujuan menginspirasi siswa agar berinovasi dan berkreasi dengan teknologi, mendorong mereka untuk menerapkan pengetahuan dalam proyek nyata yang memecahkan masalah sehari-hari.',

@@ -41,17 +41,17 @@
                     <div class="relative mx-auto w-[260px] sm:w-[320px] md:w-[360px] lg:w-[420px] aspect-[3/4]">
 
                         {{-- BACK --}}
-                        <img src="{{ asset($coverBack) }}" alt="Book cover"
+                        <img src="{{ asset($coverBack) }}" alt="Book cover 1"
                             class="absolute left-0 top-1/2 -translate-y-1/2 w-[70%] sm:w-[50%] md:w-[55%] lg:w-[60%] h-auto object-cover rounded-2xl shadow-[0_14px_40px_rgba(0,0,0,.15)] translate-x-[85%] select-none pointer-events-none"
                             loading="lazy" decoding="async" />
 
                         {{-- MID --}}
-                        <img src="{{ asset($coverMid) }}" alt="Book cover"
+                        <img src="{{ asset($coverMid) }}" alt="Book cover 2"
                             class="absolute left-0 top-1/2 -translate-y-1/2 w-[78%] sm:w-[60%] md:w-[65%] lg:w-[70%] h-auto object-cover rounded-2xl shadow-[0_16px_44px_rgba(0,0,0,.14)] translate-x-[40%] select-none pointer-events-none"
                             loading="lazy" decoding="async" />
 
                         {{-- FRONT --}}
-                        <img src="{{ asset($coverFront) }}" alt="Book cover"
+                        <img src="{{ asset($coverFront) }}" alt="Book cover 3"
                             class="absolute left-0 top-1/2 -translate-y-1/2 sm:w-[70%] md:w-[75%] lg:w-[80%] h-auto object-cover rounded-2xl shadow-[0_18px_50px_rgba(0,0,0,.14)] translate-x-0 select-none pointer-events-none"
                             loading="lazy" decoding="async" />
 

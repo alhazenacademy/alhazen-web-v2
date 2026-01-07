@@ -395,7 +395,7 @@
                                                     <path class="opacity-100" fill="white"
                                                         d="M12 2a10 10 0 0 1 10 10h-4a6 6 0 0 0-6-6V2z"/>
                                                 </svg>
-                                                Hold on, we're sending your request 🚀
+                                                Submit
                                             </span>
                                         </template>
                                     </button>
@@ -440,7 +440,7 @@
                                             <a href="{{ $waHref }}" target="_blank" rel="noopener noreferrer"
                                                 class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold
                                                 text-white bg-[var(--color-accent)] hover:opacity-90 transition hover:cursor-pointer">
-                                                <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt=""
+                                                <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt="whatsapp icon"
                                                     class="h-5 w-5" aria-hidden="true">
                                                 Chat CS
                                             </a>

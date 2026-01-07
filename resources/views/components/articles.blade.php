@@ -9,8 +9,8 @@
                 <figure
                     class="relative rounded-[28px] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,.15)] transition-shadow duration-300 group-hover:shadow-[0_28px_70px_rgba(0,0,0,.18)]">
 
-                    <img src="{{ $featured->cover_image_url }}" alt="{{ $featured->title }}"
-                        class="w-full h-[240px] sm:h-[320px] md:h-[380px] object-cover
+                    <img src="{{ $featured->cover_image_url }}" alt="Cover artikel tentang {{ $featured->title }}"
+                        class="w-full h-[240px] sm:h-[320px] md:h-[480px] object-cover
                 transition-transform duration-500 ease-out will-change-transform
                 group-hover:scale-[1.06]" />
 
@@ -56,7 +56,7 @@
                 @foreach ($posts as $p)
                     <a href="{{ $p->url ?? '#' }}" class="group block rounded-[20px] p-3 ">
                         <div class="relative rounded-[16px] overflow-hidden">
-                            <img src="{{ $p->cover_image_url }}" alt="{{ $p->title }}"
+                            <img src="{{ $p->cover_image_url }}" alt="Cover artikel tentang {{ $p->title }}"
                                 class="w-full h-[160px] object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06]" />
                             <div class="absolute right-0 bottom-0">
                                 <span class="date-notch text-[12px] font-semibold">{{ $p->published_at_formatted }}</span>

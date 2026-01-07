@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-8xl">
         <div id="tutors-stack" class="relative overflow-visible">
 
-            <img src="{{ asset('assets/kids/index-tutor/maskot-laptop.webp') }}" alt="Maskot"
+            <img src="{{ asset('assets/kids/index-tutor/maskot-laptop.webp') }}" alt="Maskot Alhazen Academy Tutor"
                 class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 lg:w-70 drop-shadow-xl ml-20"
                 loading="lazy" />
 
@@ -33,7 +33,7 @@
                                         <div class="absolute inset-0 -z-10 rounded-[12px] [background:var(--photo-bg)]"></div>
                                         <img src="{{ $photo ?: $fallback }}"
                                             onerror="this.onerror=null;this.src='{{ $fallback }}';"
-                                            alt="{{ $card['name'] ?? 'Tutor' }}"
+                                            alt="{{ $card['name'] ?? '' }} Tutor Alhazen Academy"
                                             class="absolute inset-0 w-full h-full object-cover "
                                             loading="lazy">
                                     </div>

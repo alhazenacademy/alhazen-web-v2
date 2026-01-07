@@ -7,7 +7,7 @@
     <div class="mx-auto max-w-8xl">
         <div id="paket-stack" class="relative overflow-visible">
 
-            <img src="{{ asset('assets/kids/program/maskot-paket.webp') }}" alt="Maskot"
+            <img src="{{ asset('assets/kids/program/maskot-paket.webp') }}" alt="Maskot Alhazen Academy"
                 class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 lg:w-40 drop-shadow-xl ml-45 -mt-10"
                 loading="lazy" />
 
