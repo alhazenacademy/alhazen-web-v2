@@ -2,7 +2,7 @@
     $waText = 'Halo Admin Alhazen, saya sudah daftar kelas trial.';
     $waHref = 'https://wa.me/' . $salesPhone . '?text=' . urlencode($waText);
 @endphp
-<div x-data="trialForm({ times: @js($times), postUrl: @js(route("trial.store", [], false)), leadUrl: @js(route("leads.store", [], false)) })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
+<div x-data="trialForm({ times: @js($times), postUrl: @js(route("trial.store", [], false)), leadUrl: @js(route("leads.store", [], false)), holidays: @js($holidays) })" x-cloak class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
     style="background-image: url('{{ asset('assets/kids/bg-booking.webp') }}');">
 
     <section class="relative w-full py-10 md:py-14 bg-[var(--color-background)]/0 ">
@@ -240,21 +240,31 @@
                                             <input type="hidden" name="schedule_time" :value="form.schedule_time"
                                                 required>
 
-                                            <div
-                                                class="grid items-start gap-4 md:[grid-template-columns:minmax(320px,1fr)_1fr]">
+                                            <div 
+                                                class="grid grid-cols-1 gap-4 md:[grid-template-columns:minmax(320px,1fr)_1fr]">
                                                 <!-- KIRI: Kalender -->
-                                                <div class="calendar-wrap rounded-xl h-full overflow-visible md:min-w-[320px] md:pr-1
-                                                    [&_.flatpickr-calendar]:block
-                                                    [&_.flatpickr-calendar]:w-full
-                                                    [&_.flatpickr-calendar]:max-w-full
-                                                    [&_.flatpickr-calendar]:m-0"
+                                                <div class="calendar-wrap rounded-xl md:min-w-[320px] md:pr-1
+                                                    overflow-x-auto
+                                                    overflow-y-hidden
+                                                    min-w-0
+                                                    h-auto
+
+                                                    [&_.flatpickr-calendar]:inline-block
+                                                    [&_.flatpickr-calendar]:min-w-[320px]
+                                                    [&_.flatpickr-calendar]:w-max
+                                                    [&_.flatpickr-calendar]:h-auto
+                                                    [&_.flatpickr-calendar]:max-h-none
+
+                                                    [&_.flatpickr-days]:max-h-none
+                                                    [&_.flatpickr-days]:h-auto
+                                                    [&_.dayContainer]:h-auto"
                                                     x-init="initSchedulePicker($refs.schedulePicker)">
                                                     <input x-ref="schedulePicker" type="text" class="sr-only"
                                                         aria-hidden="true" />
                                                 </div>
 
                                                 <!-- KANAN: Pilih Waktu -->
-                                                <div class="h-full md:pl-1">
+                                                <div class="md:pl-1">
                                                     <div
                                                         class="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(110px,1fr))]">
                                                         <template x-for="t in times" :key="t.time">
