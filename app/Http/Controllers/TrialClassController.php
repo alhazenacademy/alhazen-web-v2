@@ -13,6 +13,7 @@ use App\Models\SalesNumber;
 use App\Jobs\SendTrialToExternalApi;
 use App\Jobs\SendTrialEmailJob;
 use Illuminate\Support\Facades\DB;
+use App\Models\Holiday;
 
 class TrialClassController extends Controller
 {
@@ -22,7 +23,10 @@ class TrialClassController extends Controller
         $times = TrialTime::select('time')->where('is_active', 1)->orderBy('sort_order')->get();
         $sources = InformationSource::select('id', 'name')->where('is_active', 1)->orderBy('sort_order')->get();
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
-        return view('pages.trial_class', compact('programs', 'times', 'sources', 'salesPhone'));
+        $holidays = Holiday::pluck('date')
+            ->map(fn ($d) => $d->format('Y-m-d'))
+            ->values();
+        return view('pages.trial_class', compact('programs', 'times', 'sources', 'salesPhone', 'holidays'));
     }
 
     public function store(Request $r)

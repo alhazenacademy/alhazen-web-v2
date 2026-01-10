@@ -276,6 +276,7 @@ window.trialForm = function trialForm(opts = {}) {
         },
 
         times: opts.times,
+        holidays: opts.holidays ?? [],
 
         get progress() {
             if (this.step === 1) return 25;
@@ -292,34 +293,43 @@ window.trialForm = function trialForm(opts = {}) {
             this.step = n;
         },
 
+        isHoliday(date) {
+            const yyyy = date.getFullYear();
+            const mm = String(date.getMonth() + 1).padStart(2, "0");
+            const dd = String(date.getDate()).padStart(2, "0");
+            return this.holidays.includes(`${yyyy}-${mm}-${dd}`);
+        },
+
         initSchedulePicker(el) {
-            // Atur rentang: mulai besok ~ +1 bulan, skip hari Minggu
             const today = new Date();
-            const min = new Date(
-                today.getFullYear(),
-                today.getMonth(),
-                today.getDate() + 1
-            );
+            const min = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
             const max = new Date(min);
             max.setMonth(max.getMonth() + 1);
 
+            const isDisabled = (date) => {
+                return date.getDay() === 0 || this.isHoliday(date);
+            };
+
             const nextValid = (d) => {
                 let t = new Date(d);
-                while (t.getDay() === 0) t.setDate(t.getDate() + 1);
+                while (isDisabled(t)) t.setDate(t.getDate() + 1);
                 return t;
             };
+
             const prevValid = (d) => {
                 let t = new Date(d);
-                while (t.getDay() === 0) t.setDate(t.getDate() - 1);
+                while (isDisabled(t)) t.setDate(t.getDate() - 1);
                 return t;
             };
 
             let def = null;
             if (this.form.schedule_date) {
                 const f = new Date(this.form.schedule_date);
-                const inRange = f >= min && f <= max && f.getDay() !== 0;
-                def = inRange ? f : null;
+                if (f >= min && f <= max && !isDisabled(f)) {
+                    def = f;
+                }
             }
+
             if (!def) {
                 const cand = nextValid(min);
                 def = cand <= max ? cand : prevValid(max);
@@ -332,7 +342,7 @@ window.trialForm = function trialForm(opts = {}) {
                 maxDate: max,
                 defaultDate: def,
                 monthSelectorType: "dropdown",
-                disable: [(date) => date.getDay() === 0],
+                disable: [(date) => isDisabled(date)],
                 onChange: (_sel, dateStr) => {
                     this.form.schedule_date = dateStr;
                 },
@@ -340,12 +350,10 @@ window.trialForm = function trialForm(opts = {}) {
             });
 
             if (!this.form.schedule_date && def) {
-                const yyyy = def.getFullYear();
-                const mm = String(def.getMonth() + 1).padStart(2, "0");
-                const dd = String(def.getDate()).padStart(2, "0");
-                this.form.schedule_date = `${yyyy}-${mm}-${dd}`;
+                this.form.schedule_date = def.toISOString().slice(0, 10);
             }
         },
+
 
         async submit() {
             if (this.loading) return;
