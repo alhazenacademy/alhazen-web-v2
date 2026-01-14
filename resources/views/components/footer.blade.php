@@ -92,6 +92,7 @@
                                 class="hover:underline hover:text-white">{{ $contact['site'] }}</a></li>
                     </ul>
                 </div>
+                
             </div>
 
             <!-- Lainnya -->
@@ -111,16 +112,14 @@
                 <div class="pt-4">
                     <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">Tersertifikasi</h4>
                     <div
-                        class="group relative w-44 rounded-2xl bg-white p-3 shadow-lg shadow-black/10 overflow-hidden transition hover:ring-2 hover:ring-primary/20">
-                        <a id="link-1616-2" class="ct-link"
-                            href="https://blockchain.stem.org/9faa3d1f-7825-4b4c-8967-525fa6eb08f0#gs.c2374s"
-                            target="_blank" rel="noopener noreferral">
-                            <img id="image-1533-2" alt="Badge Sertifikasi STEM.org"
-                                src="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png"
-                                class="ct-image w-full h-auto transition-transform duration-300 ease-out group-hover:scale-[1.06] group-hover:-translate-y-0.5"
-                                srcset="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png 400w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-300x300.png 300w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-150x150.png 150w"
-                                sizes="(max-width: 400px) 100vw, 400px" width="400" height="400" loading="lazy"
-                                decoding="async">
+                        class="group relative w-35 rounded-2xl bg-white p-3 shadow-lg shadow-black/10 overflow-hidden transition hover:ring-2 hover:ring-primary/20 ">
+                        <a href="https://blockchain.stem.org/9faa3d1f-7825-4b4c-8967-525fa6eb08f0#gs.c2374s" target="_blank"
+                            rel="noopener noreferrer" class="flex items-center justify-center">
+                            <img alt="Badge Sertifikasi STEM.org" class="ct-image block" width="400"
+                                height="400" loading="lazy" decoding="async"
+                                src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/108574909"
+                                data-fallback="{{ asset('assets/stem_badge.png') }}"
+                                onerror="this.onerror=null; this.src=this.dataset.fallback;">
                         </a>
                     </div>
                 </div>
@@ -131,6 +130,14 @@
                 <h4 style="font-family: Poppins" class="text-xl font-medium mb-4">{{ $addressTitle }}</h4>
                 <a href="https://maps.google.com/?q={{ urlencode($address) }}" target="_blank" rel="noopener"
                     class="text-sm text-white/90 leading-relaxed underline">{{ $address }}</a>
+            </div>
+        </div>
+
+        {{-- Copyright --}}
+        <div class="relative border-t border-white/20 mt-10">
+            <div
+                class="mx-auto max-w-7xl px-5 sm:px-8 py-4 text-center text-xs sm:text-sm text-white/80">
+                © {{ date('Y') }} <strong>PT. Alhazen Global Teknologi</strong>. All Rights Reserved.
             </div>
         </div>
     </div>
