@@ -44,7 +44,7 @@
     <link rel="icon" href="{{ asset('assets/logo.webp') }}" type="image/x-icon">
 
     {{-- Prevent indexing on staging --}}
-    <meta name="robots" content="noindex, nofollow">
+    {{-- <meta name="robots" content="noindex, nofollow"> --}}
 
     @vite(['resources/css/landing.css', 'resources/js/landing.js'])
 </head>
