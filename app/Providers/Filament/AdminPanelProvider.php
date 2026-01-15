@@ -25,11 +25,19 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
-    {
+    {   
+        // Menambahkan tag meta noindex, nofollow pada head panel admin Filament
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::HEAD_END,
+            fn() => '<meta name="robots" content="noindex, nofollow">'
+        );
+
         return $panel
             ->default()
             ->id('admin')
@@ -50,7 +58,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                // AccountWidget::class,
+                    // AccountWidget::class,
                 TrialOverview::class,
                 OverviewStats::class,
                 RecentArticles::class,
