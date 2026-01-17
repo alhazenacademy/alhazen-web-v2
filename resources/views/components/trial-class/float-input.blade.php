@@ -8,7 +8,7 @@
     'for' => ""
 ])
 
-<input id="{{ $id }}" type="{{ $type }}" x-model="{{ $model }}" placeholder="{{ $placeholder }}" required="{{ $required }}"
+<input id="{{ $id }}" type="{{ $type }}" x-model="{{ $model }}" placeholder="{{ $placeholder }}" @if($required) required @endif
     class="peer w-full rounded-xl border border-[var(--color-neutral)] px-4 pt-6 pb-2 outline-none bg-white focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent" />
 <label for="{{ $for }}" class="font-semibold pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 transition-all duration-20 text-[color-mix(in_oklab,var(--color-neutral)_60%,#000)]
 peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-xs

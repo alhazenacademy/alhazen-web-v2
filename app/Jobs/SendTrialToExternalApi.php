@@ -40,6 +40,9 @@ class SendTrialToExternalApi
             'Branch' => 'Pusat',
             'Status' => 'Pending',
             'ClassName' => 'Untuk Anak',
+            // 'School' => $trial->school,
+            // 'Address' => $trial->address,
+            // 'PromoCode' => $trial->promoCode,
         ];
 
         $url = config('services.trial_api.url');

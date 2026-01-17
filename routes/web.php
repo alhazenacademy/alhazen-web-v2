@@ -19,6 +19,7 @@ Route::get('/holiday-program', [LandingController::class, 'holiday_program'])->n
 Route::get('/event', [LandingController::class, 'event'])->name('event');
 Route::get('/katalog', action: [LandingController::class, 'katalog'])->name('katalog');
 Route::get('/kelasgratis', [TrialClassController::class, 'index'])->name('trial');
+Route::get('/thank-you', [TrialClassController::class, 'thank_you'])->name('trial.thank_you');
 Route::post('/trial', [TrialClassController::class, 'store'])->name('trial.store');
 Route::post('/leads', [TrialClassController::class, 'storeLead'])->name('leads.store');
 Route::get('/lokasi', [LandingController::class, 'lokasi'])->name('lokasi');
