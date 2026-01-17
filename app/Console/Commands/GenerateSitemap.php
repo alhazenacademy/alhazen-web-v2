@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapIndex;
 use Spatie\Sitemap\Tags\Url;
 use App\Models\Article;
 use App\Models\Category;
@@ -13,22 +14,23 @@ use App\Models\Program;
 class GenerateSitemap extends Command
 {
     protected $signature = 'sitemap:generate';
-    protected $description = 'Auto generate sitemap from routes & database';
+    protected $description = '✅ Generate sitemap index and child sitemaps for pages, posts, and categories';
 
     public function handle()
     {
-        $sitemap = Sitemap::create();
-
         /**
-         * 1️⃣ STATIC ROUTES (tanpa parameter & non-internal)
+         * ======================
+         * 1️⃣ SITEMAP PAGES
+         * ======================
          */
+        $pagesSitemap = Sitemap::create();
+
         collect(Route::getRoutes())
             ->filter(function ($route) {
 
                 $uri  = $route->uri();
                 $name = $route->getName();
 
-                // ❌ EXCLUDE INTERNAL / ADMIN / AUTH PAGES
                 $excludedPrefixes = [
                     'login',
                     'logout',
@@ -55,25 +57,18 @@ class GenerateSitemap extends Command
                     && !str_starts_with($uri, '_')
                     && !str_contains($uri, 'trial');
             })
-            ->each(function ($route) use ($sitemap) {
+            ->each(function ($route) use ($pagesSitemap) {
 
-                $priority = match ($route->getName()) {
-                    'home' => 1.0,
-                    'program', 'holiday.program' => 0.9,
-                    default => 0.7,
-                };
-
-                $sitemap->add(
+                $pagesSitemap->add(
                     Url::create(route($route->getName()))
-                        ->setPriority($priority)
-                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        ->setLastModificationDate(now())
                 );
             });
 
         /**
-         * 2️⃣ PROGRAM / KURSUS (dynamic slug)
+         * PROGRAM / KURSUS
          */
-        Program::where('is_active', true)->each(function ($program) use ($sitemap) {
+        Program::where('is_active', true)->each(function ($program) use ($pagesSitemap) {
 
             $url = match (strtolower($program->name)) {
                 'coding' => url('/kursus-coding-anak'),
@@ -81,42 +76,59 @@ class GenerateSitemap extends Command
                 default => url('/program/' . $program->slug),
             };
 
-            $sitemap->add(
+            $pagesSitemap->add(
                 Url::create($url)
                     ->setLastModificationDate($program->updated_at)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                    ->setPriority(0.9)
             );
         });
 
+        $pagesSitemap->writeToFile(public_path('sitemap-pages.xml'));
+
         /**
-         * 3️⃣ ARTIKEL
+         * ======================
+         * 2️⃣ SITEMAP POSTS (ARTIKEL)
+         * ======================
          */
-        Article::where('status', 'published')->each(function ($article) use ($sitemap) {
-            $sitemap->add(
+        $postsSitemap = Sitemap::create();
+
+        Article::where('status', 'published')->each(function ($article) use ($postsSitemap) {
+
+            $postsSitemap->add(
                 Url::create(route('artikel.show', $article->slug))
                     ->setLastModificationDate($article->updated_at)
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                    ->setPriority(0.8)
             );
         });
 
+        $postsSitemap->writeToFile(public_path('sitemap-posts.xml'));
+
         /**
-         * 4️⃣ KATEGORI ARTIKEL
+         * ======================
+         * 3️⃣ SITEMAP CATEGORIES
+         * ======================
          */
-        Category::each(function ($category) use ($sitemap) {
-            $sitemap->add(
+        $categoriesSitemap = Sitemap::create();
+
+        Category::each(function ($category) use ($categoriesSitemap) {
+
+            $categoriesSitemap->add(
                 Url::create(route('category.show', $category->slug))
-                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                    ->setPriority(0.6)
+                    ->setLastModificationDate($category->updated_at ?? now())
             );
         });
 
-        /**
-         * 5️⃣ WRITE SITEMAP FILE
-         */
-        $sitemap->writeToFile(public_path('sitemap.xml'));
+        $categoriesSitemap->writeToFile(public_path('sitemap-categories.xml'));
 
-        $this->info('✅ Sitemap berhasil dibuat & diperbarui!');
+        /**
+         * ======================
+         * 4️⃣ SITEMAP INDEX
+         * ======================
+         */
+        SitemapIndex::create()
+            ->add(url('/sitemap-pages.xml'))
+            ->add(url('/sitemap-posts.xml'))
+            ->add(url('/sitemap-categories.xml'))
+            ->writeToFile(public_path('sitemap.xml'));
+
+        $this->info('✅ Sitemap index & child sitemaps berhasil dibuat!');
     }
 }
