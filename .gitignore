@@ -54,3 +54,9 @@ public/assets/kids/program-detail/*
 !public/assets/kids/program-detail/icon-program5.png
 !public/assets/kids/program-detail/icon-program6.png
 !public/assets/kids/program-detail/maskot-toa-program.png
+
+# Ignore site map files
+!public/sitemap.xml
+!public/sitemap-categories.xml
+!public/sitemap-pages.xml
+!public/sitemap-posts.xml
