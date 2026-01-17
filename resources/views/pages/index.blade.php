@@ -211,7 +211,7 @@
 
     <x-cta-whatsapp title="Ambil kesempatan konsultasi sekarang juga dan raih diskon hingga jutaan rupiah!"
         placeholder="Masukkan Nomor Whatsapp" button="Konsultasi Sekarang"
-        wa-message="Halo, saya mau konsultasi program belajar di Alhazen." source="konsultasi_index_page" :sales-phone="$salesPhone" />
+        wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." source="konsultasi_index_page" :sales-phone="$salesPhone" />
 
     <x-index.clients title="Partner  & Kolaborator Kami"
         description="Kami berkolaborasi dengan berbagai sekolah, lembaga, dan komunitas pendidikan untuk menghadirkan pembelajaran teknologi terbaik bagi anak Indonesia."
