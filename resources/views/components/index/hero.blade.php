@@ -47,15 +47,13 @@
                 <!-- Left: Text + STEM Logo -->
                 <div class="flex flex-col sm:flex-row items-center gap-4">
                     <span class="text-small font-medium text-text">Bersertifikasi & Aman untuk Anak:</span>
-                    <a id="link-1616-2" class="ct-link"
-                        href="https://blockchain.stem.org/9faa3d1f-7825-4b4c-8967-525fa6eb08f0#gs.c2374s"
-                        target="_blank" rel="noopener noreferral">
-                        <img id="image-1533-2" alt="Badge Sertifikasi STEM.org"
-                            src="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png"
-                            class="ct-image h-20 w-auto block"
-                            srcset="https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy.png 400w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-300x300.png 300w, https://alhazen.academy/wp-content/uploads/2024/07/sertifikasi-stem-org-alhazen-academy-150x150.png 150w"
-                            sizes="(max-width: 400px) 100vw, 400px" width="400" height="400" loading="lazy"
-                            decoding="async">
+                    <a href="https://blockchain.stem.org/9faa3d1f-7825-4b4c-8967-525fa6eb08f0#gs.c2374s" target="_blank"
+                        rel="noopener noreferrer">
+                        <img alt="Badge Sertifikasi STEM.org" class="ct-image h-20 w-auto block" width="400"
+                            height="400" loading="lazy" decoding="async"
+                            src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/108574909"
+                            data-fallback="{{ asset('assets/stem_badge.png') }}"
+                            onerror="this.onerror=null; this.src=this.dataset.fallback;">
                     </a>
                 </div>
 
