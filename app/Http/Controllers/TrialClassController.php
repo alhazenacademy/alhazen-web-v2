@@ -46,6 +46,10 @@ class TrialClassController extends Controller
 
             'schedule_date' => ['required', 'date'],
             'schedule_time' => ['required', 'date_format:H:i'],
+
+            // 'school' => ['nullable', 'string', 'max:255'],
+            // 'address' => ['nullable', 'string', 'max:500'],
+            // 'promoCode' => ['nullable', 'string', 'max:255'],
         ]);
         DB::beginTransaction();
         try {
@@ -65,7 +69,11 @@ class TrialClassController extends Controller
         $emailData = $this->mapTrialToEmailData($trial->toArray(), $program->toArray());
         dispatch(new SendTrialEmailJob($emailData))->afterResponse();
 
-        return response()->json(['ok'=>true]);
+        return response()->json([
+            'ok' => true,
+            'redirect' => route('trial.thank_you'),
+        ]);
+
     }
 
     public function storeLead(Request $r)
@@ -197,6 +205,12 @@ class TrialClassController extends Controller
             .'&details='.urlencode($details)
             .'&location='.urlencode($location)
             .'&sf=true&output=xml';
+    }
+
+    public function thank_you()
+    {
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+        return view('pages.thank_you', compact('salesPhone'));
     }
 
 
