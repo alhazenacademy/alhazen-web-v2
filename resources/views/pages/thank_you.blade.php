@@ -2,7 +2,7 @@
     $waText = 'Halo Admin Alhazen, saya sudah mendaftar Trial Class dan ingin konfirmasi jadwal. Terima kasih.';
     $waHref = 'https://wa.me/' . $salesPhone . '?text=' . urlencode($waText);
 @endphp
-<x-layout wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
+<x-layout wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
     <div class="theme-kids bg-cover bg-center bg-no-repeat min-h-screen"
         style="background-image: url('{{ asset('assets/kids/bg-booking.webp') }}');">

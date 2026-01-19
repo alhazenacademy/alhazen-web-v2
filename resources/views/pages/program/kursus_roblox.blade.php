@@ -1,6 +1,6 @@
 <x-layout title="Kursus Roblox Studio untuk Anak - Alhazen Academy"
     description="Kursus Roblox untuk anak dengan metode pembelajaran yang fun dan interaktif. Asah logika dan kreativitas dengan membuat game 3D sendiri sejak dini."
-    wa-message="Halo, saya mau konsultasi Roblox Studio di Alhazen." :sales-phone="$salesPhone">
+    wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-program.hero title="Belajar Coding dan Game Development dengan Roblox Studio"

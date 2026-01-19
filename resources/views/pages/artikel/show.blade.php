@@ -1,4 +1,4 @@
-<x-layout :title="$article->title" :description="$article->meta_description" :ogImage="$ogImage" wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
+<x-layout :title="$article->title" :description="$article->meta_description" :ogImage="$ogImage" wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-artikel.post :article="$article" />
