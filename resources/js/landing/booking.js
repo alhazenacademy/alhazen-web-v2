@@ -192,6 +192,9 @@ window.trialForm = function trialForm(opts = {}) {
             schedule_date: "",
             schedule_time: "",
             has_device: "",
+            // school: "",
+            // address: "",
+            // promoCode: ""
         },
         waNormalized: "",
         waError: "",
@@ -375,7 +378,11 @@ window.trialForm = function trialForm(opts = {}) {
 
                 if (!r.ok) throw new Error();
 
-                this.step = "success";
+                const data = await r.json();
+
+                if (data.redirect) {
+                    window.location.href = data.redirect;
+                }
 
             } catch(e) {
                 alert("Oops, something went wrong. Please try again");
@@ -394,6 +401,9 @@ window.trialForm = function trialForm(opts = {}) {
                 schedule_date: "",
                 schedule_time: "",
                 has_device: "",
+                // school: "",
+                // address: "",
+                // promoCode: ""
             };
         },
     };

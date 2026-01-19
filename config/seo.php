@@ -18,5 +18,8 @@ return [
         'login',
         'register',
         'password/*',
+
+        //page thank you trial class
+        'thank-you',
     ],
 ];
