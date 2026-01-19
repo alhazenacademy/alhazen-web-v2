@@ -11,8 +11,7 @@
                 <div class="absolute left-[22px] top-[22px] -z-10 w-full h-full rounded-2xl bg-[var(--color-neutral)]">
                 </div>
 
-                <div class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 overflow-hidden">
-                    <template x-if="step !== 'success'">
+                <div class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-black/5 overflow-visible">
                         <div class="px-6 pt-5">
                             <div class="flex items-center justify-center mb-3">
                                 <h2 class="text-h3 font-semibold text-primary">Daftar Kelas Trial Gratis</h2>
@@ -22,8 +21,7 @@
                                     :style="`width:${progress}%`"></div>
                             </div>
                         </div>
-                    </template>
-
+                        
                     <div class="px-6 pb-6">
                         <div class="min-h-fit flex flex-col justify-between">
 
@@ -322,7 +320,7 @@
                                             options: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
                                             initial: form.student_age,
                                             onPick(v) { form.student_age = v }
-                                        })" x-init="setFrom(form.student_age)"
+                                            })" x-init="setFrom(form.student_age)"
                                             x-bind:data-open="open" x-bind:data-filled="String(value).length > 0"
                                             class="relative">
                                             <input type="text" name="student_age" x-model="form.student_age" required
@@ -364,6 +362,11 @@
                                                 </template>
                                             </div>
                                         </div>
+                                        {{-- <div class="relative">
+                                            <x-trial-class.float-input id="school" for="school"
+                                                type="text" label="Asal Sekolah (opsional)"
+                                                model="form.school" />
+                                        </div> --}}
                                         <div class="relative">
                                             <x-trial-class.float-input id="parent_name" for="parent_name"
                                                 type="text" label="Nama Orang Tua" required="true"
@@ -375,6 +378,18 @@
                                             <x-trial-class.float-input id="email" for="email" type="email"
                                                 label="Email Orang Tua" required="true" model="form.email" />
                                         </div>
+
+                                        {{-- <div class="relative">
+                                            <x-trial-class.float-input id="address" for="address"
+                                                type="text" label="Domisili (opsional)"
+                                                model="form.address" />
+                                        </div>
+
+                                        <div class="relative">
+                                            <x-trial-class.float-input id="promoCode" for="promoCode"
+                                                type="text" label="Kode Referral (opsional)"
+                                                model="form.promoCode" />
+                                        </div> --}}
                                     </div>
 
                                     <div class="mt-2 flex items-center gap-3">
@@ -412,51 +427,6 @@
 
                                     </div>
                                 </form>
-                            </template>
-
-                            <!-- STEP SUCCESS -->
-                            <template x-if="step==='success'">
-                                <div class="pt-8 pb-10 text-center grid place-items-center gap-5">
-                                    <!-- Kartu sukses -->
-                                    <div class="w-full max-w-[520px] p-6">
-                                        <h3
-                                            class="text-h4 mx-auto inline-flex items-center justify-center text-primary font-semibold">
-                                            Pendaftaran Berhasil!
-                                        </h3>
-
-                                        <p
-                                            class="mt-4 text-body text-[color-mix(in_oklab,var(--color-text)_80%,#6b7280)]">
-                                            Kami akan segera menghubungi kamu melalui WhatsApp
-                                            untuk konfirmasi jadwal trial.
-                                        </p>
-
-                                        <div class="mt-3 grid place-items-center">
-                                            <img src="{{ asset('assets/kids/kazen-laptop.webp') }}"
-                                                alt="Pendaftaran Berhasil"
-                                                class="max-w-[220px] h-auto select-none pointer-events-none"
-                                                onerror="this.style.display='none'">
-                                        </div>
-
-                                        <div
-                                            class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
-                                            <a href="{{ url('/') }}"
-                                                class="w-full sm:w-auto text-center rounded-xl px-4 py-3 font-semibold
-                                                border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)]
-                                                hover:bg-[color-mix(in_oklab,var(--color-neutral)_12%,#fff)]
-                                                transition hover:cursor-pointer">
-                                                Kembali ke Beranda
-                                            </a>
-
-                                            <a href="{{ $waHref }}" target="_blank" rel="noopener noreferrer"
-                                                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold
-                                                text-white bg-[var(--color-accent)] hover:opacity-90 transition hover:cursor-pointer">
-                                                <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt="whatsapp icon"
-                                                    class="h-5 w-5" aria-hidden="true">
-                                                Chat CS
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
                             </template>
                         </div>
                     </div>

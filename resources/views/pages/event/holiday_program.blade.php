@@ -1,6 +1,6 @@
 <x-layout title="Alhazen Holiday Program, Aktivitas Liburan Seru Anak"
     description=" Isi kegiatan anak dengan kelas yang seru dan bermanfaat. Asah logika dan kreativitas di Alhazen Holiday Program."
-    wa-message="Halo, saya mau konsultasi kursus coding anak di Alhazen." :sales-phone="$salesPhone">
+    wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-event.holiday_program.hero banner="{{ asset('assets/kids/holiday-program/hero.webp') }}" />

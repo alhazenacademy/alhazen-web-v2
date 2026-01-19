@@ -1,4 +1,4 @@
-<x-layout title="Pilihan Beragam Program Kelas Terbaik - Alhazen Academy" description="Berbagai pilihan kelas coding dan teknologi Alhazen Academy untuk anak dan dewasa. Metode belajar fun & interaktif dengan materi paling update di era AI." wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
+<x-layout title="Pilihan Beragam Program Kelas Terbaik - Alhazen Academy" description="Berbagai pilihan kelas coding dan teknologi Alhazen Academy untuk anak dan dewasa. Metode belajar fun & interaktif dengan materi paling update di era AI." wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-program.hero title="Bangun Kreativitas Anak Lewat Teknologi !"

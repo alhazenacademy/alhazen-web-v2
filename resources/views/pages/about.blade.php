@@ -1,6 +1,6 @@
 <x-layout title="Tentang Kami - Alhazen Academy" 
     description="Alhazen Academy adalah lembaga kursus anak dan dewasa yang fokus pada edukasi teknologi dan skill masa depan. Dengan metode belajar yang fun dan interkatif" 
-    wa-message="Halo, saya mau konsultasi program belajar di Alhazen." :sales-phone="$salesPhone">
+    wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
     <x-about.hero title="Tentang Alhazen Academy"
         subtitle="Menginspirasi generasi digital dengan cara belajar yang menyenangkan dan bermakna."
