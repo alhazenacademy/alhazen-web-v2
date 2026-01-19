@@ -1,6 +1,6 @@
 <x-layout title="Kursus Coding Anak Terbaik (SD - SMA) - Alhazen Academy"
     description="Kursus coding anak terbaik dengan metode pembelajaran online dan offline. Latih pengetahuan logika anak usia 5 -17 tahun (SD Hingga SMA)."
-    wa-message="Halo, saya mau konsultasi kursus coding anak di Alhazen." :sales-phone="$salesPhone">
+    wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
 
     <x-program.hero title="Saatnya Anak Belajar Coding dengan Cara yang Menyenangkan !"
