@@ -18,6 +18,7 @@
     // Dropdown "Event"
     $moreEventNav = [
         ['route' => 'holiday-program', 'label' => 'Holiday Program'],
+        ['route' => 'alhazen-hackathon', 'label' => 'Alhazen Hackathon'],
     ];
 
     $isActive = fn($name) => (request()->routeIs($name)
