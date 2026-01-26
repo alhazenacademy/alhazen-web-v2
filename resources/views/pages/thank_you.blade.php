@@ -1,5 +1,5 @@
 @php
-    $waText = 'Halo Admin Alhazen, saya sudah mendaftar Trial Class dan ingin konfirmasi jadwal. Terima kasih.';
+    $waText = 'Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy.';
     $waHref = 'https://wa.me/' . $salesPhone . '?text=' . urlencode($waText);
 @endphp
 <x-layout wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
