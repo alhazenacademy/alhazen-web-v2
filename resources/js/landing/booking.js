@@ -305,7 +305,8 @@ window.trialForm = function trialForm(opts = {}) {
 
         initSchedulePicker(el) {
             const today = new Date();
-            const min = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+            // bisa pilih tanggal mulai lusa sampai sebulan ke depan
+            const min = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2);
             const max = new Date(min);
             max.setMonth(max.getMonth() + 1);
 

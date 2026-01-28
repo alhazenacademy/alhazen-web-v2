@@ -2,8 +2,6 @@
     'title' => 'Holiday Coding Program Bersama Alhazen Academy !',
     'subtitle' => 'Program liburan edukatif untuk anak agar tetap produktif, kreatif, dan percaya diri melalui belajar teknologi.',
     'banner' => asset('assets/kids/holiday/banner-default.webp'),
-    'ctaText' => 'Lihat Paket',
-    'ctaUrl' => '#paket',
 ])
 
 <section class="relative py-16 sm:py-20 overflow-hidden">
@@ -43,8 +41,8 @@
 
                 {{-- CTA --}}
                 <div class="flex flex-wrap gap-4">
-                    <a href="{{ $ctaUrl }}" class="inline-flex justify-center rounded-xl px-6 py-3 text-button bg-accent text-white hover:scale-105 transition-all duration-200 ease-in-out">
-                        {{ $ctaText }}
+                    <a href="#paket" class="inline-flex justify-center rounded-xl px-6 py-3 text-button bg-accent text-white hover:scale-105 transition-all duration-200 ease-in-out">
+                        Lihat Paket
                     </a>
 
                     <a href="#panduan-ortu" class="inline-flex items-center justify-center rounded-xl px-6 py-3 text-button bg-white text-accent ring-1 ring-accent hover:bg-accent/5 transition">
