@@ -185,21 +185,26 @@
                                                     dll.)</span>
                                             </legend>
 
-                                            <div class="flex items-center gap-6">
-                                                <label class="inline-flex items-center gap-2 cursor-pointer">
-                                                    <input type="radio" name="has_device" value="1"
-                                                        class="peer sr-only" x-model="form.has_device" required>
-                                                    <span class="radio" aria-hidden="true"></span>
-                                                    <span>Ya</span>
-                                                </label>
+                                            <!-- Hanya YA, otomatis terisi -->
+                                            <label class="inline-flex items-center gap-2 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="has_device"
+                                                    value="1"
+                                                    class="peer sr-only"
+                                                    x-model="form.has_device"
+                                                    checked
+                                                    required
+                                                >
+                                                <span class="radio" aria-hidden="true"></span>
+                                                <span>Ya</span>
+                                            </label>
 
-                                                <label class="inline-flex items-center gap-2 cursor-pointer">
-                                                    <input type="radio" name="has_device" value="0"
-                                                        class="peer sr-only" x-model="form.has_device">
-                                                    <span class="radio" aria-hidden="true"></span>
-                                                    <span>Tidak</span>
-                                                </label>
-                                            </div>
+                                            <!-- Catatan -->
+                                            <p class="text-[12px] leading-snug text-text/70 mt-1">
+                                                Untuk mengikuti <strong>trial class</strong>, peserta wajib memiliki
+                                                perangkat pendukung minimal <strong>tablet / iPad</strong>.
+                                            </p>
 
                                         </fieldset>
 
