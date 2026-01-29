@@ -100,9 +100,11 @@
                                         <div class="text-[11px] tracking-wider font-bold text-[var(--color-text)]/60">
                                             TOTAL VALUE
                                         </div>
-                                        <div class="text-[20px] font-extrabold text-[var(--color-text)] line-through">
-                                            {{ $card['price'] }}
-                                        </div>
+                                        @if ($card['price'] != 0)
+                                            <div class="text-[20px] font-extrabold text-[var(--color-text)] line-through">
+                                                {{ $card['price'] }}
+                                            </div>
+                                        @endif
                                         <div class="text-[20px] font-extrabold text-[#EF4444]">
                                             GRATIS KELAS PERTAMA
                                         </div>
