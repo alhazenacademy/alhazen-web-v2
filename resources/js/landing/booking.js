@@ -310,9 +310,8 @@ window.trialForm = function trialForm(opts = {}) {
             const max = new Date(min);
             max.setMonth(max.getMonth() + 1);
 
-            const isDisabled = (date) => {
-                return date.getDay() === 0 || this.isHoliday(date);
-            };
+            const isDisabled = (date) =>
+                date.getDay() === 0 || this.isHoliday(date);
 
             const nextValid = (d) => {
                 let t = new Date(d);
@@ -326,12 +325,10 @@ window.trialForm = function trialForm(opts = {}) {
                 return t;
             };
 
-            let def = null;
+            let def;
             if (this.form.schedule_date) {
                 const f = new Date(this.form.schedule_date);
-                if (f >= min && f <= max && !isDisabled(f)) {
-                    def = f;
-                }
+                def = (!isDisabled(f) && f >= min && f <= max) ? f : null;
             }
 
             if (!def) {
@@ -339,23 +336,23 @@ window.trialForm = function trialForm(opts = {}) {
                 def = cand <= max ? cand : prevValid(max);
             }
 
-            flatpickr(el, {
+            const fp = flatpickr(el, {
                 inline: true,
                 dateFormat: "Y-m-d",
                 minDate: min,
                 maxDate: max,
-                defaultDate: def,
-                monthSelectorType: "dropdown",
-                disable: [(date) => isDisabled(date)],
+                disable: [isDisabled],
+                disableMobile: true,
+
                 onChange: (_sel, dateStr) => {
                     this.form.schedule_date = dateStr;
                 },
-                disableMobile: true,
             });
 
-            if (!this.form.schedule_date && def) {
-                this.form.schedule_date = def.toISOString().slice(0, 10);
-            }
+            // Paksa flatpickr + state sinkron SETELAH render
+            this.$nextTick(() => {
+                fp.setDate(def, true); // true = trigger onChange
+            });
         },
 
 
