@@ -12,6 +12,9 @@
     $moreProgramNav = [
         ['route' => 'kursus-coding-anak', 'label' => 'Kursus Coding Anak'],
         ['route' => 'kursus-roblox', 'label' => 'Kursus Roblox Studio'],
+        ['route' => 'kursus-blender', 'label' => 'Kursus Blender 3D'],
+        ['route' => 'kursus-python', 'label' => 'Kursus Python'],
+        ['route' => 'kursus-php', 'label' => 'Kursus PHP'],
         ['route' => 'program', 'label' => 'Program Lainnya'],
     ];
 
