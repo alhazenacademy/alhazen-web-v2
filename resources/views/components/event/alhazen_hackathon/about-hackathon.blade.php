@@ -60,14 +60,20 @@
 
         <div class="max-w-5xl mx-auto">
 
-            {{-- Main Explanation --}}
-            <div class="rounded-[28px] bg-white p-6 sm:p-8 
-                        shadow-lg hover:shadow-xl transition-shadow duration-300 mb-8">
-                @foreach ($descriptions as $desc)
-                    <p class="text-body text-text/80 mb-4 last:mb-0">
-                        {!! $desc !!}
-                    </p>
-                @endforeach
+            <div class="relative mb-8">
+                {{-- Decorative Image / Maskot --}}
+                <img src="{{ asset('assets/kids/hackathon/maskot-toa-program.png') }}" alt="Maskot Alhazen Academy"
+                    class="hidden lg:block pointer-events-none select-none absolute -top-45 -right-20 w-40 xl:w-56 -z-5 drop-shadow-xl"
+                    loading="lazy" />
+
+                {{-- Main Explanation --}}
+                <div class="relative z-0 rounded-[28px] bg-white p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    @foreach ($descriptions as $desc)
+                        <p class="text-body text-text/80 mb-4 last:mb-0 text-justify">
+                            {!! $desc !!}
+                        </p>
+                    @endforeach
+                </div>
             </div>
 
             {{-- Key Points --}}
@@ -86,11 +92,28 @@
             </div>
 
             {{-- Highlight --}}
-            <div class="mt-10 rounded-2xl bg-primary/10 border border-primary/20 p-6 text-center
-                        shadow-md hover:shadow-lg transition-shadow duration-300">
-                <p class="text-body font-semibold text-primary">
-                    {{ $highlight }}
-                </p>
+            <div class="mt-12">
+                <div
+                    class="relative rounded-3xl bg-accent/90 px-6 py-8 sm:px-10 sm:py-10 shadow-lg overflow-hidden">
+
+                    {{-- Soft overlay --}}
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10">
+                    </div>
+
+                    {{-- Decorative blur --}}
+                    <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-black/10 rounded-full blur-3xl"></div>
+
+                    <div class="relative text-center max-w-3xl mx-auto text-white">
+                        <p class="text-xs uppercase tracking-widest font-semibold text-white/80 mb-2">
+                            Lokasi Event
+                        </p>
+
+                        <p class="text-h5 font-extrabold leading-snug text-white/95">
+                            {{ $highlight }}
+                        </p>
+                    </div>
+                </div>
             </div>
 
         </div>
