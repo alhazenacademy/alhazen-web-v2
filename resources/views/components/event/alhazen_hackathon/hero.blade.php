@@ -11,6 +11,17 @@
 
             {{-- LEFT: TEXT --}}
             <div class="relative z-10">
+                {{-- IMAGE (Mobile Only) --}}
+                <div class="mb-6 lg:hidden">
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg bg-white">
+                        <img
+                            src="{{ $banner }}"
+                            alt="NgabuburIT Class"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
 
                 <h1 class="text-h2 font-bold text-primary leading-tight mb-4">
                     {{ $title }}
@@ -47,7 +58,7 @@
             </div>
 
             {{-- RIGHT: IMAGE --}}
-            <div class="relative hidden md:block">
+            <div class="relative hidden lg:block">
 
                 <div
                     class="relative rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,.15)] bg-white">

@@ -21,6 +21,7 @@
     // Dropdown "Event"
     $moreEventNav = [
         ['route' => 'holiday-program', 'label' => 'Holiday Program'],
+        ['route' => 'ramadhan-technoclass', 'label' => 'Ramadhan Technoclass'],
         ['route' => 'alhazen-hackathon', 'label' => 'Alhazen Hackathon'],
     ];
 
