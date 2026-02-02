@@ -1,4 +1,4 @@
-<section id="student-work" class="py-8 sm:py-12 lg:py-16 bg-background relative overflow-visible">
+<section id="student-work" class="py-8 sm:py-16 lg:py-20 relative overflow-visible">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
             class="mb-8 lg:mb-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-8 relative z-10">
