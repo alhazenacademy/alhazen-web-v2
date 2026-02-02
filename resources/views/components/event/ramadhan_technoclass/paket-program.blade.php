@@ -11,7 +11,7 @@
                 class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 lg:w-40 drop-shadow-xl ml-45 -mt-10"
                 loading="lazy" />
 
-            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <div class="text-center max-w-3xl mx-auto px-4 mb-8 sm:mb-10">
                 <h2 class="text-h2 font-bold text-primary mb-4">{!! $title !!}</h2>
                 <p class="text-body max-w-2xl mx-auto text-neutral-content">{!! $description !!}</p>
             </div>

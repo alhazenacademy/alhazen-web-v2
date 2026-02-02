@@ -1,4 +1,4 @@
-<x-layout title="Ramadhan Technoclass - Alhazen Academy" description="Ramadhan Technoclass membantu anak belajar coding, game, dan web development selama Ramadan sebagai bekal skill digital masa depan." :sales-phone="$salesPhone" wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy.">
+<x-layout title="NgabuburIT: Kelas Coding & Game Anak Spesial Ramadhan" description="Isi waktu ngabuburit anak dengan kelas IT seru! Belajar animasi, game, Roblox & web dev dengan tutor professional. Dapat sertifikat & modul pembelajaran!" :sales-phone="$salesPhone" wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy.">
     <x-navbar variant="kids" />
 
     @php
@@ -222,6 +222,96 @@
     @endphp
 
     <x-program.panduan-ortu :umur="7" :requirements="$requirementsNgabuburIT" />
+
+    <x-index.student-work title="Hasil Karya Murid Alhazen Academy"
+        description="Siswa anak nya imajinasi bisa luar biasa. Di Alhazzen kami membantunya mengembangkan imajinasi nya dengan cara digital yang nyata - dari game, aplikasi, hingga robot pintar!"
+        :cards="[
+            [
+                'image' => asset('assets/kids/student-work/student-work-1.avif'),
+                'alt' => 'Hasil karya siswa belajar coding berupa game edukasi Learning Tumbuhan',
+                'title' => 'Learning tumbuhan',
+                'description' => 'Dibuat oleh Ghazan Akhyar (Kelas 2 SD) menggunakan Scratch',
+                'category' => 'Game & Animation',
+                'bg-text' => 'bg-[#EB5353]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-2.avif'),
+                'alt' => 'Hasil karya siswa belajar coding berupa game interaktif Ping-Pong',
+                'title' => 'Ping-Pong Game',
+                'description' => 'Dibuat oleh Tsaqif Luqmana (Kelas 5 SD) menggunakan Scratch',
+                'category' => 'Game & Animation',
+                'bg-text' => 'bg-[#EB5353]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-3.avif'),
+                'alt' => 'Hasil karya siswa belajar coding berupa game balap mobil sederhana',
+                'title' => 'Car Race Game',
+                'description' => 'Dibuat oleh Muhammad Karim (Kelas 3 SD) menggunakan Scratch',
+                'category' => 'Game & Animation',
+                'bg-text' => 'bg-[#EB5353]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-4.webp'),
+                'alt' => 'Hasil karya siswa belajar coding berupa aplikasi Dzikir sederhana',
+                'title' => 'Dzikir App',
+                'description' => 'Dibuat oleh Shofiyya Edi (Kelas 5 SD) menggunakan Thunkable',
+                'category' => 'Application',
+                'bg-text' => 'bg-[#faa52d]',
+            ],
+            [
+                'image' => asset('assets/kids/student-work/student-work-5.webp'),
+                'alt' => 'Hasil karya siswa belajar coding berupa aplikasi Camping and Glamping',
+                'title' => 'Camping and Glamping',
+                'description' => 'Dibuat oleh Karenita (Kelas 4 SD) menggunakan Thunkable',
+                'category' => 'Application',
+                'bg-text' => 'bg-[#faa52d]',
+            ],
+        ]"
+    />
+
+    <x-stem-certificate />
+
+    <x-index.student-review title="Review Murid Alhazen"
+        description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
+        :cards="[
+            [
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-4.webp'),
+                'name' => 'Karenita',
+                'quote' =>
+                    'Belajar di Alhazen sangat senang, seru, terus karen jadi tau kaya gimana cara bikin aplikasi, karen udah bisa bikin google translate bahasa jepang,bahasa prancis.kalian juga harus coba yah, lakukan pengalaman baru, kaya aku.',
+                'school' => 'Siswa SD',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => '',
+                'video_url' => ''
+                // 'video_type' => 'youtube', // atau 'mp4'
+                // 'video_url' => 'https://www.youtube.com/embed/TD_mEqbTlcM', // untuk youtube pakai /embed
+            ],
+            [
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-2.webp'),
+                'name' => 'Malfy',
+                'quote' =>
+                    'Seru, belajarnya santai dan kakak tutornya baik. Jelasinnya pelan² jadi gampang buat paham materinya, dan juga dapat tantangan baru belajar dunia coding',
+                'school' => 'Siswa SMP',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => '', // atau 'mp4'
+                'video_url' => ''
+                // 'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+            ],
+            [
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-3.webp'),
+                'name' => 'Rauf Deriel',
+                'quote' => 'Menurutku kelas ini sangat menyenangkan, dan materi dapat dipahami dengan mudah.',
+                'school' => 'Siswa SMP',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => '', // atau 'mp4'
+                'video_url' => ''
+            ],
+        ]" />
+
+    <x-event.ramadhan_technoclass.certificate-kelulusan />
 
     <x-tutors title="Tim Pengajar Alhazen"
         description="Setiap pengajar di Alhazen adalah praktisi teknologi, pendidik kreatif, dan sahabat belajar anak."
