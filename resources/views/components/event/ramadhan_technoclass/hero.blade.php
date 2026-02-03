@@ -1,7 +1,9 @@
 @props([
-    'title' => 'Holiday Coding Program Bersama Alhazen Academy !',
-    'subtitle' => 'Program liburan edukatif untuk anak agar tetap produktif, kreatif, dan percaya diri melalui belajar teknologi.',
-    'banner' => asset('assets/kids/holiday/banner-default.webp'),
+    'title' => 'Title Class Here',
+    'subtitle' => 'Subtitle class here',
+    'banner' => null,
+
+    'highlights' => ['Highlight 1', 'Highlight 2', 'Highlight 3'],
 ])
 
 <section class="relative py-16 sm:py-20 overflow-hidden">
@@ -22,32 +24,25 @@
                         />
                     </div>
                 </div>
-
+                
                 {{-- Title --}}
-                <h1
-                    class="text-h2 font-bold text-primary leading-tight mb-4">
+                <h1 class="text-h2 font-bold text-primary leading-tight mb-4">
                     {{ $title }}
                 </h1>
 
                 {{-- Subtitle --}}
-                <p class="text-body text-text/80 max-w-3xl mb-6">
+                <p class="text-body text-text/80 max-w-3xl mb-6 text-justify">
                     {{ $subtitle }}
                 </p>
 
                 {{-- Highlight Points --}}
                 <ul class="space-y-3 mb-8 text-sm sm:text-base text-text/80">
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 w-2.5 h-2.5 rounded-full bg-primary"></span>
-                        Belajar coding, game, dan teknologi dengan cara menyenangkan
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 w-2.5 h-2.5 rounded-full bg-primary"></span>
-                        Dibimbing tutor berpengalaman & ramah anak
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 w-2.5 h-2.5 rounded-full bg-primary"></span>
-                        Cocok untuk anak SD hingga SMP
-                    </li>
+                    @foreach ($highlights as $item)
+                        <li class="flex items-start gap-3">
+                            <span class="mt-1 w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
+                            <span>{{ $item }}</span>
+                        </li>
+                    @endforeach
                 </ul>
 
                 {{-- CTA --}}
@@ -66,16 +61,15 @@
             <div class="relative hidden lg:block">
 
                 {{-- Decorative background --}}
-                <div
-                    class="absolute -inset-6 rounded-[32px] bg-primary/10 blur-2xl">
-                </div>
+                <div class="absolute -inset-6 rounded-[32px] bg-primary/10 blur-2xl"></div>
 
                 {{-- Image card --}}
-                <div class="relative rounded-[28px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,.18)] ring-1 ring-black/10">
+                <div
+                    class="relative rounded-[28px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,.18)] ring-1 ring-black/10">
 
                     <img
                         src="{{ $banner }}"
-                        alt="Event tentang {{ $title }}"
+                        alt="NgabuburIT Class Alhazen Academy"
                         class="w-full h-auto object-cover"
                         loading="eager"
                     >

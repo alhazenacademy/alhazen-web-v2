@@ -11,7 +11,7 @@
                 class="hidden lg:block pointer-events-none select-none absolute z-0 w-40 lg:w-40 drop-shadow-xl ml-45 -mt-10"
                 loading="lazy" />
 
-            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <div class="text-center max-w-3xl mx-auto px-4 mb-8 sm:mb-10">
                 <h2 class="text-h2 font-bold text-primary mb-4">{!! $title !!}</h2>
                 <p class="text-body max-w-2xl mx-auto text-neutral-content">{!! $description !!}</p>
             </div>
@@ -100,9 +100,11 @@
                                         <div class="text-[11px] tracking-wider font-bold text-[var(--color-text)]/60">
                                             TOTAL VALUE
                                         </div>
-                                        <div class="text-[20px] font-extrabold text-[var(--color-text)] line-through">
-                                            {{ $card['price'] }}
-                                        </div>
+                                        @if ($card['price'] != 0)
+                                            <div class="text-[20px] font-extrabold text-[var(--color-text)] line-through">
+                                                {{ $card['price'] }}
+                                            </div>
+                                        @endif
                                         <div class="text-[20px] font-extrabold text-[#EF4444]">
                                             GRATIS KELAS PERTAMA
                                         </div>

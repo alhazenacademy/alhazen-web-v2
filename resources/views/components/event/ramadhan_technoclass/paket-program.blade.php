@@ -1,6 +1,6 @@
 @props([
-    'title' => '',
-    'description' => '',
+    'title' => 'Title Class Here',
+    'description' => 'Description class here',
     'cards' => [],
 ])
 <section id="paket" class="relative py-16 sm:py-20">

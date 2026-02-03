@@ -25,6 +25,7 @@ Route::post('/leads', [TrialClassController::class, 'storeLead'])->name('leads.s
 Route::get('/lokasi', [LandingController::class, 'lokasi'])->name('lokasi');
 Route::get('/goes-to-school', [LandingController::class, 'goes_to_school'])->name('goes-to-school');
 Route::get('/kompetisi/alhazen-hackathon', [LandingController::class, 'alhazen_hackathon'])->name('alhazen-hackathon');
+Route::get('/event/ngabuburit-class', [LandingController::class, 'ramadhan_technoclass'])->name('ramadhan-technoclass');
 
 
 // Route::view('/pro', 'pro')->name('adult');
