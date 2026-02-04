@@ -61,16 +61,18 @@ class LeadNumbersTable
                                 'weekly' => 'Mingguan',
                                 'monthly' => 'Bulanan',
                             ])
+                            ->default('daily')
                             ->required()
                             ->reactive(),
 
                         // HARIAN
                         DatePicker::make('date')
                             ->label('Tanggal')
+                            ->default(Carbon::today())
                             ->visible(fn($get) => $get('type') === 'daily')
                             ->required(fn($get) => $get('type') === 'daily'),
 
-                        // MINGGUAN (RANGE)
+                        // MINGGUAN
                         DatePicker::make('start_date')
                             ->label('Tanggal Mulai')
                             ->visible(fn($get) => $get('type') === 'weekly')
@@ -88,9 +90,7 @@ class LeadNumbersTable
                             ->visible(fn($get) => $get('type') === 'monthly')
                             ->required(fn($get) => $get('type') === 'monthly'),
                     ])
-
                     ->query(function (Builder $query, array $data) {
-
                         if ($data['type'] === 'daily' && !empty($data['date'])) {
                             $query->whereDate('created_at', $data['date']);
                         }
@@ -109,7 +109,9 @@ class LeadNumbersTable
                         if ($data['type'] === 'monthly' && !empty($data['month'])) {
                             $date = Carbon::parse($data['month']);
 
-                            $query->whereMonth('created_at', $date->month)->whereYear('created_at', $date->year);
+                            $query
+                                ->whereMonth('created_at', $date->month)
+                                ->whereYear('created_at', $date->year);
                         }
                     }),
             ])
@@ -124,7 +126,7 @@ class LeadNumbersTable
                         fn($records) =>
                         Excel::download(
                             new LeadNumbersManualExport($records),
-                            'lead-numbers-' . now()->format('d-m-Y') . '.xlsx'
+                            'lead-numbers.xlsx'
                         )
                     ),
             ]);
