@@ -1,44 +1,24 @@
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
-
     RewriteEngine On
 
-    # =====================================
-    # 1. FORCE HTTPS
-    # =====================================
+    # ===============================
+    # FORCE HTTPS
+    # ===============================
     RewriteCond %{HTTPS} !=on
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # =====================================
-    # 2. REMOVE index.php
-    # =====================================
-    RewriteCond %{THE_REQUEST} \s/index\.php[\s?]
-    RewriteRule ^index\.php(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
-
-    # =====================================
-    # 3. FORCE TRAILING SLASH (MATCH CANONICAL)
-    # =====================================
+    # ===============================
+    # FORCE TRAILING SLASH (SEO)
+    # ===============================
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !/$
-    RewriteCond %{REQUEST_URI} !\.php$
     RewriteRule ^(.+)$ https://%{HTTP_HOST}/$1/ [L,R=301]
 
-    # =====================================
-    # 4. HANDLE AUTH HEADER
-    # =====================================
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-    RewriteCond %{HTTP:x-xsrf-token} .
-    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
-
-    # =====================================
-    # 5. FRONT CONTROLLER (Laravel)
-    # =====================================
-    RewriteCond %{REQUEST_FILENAME} !-d
+    # ===============================
+    # LARAVEL FRONT CONTROLLER
+    # ===============================
     RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.php [L]
 </IfModule>
