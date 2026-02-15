@@ -58,7 +58,7 @@
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $description }}">
 
-    <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
+    <link rel="canonical" href="{{ rtrim($canonical ?? url()->current(), '/') }}/">
 
     <x-og :title="$title" :description="$description" :image="$ogImage" />
     <link rel="icon" href="{{ asset('assets/logo.webp') }}" type="image/x-icon">
