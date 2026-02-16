@@ -10,6 +10,19 @@
     <x-index.about-section id="about" title="Tentang Alhazen Academy"
         content="<strong>Alhazen Academy</strong> adalah lembaga kursus dan konsultan pendidikan teknologi yang berfokus menyiapkan generasi muda untuk era industri 4.0. Pendekatannya memadukan nilai <strong>Islamic Leadership</strong> dan kerangka <strong>STEM (Science, Technology, Engineering, Math)</strong> agar belajar teknologi tetap berkarakter dan relevan.  <br> <br> Layanan Alhazen meliputi program belajar yang menyenangkan dan terstruktur untuk anak—mulai dari <strong>coding, AI, hingga robotika</strong>. Mereka juga aktif menjangkau sekolah melalui program “Alhazen goes to School” untuk menghadirkan kurikulum dan ekskul coding langsung di lingkungan belajar siswa." />
 
+    @php
+        $title_hero = 'NgabuburIT Class Bekal Technopreneur Sejak Dini';
+        $subtitle_hero = 'Isi waktu ngabuburit anak dengan kelas teknologi yang produktif, seru, dan penuh bekal masa depan selama Ramadan.';
+        $banner_hero = asset('assets/kids/ramadhan-technoclass/hero.webp');
+        $highlight_hero = [
+            'Kelas teknologi khusus jam ngabuburit (16.00 WIB)',
+            'Pilihan kelas: Animation & Game, Roblox, dan Web Development',
+            'Dibimbing mentor berpengalaman & ramah anak',
+        ];
+    @endphp
+
+    <x-event.ramadhan_technoclass.hero :title="$title_hero" :subtitle="$subtitle_hero" :banner="$banner_hero" :highlights="$highlight_hero" />
+
     <x-index.why-alhazen title="Kenapa Belajar di Alhazen Academy?" :cards="[
         [
             'icon' => asset('assets/kids/index-why/icon-why1.png'),

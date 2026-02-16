@@ -69,6 +69,7 @@
     @endif
 
     @vite(['resources/css/landing.css', 'resources/js/landing.js'])
+    @livewireStyles
 </head>
 
 <body class="min-h-dvh bg-background text-text dark:bg-background dark:text-text antialiased">
@@ -102,6 +103,26 @@
         </svg>
 
     </button>
+
+    <script>
+        (function () {
+            const path = window.location.pathname;
+
+            // skip homepage & livewire
+            if (
+                path !== '/' &&
+                !path.endsWith('/') &&
+                !path.startsWith('/livewire')
+            ) {
+                const newUrl =
+                    path + '/' + window.location.search + window.location.hash;
+
+                window.history.replaceState(null, '', newUrl);
+            }
+        })();
+        @livewireScripts
+    </script>
+
 </body>
 
 </html>
