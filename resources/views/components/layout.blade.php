@@ -102,6 +102,25 @@
         </svg>
 
     </button>
+
+    <script>
+        (function () {
+            const path = window.location.pathname;
+
+            // skip homepage & livewire
+            if (
+                path !== '/' &&
+                !path.endsWith('/') &&
+                !path.startsWith('/livewire')
+            ) {
+                const newUrl =
+                    path + '/' + window.location.search + window.location.hash;
+
+                window.history.replaceState(null, '', newUrl);
+            }
+        })();
+    </script>
+
 </body>
 
 </html>
