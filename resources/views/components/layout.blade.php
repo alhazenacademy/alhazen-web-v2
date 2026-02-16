@@ -69,6 +69,7 @@
     @endif
 
     @vite(['resources/css/landing.css', 'resources/js/landing.js'])
+    @livewireStyles
 </head>
 
 <body class="min-h-dvh bg-background text-text dark:bg-background dark:text-text antialiased">
@@ -119,6 +120,7 @@
                 window.history.replaceState(null, '', newUrl);
             }
         })();
+        @livewireScripts
     </script>
 
 </body>
