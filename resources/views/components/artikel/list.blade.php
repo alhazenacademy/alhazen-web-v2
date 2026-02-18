@@ -15,7 +15,7 @@
                     <a href="{{ route('artikel.show', $p['slug']) }}" class="group block rounded-[20px] p-3 ">
                         <div class="relative rounded-[16px] overflow-hidden mb-3 aspect-[16/9] bg-slate-100">
                             <img src="{{ $p['image'] }}"
-                                alt="Artikel tentang {{ $p['title'] }}"
+                                alt="{{ $p['alt'] }}"
                                 class="w-full h-full object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06]"
                                 loading="lazy" decoding="async" />
                         </div>

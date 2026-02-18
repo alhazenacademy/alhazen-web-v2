@@ -297,6 +297,7 @@ class LandingController extends Controller
             'slug'    => $a->slug,
             'date'    => optional($a->published_at)->translatedFormat('F d, Y'),
             'image'   => $a->cover_image_url,
+            'alt'     => $a->cover_image_alt,
             'url'     => route('artikel.show', $a->slug),
             'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
         ])
@@ -361,7 +362,7 @@ class LandingController extends Controller
             ->whereKeyNot($article->getKey())
             ->latest('published_at')
             ->take(6)
-            ->get(['title', 'slug', 'cover_image', 'published_at', 'content'])
+            ->get(['title', 'slug', 'cover_image', 'cover_image_alt', 'published_at', 'content'])
             ->map(function (Article $a) {
                 $image = $a->cover_image_url;
 
@@ -370,6 +371,7 @@ class LandingController extends Controller
                     'slug' => $a->slug,
                     'date' => $a->published_at_formatted,
                     'image' => $image,
+                    'alt'     => $a->cover_image_alt,
                     'url' => route('artikel.show', $a->slug),
                     'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
                 ];
