@@ -120,9 +120,9 @@
                 window.history.replaceState(null, '', newUrl);
             }
         })();
-        @livewireScripts
     </script>
 
+    @livewireScripts
 </body>
 
 </html>
