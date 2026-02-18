@@ -46,7 +46,7 @@
         {{-- Cover --}}
         @if ($article->cover_image_url)
             <figure class="my-6">
-                <img src="{{ $article->cover_image_url }}" alt="Artikel tentang {{ $article->title }}" class="w-full h-auto rounded-2xl object-cover">
+                <img src="{{ $article->cover_image_url }}" alt="{{ $article->cover_image_alt }}" class="w-full h-auto rounded-2xl object-cover">
             </figure>
         @endif
 
