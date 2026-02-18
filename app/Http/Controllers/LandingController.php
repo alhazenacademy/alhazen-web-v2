@@ -345,8 +345,15 @@ class LandingController extends Controller
                 'category:id,name,slug',
             ])
             ->where('slug', $slug)
-            ->where('status', 'published')
-            ->whereNotNull('published_at')
+            ->where(function ($q) {
+                if ( auth()->check() && auth()->user()->hasAnyRole(['super_admin', 'admin', 'author']) ) {
+                    // boleh preview semua
+                    return;
+                }
+                $q->where('status', 'published')
+                ->whereNotNull('published_at')
+                ->where('published_at', '<=', now());
+            })
             ->firstOrFail();
         $related = Article::query()
             ->published()
