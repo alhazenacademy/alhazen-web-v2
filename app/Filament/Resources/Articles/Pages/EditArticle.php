@@ -8,6 +8,7 @@ use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Str;
+use Filament\Actions\Action;
 
 class EditArticle extends EditRecord
 {
@@ -44,6 +45,14 @@ class EditArticle extends EditRecord
             DeleteAction::make(),
             ForceDeleteAction::make(),
             RestoreAction::make(),
+            
+            // Tombol Preview
+            Action::make('preview')
+                ->label('Preview Artikel')
+                ->icon('heroicon-o-eye')
+                ->color('gray')
+                ->url(fn () => route('artikel.show', $this->record->slug))
+                ->openUrlInNewTab(),
         ];
     }
 }

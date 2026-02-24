@@ -31,6 +31,18 @@ class ArticlesTable
                     ->toggleable(),
                 TextColumn::make('title')
                     ->searchable(),
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->badge()
+                    ->colors([
+                        'gray' => 'draft',
+                        'warning' => 'scheduled',
+                        'success' => 'published',
+                        'danger' => 'archived',
+                    ])
+                    ->formatStateUsing(fn (string $state) => ucfirst($state))
+                    ->sortable()
+                    ->toggleable(),
                 TextColumn::make('published_at')
                     ->dateTime()
                     ->sortable(),

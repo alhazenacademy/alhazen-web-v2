@@ -2,9 +2,6 @@
     <x-navbar variant="kids" />
 
     <x-artikel.post :article="$article" />
-    
-    
-   
 
     <x-artikel.related :posts="$related" />
 
