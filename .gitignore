@@ -56,7 +56,7 @@ public/assets/kids/program-detail/*
 !public/assets/kids/program-detail/maskot-toa-program.png
 
 # Ignore site map files
-!public/sitemap.xml
-!public/sitemap-categories.xml
-!public/sitemap-pages.xml
-!public/sitemap-posts.xml
+public/sitemap.xml
+public/sitemap-pages.xml
+public/sitemap-posts.xml
+public/sitemap-categories.xml

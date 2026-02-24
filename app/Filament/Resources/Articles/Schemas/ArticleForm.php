@@ -118,6 +118,19 @@ class ArticleForm
                             ->directory('articles/covers')
                             ->image()
                             ->columnSpanFull(),
+                        
+                        TextInput::make('cover_image_alt')
+                            ->label('Cover Image Alt Text')
+                            ->placeholder('Contoh: Ilustrasi pembelajaran sains modern')
+                            ->maxLength(255)
+                            ->live(onBlur: true)
+                            ->afterStateHydrated(function (Set $set, Get $get, $state) {
+                                // saat edit: jika kosong, fallback ke title
+                                if (blank($state)) {
+                                    $set('cover_image_alt', $get('title'));
+                                }
+                            })
+                            ->columnSpanFull(),
 
                         TinyEditor::make('content')
                             ->label('Content')

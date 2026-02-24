@@ -14,7 +14,7 @@ class Article extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'user_id','title','slug','excerpt','content','cover_image',
+        'user_id','title','slug','excerpt','content','cover_image', 'cover_image_alt',
         'status','published_at','reading_time','views','meta_title',
         'meta_description','is_featured', 'author_info'
     ];
@@ -67,6 +67,12 @@ class Article extends Model
 
         return Storage::url($this->cover_image);
     }
+
+    public function getCoverImageAltAttribute($value): string
+    {
+        return $value ?: $this->title;
+    }
+
 
     public function getUrlAttribute(): string
     {
