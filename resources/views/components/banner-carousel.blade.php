@@ -36,7 +36,7 @@
 
                 @foreach ($items as $i => $img)
                     <div x-show="active === {{ $i }}" x-transition.opacity.duration.700ms class="absolute inset-0" >
-                        <img src="{{ $img }}" alt="Banner {{ $i + 1 }}" class="w-full h-full object-cover" loading="{{ $i === 0 ? 'eager' : 'lazy' }}" >
+                        <img src="{{ $img }}" alt="Banner {{ $i + 1 }}" class="w-full h-full object-cover" loading="lazy" >
                     </div>
                 @endforeach
 
