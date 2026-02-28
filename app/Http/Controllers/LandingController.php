@@ -9,13 +9,14 @@ use App\Models\Program;
 use App\Models\SalesNumber;
 use App\Models\SiteSetting;
 use App\Models\Category;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class LandingController extends Controller
 {
     public function index()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -65,10 +66,10 @@ class LandingController extends Controller
             ->latest('published_at')
             ->take(4)
             ->get();
-        
+
         // Section FAQ
         $faqs = Faq::active()->ordered()->get();
-        
+
         // Section Program Cards
         $programCards = Program::query()
             ->with([
@@ -118,11 +119,17 @@ class LandingController extends Controller
             'url' => 'program' // ganti sesuai route index
         ];
 
-        return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs', 'programCards', 'programLinks'));
+        $banners = Banner::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get()
+            ->map(fn ($banner) => asset('storage/' . $banner->image))
+            ->toArray();
+
+        return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs', 'programCards', 'programLinks', 'banners'));
     }
 
     public function program()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -164,10 +171,10 @@ class LandingController extends Controller
                 ];
             })
             ->all();
-        
+
         // Section FAQ
         $faqs = Faq::active()->ordered()->get();
-        
+
         // Section Program Tabs & Content
         $programs = Program::query()
             ->with([
@@ -220,7 +227,7 @@ class LandingController extends Controller
     }
 
     public function event()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -228,7 +235,7 @@ class LandingController extends Controller
     }
 
     public function about()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -259,7 +266,7 @@ class LandingController extends Controller
                 ];
             })
             ->all();
-        
+
         // Section FAQ
         $faqs = Faq::active()->ordered()->get();
 
@@ -288,7 +295,7 @@ class LandingController extends Controller
             'href'  => route('artikel'),
             'active'=> true,
         ]);
-        
+
         $posts = Article::published()
         ->latest('published_at')
         ->get()
@@ -327,7 +334,7 @@ class LandingController extends Controller
                 ];
             })
             ->all();
-        
+
         // Section FAQ
         $faqs = Faq::active()->ordered()->get();
 
@@ -335,7 +342,7 @@ class LandingController extends Controller
     }
 
     public function articleShow(Request $request, string $slug)
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -418,7 +425,7 @@ class LandingController extends Controller
     }
 
     public function katalog()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -446,7 +453,7 @@ class LandingController extends Controller
                 ];
             })
             ->all();
-        
+
         // Section FAQ
         $faqs = Faq::active()->ordered()->get();
 
@@ -454,7 +461,7 @@ class LandingController extends Controller
     }
 
     public function kursus_coding_anak()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -504,7 +511,7 @@ class LandingController extends Controller
     }
 
     public function kursus_roblox()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -590,7 +597,7 @@ class LandingController extends Controller
                 'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, '...'),
             ])
             ->toArray();
-        
+
         // Section Footer
         $settings = SiteSetting::companySettings();
         $whatsapp = $settings['whatsapp'] ?? null;
@@ -615,7 +622,7 @@ class LandingController extends Controller
                 ];
             })
             ->all();
-        
+
         // Section FAQ
         $faqs = Faq::active()->ordered()->get();
 
@@ -637,7 +644,7 @@ class LandingController extends Controller
     }
 
     public function holiday_program()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -687,7 +694,7 @@ class LandingController extends Controller
     }
 
     public function kursus_blender()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -737,7 +744,7 @@ class LandingController extends Controller
     }
 
     public function kursus_python()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -787,7 +794,7 @@ class LandingController extends Controller
     }
 
     public function kursus_php()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -837,7 +844,7 @@ class LandingController extends Controller
     }
 
     public function lokasi()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -845,7 +852,7 @@ class LandingController extends Controller
     }
 
     public function alhazen_hackathon()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -895,7 +902,7 @@ class LandingController extends Controller
     }
 
     public function goes_to_school()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
@@ -903,7 +910,7 @@ class LandingController extends Controller
     }
 
     public function ramadhan_technoclass()
-    {   
+    {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
