@@ -15,6 +15,7 @@
         ['route' => 'kursus-blender', 'label' => 'Kursus Blender 3D'],
         ['route' => 'kursus-python', 'label' => 'Kursus Python'],
         ['route' => 'kursus-php', 'label' => 'Kursus PHP'],
+        ['route' => 'kursus-front-end', 'label' => 'Kursus Front End'],
         ['route' => 'program', 'label' => 'Program Lainnya'],
     ];
 
