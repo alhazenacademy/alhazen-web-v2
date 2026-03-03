@@ -11,6 +11,7 @@ Route::get('/kursus-roblox', [LandingController::class, 'kursus_roblox'])->name(
 Route::get('/kursus-blender', [LandingController::class, 'kursus_blender'])->name('kursus-blender');
 Route::get('/kursus-python', [LandingController::class, 'kursus_python'])->name('kursus-python');
 Route::get('/kursus-php', [LandingController::class, 'kursus_php'])->name('kursus-php');
+Route::get('/kursus-front-end', [LandingController::class, 'kursus_front_end'])->name('kursus-front-end');
 Route::get('/program', [LandingController::class, 'program'])->name('program');
 Route::get('/tentang-kami', [LandingController::class, 'about'])->name('about');
 Route::get('/artikel', [LandingController::class, 'article'])->name('artikel');

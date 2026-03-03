@@ -141,6 +141,50 @@
 
     <x-program.class-preview :images="$image_preview" />
 
+    <x-stem-certificate />
+
+    <x-index.student-review title="Review Murid Alhazen"
+        description="Cerita inspiratif dari murid-murid Alhazen yang membuat perubahan. Mereka bukan hanya belajar coding — mereka berkarya, berinovasi, dan berbagi inspirasi."
+        :cards="[
+            [
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-4.webp'),
+                'name' => 'Karenita',
+                'quote' =>
+                    'Belajar di Alhazen sangat senang, seru, terus karen jadi tau kaya gimana cara bikin aplikasi, karen udah bisa bikin google translate bahasa jepang,bahasa prancis.kalian juga harus coba yah, lakukan pengalaman baru, kaya aku.',
+                'school' => 'Siswa SD',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => '',
+                'video_url' => ''
+                // 'video_type' => 'youtube', // atau 'mp4'
+                // 'video_url' => 'https://www.youtube.com/embed/TD_mEqbTlcM', // untuk youtube pakai /embed
+            ],
+            [
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-2.webp'),
+                'name' => 'Malfy',
+                'quote' =>
+                    'Seru, belajarnya santai dan kakak tutornya baik. Jelasinnya pelan² jadi gampang buat paham materinya, dan juga dapat tantangan baru belajar dunia coding',
+                'school' => 'Siswa SMP',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => '', // atau 'mp4'
+                'video_url' => ''
+                // 'video_url' => asset('assets/kids/index-student-review/video/video-review-1.mp4'), // untuk youtube pakai /embed
+            ],
+            [
+                'image' => asset('assets/kids/index-student-review/thumbnail/thumbnail-review-3.webp'),
+                'name' => 'Rauf Deriel',
+                'quote' => 'Menurutku kelas ini sangat menyenangkan, dan materi dapat dipahami dengan mudah.',
+                'school' => 'Siswa SMP',
+                'mode' => 'Online',
+                'rating' => 5,
+                'video_type' => '', // atau 'mp4'
+                'video_url' => ''
+            ],
+        ]" />
+
+    <x-event.ramadhan_technoclass.certificate-kelulusan />
+
     <x-tutors title="Tim Pengajar Alhazen"
         description="Setiap pengajar di Alhazen adalah praktisi teknologi, pendidik kreatif, dan sahabat belajar anak."
         :cards="$cards" />
