@@ -16,11 +16,19 @@ class GenerateSitemap extends Command
     protected $signature = 'sitemap:generate';
     protected $description = '✅ Generate sitemap index and child sitemaps for pages, posts, and categories';
 
+    /**
+     * Helper untuk memastikan trailing slash
+     */
+    protected function withTrailingSlash(string $url): string
+    {
+        return rtrim($url, '/') . '/';
+    }
+
     public function handle()
     {
         /**
          * ======================
-         * 1️⃣ SITEMAP PAGES
+         * 1️⃣ SITEMAP PAGES (STATIC ROUTES)
          * ======================
          */
         $pagesSitemap = Sitemap::create();
@@ -60,25 +68,29 @@ class GenerateSitemap extends Command
             ->each(function ($route) use ($pagesSitemap) {
 
                 $pagesSitemap->add(
-                    Url::create(route($route->getName()))
-                        ->setLastModificationDate(now())
+                    Url::create(
+                        $this->withTrailingSlash(route($route->getName()))
+                    )->setLastModificationDate(now())
                 );
             });
 
         /**
-         * PROGRAM / KURSUS
+         * ======================
+         * 2️⃣ PROGRAM / KURSUS
+         * ======================
          */
         Program::where('is_active', true)->each(function ($program) use ($pagesSitemap) {
 
             $url = match (strtolower($program->name)) {
                 'coding' => url('/kursus-coding-anak'),
                 'roblox' => url('/kursus-roblox'),
-                default => url('/program/' . $program->slug),
+                default  => url('/program/' . $program->slug),
             };
 
             $pagesSitemap->add(
-                Url::create($url)
-                    ->setLastModificationDate($program->updated_at)
+                Url::create(
+                    $this->withTrailingSlash($url)
+                )->setLastModificationDate($program->updated_at)
             );
         });
 
@@ -86,7 +98,7 @@ class GenerateSitemap extends Command
 
         /**
          * ======================
-         * 2️⃣ SITEMAP POSTS (ARTIKEL)
+         * 3️⃣ SITEMAP POSTS (ARTIKEL)
          * ======================
          */
         $postsSitemap = Sitemap::create();
@@ -94,8 +106,11 @@ class GenerateSitemap extends Command
         Article::where('status', 'published')->each(function ($article) use ($postsSitemap) {
 
             $postsSitemap->add(
-                Url::create(route('artikel.show', $article->slug))
-                    ->setLastModificationDate($article->updated_at)
+                Url::create(
+                    $this->withTrailingSlash(
+                        route('artikel.show', $article->slug)
+                    )
+                )->setLastModificationDate($article->updated_at)
             );
         });
 
@@ -103,7 +118,7 @@ class GenerateSitemap extends Command
 
         /**
          * ======================
-         * 3️⃣ SITEMAP CATEGORIES
+         * 4️⃣ SITEMAP CATEGORIES
          * ======================
          */
         $categoriesSitemap = Sitemap::create();
@@ -111,8 +126,11 @@ class GenerateSitemap extends Command
         Category::each(function ($category) use ($categoriesSitemap) {
 
             $categoriesSitemap->add(
-                Url::create(route('category.show', $category->slug))
-                    ->setLastModificationDate($category->updated_at ?? now())
+                Url::create(
+                    $this->withTrailingSlash(
+                        route('category.show', $category->slug)
+                    )
+                )->setLastModificationDate($category->updated_at ?? now())
             );
         });
 
@@ -120,7 +138,8 @@ class GenerateSitemap extends Command
 
         /**
          * ======================
-         * 4️⃣ SITEMAP INDEX
+         * 5️⃣ SITEMAP INDEX
+         * (TIDAK pakai trailing slash karena file .xml)
          * ======================
          */
         SitemapIndex::create()
@@ -129,6 +148,6 @@ class GenerateSitemap extends Command
             ->add(url('/sitemap-categories.xml'))
             ->writeToFile(public_path('sitemap.xml'));
 
-        $this->info('✅ Sitemap index & child sitemaps berhasil dibuat!');
+        $this->info('✅ Sitemap berhasil dibuat dengan trailing slash SEO-friendly!');
     }
 }
