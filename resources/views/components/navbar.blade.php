@@ -24,6 +24,7 @@
         // ['route' => 'holiday-program', 'label' => 'Holiday Program'],
         ['route' => 'ramadhan-technoclass', 'label' => 'Ramadhan NgabuburIT Class'],
         ['route' => 'alhazen-tech-sprint', 'label' => 'Alhazen Tech Sprint'],
+        ['route' => 'mini-bootcamp-2026', 'label' => 'Mini Bootcamp 2026'],
         // ['route' => 'alhazen-hackathon', 'label' => 'Alhazen Hackathon'],
     ];
 
