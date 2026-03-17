@@ -12,6 +12,7 @@ use App\Models\Category;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class LandingController extends Controller
 {
@@ -354,10 +355,13 @@ class LandingController extends Controller
             ])
             ->where('slug', $slug)
             ->where(function ($q) {
-                if ( auth()->check() && auth()->user()->hasAnyRole(['super_admin', 'admin', 'author']) ) {
-                    // boleh preview semua
+                /** @var \App\Models\User|null $user */
+                $user = Auth::user();
+
+                if ($user?->hasAnyRole(['super_admin', 'admin', 'author'])) {
                     return;
                 }
+                
                 $q->where('status', 'published')
                 ->whereNotNull('published_at')
                 ->where('published_at', '<=', now());
@@ -959,7 +963,7 @@ class LandingController extends Controller
         return view('pages.event.ramadhan_technoclass', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'faqs', 'programLinks'));
     }
 
-    function kursus_front_end() {
+    public function kursus_front_end() {
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
