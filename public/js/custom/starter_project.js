@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="w-24 h-24 rounded-2xl overflow-hidden transition-all duration-500 ring-4 ring-slate-50 group-hover:ring-primary/20">
               <img
                 src="${assetBase}/${mentor.image}"
-                data-hover="${mentor.hoverImage}"
+                data-hover="${assetBase}/${mentor.hoverImage}"
                 alt="${mentor.name}"
                 class="mentor-img w-full h-full object-cover opacity-60 brightness-90 transition-all duration-500"
                 loading="lazy"

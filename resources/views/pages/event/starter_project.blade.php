@@ -1169,7 +1169,7 @@
     <!-- Floating Action Buttons -->
     <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
         <!-- WhatsApp Admin -->
-        <a href="https://wa.me/6281390000332?text=Halo%20Admin%20Alhazen%20Academy%2C%20saya%20tertarik%20mengikuti%20kelas%20Mini%20Project.%20Bisa%20minta%20informasi%20lebih%20lanjut%3F"
+        <a href="https://wa.me/6281390000332?text=Halo%20Admin%20Alhazen%20Academy%2C%20saya%20tertarik%20mengikuti%20kelas%20Starter%20Project.%20Bisa%20minta%20informasi%20lebih%20lanjut%3F"
             target="_blank"
             class="w-12 h-12 md:w-14 md:h-14 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-200 group relative"
             title="Tanya Admin">
