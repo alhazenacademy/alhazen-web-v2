@@ -27,8 +27,11 @@ Route::get('/lokasi', [LandingController::class, 'lokasi'])->name('lokasi');
 Route::get('/goes-to-school', [LandingController::class, 'goes_to_school'])->name('goes-to-school');
 Route::get('/kompetisi/alhazen-hackathon', [LandingController::class, 'alhazen_hackathon'])->name('alhazen-hackathon');
 Route::get('/event/ngabuburit-class', [LandingController::class, 'ramadhan_technoclass'])->name('ramadhan-technoclass');
-Route::get('/event/alhazen-tech-sprint', [LandingController::class, 'alhazen_tech_sprint'])->name('alhazen-tech-sprint');
-Route::get('/event/mini-bootcamp-2026', [LandingController::class, 'mini_bootcamp_2026'])->name('mini-bootcamp-2026');
+// Route::get('/event/alhazen-tech-sprint', [LandingController::class, 'event_alhazen_tech_sprint'])->name('alhazen-tech-sprint');
+// Route::get('/event/mini-bootcamp-2026', [LandingController::class, 'event_mini_bootcamp_2026'])->name('mini-bootcamp-2026');
+Route::get('/event/starter-project', [LandingController::class, 'event_starter_project'])->name('starter-project');
+Route::get('/event/master-gpt', [LandingController::class, 'event_master_gpt'])->name('master-gpt');
+Route::get('/event/master-gemini', [LandingController::class, 'event_master_gemini'])->name('master-gemini');
 
 
 // Route::view('/pro', 'pro')->name('adult');
