@@ -185,8 +185,8 @@ const mentorList = [
         expertise: "Data Science, Machine Learning, IoT Development",
         description:
             "Berfokus pada data science, machine learning, dan IoT development menggunakan Python, SQL, Tableau, Arduino, dan Raspberry Pi.",
-        image: "mentors/BTutor1.png",
-        hoverImage: "mentors/Tutor1.png",
+        image: "mentors/BTutor3.png",
+        hoverImage: "mentors/Tutor3.png",
     },
     {
         name: "Fariha Ulya",
