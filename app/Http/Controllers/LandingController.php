@@ -1031,13 +1031,15 @@ class LandingController extends Controller
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
-        return view('pages.event.ai_master.master_gpt', compact('salesPhone'));
+        // return view('pages.event.ai_master.master_gpt', compact('salesPhone'));
+        return redirect('https://ai.alhazen.academy/master-gpt');
     }
 
     public function event_master_gemini(){
         // CTA Sales Phone
         $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
 
-        return view('pages.event.ai_master.master_gemini', compact('salesPhone'));
+        // return view('pages.event.ai_master.master_gemini', compact('salesPhone'));
+        return redirect('https://ai.alhazen.academy/master-gemini');
     }
 }
