@@ -61,7 +61,7 @@
     <link rel="canonical" href="{{ rtrim($canonical ?? url()->current(), '/') }}/">
 
     <x-og :title="$title" :description="$description" :image="$ogImage" />
-    <link rel="icon" href="{{ asset('assets/logo.webp') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/logo-new.webp') }}" type="image/x-icon">
 
     {{-- Prevent indexing on staging --}}
     @if (request()->is(config('seo.noindex_paths')))
