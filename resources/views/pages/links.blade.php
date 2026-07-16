@@ -62,7 +62,7 @@
 
             <!-- ==================== EVENT ==================== -->
 
-            <div class="flex items-center gap-4 my-8">
+            {{-- <div class="flex items-center gap-4 my-8">
                 <div class="flex-1 h-px bg-white/20"></div>
 
                 <span
@@ -96,7 +96,7 @@
 
                 </a>
 
-            </div>
+            </div> --}}
 
 
             <!-- ==================== WEBSITE ==================== -->
