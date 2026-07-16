@@ -2,7 +2,7 @@
     'title' => 'Kursus Coding dan Animasi Terbaik #1 - Alhazen Academy',
     'description' =>
         'Belajar Coding dengan tutor berpengalaman dan professional di Alhazen Academy. Kami menyediakan program pelatihan online, offline, dan privat',
-    'ogImage' => asset('assets/nav-logo.webp'),
+    'ogImage' => asset('assets/nav-logo-new.webp'),
     'theme' => 'kids', // 'kids' | 'pro'
     'canonical' => null,
 ])
