@@ -32,6 +32,7 @@ Route::get('/event/ngabuburit-class', [LandingController::class, 'ramadhan_techn
 Route::get('/event/starter-project', [LandingController::class, 'event_starter_project'])->name('starter-project');
 Route::get('/event/master-gpt', [LandingController::class, 'event_master_gpt'])->name('master-gpt');
 Route::get('/event/master-gemini', [LandingController::class, 'event_master_gemini'])->name('master-gemini');
+Route::get('/links', [LandingController::class, 'links'])->name('links');
 
 
 // Route::view('/pro', 'pro')->name('adult');
