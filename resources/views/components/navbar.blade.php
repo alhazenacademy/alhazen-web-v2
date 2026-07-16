@@ -1,5 +1,5 @@
 @php
-    $logo = asset('assets/nav-logo.webp');
+    $logo = asset('assets/nav-logo-new.webp');
 
     $nav = [
         ['route' => 'home', 'label' => 'Home'],
@@ -42,7 +42,7 @@
 
         {{-- LEFT: Brand --}}
         <a href="{{ route('home') }}" class="flex items-center gap-3">
-            <img src="{{ $logo }}" alt="Alhazen Academy" class="h-8 w-auto" loading="lazy">
+            <img src="{{ $logo }}" alt="Alhazen Academy" class="h-10 w-auto" loading="lazy">
             <span class="sr-only">Alhazen</span>
         </a>
 

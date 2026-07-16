@@ -1,7 +1,7 @@
 @props([
     'bgDecor' => asset('assets/kids/image-footer/bg-footer.webp'),
     'socials' => [],
-    'logo' => asset('assets/kids/image-footer/Alhazen-Logo-white.webp'),
+    'logo' => asset('assets/foot-logo-new.webp'),
     'logoAlt' => 'Alhazen Academy',
     'about' =>
         'PT. Alhazen Global Teknologi adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif. ',
@@ -34,7 +34,7 @@
             ],
         ],
     ];
-    
+
     $programCol = $columns[0] ?? ['title' => 'Program', 'links' => []];
     $otherCol = $columns[1] ?? ['title' => 'Lainnya', 'links' => []];
 @endphp
@@ -51,7 +51,7 @@
 
             <!-- Logo & About -->
             <div class="md:col-span-3 space-y-3 md:space-y-6">
-                <img src="{{ $logo }}" alt="{{ $logoAlt }}" class="h-10 w-auto" loading="lazy"
+                <img src="{{ $logo }}" alt="{{ $logoAlt }}" class="h-15 w-auto" loading="lazy"
                     decoding="async">
                 <div class="flex items-center gap-3">
                     @foreach ($socials as $s)
@@ -92,7 +92,7 @@
                                 class="hover:underline hover:text-white">{{ $contact['site'] }}</a></li>
                     </ul>
                 </div>
-                
+
             </div>
 
             <!-- Lainnya -->
