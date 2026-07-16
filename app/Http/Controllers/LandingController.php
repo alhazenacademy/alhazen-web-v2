@@ -1042,4 +1042,8 @@ class LandingController extends Controller
         // return view('pages.event.ai_master.master_gemini', compact('salesPhone'));
         return redirect('https://ai.alhazen.academy/master-gemini');
     }
+
+    public function links() {
+        return view('pages.links');
+    }
 }
