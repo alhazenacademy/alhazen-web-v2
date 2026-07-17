@@ -33,6 +33,9 @@ Route::get('/event/starter-project', [LandingController::class, 'event_starter_p
 Route::get('/event/master-gpt', [LandingController::class, 'event_master_gpt'])->name('master-gpt');
 Route::get('/event/master-gemini', [LandingController::class, 'event_master_gemini'])->name('master-gemini');
 Route::get('/links', [LandingController::class, 'links'])->name('links');
+Route::get('/plus/program/ai-pytho-quickstart', function () {
+    return view('pages.random.aipythonquickstart');
+});
 
 
 // Route::view('/pro', 'pro')->name('adult');
