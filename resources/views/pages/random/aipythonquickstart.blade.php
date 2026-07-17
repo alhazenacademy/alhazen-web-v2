@@ -1342,7 +1342,7 @@
                         <div class="code-block">
                             <span class="dim"># Output data dari web</span><br>
                             <span class="hl">Judul</span>&nbsp;&nbsp;&nbsp;&nbsp;: "Python untuk Pemula"<br>
-                            <span class="hl">Harga</span>&nbsp;&nbsp;&nbsp;&nbsp;: Rp 149.000<br>
+                            <span class="hl">Harga</span>&nbsp;&nbsp;&nbsp;&nbsp;: Rp 49.000<br>
                             <span class="hl">Penulis</span>&nbsp;&nbsp;: Tim Alhazen Plus<br>
                             <span class="hl">Rating</span>&nbsp;&nbsp;&nbsp;: 4.8 / 5.0
                         </div>
@@ -1434,7 +1434,7 @@
                         <div class="terminal-body">
                             <div class="code-block">
                                 <span class="hl">Judul</span>&nbsp;&nbsp;&nbsp;&nbsp;: "Python untuk Pemula"<br>
-                                <span class="hl">Harga</span>&nbsp;&nbsp;&nbsp;&nbsp;: Rp 149.000<br>
+                                <span class="hl">Harga</span>&nbsp;&nbsp;&nbsp;&nbsp;: Rp 49.000<br>
                                 <span class="hl">Penulis</span>&nbsp;&nbsp;: Tim Alhazen Plus<br>
                                 <span class="hl">Rating</span>&nbsp;&nbsp;&nbsp;: 4.8 / 5.0<br>
                                 <span class="dim">---</span><br>
@@ -1628,7 +1628,7 @@
                                 <div class="timeline-step">
                                     <div class="timeline-num">5</div>
                                     <div class="timeline-content">
-                                        <strong>Debrief &amp; Transisi</strong>
+                                        <strong>Debrief</strong>
                                         <div class="dur">15 menit</div>
                                     </div>
                                 </div>
@@ -1723,18 +1723,7 @@
                             <i class="bi bi-chevron-down chevron"></i>
                         </button>
                         <div class="faq-a" id="f4">
-                            <p>Ya. Rekaman kelas akan dibagikan kepada peserta setelah sesi selesai, akses terbatas 7
-                                hari. Jadi kamu tetap bisa menonton ulang jika ada yang terlewat.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" data-faq="f5">
-                            <span>Apakah ada jaminan jika saya tidak puas?</span>
-                            <i class="bi bi-chevron-down chevron"></i>
-                        </button>
-                        <div class="faq-a" id="f5">
-                            <p>Tentu. Kami memberikan garansi uang kembali 100% jika kamu merasa kelas ini tidak sesuai
-                                ekspektasi. Cukup hubungi admin dalam waktu 24 jam setelah kelas berakhir.</p>
+                            <p>Ya. Rekaman kelas akan dibagikan kepada peserta setelah sesi selesai, jadi kamu tetap bisa menonton ulang jika ada yang terlewat.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -1744,8 +1733,7 @@
                         </button>
                         <div class="faq-a" id="f6">
                             <p>Tidak. Fokus kelas ini adalah memberi pengalaman pertama yang menyenangkan dan
-                                membuktikan bahwa coding tidak sesulit yang dibayangkan. Untuk pendalaman, ada kelas
-                                lanjutan yang akan dibahas di akhir sesi.</p>
+                                membuktikan bahwa coding tidak sesulit yang dibayangkan.</p>
                         </div>
                     </div>
                 </div>
@@ -1763,11 +1751,12 @@
                     <h2>Siap Membuat Aplikasi Pertamamu?</h2>
                     <p>Bergabunglah bersama puluhan peserta lain dan rasakan sendiri bagaimana AI membantumu menulis
                         kode dalam hitungan detik.</p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
                         <a href="#registration-form" class="btn btn-white">
                             <i class="bi bi-arrow-right-circle"></i> Daftar Sekarang
                         </a>
-                        <a href="#faq" class="btn btn-ghost">
+                        <a href="https://wa.me/6281390000332?text=Halo%20Minzen,%20saya%20ingin%20bertanya%20tentang%20program%20AI%20%26%20Python%20Quickstart:%20Bikin%20Aplikasi%20Pertama%20dalam%202%20Jam."
+                            class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
                             <i class="bi bi-chat"></i> Tanya Admin
                         </a>
                     </div>
