@@ -1628,7 +1628,7 @@
                                 <div class="timeline-step">
                                     <div class="timeline-num">5</div>
                                     <div class="timeline-content">
-                                        <strong>Debrief &amp; Transisi</strong>
+                                        <strong>Debrief</strong>
                                         <div class="dur">15 menit</div>
                                     </div>
                                 </div>
@@ -1723,8 +1723,7 @@
                             <i class="bi bi-chevron-down chevron"></i>
                         </button>
                         <div class="faq-a" id="f4">
-                            <p>Ya. Rekaman kelas akan dibagikan kepada peserta setelah sesi selesai, akses terbatas 7
-                                hari. Jadi kamu tetap bisa menonton ulang jika ada yang terlewat.</p>
+                            <p>Ya. Rekaman kelas akan dibagikan kepada peserta setelah sesi selesai, jadi kamu tetap bisa menonton ulang jika ada yang terlewat.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -1734,8 +1733,7 @@
                         </button>
                         <div class="faq-a" id="f6">
                             <p>Tidak. Fokus kelas ini adalah memberi pengalaman pertama yang menyenangkan dan
-                                membuktikan bahwa coding tidak sesulit yang dibayangkan. Untuk pendalaman, ada kelas
-                                lanjutan yang akan dibahas di akhir sesi.</p>
+                                membuktikan bahwa coding tidak sesulit yang dibayangkan.</p>
                         </div>
                     </div>
                 </div>
