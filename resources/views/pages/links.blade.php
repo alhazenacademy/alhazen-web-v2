@@ -60,9 +60,55 @@
 
             </div>
 
+            <!-- ==================== HIGHLIGHT ==================== -->
+            <div class="my-8">
+
+                <!-- Hero Card -->
+                <div class="rounded-[32px] border-[3px] border-black bg-[#F8F3ED] shadow-[0_8px_0_#000] p-7">
+
+                    <div class="flex items-center gap-5">
+
+                        <div class="w-16 h-16 rounded-2xl bg-[#03AE91]/10 flex items-center justify-center">
+
+                            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg"
+                                width="34">
+
+                        </div>
+
+                        <div class="flex-1">
+
+                            <div
+                                class="inline-block text-[11px] font-bold uppercase tracking-widest bg-yellow-300 text-black px-2 py-1 rounded-full">
+                                NEW !!!
+                            </div>
+
+                            <h2 class="text-[#111] text-2xl font-extrabold mt-3">
+                                AI & Python Quickstart
+                            </h2>
+
+                            <p class="text-gray-600 mt-2">
+                                Belajar AI & Python dari nol dengan project nyata.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CTA -->
+                    <a href="https://alhazen.academy/plus/program/ai-python-quickstart/" target="_blank" class="cta-animate mt-7 flex items-center justify-center gap-2 rounded-2xl bg-[#03AE91] text-white py-3 font-bold transition hover:bg-[#028a75]">
+
+                        Daftar Sekarang
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
             <!-- ==================== EVENT ==================== -->
 
-            <div class="flex items-center gap-4 my-8">
+            {{-- <div class="flex items-center gap-4 my-8">
                 <div class="flex-1 h-px bg-white/20"></div>
 
                 <span
@@ -96,7 +142,7 @@
 
                 </a>
 
-            </div>
+            </div> --}}
 
 
             <!-- ==================== WEBSITE ==================== -->
