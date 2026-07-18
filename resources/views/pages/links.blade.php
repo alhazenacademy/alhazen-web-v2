@@ -60,6 +60,52 @@
 
             </div>
 
+            <!-- ==================== HIGHLIGHT ==================== -->
+            <div class="my-8">
+
+                <!-- Hero Card -->
+                <div class="rounded-[32px] border-[3px] border-black bg-[#F8F3ED] shadow-[0_8px_0_#000] p-7">
+
+                    <div class="flex items-center gap-5">
+
+                        <div class="w-16 h-16 rounded-2xl bg-[#03AE91]/10 flex items-center justify-center">
+
+                            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg"
+                                width="34">
+
+                        </div>
+
+                        <div class="flex-1">
+
+                            <div
+                                class="inline-block text-[11px] font-bold uppercase tracking-widest bg-yellow-300 text-black px-2 py-1 rounded-full">
+                                NEW !!!
+                            </div>
+
+                            <h2 class="text-[#111] text-2xl font-extrabold mt-3">
+                                AI & Python Quickstart
+                            </h2>
+
+                            <p class="text-gray-600 mt-2">
+                                Belajar AI & Python dari nol dengan project nyata.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CTA -->
+                    <a href="https://alhazen.academy/plus/program/ai-python-quickstart/" target="_blank" class="cta-animate mt-7 flex items-center justify-center gap-2 rounded-2xl bg-[#03AE91] text-white py-3 font-bold transition hover:bg-[#028a75]">
+
+                        Daftar Sekarang
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
             <!-- ==================== EVENT ==================== -->
 
             {{-- <div class="flex items-center gap-4 my-8">
@@ -76,19 +122,19 @@
             <div class="space-y-5">
 
                 <!-- Mini Class -->
-                <a href="https://goakal.com/alhazenacademy/mini-class-AI-2026" target="_blank"
+                <a href="https://alhazen.academy/plus/program/ai-python-quickstart/" target="_blank"
                     class="link-card rounded-3xl py-5 flex items-center px-5">
 
-                    <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/gemini/default.svg"
-                        alt="Gemini" width="24" height="24" />
+                    <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg"
+                        alt="Python" width="24" height="24" />
 
                     <div class="flex-1 text-center font-medium text-md">
-                        Mini Class Prompt AI
+                        AI & Python Quickstart
                     </div>
 
                     <button type="button"
                         class="copy-btn w-9 h-9 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:text-[#03AE91] transition"
-                        data-link="https://goakal.com/alhazenacademy/mini-class-AI-2026" title="Salin Link">
+                        data-link="https://alhazen.academy/plus/program/ai-python-quickstart/" title="Salin Link">
 
                         <i class="fa-regular fa-copy"></i>
 
@@ -114,7 +160,8 @@
 
             <div class="space-y-5">
 
-                <a href="https://alhazen.academy/" target="_blank" class="link-card rounded-3xl py-5 flex items-center px-5">
+                <a href="https://alhazen.academy/" target="_blank"
+                    class="link-card rounded-3xl py-5 flex items-center px-5">
 
                     <img src="{{asset('assets/logo-new.webp')}}" alt="Homepage" class="h-7" />
 
@@ -171,7 +218,8 @@
 
                 </a>
 
-                <a href="mailto:info@alhazen.academy" target="_blank" class="link-card rounded-3xl py-5 flex items-center px-5">
+                <a href="mailto:info@alhazen.academy" target="_blank"
+                    class="link-card rounded-3xl py-5 flex items-center px-5">
 
                     <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/gmail-2026/default.svg"
                         alt="Gmail (2026)" width="24" height="24" />
@@ -208,7 +256,8 @@
 
             <div class="space-y-5">
 
-                <a href="https://www.instagram.com/alhazenacademy" target="_blank" class="link-card rounded-3xl py-5 flex items-center px-5">
+                <a href="https://www.instagram.com/alhazenacademy" target="_blank"
+                    class="link-card rounded-3xl py-5 flex items-center px-5">
 
                     <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/default.svg"
                         alt="Instagram" width="24" height="24" />
@@ -227,7 +276,8 @@
 
                 </a>
 
-                <a href="https://www.tiktok.com/@alhazenacademy" target="_blank" class="link-card rounded-3xl py-5 flex items-center px-5">
+                <a href="https://www.tiktok.com/@alhazenacademy" target="_blank"
+                    class="link-card rounded-3xl py-5 flex items-center px-5">
 
                     <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/tiktok/light.svg"
                         alt="TikTok" width="24" height="24" />
@@ -246,7 +296,8 @@
 
                 </a>
 
-                <a href="https://www.threads.com/@alhazenacademy" target="_blank" class="link-card rounded-3xl py-5 flex items-center px-5">
+                <a href="https://www.threads.com/@alhazenacademy" target="_blank"
+                    class="link-card rounded-3xl py-5 flex items-center px-5">
 
                     <div class="w-8 h-8 rounded-lg bg-black flex items-center justify-center">
                         <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/threads/default.svg"
@@ -267,7 +318,8 @@
 
                 </a>
 
-                <a href="https://www.youtube.com/@alhazenacademy" target="_blank" class="link-card rounded-3xl py-5 flex items-center px-5">
+                <a href="https://www.youtube.com/@alhazenacademy" target="_blank"
+                    class="link-card rounded-3xl py-5 flex items-center px-5">
 
                     <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/youtube/default.svg"
                         alt="YouTube" width="24" height="24" />
@@ -286,7 +338,8 @@
 
                 </a>
 
-                <a href="https://x.com/AlhazenAcademy" target="_blank" class="link-card rounded-3xl py-5 flex items-center px-5">
+                <a href="https://x.com/AlhazenAcademy" target="_blank"
+                    class="link-card rounded-3xl py-5 flex items-center px-5">
 
                     <div class="w-8 h-8 rounded-lg bg-black border border-neutral-700 flex items-center justify-center">
                         <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/x/default.svg" alt="X"
