@@ -3,6 +3,7 @@
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\TrialClassController;
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
@@ -36,6 +37,7 @@ Route::get('/links', [LandingController::class, 'links'])->name('links');
 Route::get('/plus/program/ai-python-quickstart', function () {
     return view('pages.random.aipythonquickstart');
 });
+Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
 
 // Route::view('/pro', 'pro')->name('adult');
