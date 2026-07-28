@@ -4,7 +4,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI & Python Quickstart · Alhazen Plus</title>
+    <title>Stop Copy Data Manual! Belajar Otomasi AI & Python | Rp49rb - Alhazen Plus</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/custom/ai_python/icon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/custom/ai_python/icon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/custom/ai_python/icon.png') }}">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Belum bisa coding? Nggak masalah. Dalam 2 jam, kamu bikin aplikasi Python yang narik data dari web otomatis pakai AI. Cuma Rp49.000, tanpa background IT." />
+
+    <meta name="keywords" content="kelas python pemula, belajar python online, AI automation, web scraping python, otomasi data excel, belajar coding pemula, kelas AI Indonesia, python untuk non-IT" />
+    <meta name="author" content="Alhazen Plus" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://plus.alhazen.academy/program/ai-python-quickstart" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://plus.alhazen.academy/program/ai-python-quickstart" />
+    <meta property="og:title" content="Stop Copy Data Manual! Belajar Otomasi AI & Python | Rp49rb - Alhazen Plus" />
+    <meta property="og:description" content="Belum bisa coding? Nggak masalah. Dalam 2 jam, kamu bikin aplikasi Python yang narik data dari web otomatis pakai AI. Cuma Rp49.000, tanpa background IT." />
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1QESInMtp95Oa4D-oeHvD2o7SvFQIAGSo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Alhazen Plus" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stop Copy Data Manual! Belajar Otomasi AI & Python | Rp49rb - Alhazen Plus" />
+    <meta name="twitter:description" content="Belum bisa coding? Nggak masalah. Dalam 2 jam, kamu bikin aplikasi Python yang narik data dari web otomatis pakai AI. Cuma Rp49.000, tanpa background IT." />
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1QESInMtp95Oa4D-oeHvD2o7SvFQIAGSo" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
@@ -16,12 +45,14 @@
 
     <style>
         :root {
-            --navy: #0B1A33;
-            --navy-soft: #111f3a;
-            --blue: #1A5CFF;
-            --blue-hover: #1249d4;
-            --blue-light: #E8EEFF;
-            --blue-glow: rgba(26, 92, 255, 0.12);
+            --navy: #2F4D47;
+            --navy-soft: #253D38;
+            --blue: #1EA1A7;
+            --blue-hover: #169B9F;
+            --blue-light: #E6F7F7;
+            --blue-glow: rgba(30, 161, 167, 0.12);
+            --lemon: #F4E808;
+            --teal2: #2EB3B9;
             --gray-50: #F8F9FA;
             --gray-100: #F1F3F5;
             --gray-200: #E9ECEF;
@@ -39,7 +70,7 @@
             --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.10);
-            --shadow-blue: 0 8px 32px rgba(26, 92, 255, 0.18);
+            --shadow-blue: 0 8px 32px rgba(30, 161, 167, 0.18);
             --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -248,7 +279,7 @@
         }
 
         .hero h1 .hl {
-            color: var(--blue);
+            color: var(--lemon);
         }
 
         .hero .lead {
@@ -398,7 +429,7 @@
         }
 
         .code-block .hl {
-            color: #60a5fa;
+            color: var(--teal2);
         }
 
         /* ── SECTIONS ── */
@@ -835,7 +866,7 @@
             right: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(26, 92, 255, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(30, 161, 167, 0.15) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -880,7 +911,7 @@
         .site-footer {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(160deg, #1A5CFF 0%, #1249d4 35%, #0B1A33 75%, #061024 100%);
+            background: linear-gradient(160deg, #1EA1A7 0%, #169B9F 35%, #2F4D47 75%, #1A2F2B 100%);
             color: var(--white);
             padding: 64px 5vw 0;
         }
@@ -1251,6 +1282,36 @@
             }
         }
     </style>
+
+    <!-- JSON-LD Structured Data -->
+    @verbatim
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "AI & Python Quickstart: Bikin Aplikasi Penarik Data Otomatis dalam 2 Jam",
+      "description": "Kelas live online 2 jam untuk pemula. Belajar bikin aplikasi Python yang mengambil data dari website secara otomatis dengan bantuan AI. Tanpa background IT, hanya Rp49.000.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Alhazen Plus",
+        "url": "https://www.alhazen.academy",
+        "logo": "https://lh3.googleusercontent.com/d/1Otrb-FnAy3zpUSdE003Em617u4DPlUEE"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "49000",
+        "priceCurrency": "IDR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.alhazen.academy/program/ai-python-quickstart"
+      },
+      "courseMode": "online",
+      "educationalLevel": "Beginner",
+      "inLanguage": "id",
+      "isAccessibleForFree": false,
+      "courseWorkload": "PT2H"
+    }
+    </script>
+    @endverbatim
 </head>
 
 <body>
@@ -1291,15 +1352,16 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
                     <div class="hero-badge">
-                        <i class="bi bi-live"></i> Live Online · 2 Jam
+                        <i class="bi bi-live"></i> Live Online · 2 Jam · Tanpa Background IT
                     </div>
                     <h1>
-                        Bikin Aplikasi Pertamamu dalam<br>
-                        <span class="hl">2 Jam</span> · Tanpa Background IT
+                        Stop Copy Data Manual!<br>
+                        Mulai <span class="hl">Otomasi</span> dengan AI &amp; Python.
                     </h1>
                     <p class="lead">
-                        Ngoding yang dulu terasa rumit, kini jadi mudah dengan AI sebagai asisten pribadimu.
-                        Kelas santai khusus pemula ini akan membantumu membangun aplikasi nyata.
+                        Kamu bakal belajar bikin aplikasi Python yang bisa ambil data dari website
+                        secara otomatis, susun jadi tabel rapi, dan export langsung ke Excel —
+                        tanpa perlu jago coding. Cukup kasih instruksi ke AI, AI yang bantu bikin kodenya.
                     </p>
 
                     <div class="hero-meta">
@@ -1359,10 +1421,10 @@
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
-                    <div class="section-tag"><i class="bi bi-question-circle"></i> Apakah kamu sering merasa begini?
+                    <div class="section-tag"><i class="bi bi-question-circle"></i> Masih kerja manual?
                     </div>
                     <h2 class="section-heading">Kelas ini untukmu jika…</h2>
-                    <p class="section-desc mx-auto">Tiga masalah umum yang membuat banyak orang menunda belajar coding.
+                    <p class="section-desc mx-auto">Tiga tanda kalau waktunya kamu mulai pakai AI untuk kerjaan yang seharusnya nggak perlu dilakukan manual.
                     </p>
                 </div>
             </div>
@@ -1370,24 +1432,22 @@
                 <div class="col-md-4 reveal">
                     <div class="card-clean">
                         <div class="card-icon"><i class="bi bi-headset"></i></div>
-                        <h5>Bahasa Terlalu Teknis</h5>
-                        <p>Pengen belajar coding atau bikin tools, tapi bahasanya terasa terlalu teknis dan bikin pusing
-                            duluan.</p>
+                        <h5>Nyalin Data Satu-Satu</h5>
+                        <p>Masih ngabisin waktu buat copy data dari website ke Excel manual? Kerjaan repetitif kayak gini sebenarnya udah bisa diambil alih AI.</p>
                     </div>
                 </div>
                 <div class="col-md-4 reveal reveal-delay-1">
                     <div class="card-clean">
                         <div class="card-icon"><i class="bi bi-chat-dots"></i></div>
-                        <h5>AI cuma buat nanya-nanya</h5>
-                        <p>Sering dengar kehebatan AI, tapi sejauh ini baru sebatas pakai buat nanya-nanya doang.</p>
+                        <h5>AI Cuma Buat Nanya-Nanya</h5>
+                        <p>Sering dengar kehebatan AI, tapi sejauh ini baru dipakai buat tanya-tanya doang. Padahal potensinya jauh lebih besar dari itu.</p>
                     </div>
                 </div>
                 <div class="col-md-4 reveal reveal-delay-2">
                     <div class="card-clean">
                         <div class="card-icon"><i class="bi bi-rocket-takeoff"></i></div>
-                        <h5>Mau otomatisasi, bingung mulai</h5>
-                        <p>Mau punya skill bikin aplikasi otomatis buat narik data web, tapi nggak tahu harus mulai dari
-                            mana.</p>
+                        <h5>Mau Otomasi, Bingung Mulai</h5>
+                        <p>Pengen bikin tools otomatis buat narik data web, tapi nggak tahu harus mulai dari mana. Di era AI, coding nggak harus dimulai dari nol.</p>
                     </div>
                 </div>
             </div>
@@ -1410,12 +1470,11 @@
                     <h2 class="section-heading">Apa yang akan kamu buat?</h2>
                     <p class="fs-5 fw-semibold" style="color:var(--navy); line-height:1.6;">
                         Sebuah <strong>"Robot Pintar"</strong> (Aplikasi Penarik Data) yang bisa menarik, menyalin, dan
-                        merapikan data dari halaman web secara instan.
+                        merapikan data dari halaman web secara instan — dari ratusan halaman, dalam hitungan detik.
                     </p>
                     <p style="color:var(--gray-500); margin-top:12px;">
-                        Nggak perlu khawatir soal ngetik kode rumit. <strong style="color:var(--navy)">AI yang akan
-                            menulis kodenya</strong> untukmu, kamu tinggal menjalankan dan memodifikasinya tanpa harus
-                        menghafal sintaks.
+                        Cukup kasih instruksi ke AI, misalnya: <em>"Buat aplikasi Python yang mengambil nama produk, harga, dan rating dari website."</em>
+                        <strong style="color:var(--navy)">AI akan bantu bikin kodenya.</strong> Kamu tinggal jalankan, dan data langsung terkumpul otomatis — tanpa harus menghafal sintaks.
                     </p>
                     <div class="d-flex flex-wrap gap-2 mt-4">
                         <span class="badge-pill"><i class="bi bi-check-circle-fill"></i> Tanpa hafalan</span>
@@ -1471,8 +1530,7 @@
                             <div class="feat-icon"><i class="bi bi-clock-history"></i></div>
                             <div>
                                 <h6>Anti Ribet &amp; Cepat</h6>
-                                <p>Cukup 2 jam, dari nol sampai punya aplikasi pengumpul data otomatis buatan sendiri.
-                                </p>
+                                <p>Cukup 2 jam, dari nol sampai punya aplikasi pengumpul data otomatis buatan sendiri. Yang dulu makan waktu berjam-jam, selesai dalam hitungan detik.</p>
                             </div>
                         </div>
                     </div>
@@ -1495,10 +1553,62 @@
                             <div class="feat-icon"><i class="bi bi-robot"></i></div>
                             <div>
                                 <h6>AI sebagai Partner</h6>
-                                <p>Kamu akan belajar rahasia memberikan instruksi ke AI agar AI bekerja mengekstrak data
-                                    persis seperti yang kamu butuhkan.</p>
+                                <p>Kamu nggak perlu jago coding. Cukup kasih instruksi ke AI, dan AI akan bantu bikin kodenya. Yang kamu butuhkan cuma ide, AI yang eksekusi.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+     USE CASES
+     ══════════════════════════════════════════════════════════════ -->
+    <section>
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-7">
+                    <div class="section-tag"><i class="bi bi-lightning"></i> Kegunaan Nyata</div>
+                    <h2 class="section-heading">Skill Ini Kepakai Banget Buat…</h2>
+                    <p class="section-desc mx-auto">Data otomatis bukan cuma soal coding — ini soal kerja yang lebih cerdas.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 col-lg reveal">
+                    <div class="facility-item">
+                        <div class="fi-icon"><i class="bi bi-search"></i></div>
+                        <h6>Market Research</h6>
+                        <p>Kumpulkan data pasar dari berbagai sumber web secara cepat.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg reveal reveal-delay-1">
+                    <div class="facility-item">
+                        <div class="fi-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h6>Monitoring Harga Kompetitor</h6>
+                        <p>Pantau perubahan harga kompetitor otomatis tanpa cek manual.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg reveal reveal-delay-2">
+                    <div class="facility-item">
+                        <div class="fi-icon"><i class="bi bi-person-lines-fill"></i></div>
+                        <h6>Lead Generation</h6>
+                        <p>Ekstrak data kontak prospek dari direktori atau marketplace.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg reveal">
+                    <div class="facility-item">
+                        <div class="fi-icon"><i class="bi bi-box-seam"></i></div>
+                        <h6>Analisis Produk</h6>
+                        <p>Kumpulkan data produk, review, dan rating untuk analisis kompetitif.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg reveal reveal-delay-1">
+                    <div class="facility-item">
+                        <div class="fi-icon"><i class="bi bi-clipboard2-data"></i></div>
+                        <h6>Riset Bisnis</h6>
+                        <p>Siapkan data pendukung keputusan bisnis dalam hitungan menit.</p>
                     </div>
                 </div>
             </div>
@@ -1652,7 +1762,7 @@
                             <i class="bi bi-rocket-takeoff"></i> Early Bird
                         </div>
                         <h3>AI &amp; Python Quickstart</h3>
-                        <p class="subtitle">Batch perdana, kuota terbatas</p>
+                        <p class="subtitle">Batch perdana · Kuota terbatas · Harga Early Bird</p>
                         <div class="pricing-amount">Rp49.000 <small>/ peserta</small></div>
                         <ul class="pricing-list">
                             <li><i class="bi bi-check-circle-fill"></i> 2 jam live online interaktif</li>
@@ -1691,7 +1801,7 @@
                         </button>
                         <div class="faq-a" id="f1">
                             <p>Ini adalah program sederhana (web scraper) yang bisa mengambil data dari halaman web,
-                                seperti judul, harga, atau daftar produk, dan menyusunnya secara rapi. Di kelas ini,
+                                seperti judul, harga, atau daftar produk, dan menyusunnya secara rapi — bahkan bisa langsung export ke Excel. Di kelas ini,
                                 kamu akan membuatnya dengan bantuan AI, tanpa perlu menulis kode dari nol.</p>
                         </div>
                     </div>
@@ -1732,8 +1842,8 @@
                             <i class="bi bi-chevron-down chevron"></i>
                         </button>
                         <div class="faq-a" id="f6">
-                            <p>Tidak. Fokus kelas ini adalah memberi pengalaman pertama yang menyenangkan dan
-                                membuktikan bahwa coding tidak sesulit yang dibayangkan.</p>
+                            <p>Fokus kelas ini adalah memberi pengalaman pertama yang menyenangkan dan
+                                membuktikan bahwa coding tidak sesulit yang dibayangkan. Yang lebih penting, kamu akan pulang dengan skill nyata — sebuah aplikasi yang bisa kamu pakai dan kembangkan sendiri.</p>
                         </div>
                     </div>
                 </div>
@@ -1748,9 +1858,9 @@
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
-                    <h2>Siap Membuat Aplikasi Pertamamu?</h2>
-                    <p>Bergabunglah bersama puluhan peserta lain dan rasakan sendiri bagaimana AI membantumu menulis
-                        kode dalam hitungan detik.</p>
+                    <h2>Kalau AI Bisa Ngerjain dalam Hitungan Detik,<br>Kenapa Masih Pilih Copy-Paste Berjam-jam?</h2>
+                    <p>Di era AI, yang dicari bukan cuma orang yang bisa coding — tapi orang yang tahu cara memanfaatkan AI
+                        untuk menyelesaikan pekerjaan lebih cepat. Daftar sekarang dan buktikan sendiri.</p>
                     <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
                         <a href="#registration-form" class="btn btn-white">
                             <i class="bi bi-arrow-right-circle"></i> Daftar Sekarang
@@ -1761,7 +1871,7 @@
                         </a>
                     </div>
                     <p class="cta-hint">
-                        <i class="bi bi-clock me-1"></i> Kelas terbatas · Daftar sebelum kuota habis
+                        <i class="bi bi-clock me-1"></i> Kelas terbatas · Harga Early Bird Rp49.000 · Daftar sebelum kuota habis
                     </p>
                 </div>
             </div>
@@ -1774,7 +1884,7 @@
     <section id="registration-form" style="padding: 56px 0; background: var(--gray-50);">
         <div class="container">
             <h2 class="section-title text-center mb-4">Formulir <span class="text-blue">Pendaftaran</span></h2>
-            <p class="text-center text-muted mb-4">Isi formulir di bawah ini untuk mendaftar kelas.</p>
+            <p class="text-center text-muted mb-4">Isi formulir di bawah ini untuk mendaftar kelas AI & Python Quickstart.</p>
             <div class="iframe-wrapper">
                 <iframe src="https://goakal.com/alhazenacademy/python-ai-quickstart-1/7z5pn/apply"
                     allowfullscreen></iframe>
@@ -1807,7 +1917,7 @@
         </svg>
         <svg class="deco deco--star" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 0C104 60 140 96 200 100C140 104 104 140 100 200C96 140 60 104 0 100C60 96 96 60 100 0Z"
-                fill="#1A5CFF" />
+                fill="#1EA1A7" />
         </svg>
 
         <div class="footer-grid">
