@@ -868,6 +868,17 @@
             color: var(--navy);
             line-height: 1;
             margin-bottom: 4px;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .price-strike {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            text-decoration: line-through;
         }
 
         .pricing-amount small {
@@ -1464,7 +1475,7 @@
 
         @media (max-width: 576px) {
             .iframe-wrapper iframe {
-                height: 1600px;
+                height: 1800px;
             }
 
             .iframe-wrapper {
@@ -1585,7 +1596,7 @@
                                 alt="Hasil aplikasi penarik data otomatis: data website berhasil dikumpulkan jadi tabel Excel">
                         </div>
                         <div class="hero-visual-caption">
-                            <i class="bi bi-check-circle-fill"></i> Ini hasil yang kamu buat di kelas — dari ratusan halaman, jadi tabel rapi.
+                            <i class="bi bi-check-circle-fill"></i> Ini hasil yang kamu buat di kelas. Dari ratusan data, jadi tabel rapi.
                         </div>
                     </div>
                 </div>
@@ -1635,7 +1646,7 @@
                 </div>
             </div>
             <p class="compare-note">
-                Aplikasi ini yang <strong>kamu buat sendiri</strong> di kelas — dalam 2 jam, dari nol.
+                Aplikasi ini yang <strong>kamu buat sendiri</strong> di kelas, dalam 2 jam, dari nol.
             </p>
         </div>
     </section>
@@ -1866,7 +1877,7 @@
                         </div>
                         <h3>AI &amp; Python Quickstart</h3>
                         <p class="subtitle">Batch perdana · Kuota terbatas</p>
-                        <div class="pricing-amount">Rp49.000 <small>/ peserta</small></div>
+                        <div class="pricing-amount"><span class="price-strike">Rp128.000</span> Rp49.000 <small>/ peserta</small></div>
 
                         <div class="countdown">
                             <div class="cd-label"><i class="bi bi-hourglass-split"></i> Early bird berakhir dalam</div>
