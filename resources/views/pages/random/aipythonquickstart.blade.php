@@ -2,16 +2,19 @@
 <html lang="id">
 
 <head>
+
+    <script>!function(e,t,a,n){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});n=t.getElementsByTagName(a)[0],a=t.createElement(a);a.async=!0,a.src="https://www.googletagmanager.com/gtm.js?id=GTM-PHST97K2",n.parentNode.insertBefore(a,n)}(window,document,"script","dataLayer")</script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stop Copy Data Manual! Belajar Otomasi AI & Python | Rp49rb - Alhazen Plus</title>
+    <title>Stop Copy Data Manual! Bikin Robot Penarik Data dalam 2 Jam | Rp49rb - Alhazen Plus</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/custom/ai_python/icon.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/custom/ai_python/icon.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/custom/ai_python/icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://alhazen.academy/assets/custom/ai_python/icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://alhazen.academy/assets/custom/ai_python/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://alhazen.academy/assets/custom/ai_python/icon.png">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Belum bisa coding? Nggak masalah. Dalam 2 jam, kamu bikin aplikasi Python yang narik data dari web otomatis pakai AI. Cuma Rp49.000, tanpa background IT." />
+    <meta name="description" content="Kelas live 2 jam: bikin aplikasi penarik data web yang otomatis jadi tabel Excel. Kodenya ditulis AI, nggak perlu jago coding. Cuma Rp49.000." />
 
     <meta name="keywords" content="kelas python pemula, belajar python online, AI automation, web scraping python, otomasi data excel, belajar coding pemula, kelas AI Indonesia, python untuk non-IT" />
     <meta name="author" content="Alhazen Plus" />
@@ -21,9 +24,9 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://plus.alhazen.academy/program/ai-python-quickstart" />
-    <meta property="og:title" content="Stop Copy Data Manual! Belajar Otomasi AI & Python | Rp49rb - Alhazen Plus" />
-    <meta property="og:description" content="Belum bisa coding? Nggak masalah. Dalam 2 jam, kamu bikin aplikasi Python yang narik data dari web otomatis pakai AI. Cuma Rp49.000, tanpa background IT." />
-    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1QESInMtp95Oa4D-oeHvD2o7SvFQIAGSo" />
+    <meta property="og:title" content="Stop Copy Data Manual! Bikin Robot Penarik Data dalam 2 Jam | Rp49rb - Alhazen Plus" />
+    <meta property="og:description" content="Kelas live 2 jam: bikin aplikasi penarik data web yang otomatis jadi tabel Excel. Kodenya ditulis AI, nggak perlu jago coding. Cuma Rp49.000." />
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1w5azRiyJ3pCM6QbBygAoAwBbliZsbWMR" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Alhazen Plus" />
@@ -31,9 +34,9 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Stop Copy Data Manual! Belajar Otomasi AI & Python | Rp49rb - Alhazen Plus" />
-    <meta name="twitter:description" content="Belum bisa coding? Nggak masalah. Dalam 2 jam, kamu bikin aplikasi Python yang narik data dari web otomatis pakai AI. Cuma Rp49.000, tanpa background IT." />
-    <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1QESInMtp95Oa4D-oeHvD2o7SvFQIAGSo" />
+    <meta name="twitter:title" content="Stop Copy Data Manual! Bikin Robot Penarik Data dalam 2 Jam | Rp49rb - Alhazen Plus" />
+    <meta name="twitter:description" content="Kelas live 2 jam: bikin aplikasi penarik data web yang otomatis jadi tabel Excel. Kodenya ditulis AI, nggak perlu jago coding. Cuma Rp49.000." />
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1w5azRiyJ3pCM6QbBygAoAwBbliZsbWMR" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
@@ -111,6 +114,42 @@
             max-width: 1120px;
         }
 
+        section {
+            padding: 84px 0;
+        }
+
+        .section-bg {
+            background: var(--gray-50);
+        }
+
+        .eyebrow {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+
+        .section-heading {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: var(--gray-500);
+            font-size: 1rem;
+            max-width: 560px;
+        }
+
+        .text-center .section-desc {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* ── NAVBAR ── */
         .navbar {
             background: rgba(255, 255, 255, 0.85);
@@ -121,19 +160,8 @@
             transition: var(--transition);
         }
 
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.15rem;
-            color: var(--navy);
-            letter-spacing: -0.03em;
-        }
-
         .navbar-brand img {
             display: block;
-        }
-
-        .navbar-brand span {
-            color: var(--blue);
         }
 
         .nav-link {
@@ -241,7 +269,7 @@
 
         /* ── HERO ── */
         .hero {
-            padding: 140px 0 100px;
+            padding: 150px 0 90px;
             position: relative;
             overflow: hidden;
         }
@@ -267,42 +295,36 @@
             font-size: 0.78rem;
             padding: 6px 16px;
             border-radius: 100px;
-            margin-bottom: 24px;
-            letter-spacing: 0.01em;
+            margin-bottom: 22px;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.12;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .hero h1 .hl {
-            color: var(--lemon);
+            color: var(--blue);
         }
 
         .hero .lead {
-            font-size: 1.1rem;
+            font-size: 1.02rem;
             color: var(--gray-500);
-            max-width: 520px;
+            max-width: 500px;
             line-height: 1.75;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .hero-meta {
             display: flex;
-            gap: 32px;
-            margin-bottom: 36px;
-        }
-
-        .hero-meta-item {
-            display: flex;
             align-items: center;
             gap: 12px;
+            margin-bottom: 28px;
         }
 
-        .hero-meta-item .meta-icon {
+        .hero-meta .meta-icon {
             width: 40px;
             height: 40px;
             border-radius: var(--radius-sm);
@@ -314,348 +336,496 @@
             font-size: 1rem;
         }
 
-        .hero-meta-item .meta-label {
-            font-size: 0.78rem;
+        .hero-meta .meta-value {
+            font-size: 0.92rem;
+            color: var(--navy);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .hero-meta .meta-label {
+            font-size: 0.72rem;
             color: var(--gray-400);
             text-transform: uppercase;
             letter-spacing: 0.04em;
             font-weight: 500;
         }
 
-        .hero-meta-item .meta-value {
-            font-size: 0.92rem;
-            color: var(--navy);
-            font-weight: 600;
-        }
-
-        .hero-price {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .hero-price .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #22c55e;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.4;
-                transform: scale(0.8);
-            }
-        }
-
-        .hero-price span {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            font-weight: 500;
-        }
-
-        .hero-price strong {
-            color: var(--navy);
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .hero-visual {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            position: relative;
-        }
-
-        .hero-visual-header {
+        .trust-row {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .hero-visual-header .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .hero-visual-icon {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .hero-visual-icon i {
-            font-size: 2.5rem;
-            color: var(--blue);
-            opacity: 0.6;
-        }
-
-        .hero-visual-label {
-            text-align: center;
-            font-size: 0.88rem;
-            color: var(--gray-500);
-            margin-bottom: 24px;
-        }
-
-        .hero-visual-label strong {
-            color: var(--navy);
-        }
-
-        /* ── CODE BLOCK ── */
-        .code-block {
-            background: var(--navy);
-            border-radius: var(--radius);
-            padding: 20px 24px;
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-            font-size: 0.8rem;
-            line-height: 2;
-            color: #e2e8f0;
-            overflow-x: auto;
-        }
-
-        .code-block .dim {
-            color: #64748b;
-        }
-
-        .code-block .hl {
-            color: var(--teal2);
-        }
-
-        /* ── SECTIONS ── */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-bg {
-            background: var(--gray-50);
-        }
-
-        .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--blue);
-            background: var(--blue-light);
-            padding: 5px 14px;
-            border-radius: 100px;
-            margin-bottom: 16px;
-        }
-
-        .section-heading {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-
-        .section-desc {
-            color: var(--gray-500);
-            font-size: 1.05rem;
-            max-width: 560px;
-        }
-
-        .text-center .section-desc {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ── CARDS ── */
-        .card-clean {
-            background: var(--white);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius);
-            padding: 32px 28px;
-            height: 100%;
-            transition: var(--transition);
-        }
-
-        .card-clean:hover {
-            border-color: transparent;
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-sm);
-            background: var(--blue-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.15rem;
-            color: var(--blue);
-            margin-bottom: 20px;
-        }
-
-        .card-clean h5 {
-            font-size: 1.05rem;
-            font-weight: 700;
             margin-bottom: 8px;
         }
 
-        .card-clean p {
-            color: var(--gray-500);
-            font-size: 0.9rem;
-            margin-bottom: 0;
-            line-height: 1.7;
-        }
-
-        /* ── FEATURES ROW ── */
-        .feature-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--gray-100);
-        }
-
-        .feature-row:last-child {
-            border-bottom: none;
-        }
-
-        .feature-row .feat-icon {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-sm);
-            background: var(--blue-light);
-            display: flex;
+        .trust-chip {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            color: var(--blue);
-            font-size: 1rem;
-        }
-
-        .feature-row h6 {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 2px;
-        }
-
-        .feature-row p {
-            color: var(--gray-500);
-            font-size: 0.88rem;
-            margin-bottom: 0;
-        }
-
-        /* ── FACILITY ── */
-        .facility-item {
-            text-align: center;
-            padding: 32px 20px;
-            border-radius: var(--radius);
-            border: 1px solid var(--gray-200);
+            gap: 6px;
             background: var(--white);
-            transition: var(--transition);
-            height: 100%;
+            border: 1px solid var(--gray-200);
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.8rem;
+            padding: 7px 14px;
+            border-radius: 100px;
         }
 
-        .facility-item:hover {
-            border-color: transparent;
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-
-        .facility-item .fi-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--blue-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
+        .trust-chip i {
             color: var(--blue);
-            margin: 0 auto 16px;
         }
 
-        .facility-item h6 {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
+        .trust-chip .stars {
+            color: #f59e0b;
         }
 
-        .facility-item p {
-            color: var(--gray-400);
-            font-size: 0.84rem;
-            margin-bottom: 0;
-        }
-
-        /* ── SCHEDULE ── */
-        .schedule-card {
+        /* ── HERO VISUAL ── */
+        .hero-visual {
             background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: var(--radius-lg);
-            padding: 48px 40px;
+            padding: 14px;
+            box-shadow: var(--shadow-md);
         }
 
-        .schedule-meta {
+        .hero-shot {
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--gray-50);
+        }
+
+        .hero-shot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-visual-caption {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 36px;
-        }
-
-        .schedule-meta-item .sm-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--gray-400);
-            margin-bottom: 4px;
-        }
-
-        .schedule-meta-item .sm-value {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--navy);
-        }
-
-        .timeline-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 14px 0;
-        }
-
-        .timeline-num {
-            flex-shrink: 0;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--blue-light);
-            color: var(--blue);
-            font-weight: 700;
+            align-items: center;
+            gap: 8px;
             font-size: 0.82rem;
+            color: var(--gray-500);
+            padding: 12px 4px 2px;
+        }
+
+        .hero-visual-caption i {
+            color: var(--blue);
+        }
+
+        /* ── COMPARE ── */
+        .compare-card {
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            height: 100%;
+            border: 1px solid var(--gray-200);
+        }
+
+        .compare-card.muted {
+            background: var(--gray-100);
+            border-color: var(--gray-200);
+        }
+
+        .compare-card.accent {
+            background: var(--navy);
+            border-color: var(--navy);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .compare-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .compare-head .c-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.1rem;
         }
 
-        .timeline-content strong {
-            font-size: 0.92rem;
-        }
-
-        .timeline-content .dur {
-            font-size: 0.8rem;
+        .compare-card.muted .c-icon {
+            background: var(--white);
             color: var(--gray-400);
-            font-weight: 400;
+        }
+
+        .compare-card.accent .c-icon {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--teal2);
+        }
+
+        .compare-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .compare-card.muted h4 {
+            color: var(--gray-500);
+        }
+
+        .compare-card.accent h4 {
+            color: var(--white);
+        }
+
+        .compare-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .compare-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .compare-card.muted .compare-list li {
+            color: var(--gray-500);
+        }
+
+        .compare-card.accent .compare-list li {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .compare-list li i {
+            flex-shrink: 0;
+            margin-top: 3px;
+            font-size: 0.9rem;
+        }
+
+        .compare-card.muted .compare-list li i {
+            color: var(--gray-400);
+        }
+
+        .compare-card.accent .compare-list li i {
+            color: var(--teal2);
+        }
+
+        .compare-note {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.95rem;
+            color: var(--gray-500);
+        }
+
+        .compare-note strong {
+            color: var(--navy);
+        }
+
+        /* ── PACK ── */
+        .pack-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pack-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .pack-card .pack-sub {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .pack-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+        }
+
+        .pack-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 9px 0;
+            font-size: 0.95rem;
+            color: var(--gray-600);
+        }
+
+        .pack-list li i {
+            color: var(--blue);
+            font-size: 1.05rem;
+            margin-top: 2px;
+        }
+
+        .pack-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-top: 1px solid var(--gray-100);
+            padding-top: 22px;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.82rem;
+            padding: 8px 16px;
+            border-radius: 100px;
+        }
+
+        .badge-pill i {
+            color: var(--blue);
+        }
+
+        /* ── TESTIMONIALS ── */
+        .t-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 28px 26px;
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .t-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .t-quote-mark {
+            font-size: 2.4rem;
+            line-height: 1;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .t-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .t-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .t-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .t-avatar.a-blue {
+            background: var(--blue);
+        }
+
+        .t-avatar.a-navy {
+            background: var(--navy);
+        }
+
+        .t-author .t-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.3;
+        }
+
+        .t-author .t-role {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+        }
+
+        .t-scroll {
+            position: relative;
+        }
+
+        .t-carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 4px 4px 16px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gray-300) transparent;
+        }
+
+        .t-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .t-carousel::-webkit-scrollbar-thumb {
+            background: var(--gray-300);
+            border-radius: 100px;
+        }
+
+        .t-carousel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .t-carousel .t-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            height: auto;
+        }
+
+        .t-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--gray-200);
+            background: var(--white);
+            color: var(--navy);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .t-nav:hover {
+            color: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .t-prev {
+            left: -10px;
+        }
+
+        .t-next {
+            right: -10px;
+        }
+
+        .t-hint {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--gray-400);
+            margin-top: 14px;
+        }
+
+        .t-hint i {
+            color: var(--blue);
+        }
+
+        @media (max-width: 768px) {
+            .t-nav {
+                display: none;
+            }
+
+            .t-carousel .t-card {
+                flex-basis: 85%;
+            }
+        }
+
+        .rating-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 28px;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        .rating-note .stars {
+            color: #f59e0b;
+        }
+
+        .rating-note strong {
+            color: var(--navy);
+        }
+
+        /* ── INSTRUCTOR ── */
+        .instructor-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .instructor-photo {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            background: var(--gray-100);
+        }
+
+        .instructor-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .instructor-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .instructor-role {
+            color: var(--blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .instructor-bio {
+            color: var(--gray-500);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+
+        .instructor-bio strong {
+            color: var(--navy);
+        }
+
+        .instructor-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .instructor-quote {
+            background: var(--blue-light);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .instructor-quote i {
+            color: var(--blue);
+            margin-right: 6px;
         }
 
         /* ── PRICING ── */
@@ -663,14 +833,9 @@
             background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: var(--radius-lg);
-            padding: 48px 40px;
+            padding: 44px 40px;
             text-align: center;
-            transition: var(--transition);
-        }
-
-        .pricing-box:hover {
-            box-shadow: var(--shadow-lg);
-            border-color: transparent;
+            box-shadow: var(--shadow-md);
         }
 
         .pricing-tag {
@@ -683,22 +848,22 @@
             font-size: 0.8rem;
             padding: 6px 16px;
             border-radius: 100px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .pricing-box h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 4px;
         }
 
         .pricing-box .subtitle {
             color: var(--gray-400);
             font-size: 0.88rem;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .pricing-amount {
-            font-size: 3.2rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--navy);
             line-height: 1;
@@ -706,7 +871,7 @@
         }
 
         .pricing-amount small {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: var(--gray-400);
         }
@@ -714,7 +879,7 @@
         .pricing-list {
             list-style: none;
             padding: 0;
-            margin: 28px 0 36px;
+            margin: 24px 0 28px;
             text-align: left;
         }
 
@@ -731,6 +896,79 @@
             color: var(--blue);
             font-size: 1rem;
             flex-shrink: 0;
+        }
+
+        /* ── COUNTDOWN ── */
+        .countdown {
+            background: var(--gray-50);
+            border: 1px dashed var(--gray-300);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            margin-bottom: 24px;
+        }
+
+        .countdown .cd-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .countdown-grid .cd-unit {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            min-width: 58px;
+            padding: 8px 6px;
+        }
+
+        .countdown-grid .cd-unit .cd-num {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+
+        .countdown-grid .cd-unit .cd-txt {
+            font-size: 0.66rem;
+            color: var(--gray-400);
+            font-weight: 500;
+        }
+
+        .pricing-cta-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-wa {
+            background: transparent;
+            color: var(--gray-600);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 13px 32px;
+            border: 1.5px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-wa:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: var(--blue-light);
         }
 
         /* ── FAQ ── */
@@ -788,67 +1026,15 @@
         }
 
         .faq-a.open {
-            max-height: 300px;
-            padding: 0 24px 20px;
+            max-height: 200px;
+            padding: 0 24px 18px;
         }
 
         .faq-a p {
             color: var(--gray-500);
             font-size: 0.88rem;
-            line-height: 1.75;
+            line-height: 1.7;
             margin-bottom: 0;
-        }
-
-        /* ── TERMINAL ── */
-        .terminal {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .terminal-bar {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 12px 16px;
-            background: var(--gray-100);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .terminal-bar .tdot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .terminal-bar span:last-child {
-            margin-left: auto;
-            font-size: 0.72rem;
-            color: var(--gray-400);
-            font-weight: 500;
-        }
-
-        .terminal-body {
-            padding: 20px 24px;
-        }
-
-        /* ── BADGES ── */
-        .badge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            color: var(--gray-700);
-            font-weight: 500;
-            font-size: 0.82rem;
-            padding: 8px 16px;
-            border-radius: 100px;
-        }
-
-        .badge-pill i {
-            color: var(--blue);
         }
 
         /* ── CTA ── */
@@ -871,26 +1057,54 @@
         }
 
         .cta-section h2 {
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--white);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .cta-section p {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
             max-width: 540px;
-            margin: 0 auto 32px;
+            margin: 0 auto 28px;
         }
 
         .cta-hint {
             font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.3);
-            margin-top: 24px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 22px;
         }
 
         /* ── IFRAME ── */
+        .form-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        .form-fallback i {
+            color: var(--blue);
+        }
+
+        .form-fallback a {
+            color: var(--blue);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--blue);
+        }
+
+        .form-fallback a:hover {
+            color: var(--blue-hover);
+            border-bottom-style: solid;
+        }
+
         .iframe-wrapper {
             width: 100%;
             border-radius: var(--radius);
@@ -1067,7 +1281,6 @@
             text-decoration: underline;
         }
 
-        /*.contact-block { margin-top: 36px; }*/
         .contact-block p {
             margin: 0 0 14px;
             color: rgba(255, 255, 255, 0.88);
@@ -1080,23 +1293,6 @@
 
         .contact-block a:hover {
             text-decoration: underline;
-        }
-
-        .cert-block {
-            margin-top: 36px;
-        }
-
-        .cert-badge {
-            width: 120px;
-            background: #fff;
-            border-radius: 16px;
-            padding: 14px;
-            display: block;
-        }
-
-        .cert-badge img {
-            width: 100%;
-            display: block;
         }
 
         .address-col a {
@@ -1156,65 +1352,56 @@
             transition-delay: 0.2s;
         }
 
-        .reveal-delay-3 {
-            transition-delay: 0.3s;
-        }
-
         /* ── RESPONSIVE ── */
         @media (max-width: 992px) {
             .hero {
-                padding: 110px 0 60px;
+                padding: 120px 0 60px;
             }
 
             .hero h1 {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
             }
 
             .section-heading {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             section {
-                padding: 72px 0;
+                padding: 68px 0;
             }
 
             .cta-section h2 {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 100px 0 48px;
+                padding: 110px 0 48px;
             }
 
             .hero h1 {
-                font-size: 1.9rem;
+                font-size: 1.85rem;
             }
 
             .hero .lead {
                 font-size: 0.95rem;
             }
 
-            .hero-meta {
-                flex-direction: column;
-                gap: 16px;
-            }
-
             .section-heading {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
 
-            .schedule-card {
-                padding: 32px 20px;
+            .pack-card {
+                padding: 30px 22px;
             }
 
             .pricing-box {
-                padding: 36px 24px;
+                padding: 34px 24px;
             }
 
             .pricing-amount {
-                font-size: 2.6rem;
+                font-size: 2.5rem;
             }
 
             .site-footer {
@@ -1228,15 +1415,11 @@
             }
 
             .hero-visual {
-                padding: 24px 16px;
+                padding: 10px;
             }
 
             .section-heading {
                 font-size: 1.5rem;
-            }
-
-            .card-clean {
-                padding: 24px 20px;
             }
 
             .btn-blue,
@@ -1245,6 +1428,14 @@
             .btn-ghost {
                 padding: 12px 24px;
                 font-size: 0.85rem;
+            }
+
+            .compare-card {
+                padding: 26px 22px;
+            }
+
+            .countdown-grid .cd-unit {
+                min-width: 52px;
             }
         }
 
@@ -1285,12 +1476,13 @@
 
     <!-- JSON-LD Structured Data -->
     @verbatim
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Course",
       "name": "AI & Python Quickstart: Bikin Aplikasi Penarik Data Otomatis dalam 2 Jam",
-      "description": "Kelas live online 2 jam untuk pemula. Belajar bikin aplikasi Python yang mengambil data dari website secara otomatis dengan bantuan AI. Tanpa background IT, hanya Rp49.000.",
+      "description": "Kelas live online 2 jam untuk pemula. Bikin aplikasi Python yang mengambil data dari website secara otomatis dengan bantuan AI. Tanpa background IT, hanya Rp49.000.",
       "provider": {
         "@type": "Organization",
         "name": "Alhazen Plus",
@@ -1316,6 +1508,8 @@
 
 <body>
 
+    <noscript><iframe height=0 src="https://www.googletagmanager.com/ns.html?id=GTM-PHST97K2"style=display:none;visibility:hidden width=0></iframe></noscript>
+
     <!-- ══════════════════════════════════════════════════════════════
      NAVBAR
      ══════════════════════════════════════════════════════════════ -->
@@ -1330,9 +1524,8 @@
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-                    <li class="nav-item"><a class="nav-link" href="#kelas">Kelas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#fasilitas">Fasilitas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#jadwal">Jadwal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#isi">Yang Kamu Dapat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kata-mereka">Kata Mereka</a></li>
                     <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
                     <li class="nav-item ms-lg-2">
                         <a href="#registration-form" class="btn btn-blue" style="padding:10px 24px;font-size:0.82rem;">
@@ -1355,22 +1548,19 @@
                         <i class="bi bi-live"></i> Live Online · 2 Jam · Tanpa Background IT
                     </div>
                     <h1>
-                        Stop Copy Data Manual!<br>
-                        Mulai <span class="hl">Otomasi</span> dengan AI &amp; Python.
+                        Stop Copy Data Manual.<br>
+                        <span class="hl">Bikin yang Otomatis.</span>
                     </h1>
                     <p class="lead">
-                        Kamu bakal belajar bikin aplikasi Python yang bisa ambil data dari website
-                        secara otomatis, susun jadi tabel rapi, dan export langsung ke Excel —
-                        tanpa perlu jago coding. Cukup kasih instruksi ke AI, AI yang bantu bikin kodenya.
+                        Live 2 jam: bikin aplikasi untuk narik data web, jadi tabel rapi,
+                        langsung export Excel. Kodenya ditulis AI. Kamu nggak perlu jago coding.
                     </p>
 
                     <div class="hero-meta">
-                        <div class="hero-meta-item">
-                            <div class="meta-icon"><i class="bi bi-calendar-event"></i></div>
-                            <div>
-                                <div class="meta-label">Tanggal</div>
-                                <div class="meta-value">Jumat, 21 Agt 2026</div>
-                            </div>
+                        <div class="meta-icon"><i class="bi bi-calendar-event"></i></div>
+                        <div>
+                            <div class="meta-label">Jadwal</div>
+                            <div class="meta-value">Jumat, 21 Agt 2026 · 20.00–22.00 WIB</div>
                         </div>
                     </div>
 
@@ -1378,35 +1568,24 @@
                         <a href="#registration-form" class="btn btn-blue">
                             <i class="bi bi-arrow-right-circle"></i> Amankan Kursi
                         </a>
-                        <a href="#kelas" class="btn btn-blue-outline">Pelajari Dulu</a>
+                        <a href="#isi" class="btn btn-blue-outline">Yang Kamu Dapat</a>
                     </div>
 
-                    <div class="hero-price">
-                        <span class="dot"></span>
-                        <span>Hanya <strong>Rp49.000</strong></span>
+                    <div class="trust-row">
+                        <span class="trust-chip"><span class="stars">★★★★★</span> 4.6/5 pelayanan</span>
+                        <span class="trust-chip"><i class="bi bi-robot"></i> Ditulisin AI</span>
+                        <span class="trust-chip"><i class="bi bi-lightning-charge-fill"></i> Rp49.000 early bird</span>
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6 reveal">
                     <div class="hero-visual">
-                        <div class="hero-visual-header">
-                            <span class="tdot" style="background:#ff5f57"></span>
-                            <span class="tdot" style="background:#febc2e"></span>
-                            <span class="tdot" style="background:#28c840"></span>
+                        <div class="hero-shot">
+                            <img src="https://lh3.googleusercontent.com/d/1w5azRiyJ3pCM6QbBygAoAwBbliZsbWMR"
+                                alt="Hasil aplikasi penarik data otomatis: data website berhasil dikumpulkan jadi tabel Excel">
                         </div>
-                        <div class="hero-visual-icon">
-                            <i class="bi bi-code-square"></i>
-                        </div>
-                        <div class="hero-visual-label">
-                            <strong>Aplikasi Penarik Data Otomatis</strong><br>
-                            Yang akan kamu buat di kelas ini
-                        </div>
-                        <div class="code-block">
-                            <span class="dim"># Output data dari web</span><br>
-                            <span class="hl">Judul</span>&nbsp;&nbsp;&nbsp;&nbsp;: "Python untuk Pemula"<br>
-                            <span class="hl">Harga</span>&nbsp;&nbsp;&nbsp;&nbsp;: Rp 49.000<br>
-                            <span class="hl">Penulis</span>&nbsp;&nbsp;: Tim Alhazen Plus<br>
-                            <span class="hl">Rating</span>&nbsp;&nbsp;&nbsp;: 4.8 / 5.0
+                        <div class="hero-visual-caption">
+                            <i class="bi bi-check-circle-fill"></i> Ini hasil yang kamu buat di kelas — dari ratusan halaman, jadi tabel rapi.
                         </div>
                     </div>
                 </div>
@@ -1415,332 +1594,256 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════════════
-     PAIN POINTS
+     BEFORE / AFTER
      ══════════════════════════════════════════════════════════════ -->
-    <section class="section-bg" id="kelas">
+    <section class="section-bg" id="before-after">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
-                    <div class="section-tag"><i class="bi bi-question-circle"></i> Masih kerja manual?
-                    </div>
-                    <h2 class="section-heading">Kelas ini untukmu jika…</h2>
-                    <p class="section-desc mx-auto">Tiga tanda kalau waktunya kamu mulai pakai AI untuk kerjaan yang seharusnya nggak perlu dilakukan manual.
-                    </p>
+                    <span class="eyebrow">Sebelum &amp; Sesudah</span>
+                    <h2 class="section-heading">Dulu berjam-jam. Sekarang detik.</h2>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-md-4 reveal">
-                    <div class="card-clean">
-                        <div class="card-icon"><i class="bi bi-headset"></i></div>
-                        <h5>Nyalin Data Satu-Satu</h5>
-                        <p>Masih ngabisin waktu buat copy data dari website ke Excel manual? Kerjaan repetitif kayak gini sebenarnya udah bisa diambil alih AI.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 reveal reveal-delay-1">
-                    <div class="card-clean">
-                        <div class="card-icon"><i class="bi bi-chat-dots"></i></div>
-                        <h5>AI Cuma Buat Nanya-Nanya</h5>
-                        <p>Sering dengar kehebatan AI, tapi sejauh ini baru dipakai buat tanya-tanya doang. Padahal potensinya jauh lebih besar dari itu.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 reveal reveal-delay-2">
-                    <div class="card-clean">
-                        <div class="card-icon"><i class="bi bi-rocket-takeoff"></i></div>
-                        <h5>Mau Otomasi, Bingung Mulai</h5>
-                        <p>Pengen bikin tools otomatis buat narik data web, tapi nggak tahu harus mulai dari mana. Di era AI, coding nggak harus dimulai dari nol.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <p class="fs-5 fw-bold" style="color:var(--navy)">
-                    Jika jawabannya <span style="color:var(--blue)">"YA"</span>, berarti kamu ada di tempat yang tepat!
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════════════
-     WHAT YOU'LL BUILD
-     ══════════════════════════════════════════════════════════════ -->
-    <section>
-        <div class="container">
-            <div class="row align-items-center g-5">
                 <div class="col-lg-6 reveal">
-                    <div class="section-tag"><i class="bi bi-code-square"></i> Hasil Nyata</div>
-                    <h2 class="section-heading">Apa yang akan kamu buat?</h2>
-                    <p class="fs-5 fw-semibold" style="color:var(--navy); line-height:1.6;">
-                        Sebuah <strong>"Robot Pintar"</strong> (Aplikasi Penarik Data) yang bisa menarik, menyalin, dan
-                        merapikan data dari halaman web secara instan — dari ratusan halaman, dalam hitungan detik.
-                    </p>
-                    <p style="color:var(--gray-500); margin-top:12px;">
-                        Cukup kasih instruksi ke AI, misalnya: <em>"Buat aplikasi Python yang mengambil nama produk, harga, dan rating dari website."</em>
-                        <strong style="color:var(--navy)">AI akan bantu bikin kodenya.</strong> Kamu tinggal jalankan, dan data langsung terkumpul otomatis — tanpa harus menghafal sintaks.
-                    </p>
-                    <div class="d-flex flex-wrap gap-2 mt-4">
-                        <span class="badge-pill"><i class="bi bi-check-circle-fill"></i> Tanpa hafalan</span>
-                        <span class="badge-pill"><i class="bi bi-check-circle-fill"></i> AI sebagai co-pilot</span>
-                        <span class="badge-pill"><i class="bi bi-check-circle-fill"></i> Hasil langsung jadi</span>
+                    <div class="compare-card muted">
+                        <div class="compare-head">
+                            <div class="c-icon"><i class="bi bi-copy"></i></div>
+                            <h4>Manual</h4>
+                        </div>
+                        <ul class="compare-list">
+                            <li><i class="bi bi-x-circle"></i> Buka web, blokir, copy, tempel</li>
+                            <li><i class="bi bi-x-circle"></i> Rapikan ulang di Excel</li>
+                            <li><i class="bi bi-x-circle"></i> Ulangi ratusan halaman</li>
+                            <li><i class="bi bi-x-circle"></i> Capek, lama, rawan typo</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 reveal reveal-delay-1">
-                    <div class="terminal">
-                        <div class="terminal-bar">
-                            <span class="tdot" style="background:#ff5f57"></span>
-                            <span class="tdot" style="background:#febc2e"></span>
-                            <span class="tdot" style="background:#28c840"></span>
-                            <span>Terminal, output data</span>
+                    <div class="compare-card accent">
+                        <div class="compare-head">
+                            <div class="c-icon"><i class="bi bi-robot"></i></div>
+                            <h4>Otomatis</h4>
                         </div>
-                        <div class="terminal-body">
-                            <div class="code-block">
-                                <span class="hl">Judul</span>&nbsp;&nbsp;&nbsp;&nbsp;: "Python untuk Pemula"<br>
-                                <span class="hl">Harga</span>&nbsp;&nbsp;&nbsp;&nbsp;: Rp 49.000<br>
-                                <span class="hl">Penulis</span>&nbsp;&nbsp;: Tim Alhazen Plus<br>
-                                <span class="hl">Rating</span>&nbsp;&nbsp;&nbsp;: 4.8 / 5.0<br>
-                                <span class="dim">---</span><br>
-                                <span class="hl">Judul</span>&nbsp;&nbsp;&nbsp;&nbsp;: "AI &amp; Otomatisasi"<br>
-                                <span class="hl">Harga</span>&nbsp;&nbsp;&nbsp;&nbsp;: Rp 89.000<br>
-                                <span class="hl">Penulis</span>&nbsp;&nbsp;: Alhazen Labs<br>
-                                <span class="hl">Rating</span>&nbsp;&nbsp;&nbsp;: 4.9 / 5.0
-                            </div>
+                        <ul class="compare-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Sekali jalan, ratusan halaman</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Langsung jadi tabel rapi</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Export Excel, siap pakai</li>
+                            <li><i class="bi bi-check-circle-fill"></i> AI yang nulis kodenya</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="compare-note">
+                Aplikasi ini yang <strong>kamu buat sendiri</strong> di kelas — dalam 2 jam, dari nol.
+            </p>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+     WHAT YOU TAKE HOME
+     ══════════════════════════════════════════════════════════════ -->
+    <section id="isi">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <span class="eyebrow">Fasilitas</span>
+                        <h2 class="section-heading">Yang kamu bawa pulang</h2>
+                    </div>
+                    <div class="pack-card reveal">
+                        <h3>AI &amp; Python Quickstart</h3>
+                        <p class="pack-sub">Semua sudah termasuk harga pendaftaran.</p>
+                        <ul class="pack-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 2 jam live online, step-by-step dari nol</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Cheat sheet prompt AI + panduan instalasi (dikirim H-1)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Rekaman kelas + e-sertifikat</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Grup komunitas WhatsApp</li>
+                        </ul>
+                        <div class="pack-chips">
+                            <span class="badge-pill"><i class="bi bi-calendar-event"></i> Jumat, 21 Agt 2026</span>
+                            <span class="badge-pill"><i class="bi bi-clock"></i> 20.00–22.00 WIB</span>
+                            <span class="badge-pill"><i class="bi bi-camera-video"></i> Live via Zoom</span>
                         </div>
                     </div>
-                    <p style="color:var(--gray-400); font-size:0.82rem; margin-top:12px;">
-                        <i class="bi bi-arrow-right" style="color:var(--blue)"></i> Data terstruktur rapi, siap pakai!
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════════════════
-     WHY JOIN
+     WHY PEOPLE REGISTER
      ══════════════════════════════════════════════════════════════ -->
-    <section class="section-bg">
+    <section class="section-bg" id="kata-mereka">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
-                    <div class="section-tag"><i class="bi bi-stars"></i> Kenapa Harus Ikut</div>
-                    <h2 class="section-heading">3 Alasan Ikut Kelas Ini</h2>
+                    <span class="eyebrow">Ulasan peserta</span>
+                    <h2 class="section-heading">Kata mereka yang sudah ikut</h2>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4 reveal">
-                    <div class="card-clean">
-                        <div class="feature-row" style="border:none;padding:0;">
-                            <div class="feat-icon"><i class="bi bi-clock-history"></i></div>
+            <div class="t-scroll">
+                <div class="t-carousel" id="t-carousel">
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Kelas ini sangat recommended untuk pemula yang ingin mendalami pembuatan web dengan bahasa Python.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-blue"><i class="bi bi-person-fill"></i></div>
                             <div>
-                                <h6>Anti Ribet &amp; Cepat</h6>
-                                <p>Cukup 2 jam, dari nol sampai punya aplikasi pengumpul data otomatis buatan sendiri. Yang dulu makan waktu berjam-jam, selesai dalam hitungan detik.</p>
+                                <div class="t-name">muhp***4@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Django</div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 reveal reveal-delay-1">
-                    <div class="card-clean">
-                        <div class="feature-row" style="border:none;padding:0;">
-                            <div class="feat-icon"><i class="bi bi-person-heart"></i></div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Mantap, materinya mulai dari dasar. Jadi yang belum punya basic apapun pasti diajarin dari awal.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-navy"><i class="bi bi-person-fill"></i></div>
                             <div>
-                                <h6>Ramah Pemula Total</h6>
-                                <p>Didesain khusus buat mahasiswa, pekerja kantoran, career switcher, atau siapa saja
-                                    yang belum pernah coding.</p>
+                                <div class="t-name">dser***7@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Frontend</div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 reveal reveal-delay-2">
-                    <div class="card-clean">
-                        <div class="feature-row" style="border:none;padding:0;">
-                            <div class="feat-icon"><i class="bi bi-robot"></i></div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Materinya benar-benar diajarkan dari dasar jadi sangat mudah dipahami bagi pemula.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-blue"><i class="bi bi-person-fill"></i></div>
                             <div>
-                                <h6>AI sebagai Partner</h6>
-                                <p>Kamu nggak perlu jago coding. Cukup kasih instruksi ke AI, dan AI akan bantu bikin kodenya. Yang kamu butuhkan cuma ide, AI yang eksekusi.</p>
+                                <div class="t-name">novi***5@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Frontend</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Materi disusun dengan sangat baik, runut, dan mudah dimengerti oleh pemula. Personally 9.5/10 untuk kelas ini.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-navy"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="t-name">arel***a@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Django</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Mentor terbaik, sabar ngajarin, detail.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-blue"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="t-name">dosd***2@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Django</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Walaupun gratis, informasi yang diberikan tidak terbatas. Pengajar menjawab setiap pertanyaan peserta dan aktif berinteraksi.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-navy"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="t-name">fais***a@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Django</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Penjelasannya jelas dan terstruktur, tidak tergesa-gesa. Peserta diajarkan untuk tidak takut salah dan belajar dari setiap error.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-blue"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="t-name">nisa***k@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Django</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Sangat bagus, terstruktur. Untuk kelas free, di luar ekspektasi.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-navy"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="t-name">benn***6@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Frontend</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Trainernya sangat detail menjelaskan, dan saat peserta error, mantab memberikan masukan dan pengajarannya.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-blue"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="t-name">pond***l@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Django</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="t-card">
+                        <div class="t-quote-mark">&ldquo;</div>
+                        <p>Materi dan instruktornya bagus, tidak pelit berbagi ilmu.</p>
+                        <div class="t-author">
+                            <div class="t-avatar a-navy"><i class="bi bi-person-fill"></i></div>
+                            <div>
+                                <div class="t-name">budi***i@gmail.com</div>
+                                <div class="t-role">Peserta Mini Bootcamp Frontend</div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <button class="t-nav t-prev" aria-label="Ulasan sebelumnya"><i class="bi bi-chevron-left"></i></button>
+                <button class="t-nav t-next" aria-label="Ulasan berikutnya"><i class="bi bi-chevron-right"></i></button>
+            </div>
+            <p class="t-hint">
+                <i class="bi bi-arrow-left-right"></i> Geser untuk lihat ulasan lainnya
+            </p>
+            <div class="rating-note">
+                <span class="stars">★★★★★</span>
+                <span>Dinilai <strong>4.6/5</strong> oleh peserta yang pernah ikut.</span>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════════════════
-     USE CASES
+     INSTRUCTOR
      ══════════════════════════════════════════════════════════════ -->
-    <section>
+    <section id="pengajar">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
-                    <div class="section-tag"><i class="bi bi-lightning"></i> Kegunaan Nyata</div>
-                    <h2 class="section-heading">Skill Ini Kepakai Banget Buat…</h2>
-                    <p class="section-desc mx-auto">Data otomatis bukan cuma soal coding — ini soal kerja yang lebih cerdas.
-                    </p>
-                </div>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4 col-lg reveal">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-search"></i></div>
-                        <h6>Market Research</h6>
-                        <p>Kumpulkan data pasar dari berbagai sumber web secara cepat.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal reveal-delay-1">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                        <h6>Monitoring Harga Kompetitor</h6>
-                        <p>Pantau perubahan harga kompetitor otomatis tanpa cek manual.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal reveal-delay-2">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-person-lines-fill"></i></div>
-                        <h6>Lead Generation</h6>
-                        <p>Ekstrak data kontak prospek dari direktori atau marketplace.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-box-seam"></i></div>
-                        <h6>Analisis Produk</h6>
-                        <p>Kumpulkan data produk, review, dan rating untuk analisis kompetitif.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal reveal-delay-1">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-clipboard2-data"></i></div>
-                        <h6>Riset Bisnis</h6>
-                        <p>Siapkan data pendukung keputusan bisnis dalam hitungan menit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════════════
-     FACILITIES
-     ══════════════════════════════════════════════════════════════ -->
-    <section id="fasilitas">
-        <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-                <div class="col-lg-7">
-                    <div class="section-tag"><i class="bi bi-gift"></i> Fasilitas Lengkap</div>
-                    <h2 class="section-heading">Yang Kamu Bawa Pulang</h2>
-                    <p class="section-desc mx-auto">Selain ilmu dan praktik langsung, dapatkan fasilitas eksklusif ini.
-                    </p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4 col-lg reveal">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-laptop"></i></div>
-                        <h6>Panduan Instalasi</h6>
-                        <p>Step-by-step, dibagikan sebelum kelas. Sangat mudah diikuti.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal reveal-delay-1">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-file-earmark-code"></i></div>
-                        <h6>Cheat Sheet Prompt AI</h6>
-                        <p>Contekan cara menyuruh AI bikin kode yang benar.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal reveal-delay-2">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-play-circle"></i></div>
-                        <h6>Rekaman Kelas</h6>
-                        <p>Bisa ditonton ulang kalau ada yang terlewat.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-award"></i></div>
-                        <h6>E-Sertifikat</h6>
-                        <p>Bukti kamu sudah upgrade skill.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg reveal reveal-delay-1">
-                    <div class="facility-item">
-                        <div class="fi-icon"><i class="bi bi-whatsapp"></i></div>
-                        <h6>Grup Komunitas WA</h6>
-                        <p>Tempat diskusi bareng peserta lain.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════════════
-     SCHEDULE
-     ══════════════════════════════════════════════════════════════ -->
-    <section class="section-bg" id="jadwal">
-        <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-                <div class="col-lg-7">
-                    <div class="section-tag"><i class="bi bi-calendar3"></i> Detail Jadwal</div>
-                    <h2 class="section-heading">Kapan Kelas Berlangsung?</h2>
+                    <span class="eyebrow">Tentang pengajar</span>
+                    <h2 class="section-heading">Kenalan sama pengajarnya</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="schedule-card">
-                        <div class="schedule-meta">
-                            <div class="schedule-meta-item text-center">
-                                <div class="sm-label">Hari &amp; Tanggal</div>
-                                <div class="sm-value">Jumat, 21 Agustus 2026</div>
-                            </div>
-                            <div class="schedule-meta-item text-center">
-                                <div class="sm-label">Waktu</div>
-                                <div class="sm-value">20.00 – 22.00 WIB</div>
-                            </div>
-                            <div class="schedule-meta-item text-center">
-                                <div class="sm-label">Format</div>
-                                <div class="sm-value"><i class="bi bi-live text-blue me-1"></i> Live Online</div>
-                            </div>
-                        </div>
-                        <hr style="border-color:var(--gray-200); margin:0 0 28px;">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="timeline-step">
-                                    <div class="timeline-num">1</div>
-                                    <div class="timeline-content">
-                                        <strong>Pembukaan &amp; Mindset Shift</strong>
-                                        <div class="dur">15 menit</div>
-                                    </div>
+                <div class="col-lg-9">
+                    <div class="instructor-card reveal">
+                        <div class="row align-items-center g-4">
+                            <div class="col-md-4">
+                                <div class="instructor-photo">
+                                    <img src="https://lh3.googleusercontent.com/d/1j225s1sdluBMjE6wi-fLp1YZI9qXoBIX"
+                                        alt="Foto Adam, pengajar kelas AI &amp; Python Quickstart">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="timeline-step">
-                                    <div class="timeline-num">2</div>
-                                    <div class="timeline-content">
-                                        <strong>Fundamental Prompting</strong>
-                                        <div class="dur">20 menit</div>
-                                    </div>
+                            <div class="col-md-8">
+                                <div class="instructor-name">Adam</div>
+                                <div class="instructor-role">Programmer Web · AI &amp; Python Enthusiast</div>
+                                <p class="instructor-bio">
+                                    Sehari-hari aku ngoding web pakai Laravel dan CodeIgniter, sekarang lagi fokus
+                                    ngejar AI plus Python. Di kelas nanti aku nggak bakal nyuruh kamu hafal sintaks.
+                                    Aku mau nunjukin cara nyuruh AI nulis kodenya, tinggal kamu jalanin,
+                                    dan hasilnya langsung keliatan.
+                                </p>
+                                <div class="instructor-tags">
+                                    <span class="badge-pill"><i class="bi bi-robot"></i> AI &amp; Python</span>
+                                    <span class="badge-pill"><i class="bi bi-laptop"></i> Laravel · CodeIgniter</span>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="timeline-step">
-                                    <div class="timeline-num">3</div>
-                                    <div class="timeline-content">
-                                        <strong>Praktik Project</strong>
-                                        <div class="dur">45 menit</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="timeline-step">
-                                    <div class="timeline-num">4</div>
-                                    <div class="timeline-content">
-                                        <strong>Sesi Tantangan</strong>
-                                        <div class="dur">25 menit</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="timeline-step">
-                                    <div class="timeline-num">5</div>
-                                    <div class="timeline-content">
-                                        <strong>Debrief</strong>
-                                        <div class="dur">15 menit</div>
-                                    </div>
+                                <div class="instructor-quote">
+                                    <i class="bi bi-quote"></i> Kode itu bukan buat dihafal.
                                 </div>
                             </div>
                         </div>
@@ -1753,27 +1856,44 @@
     <!-- ══════════════════════════════════════════════════════════════
      PRICING
      ══════════════════════════════════════════════════════════════ -->
-    <section>
+    <section class="section-bg">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="pricing-box">
+                    <div class="pricing-box reveal">
                         <div class="pricing-tag">
                             <i class="bi bi-rocket-takeoff"></i> Early Bird
                         </div>
                         <h3>AI &amp; Python Quickstart</h3>
-                        <p class="subtitle">Batch perdana · Kuota terbatas · Harga Early Bird</p>
+                        <p class="subtitle">Batch perdana · Kuota terbatas</p>
                         <div class="pricing-amount">Rp49.000 <small>/ peserta</small></div>
+
+                        <div class="countdown">
+                            <div class="cd-label"><i class="bi bi-hourglass-split"></i> Early bird berakhir dalam</div>
+                            <div class="countdown-grid" id="countdown">
+                                <div class="cd-unit"><div class="cd-num" id="cd-days">--</div><div class="cd-txt">hari</div></div>
+                                <div class="cd-unit"><div class="cd-num" id="cd-hours">--</div><div class="cd-txt">jam</div></div>
+                                <div class="cd-unit"><div class="cd-num" id="cd-mins">--</div><div class="cd-txt">menit</div></div>
+                                <div class="cd-unit"><div class="cd-num" id="cd-secs">--</div><div class="cd-txt">detik</div></div>
+                            </div>
+                        </div>
+
                         <ul class="pricing-list">
                             <li><i class="bi bi-check-circle-fill"></i> 2 jam live online interaktif</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Cheat Sheet Prompt AI</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Panduan instalasi step-by-step</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Cheat sheet prompt AI + panduan instalasi</li>
                             <li><i class="bi bi-check-circle-fill"></i> Rekaman kelas &amp; e-sertifikat</li>
                             <li><i class="bi bi-check-circle-fill"></i> Grup komunitas WhatsApp</li>
                         </ul>
-                        <a href="#registration-form" class="btn btn-blue w-100 justify-content-center">
-                            <i class="bi bi-arrow-right-circle"></i> Daftar Sekarang
-                        </a>
+
+                        <div class="pricing-cta-row">
+                            <a href="#registration-form" class="btn btn-blue w-100 justify-content-center">
+                                <i class="bi bi-arrow-right-circle"></i> Daftar Sekarang
+                            </a>
+                            <a href="https://wa.me/6281390000332?text=Halo%20Minzen,%20saya%20ingin%20bertanya%20tentang%20program%20AI%20%26%20Python%20Quickstart:%20Bikin%20Aplikasi%20Pertama%20dalam%202%20Jam."
+                                class="btn-wa" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-whatsapp"></i> Tanya Admin
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1783,67 +1903,50 @@
     <!-- ══════════════════════════════════════════════════════════════
      FAQ
      ══════════════════════════════════════════════════════════════ -->
-    <section class="section-bg" id="faq">
+    <section id="faq">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
-                    <div class="section-tag"><i class="bi bi-question-lg"></i> Pertanyaan Umum</div>
+                    <span class="eyebrow">Tanya jawab</span>
                     <h2 class="section-heading">FAQ</h2>
-                    <p class="section-desc mx-auto">Semua yang perlu kamu tahu sebelum mendaftar.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="faq-item">
                         <button class="faq-q" data-faq="f1">
-                            <span>Apa itu "Aplikasi Penarik Data Otomatis"?</span>
+                            <span>Harus bisa coding dulu?</span>
                             <i class="bi bi-chevron-down chevron"></i>
                         </button>
                         <div class="faq-a" id="f1">
-                            <p>Ini adalah program sederhana (web scraper) yang bisa mengambil data dari halaman web,
-                                seperti judul, harga, atau daftar produk, dan menyusunnya secara rapi — bahkan bisa langsung export ke Excel. Di kelas ini,
-                                kamu akan membuatnya dengan bantuan AI, tanpa perlu menulis kode dari nol.</p>
+                            <p>Nggak. Kamu kasih instruksi, AI yang nulis kodenya.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-q" data-faq="f2">
-                            <span>Apakah saya harus punya background IT atau coding?</span>
+                            <span>Cara ikut kelasnya gimana?</span>
                             <i class="bi bi-chevron-down chevron"></i>
                         </button>
                         <div class="faq-a" id="f2">
-                            <p>Sama sekali tidak. Kelas ini dirancang khusus untuk pemula total. Kamu tidak perlu tahu
-                                apa pun tentang pemrograman. Kami akan memandu langkah demi langkah, dan AI akan
-                                menuliskan kodenya.</p>
+                            <p>Daftar lewat form di bawah, bayar, lalu dapat link Zoom + panduan instalasi H-1 sebelum kelas.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-q" data-faq="f3">
-                            <span>Bagaimana cara mengikuti kelas live online?</span>
+                            <span>Kalau ada yang terlewat?</span>
                             <i class="bi bi-chevron-down chevron"></i>
                         </button>
                         <div class="faq-a" id="f3">
-                            <p>Kelas akan diselenggarakan via Zoom. Setelah mendaftar dan melakukan pembayaran, kamu
-                                akan diundang ke grup WhatsApp dan mendapatkan link Zoom + panduan instalasi H-1 sebelum
-                                kelas.</p>
+                            <p>Tenang, kelas direkam dan rekamannya kamu dapat setelah sesi selesai.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-q" data-faq="f4">
-                            <span>Apakah kelas ini direkam?</span>
+                            <span>Setelah kelas langsung bisa dipakai?</span>
                             <i class="bi bi-chevron-down chevron"></i>
                         </button>
                         <div class="faq-a" id="f4">
-                            <p>Ya. Rekaman kelas akan dibagikan kepada peserta setelah sesi selesai, jadi kamu tetap bisa menonton ulang jika ada yang terlewat.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" data-faq="f6">
-                            <span>Apakah setelah kelas ini saya jadi mahir coding?</span>
-                            <i class="bi bi-chevron-down chevron"></i>
-                        </button>
-                        <div class="faq-a" id="f6">
-                            <p>Fokus kelas ini adalah memberi pengalaman pertama yang menyenangkan dan
-                                membuktikan bahwa coding tidak sesulit yang dibayangkan. Yang lebih penting, kamu akan pulang dengan skill nyata — sebuah aplikasi yang bisa kamu pakai dan kembangkan sendiri.</p>
+                            <p>Iya. Kamu pulang bawa aplikasi yang langsung jalan dan bisa kamu kembangkan sendiri.</p>
                         </div>
                     </div>
                 </div>
@@ -1858,10 +1961,9 @@
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
-                    <h2>Kalau AI Bisa Ngerjain dalam Hitungan Detik,<br>Kenapa Masih Pilih Copy-Paste Berjam-jam?</h2>
-                    <p>Di era AI, yang dicari bukan cuma orang yang bisa coding — tapi orang yang tahu cara memanfaatkan AI
-                        untuk menyelesaikan pekerjaan lebih cepat. Daftar sekarang dan buktikan sendiri.</p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+                    <h2>Kalau AI bisa selesai dalam detik,<br>kenapa masih manual?</h2>
+                    <p>Daftar sekarang, pulang bawa aplikasi otomatis buatan sendiri.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3 mb-3">
                         <a href="#registration-form" class="btn btn-white">
                             <i class="bi bi-arrow-right-circle"></i> Daftar Sekarang
                         </a>
@@ -1871,7 +1973,7 @@
                         </a>
                     </div>
                     <p class="cta-hint">
-                        <i class="bi bi-clock me-1"></i> Kelas terbatas · Harga Early Bird Rp49.000 · Daftar sebelum kuota habis
+                        <i class="bi bi-clock me-1"></i> Kuota terbatas · Early bird Rp49.000 · Berakhir saat kuota habis
                     </p>
                 </div>
             </div>
@@ -1883,10 +1985,15 @@
      ══════════════════════════════════════════════════════════════ -->
     <section id="registration-form" style="padding: 56px 0; background: var(--gray-50);">
         <div class="container">
-            <h2 class="section-title text-center mb-4">Formulir <span class="text-blue">Pendaftaran</span></h2>
+            <h2 class="section-heading text-center mb-4">Formulir <span style="color:var(--blue)">Pendaftaran</span></h2>
             <p class="text-center text-muted mb-4">Isi formulir di bawah ini untuk mendaftar kelas AI & Python Quickstart.</p>
+            <p class="form-fallback">
+                <i class="bi bi-exclamation-circle"></i> Form bermasalah atau nggak muncul?
+                Nggak usah khawatir — <a href="https://goakal.com/alhazenacademy/python-ai-quickstart-1/7z5pn/apply?promo=otomatis"
+                    target="_blank" rel="noopener">klik di sini buat daftar langsung <i class="bi bi-arrow-right"></i></a>
+            </p>
             <div class="iframe-wrapper">
-                <iframe src="https://goakal.com/alhazenacademy/python-ai-quickstart-1/7z5pn/apply"
+                <iframe src="https://goakal.com/alhazenacademy/python-ai-quickstart-1/7z5pn/apply?promo=otomatis"
                     allowfullscreen></iframe>
             </div>
         </div>
@@ -1950,7 +2057,7 @@
                 </p>
             </div>
 
-            <!-- Program -->
+            <!-- Hubungi Kami -->
             <div class="footer-col">
                 <div class="contact-block">
                     <h4>Hubungi Kami</h4>
@@ -1995,57 +2102,93 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-    // ── Scroll Reveal ──
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+            // ── Scroll Reveal ──
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+            reveals.forEach(el => observer.observe(el));
+
+            // ── FAQ Accordion ──
+            document.querySelectorAll('.faq-q').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.faq;
+                    const answer = document.getElementById(id);
+                    const isOpen = answer.classList.contains('open');
+
+                    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+                    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('active'));
+
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        btn.classList.add('active');
+                    }
+                });
+            });
+
+            // ── Smooth Scroll ──
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const navH = document.querySelector('.navbar').offsetHeight;
+                        const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ── Testimonial Scroll ──
+            const tCarousel = document.getElementById('t-carousel');
+            const tPrev = document.querySelector('.t-prev');
+            const tNext = document.querySelector('.t-next');
+            if (tCarousel && tPrev && tNext) {
+                tPrev.addEventListener('click', () => tCarousel.scrollBy({ left: -340, behavior: 'smooth' }));
+                tNext.addEventListener('click', () => tCarousel.scrollBy({ left: 340, behavior: 'smooth' }));
             }
-        });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    reveals.forEach(el => observer.observe(el));
+            // ── Footer Year ──
+            document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-    // ── FAQ Accordion ──
-    document.querySelectorAll('.faq-q').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = btn.dataset.faq;
-            const answer = document.getElementById(id);
-            const isOpen = answer.classList.contains('open');
+            // ── Countdown Early Bird ──
+            const DEADLINE = new Date('2026-08-15T23:59:59+07:00'); // GANTI sesuai batas pendaftaran early bird
+            const cdDays = document.getElementById('cd-days');
+            const cdHours = document.getElementById('cd-hours');
+            const cdMins = document.getElementById('cd-mins');
+            const cdSecs = document.getElementById('cd-secs');
 
-            // Close all
-            document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
-            document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('active'));
-
-            // Toggle current
-            if (!isOpen) {
-                answer.classList.add('open');
-                btn.classList.add('active');
+            function pad(n) {
+                return String(n).padStart(2, '0');
             }
-        });
-    });
 
-    // ── Smooth Scroll ──
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                const navH = document.querySelector('.navbar').offsetHeight;
-                const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
-                window.scrollTo({ top, behavior: 'smooth' });
+            function tick() {
+                let diff = DEADLINE - new Date();
+                if (diff <= 0) {
+                    diff = 0;
+                }
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                cdDays.textContent = pad(d);
+                cdHours.textContent = pad(h);
+                cdMins.textContent = pad(m);
+                cdSecs.textContent = pad(s);
             }
+
+            tick();
+            setInterval(tick, 1000);
+
         });
-    });
-
-    // ── Footer Year ──
-    document.getElementById('footerYear').textContent = new Date().getFullYear();
-
-});
     </script>
 
 </body>
