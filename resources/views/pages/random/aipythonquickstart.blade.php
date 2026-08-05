@@ -1475,7 +1475,7 @@
 
         @media (max-width: 576px) {
             .iframe-wrapper iframe {
-                height: 1800px;
+                height: 1900px;
             }
 
             .iframe-wrapper {
@@ -1592,7 +1592,7 @@
                 <div class="col-lg-6 reveal">
                     <div class="hero-visual">
                         <div class="hero-shot">
-                            <img src="https://lh3.googleusercontent.com/d/1w5azRiyJ3pCM6QbBygAoAwBbliZsbWMR"
+                            <img src="https://lh3.googleusercontent.com/d/15-unWqqBlyp76a39cw7xwdBzp2R0hmYI"
                                 alt="Hasil aplikasi penarik data otomatis: data website berhasil dikumpulkan jadi tabel Excel">
                         </div>
                         <div class="hero-visual-caption">
