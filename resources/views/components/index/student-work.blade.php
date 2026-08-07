@@ -9,40 +9,60 @@
         </div>
 
         <div class="relative overflow-visible pt-4">
-            <div class="swiper student-works-swiper relative z-20">
-                <div class="swiper-wrapper mb-8">
-                    @foreach ($cards as $card)
-                        <div class="swiper-slide h-auto">
-                            <article
-                                class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-[26rem] sm:h-[27rem] lg:h-[28rem] py-5">
-                                <div class="mb-4 flex-shrink-0 rounded-x">
-                                    <div
-                                        class="w-full h-48 sm:h-56 lg:h-60 flex items-center justify-center overflow-hidden rounded-xl">
-                                        <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}" loading="lazy" class="max-w-full max-h-full object-contain" />
-                                    </div>
-                                </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                @foreach ($cards as $card)
+                <div class="w-full md:w-[calc(50%-12px)] xl:w-[calc(25%-18px)] z-10">
+                    <article
+                        class="group bg-white rounded-2xl border border-slate-200 shadow-sm
+                            hover:shadow-xl hover:-translate-y-2
+                            transition-all duration-300 overflow-hidden flex flex-col">
 
-                                <div class="flex-1 px-6">
-                                    <h3 class="text-h5 font-medium mb-2 line-clamp-2">{{ $card['title'] }}</h3>
-                                    <p class="text-small text-neutral-content mb-4 line-clamp-3">
-                                        {{ $card['description'] }}
-                                    </p>
-                                </div>
+                        {{-- Image + Badge --}}
+                        <div class="relative">
 
-                                <div class="px-6 pb-6 mt-auto">
-                                    <span
-                                        class="student-work-category {{ $card['bg-text'] }} text-white text-sm font-medium whitespace-nowrap px-3 py-1 rounded-full">
-                                        {{ $card['category'] }}
-                                    </span>
-                                </div>
-                            </article>
+                            <div class="relative overflow-hidden">
+                                <img
+                                    src="{{ asset($card['image'] ?? 'assets/kids/student-work/student_work_dummy.png') }}"
+                                    alt="{{ $card['alt'] }}"
+                                    class="w-full aspect-[12/6] object-cover transition-all duration-500 group-hover:opacity-0 group-hover:scale-105">
+
+                                <img
+                                    src="{{ asset($card['hover_image'] ?? 'assets/kids/student-work/student_work_hover_dummy.png') }}"
+                                    alt="{{ $card['alt'] }}"
+                                    class="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105">
+                            </div>
+
+                            <span
+                                class="absolute top-4 right-4 inline-flex px-3 py-1 rounded-full text-xs font-semibold text-white {{ $card['bg-text'] }}">
+                                {{ $card['category'] }}
+                            </span>
+
                         </div>
-                    @endforeach
+
+                        {{-- Content --}}
+                        <div class="flex flex-col flex-1 p-5">
+
+                            <h3 class="text-xl font-semibold text-primary mb-2">
+                                {{ $card['title'] }}
+                            </h3>
+
+                            <p class="text-sm text-gray-600 flex-1 overflow-hidden line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+                                {{ $card['description'] }}
+                            </p>
+
+                            <a href="{{ $card['demo_link'] ?: '404'}}" target="_blank"
+                                class="mt-5 flex items-center justify-center rounded-xl bg-primary text-white py-3 font-medium transition-all duration-300 hover:bg-accent hover:shadow-lg hover:shadow-primary/20">
+                                ▶ Demo
+                            </a>
+
+                        </div>
+
+                    </article>
                 </div>
-                <div class="swiper-pagination"></div>
+                @endforeach
             </div>
 
-            <div class="hidden lg:block absolute top-0 right-3 z-10 pointer-events-none select-none translate-y-[calc(-100%+1rem)]"> 
+            <div class="hidden lg:block absolute top-0 right-3 z-0 pointer-events-none select-none translate-y-[calc(-100%+1rem)]">
                 <img src="{{ asset('assets/kids/index-student-work/maskot-mendali.webp') }}" class="w-32 sm:w-40 lg:w-52 object-contain drop-shadow-xl" alt="Maskot Alhazen Academy Student Work" loading="lazy" decoding="async">
             </div>
         </div>

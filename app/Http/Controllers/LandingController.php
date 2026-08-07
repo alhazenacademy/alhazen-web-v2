@@ -10,6 +10,7 @@ use App\Models\SalesNumber;
 use App\Models\SiteSetting;
 use App\Models\Category;
 use App\Models\Banner;
+use App\Models\StudentWork;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -126,7 +127,20 @@ class LandingController extends Controller
             ->map(fn ($banner) => asset('storage/' . $banner->image))
             ->toArray();
 
-        return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs', 'programCards', 'programLinks', 'banners'));
+        $studentWorks = StudentWork::latest()
+            ->get()
+            ->map(fn ($work) => [
+                'image' => $work->image_url,
+                'hover_image' => $work->hover_image_url,
+                'alt' => $work->alt,
+                'title' => $work->title,
+                'description' => $work->description,
+                'demo_link' => $work->demo_link,
+                'category' => $work->category,
+                'bg-text' => $work->bg_text,
+            ]);
+
+        return view('pages.index', compact('salesPhone', 'cards', 'whatsapp', 'email', 'address', 'website', 'socials', 'featured', 'latestArticle', 'faqs', 'programCards', 'programLinks', 'banners', 'studentWorks'));
     }
 
     public function program()
