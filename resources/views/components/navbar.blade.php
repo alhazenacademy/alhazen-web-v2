@@ -23,7 +23,8 @@
     $moreEventNav = [
         // ['route' => 'holiday-program', 'label' => 'Holiday Program'],
         ['route' => 'ramadhan-technoclass', 'label' => 'Ramadhan NgabuburIT Class'],
-        ['route' => 'starter-project', 'label' => 'Starter Project'],
+        ['route' => 'coding-experience', 'label' => 'Coding Experience Class'],
+        // ['route' => 'starter-project', 'label' => 'Starter Project'],
         // ['route' => 'master-gpt', 'label' => 'Master GPT'],
         // ['route' => 'master-gemini', 'label' => 'Master Gemini'],
         // ['route' => 'alhazen-tech-sprint', 'label' => 'Alhazen Tech Sprint'],
