@@ -237,7 +237,7 @@
 
         /* ============ STATS ============ */
         .stats { padding: 2.5rem 0 0.5rem; }
-        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .9rem; }
+        .stats-grid { display: grid; grid-template-columns: 1fr; gap: .9rem; }
         @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
         .stat-card {
             background: #fff; border: 1px solid var(--color-neutral); border-radius: 1rem;
@@ -400,16 +400,17 @@
         .jadwal-head { padding: 1.4rem 1.4rem 1.1rem; display: flex; align-items: center; gap: 1rem; }
         .jadwal-head .j-icon {
             width: 86px; height: 86px; border-radius: 20px; flex-shrink: 0;
-            background: var(--j-tint); border: 1px solid var(--j-soft);
+            background: var(--j-tint, #FEF2F2); border: 1px solid var(--j-soft, #FEE2E2);
             display: grid; place-items: center; padding: 14px;
             box-shadow: 0 8px 18px -8px rgba(15,23,42,.25);
         }
         .jadwal-head .j-icon img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .3s ease; }
         .jadwal-card:hover .j-icon img { transform: scale(1.09) rotate(-4deg); }
-        .jadwal-head h3 { margin: 0 0 .15rem; font-size: 1.3rem; font-weight: 700; color: var(--j-primary); line-height: 1.15; letter-spacing: -.01em; }
+        .jadwal-head h3 { margin: 0 0 .15rem; font-size: 1.3rem; font-weight: 700; color: var(--j-primary, var(--color-primary)); line-height: 1.15; letter-spacing: -.01em; }
         .jadwal-head .j-sub { font-size: .8rem; color: rgba(15,23,42,.6); font-weight: 400; }
 
         .jadwal-list { list-style: none; margin: .2rem 0 0; padding: 1.1rem 1.25rem 1.3rem; display: grid; gap: .6rem; border-top: 1px dashed var(--color-neutral); }
+        @media (min-width: 768px) { .jadwal-list { grid-template-columns: repeat(2, 1fr); } }
         .jadwal-row {
             display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
             background: #F8FAFC; border: 1px solid var(--color-neutral); border-radius: .9rem; padding: .55rem .7rem;
@@ -417,7 +418,7 @@
         .j-day { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #fff; background: #DC2626; padding: .22rem .6rem; border-radius: 999px; }
         .j-time { font-family: 'Fredoka'; font-weight: 700; font-size: .84rem; color: var(--color-text); }
         .j-tutor { margin-left: auto; font-size: .76rem; color: #374151; display: inline-flex; align-items: center; gap: .35rem; }
-        .j-tutor .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--j-primary); flex-shrink: 0; }
+        .j-tutor .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--j-primary, var(--color-primary)); flex-shrink: 0; }
                 .jadwal-note { text-align: center; margin-top: 1.8rem; color: rgba(15,23,42,.6); font-size: .9rem; }
         .jadwal-start {
             display: inline-flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap;
@@ -429,6 +430,26 @@
         .jadwal-start strong { color: var(--color-primary); }
         .jadwal-start .flag-ico { font-size: 1.05rem; line-height: 1; }
 
+        .jadwal-table-wrap { max-width: 680px; margin: 0 auto; }
+        .jadwal-table {
+            width: 100%; border-collapse: collapse; border-spacing: 0;
+            background: #fff; border: 1.5px solid #EDE7E0; border-radius: 1.25rem; overflow: hidden;
+            box-shadow: 0 12px 30px -20px rgba(15,23,42,.18);
+        }
+        .jadwal-table thead th {
+            background: #F7F4F0; color: #475569;
+            font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
+            padding: 1.05rem 1.4rem;
+        }
+        .jadwal-table thead th:first-child { border-radius: 1.25rem 0 0 0; }
+        .jadwal-table thead th:last-child { border-radius: 0 1.25rem 0 0; }
+        .jadwal-table tbody td { padding: 1.05rem 1.4rem; font-size: .95rem; color: var(--color-text); border: 0; }
+        .jadwal-table th:first-child, .jadwal-table td:first-child { text-align: left; }
+        .jadwal-table th:nth-child(2), .jadwal-table td:nth-child(2) { text-align: center; }
+        .jadwal-table th:last-child, .jadwal-table td:last-child { text-align: left; }
+        .jadwal-table tbody td:first-child { font-weight: 700; vertical-align: middle; }
+        .jadwal-table .jt-time { font-family: 'Fredoka'; font-weight: 700; color: #475569; }
+
         /* ============ HARGA ============ */
         .harga-section { position: relative; overflow: hidden; background: #7F1D1D; }
         .harga-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
@@ -439,7 +460,6 @@
         .harga-section .container { position: relative; z-index: 2; }
         .harga-section .section-head h2 { color: #fff; }
         .harga-section .section-head p { color: rgba(255,255,255,.92); }
-        .harga-section .head-badge { background: #FDE047; color: #7F1D1D; box-shadow: 0 10px 30px -12px rgba(0,0,0,.5); }
         .price-card {
             max-width: 560px; margin: 0 auto; background: #fff; border-radius: 1.75rem;
             padding: 2.4rem 2rem; text-align: center; position: relative;
@@ -521,13 +541,6 @@
             --ds-cream-light: #FFFDF8;
         }
         .stripe-divider { height: 12px; background: repeating-linear-gradient(90deg, var(--ds-red) 0 16px, #fff 16px 32px); opacity: .9; }
-        .head-badge {
-            display: inline-flex; align-items: center; gap: .45rem;
-            background: var(--ds-red); color: #fff; font-size: .72rem; font-weight: 700;
-            letter-spacing: .08em; text-transform: uppercase; padding: .4rem 1rem;
-            border-radius: 999px; margin-bottom: .9rem; box-shadow: var(--ds-shadow);
-        }
-        .head-badge .flag-ico { font-size: .95rem; line-height: 1; }
         .section-head h2 { position: relative; display: inline-block; padding-bottom: .7rem; }
         .section-head h2::after {
             content: ""; position: absolute; left: 50%; transform: translateX(-50%); bottom: 0;
@@ -597,39 +610,9 @@
         <div class="mobile-menu" id="mobileMenu">
             <div class="mm-title">Menu</div>
             <hr>
-            <a class="mm-item" href="#home">Home</a>
-
-            <div class="mm-sub" data-mm>
-                <button type="button" class="mm-drop-btn" aria-expanded="false">
-                    <span>Program</span>
-                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <div class="mm-sub-links">
-                    <a href="#tentang">Coding Experience Class</a>
-                    <a href="#cara-main">Cara Main Game</a>
-                    <a href="#materi">Materi Belajar</a>
-                    <a href="#jadwal">Jadwal Trial</a>
-                    <a href="#harga">Harga &amp; Pendaftaran</a>
-                </div>
-            </div>
-
-            <div class="mm-sub" data-mm>
-                <button type="button" class="mm-drop-btn" aria-expanded="false">
-                    <span>Event</span>
-                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <div class="mm-sub-links">
-                    <a href="#home">Coding Experience Class</a>
-                    <a href="https://alhazen.academy/event/starter-project" target="_blank" rel="noopener">Starter Project</a>
-                </div>
-            </div>
-
+            <a class="mm-item" href="#tentang">Tentang Program</a>
+            <a class="mm-item" href="#jadwal">Jadwal</a>
             <a class="mm-item" href="#faq">FAQ</a>
-            <a class="mm-item" href="#tentang">Tentang Kami</a>
 
             <a href="#jadwal" class="mm-cta">Daftar Kelas</a>
             <a href="https://apps.alhazen.academy/#/login" class="mm-login">Masuk / Login</a>
@@ -742,7 +725,6 @@
     <section id="cara-main" class="section flow-section">
         <div class="container">
             <div class="section-head reveal">
-                <!-- <span class="head-badge"><span class="flag-ico">🇮🇩</span> Cara Main</span> -->
                 <h2 class="text-h2">Gimana Serunya Game-nya?</h2>
                 <p>Anak ikut lomba tangkap kerupuk khas 17-an! Tangkap kerupuk yang terbang dari depan &amp; jongkok untuk menghindari kelereng.</p>
             </div>
@@ -781,7 +763,6 @@
     <section id="materi" class="section">
         <div class="container">
             <div class="section-head reveal">
-                <!-- <span class="head-badge"><span class="flag-ico">🧩</span> Materi Kelas</span> -->
                 <h2 class="text-h2">Apa yang Akan Dipelajari?</h2>
                 <p>Materi dikemas menyenangkan, anak belajar konsep coding sungguhan tanpa sadar sedang belajar.</p>
             </div>
@@ -826,85 +807,27 @@
     <section id="jadwal" class="section jadwal-section">
         <div class="container">
             <div class="section-head reveal">
-                <!-- <span class="head-badge"><span class="flag-ico">📅</span> Jadwal Trial</span> -->
-                <h2 class="text-h2">Pilih Jadwal Trial-mu</h2>
-                <p>Kelas trial dikelompokkan berdasarkan materi. Cukup lihat ketersediaan waktu, langsung pilih yang paling cocok!</p>
+                <h2 class="text-h2">Pilih Jadwal Kelas-mu</h2>
+                <p>Kelas ini menggunakan <strong>Scratch</strong>, blok visual ramah anak, tanpa perlu pengalaman coding. Cukup lihat ketersediaan waktu, langsung pilih yang paling cocok!</p>
                 <p class="jadwal-start reveal">Kelas berjalan mulai <strong>Senin, 10 Agustus 2026</strong> Pilih hari &amp; jam yang paling cocok di bawah ini!</p>
             </div>
 
-            <div class="jadwal-grid">
-
-                <div class="jadwal-card j-roblox reveal">
-                    <div class="jadwal-head">
-                        <div class="j-icon"><img src="https://lh3.googleusercontent.com/d/1ClKGjyzY3jzLFjhYAmYLswP4xltRAlI1" alt="Roblox" loading="lazy"></div>
-                        <div>
-                            <h3>Roblox</h3>
-                            <div class="j-sub">Bikin game seru di Roblox</div>
-                        </div>
-                    </div>
-                    <ul class="jadwal-list">
-                        <li class="jadwal-row"><span class="j-day">Senin</span><span class="j-time">16.00–17.00</span><span class="j-tutor"><span class="dot"></span>Kak Cita</span></li>
-                        <li class="jadwal-row"><span class="j-day">Kamis</span><span class="j-time">17.00–18.00</span><span class="j-tutor"><span class="dot"></span>Kak Adam</span></li>
-                        <li class="jadwal-row"><span class="j-day">Sabtu</span><span class="j-time">13.00–14.00</span><span class="j-tutor"><span class="dot"></span>Kak Adam</span></li>
-                    </ul>
-                </div>
-
-                <div class="jadwal-card j-p123 reveal">
-                    <div class="jadwal-head">
-                        <div class="j-icon"><img src="https://lh3.googleusercontent.com/d/1lWwrXF1My7WMvPQyrC7MVNigL8RR5ydV" alt="code.org" loading="lazy"></div>
-                        <div>
-                            <h3>P123</h3>
-                            <div class="j-sub">Coding dasar kelas 1–3 SD</div>
-                        </div>
-                    </div>
-                    <ul class="jadwal-list">
-                        <li class="jadwal-row"><span class="j-day">Kamis</span><span class="j-time">16.00–17.00</span><span class="j-tutor"><span class="dot"></span>Kak Refina</span></li>
-                        <li class="jadwal-row"><span class="j-day">Jumat</span><span class="j-time">18.30–19.30</span><span class="j-tutor"><span class="dot"></span>Kak Refina</span></li>
-                    </ul>
-                </div>
-
-                <div class="jadwal-card j-p456 reveal">
-                    <div class="jadwal-head">
-                        <div class="j-icon"><img src="https://lh3.googleusercontent.com/d/1OIegx69Jz9ljUGqUMMGr47j8mre_1qsy" alt="Scratch" loading="lazy"></div>
-                        <div>
-                            <h3>P456</h3>
-                            <div class="j-sub">Coding lanjutan kelas 4–6 SD</div>
-                        </div>
-                    </div>
-                    <ul class="jadwal-list">
-                        <li class="jadwal-row"><span class="j-day">Senin</span><span class="j-time">18.30–19.30</span><span class="j-tutor"><span class="dot"></span>Kak Hilyah</span></li>
-                        <li class="jadwal-row"><span class="j-day">Jumat</span><span class="j-time">16.00–17.00</span><span class="j-tutor"><span class="dot"></span>Kak Ardi</span></li>
-                    </ul>
-                </div>
-
-                <div class="jadwal-card j-junior reveal">
-                    <div class="jadwal-head">
-                        <div class="j-icon"><img src="https://lh3.googleusercontent.com/d/1nQXgmwEvm_nNsbcUFX0BHEH2X8VZp4N9" alt="Python" loading="lazy"></div>
-                        <div>
-                            <h3>Junior</h3>
-                            <div class="j-sub">Kelas pengenalan pemrograman</div>
-                        </div>
-                    </div>
-                    <ul class="jadwal-list">
-                        <li class="jadwal-row"><span class="j-day">Rabu</span><span class="j-time">14.00–15.00</span><span class="j-tutor"><span class="dot"></span>Kak Miftah</span></li>
-                        <li class="jadwal-row"><span class="j-day">Sabtu</span><span class="j-time">13.00–14.00</span><span class="j-tutor"><span class="dot"></span>Kak Miftah</span></li>
-                    </ul>
-                </div>
-
-                <div class="jadwal-card j-senior reveal">
-                    <div class="jadwal-head">
-                        <div class="j-icon"><img src="https://lh3.googleusercontent.com/d/14UWKAGuG9ii6DagrHpoK_H9liVxFXexS" alt="HTML" loading="lazy"></div>
-                        <div>
-                            <h3>Senior</h3>
-                            <div class="j-sub">Tantangan coding lebih tinggi</div>
-                        </div>
-                    </div>
-                    <ul class="jadwal-list">
-                        <li class="jadwal-row"><span class="j-day">Selasa</span><span class="j-time">19.00–20.00</span><span class="j-tutor"><span class="dot"></span>Kak Refina</span></li>
-                        <li class="jadwal-row"><span class="j-day">Jumat</span><span class="j-time">18.30–19.30</span><span class="j-tutor"><span class="dot"></span>Kak Ardi</span></li>
-                    </ul>
-                </div>
-
+            <div class="jadwal-table-wrap reveal">
+                <table class="jadwal-table">
+                    <thead>
+                        <tr><th scope="col">Hari</th><th scope="col">Jam</th><th scope="col">Tutor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Senin</td><td class="jt-time">18.30 WIB</td><td>Kak Hilyah</td></tr>
+                        <tr><td>Selasa</td><td class="jt-time">19.00 WIB</td><td>Kak Refina</td></tr>
+                        <tr><td>Rabu</td><td class="jt-time">14.00 WIB</td><td>Kak Miftah</td></tr>
+                        <tr><td>Kamis</td><td class="jt-time">16.00 WIB</td><td>Kak Refina</td></tr>
+                        <tr><td rowspan="3">Jumat</td><td class="jt-time">16.00 WIB</td><td>Kak Ardi</td></tr>
+                        <tr><td class="jt-time" style="text-align: center;">18.30 WIB</td><td>Kak Ardi</td></tr>
+                        <tr><td class="jt-time" style="text-align: center;">18.30 WIB</td><td>Kak Refina</td></tr>
+                        <tr><td>Sabtu</td><td class="jt-time">13.00 WIB</td><td>Kak Miftah</td></tr>
+                    </tbody>
+                </table>
             </div>
             <p class="jadwal-note reveal">Kuota tiap sesi terbatas, pilih jadwal &amp; daftar sekarang biar kursi aman!</p>
             <div style="text-align:center; margin-top:1.8rem;">
@@ -919,7 +842,6 @@
         <div class="harga-overlay"></div>
         <div class="container">
             <div class="section-head reveal">
-                <!-- <span class="head-badge"><span class="flag-ico">🎁</span> Promo 17 Agustus</span> -->
                 <h2 class="text-h2">Harga Spesial Kemerdekaan</h2>
                 <p>Promo terbatas menyambut 17 Agustus. Setelah kuota penuh, harga kembali normal.</p>
             </div>
@@ -927,7 +849,7 @@
             <div class="price-card reveal">
                 <span class="price-ribbon"><img src="https://lh3.googleusercontent.com/d/1PO1NKjXbLepZsW4Jv4IWzvY5rdqX17hI" alt="" loading="lazy"> PROMO 17 AGUSTUS</span>
                 <h3>Coding Experience Class</h3>
-                <p class="pc-sub">1 Hari &bull; Online via Zoom &bull; Kelompok Kecil</p>
+                <p class="pc-sub">1 Hari &bull; Online via Zoom</p>
 
                 <div class="price-old">Rp 238.000</div>
                 <div class="price-main"><small>Rp</small> 17.826</div>
@@ -950,7 +872,7 @@
                     <li><span class="check">✓</span>Sertifikat keikutsertaan Coding Experience Class</li>
                 </ul>
 
-                <a href="#jadwal" class="btn btn-primary btn-big btn-shine shine-loop" style="width:100%;"><img src="https://lh3.googleusercontent.com/d/1PO1NKjXbLepZsW4Jv4IWzvY5rdqX17hI" alt="" class="btn-img"> Amankan Kursi, Rp 17.826</a>
+                <a href="#jadwal" class="btn btn-primary btn-big btn-shine shine-loop" style="width:100%;"> Amankan Kursi, Rp 17.826</a>
                 <p class="price-foot">*Kuota terbatas &bull; Pembayaran mudah &bull; Link Zoom dikirim setelah pendaftaran</p>
             </div>
         </div>
@@ -961,7 +883,6 @@
     <section id="faq" class="section">
         <div class="container">
             <div class="section-head reveal">
-                <span class="head-badge"><span class="flag-ico">❓</span> Tanya Jawab</span>
                 <h2 class="text-h2">Pertanyaan yang Sering Ditanya</h2>
                 <p>Masih ragu? Cek jawabannya dulu, yuk!</p>
             </div>
@@ -981,7 +902,7 @@
                 </div>
                 <div class="faq-item reveal">
                     <button class="faq-q" aria-expanded="false">Berapa lama kelasnya?<span class="chev">▼</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">Kelas berlangsung <strong>1 hari</strong> dengan durasi ±90-120 menit secara live via Zoom.</div></div>
+                    <div class="faq-a"><div class="faq-a-inner">Kelas berlangsung <strong>1 hari</strong> dengan durasi ±60 menit secara live via Zoom.</div></div>
                 </div>
                 <div class="faq-item reveal">
                     <button class="faq-q" aria-expanded="false">Apa yang dibawa pulang setelah kelas?<span class="chev">▼</span></button>
@@ -989,7 +910,7 @@
                 </div>
                 <div class="faq-item reveal">
                     <button class="faq-q" aria-expanded="false">Bagaimana cara mendaftar?<span class="chev">▼</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">Klik tombol <strong>"Daftar"</strong> di halaman ini, lalu pilih <strong>jadwal trial</strong> yang paling cocok. Setelah itu klik <strong>"Daftar Sekarang"</strong> — kamu akan diarahkan ke form registrasi dan admin akan membantu proses pendaftaran serta pembayaran dengan cepat.</div></div>
+                    <div class="faq-a"><div class="faq-a-inner">Klik tombol <strong>"Daftar"</strong> di halaman ini, lalu pilih <strong>jadwal kelas</strong> yang paling cocok. Setelah itu klik <strong>"Daftar Sekarang"</strong>, kamu akan diarahkan ke form registrasi dan admin akan membantu proses pendaftaran serta pembayaran dengan cepat.</div></div>
                 </div>
             </div>
         </div>
