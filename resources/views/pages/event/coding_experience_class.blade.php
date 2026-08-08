@@ -615,7 +615,6 @@
             <a class="mm-item" href="#faq">FAQ</a>
 
             <a href="#jadwal" class="mm-cta">Daftar Kelas</a>
-            <a href="https://apps.alhazen.academy/#/login" class="mm-login">Masuk / Login</a>
         </div>
     </header>
 
@@ -910,7 +909,11 @@
                 </div>
                 <div class="faq-item reveal">
                     <button class="faq-q" aria-expanded="false">Bagaimana cara mendaftar?<span class="chev">▼</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">Klik tombol <strong>"Daftar"</strong> di halaman ini, lalu pilih <strong>jadwal kelas</strong> yang paling cocok. Setelah itu klik <strong>"Daftar Sekarang"</strong>, kamu akan diarahkan ke form registrasi dan admin akan membantu proses pendaftaran serta pembayaran dengan cepat.</div></div>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            Klik tombol <strong>"Daftar Sekarang"</strong>, kemudian kamu akan diarahkan ke formulir registrasi. Isi data lengkap dan jadwal yang dipilih. Lanjut ke proses pembayaran dan pendaftaran selesai. <br> Setelah itu Admin Alhazen Academy akan menghubungi Anda untuk kelanjutan kelasnya.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
