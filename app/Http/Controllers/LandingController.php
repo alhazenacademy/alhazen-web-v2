@@ -1060,4 +1060,9 @@ class LandingController extends Controller
     public function links() {
         return view('pages.links');
     }
+
+    public function coding_experience(){
+
+        return view('pages.event.coding_experience_class');
+    }
 }
