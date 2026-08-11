@@ -608,7 +608,8 @@
         'alhazen.academy',
         'www.alhazen.academy',
         'script.googleusercontent.com',
-        'script.google.com'
+        'script.google.com',
+        'www.webdev.alhazen.academy'
       ];
       function tampilkanBlokir() {
         document.querySelector('.box').style.display = 'none';
