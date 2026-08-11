@@ -140,48 +140,7 @@
 
     <x-index.student-work title="Hasil Karya Murid Alhazen Academy"
         description="Siswa anak nya imajinasi bisa luar biasa. Di Alhazzen kami membantunya mengembangkan imajinasi nya dengan cara digital yang nyata - dari game, aplikasi, hingga robot pintar!"
-        :cards="[
-            [
-                'image' => asset('assets/kids/student-work/student-work-1.avif'),
-                'alt' => 'Hasil karya siswa belajar coding berupa game edukasi Learning Tumbuhan',
-                'title' => 'Learning tumbuhan',
-                'description' => 'Dibuat oleh Ghazan Akhyar (Kelas 2 SD) menggunakan Scratch',
-                'category' => 'Game & Animation',
-                'bg-text' => 'bg-[#EB5353]',
-            ],
-            [
-                'image' => asset('assets/kids/student-work/student-work-2.avif'),
-                'alt' => 'Hasil karya siswa belajar coding berupa game interaktif Ping-Pong',
-                'title' => 'Ping-Pong Game',
-                'description' => 'Dibuat oleh Tsaqif Luqmana (Kelas 5 SD) menggunakan Scratch',
-                'category' => 'Game & Animation',
-                'bg-text' => 'bg-[#EB5353]',
-            ],
-            [
-                'image' => asset('assets/kids/student-work/student-work-3.avif'),
-                'alt' => 'Hasil karya siswa belajar coding berupa game balap mobil sederhana',
-                'title' => 'Car Race Game',
-                'description' => 'Dibuat oleh Muhammad Karim (Kelas 3 SD) menggunakan Scratch',
-                'category' => 'Game & Animation',
-                'bg-text' => 'bg-[#EB5353]',
-            ],
-            [
-                'image' => asset('assets/kids/student-work/student-work-4.webp'),
-                'alt' => 'Hasil karya siswa belajar coding berupa aplikasi Dzikir sederhana',
-                'title' => 'Dzikir App',
-                'description' => 'Dibuat oleh Shofiyya Edi (Kelas 5 SD) menggunakan Thunkable',
-                'category' => 'Application',
-                'bg-text' => 'bg-[#faa52d]',
-            ],
-            [
-                'image' => asset('assets/kids/student-work/student-work-5.webp'),
-                'alt' => 'Hasil karya siswa belajar coding berupa aplikasi Camping and Glamping',
-                'title' => 'Camping and Glamping',
-                'description' => 'Dibuat oleh Karenita (Kelas 4 SD) menggunakan Thunkable',
-                'category' => 'Application',
-                'bg-text' => 'bg-[#faa52d]',
-            ],
-        ]"
+        :cards="$studentWorks"
         />
 
     <x-index.student-review title="Review Murid Alhazen"
