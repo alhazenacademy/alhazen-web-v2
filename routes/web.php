@@ -41,6 +41,7 @@ Route::get('/links', [LandingController::class, 'links'])->name('links');
 Route::get('/plus/program/ai-python-quickstart', function () {
     return view('pages.random.aipythonquickstart');
 });
+Route::get('/form-review-kelas', [LandingController::class, 'form_review_kelas']);
 Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
 // Route::view('/pro', 'pro')->name('adult');

@@ -1051,4 +1051,9 @@ class LandingController extends Controller
 
         return view('pages.event.coding_experience_class');
     }
+
+    public function form_review_kelas(){
+
+        return view('pages.random.form_review_kelas');
+    }
 }
