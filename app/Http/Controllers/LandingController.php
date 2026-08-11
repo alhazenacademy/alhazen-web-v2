@@ -10,6 +10,7 @@ use App\Models\SalesNumber;
 use App\Models\SiteSetting;
 use App\Models\Category;
 use App\Models\Banner;
+use App\Models\LinkPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -1044,7 +1045,18 @@ class LandingController extends Controller
     }
 
     public function links() {
-        return view('pages.links');
+        $highlights = LinkPage::query()
+            ->where('type', 'highlight')
+            ->where('active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $events = LinkPage::where('type', 'event')
+            ->where('active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        return view('pages.links', compact('highlights', 'events'));
     }
 
     public function coding_experience(){

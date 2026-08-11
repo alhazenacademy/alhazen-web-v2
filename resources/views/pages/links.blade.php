@@ -60,89 +60,147 @@
 
             </div>
 
-            <!-- ==================== HIGHLIGHT ==================== -->
-            <div class="my-8">
+            {{-- ==================== HIGHLIGHTS ==================== --}}
+            @if ($highlights->isNotEmpty())
+                <div class="my-8 space-y-6">
 
-                <!-- Hero Card -->
-                <div class="rounded-[32px] border-[3px] border-black bg-[#F8F3ED] shadow-[0_8px_0_#000] p-7">
+                    @foreach ($highlights as $highlight)
+                        <div class="rounded-[32px] border-[3px] border-black bg-[#F8F3ED] shadow-[0_8px_0_#000] p-7">
 
-                    <div class="flex items-center gap-5">
+                            <div class="flex items-center gap-5">
 
-                        <div class="w-16 h-16 rounded-2xl bg-[#03AE91]/10 flex items-center justify-center">
+                                {{-- Icon --}}
+                                @if ($highlight->icon)
+                                    <div
+                                        class="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0"
+                                        @if ($highlight->icon_background)
+                                            style="background-color: color-mix(in srgb, {{ $highlight->icon_background }} 10%, transparent)"
+                                        @endif
+                                    >
+                                        <img
+                                            src="{{ $highlight->icon }}"
+                                            alt="{{ $highlight->title }}"
+                                            width="34"
+                                            height="34"
+                                        >
+                                    </div>
+                                @endif
 
-                            <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg"
-                                width="34">
+                                {{-- Content --}}
+                                <div class="flex-1">
 
-                        </div>
+                                    <div
+                                        class="inline-block text-[11px] font-bold uppercase tracking-widest bg-yellow-300 text-black px-2 py-1 rounded-full">
+                                        NEW !!!
+                                    </div>
 
-                        <div class="flex-1">
+                                    <h2 class="text-[#111] text-2xl font-extrabold mt-3">
+                                        {{ $highlight->title }}
+                                    </h2>
 
-                            <div
-                                class="inline-block text-[11px] font-bold uppercase tracking-widest bg-yellow-300 text-black px-2 py-1 rounded-full">
-                                NEW !!!
+                                    @if ($highlight->description)
+                                        <p class="text-gray-600 mt-2">
+                                            {{ $highlight->description }}
+                                        </p>
+                                    @endif
+
+                                </div>
+
                             </div>
 
-                            <h2 class="text-[#111] text-2xl font-extrabold mt-3">
-                                AI & Python Quickstart
-                            </h2>
-
-                            <p class="text-gray-600 mt-2">
-                                Belajar AI & Python dari nol dengan project nyata.
-                            </p>
+                            {{-- CTA --}}
+                            @if ($highlight->url)
+                                <a
+                                    href="{{ $highlight->url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="cta-animate mt-7 flex items-center justify-center gap-2 rounded-2xl bg-[#03AE91] text-white py-3 font-bold transition hover:bg-[#028a75]"
+                                >
+                                    Daftar Sekarang
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            @endif
 
                         </div>
+                    @endforeach
 
-                    </div>
+                </div>
+            @endif
 
-                    <!-- CTA -->
-                    <a href="https://alhazen.academy/plus/program/ai-python-quickstart/" target="_blank" class="cta-animate mt-7 flex items-center justify-center gap-2 rounded-2xl bg-[#03AE91] text-white py-3 font-bold transition hover:bg-[#028a75]">
+            {{-- ==================== EVENT ==================== --}}
+            @if ($events->isNotEmpty())
 
-                        Daftar Sekarang
-                        <i class="fa-solid fa-arrow-right"></i>
+                <div class="flex items-center gap-4 my-8">
 
-                    </a>
+                    <div class="flex-1 h-px bg-white/20"></div>
+
+                    <span
+                        class="px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-white/90 bg-white/10 backdrop-blur-md rounded-full border border-white/20"
+                    >
+                        Event
+                    </span>
+
+                    <div class="flex-1 h-px bg-white/20"></div>
 
                 </div>
 
-            </div>
+                <div class="space-y-5">
 
-            <!-- ==================== EVENT ==================== -->
+                    @foreach ($events as $event)
+                        <a
+                            href="{{ $event->url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="link-card rounded-3xl py-5 flex items-center px-5"
+                        >
 
-            {{-- <div class="flex items-center gap-4 my-8">
-                <div class="flex-1 h-px bg-white/20"></div>
+                            {{-- Icon --}}
+                            @if ($event->icon)
+                                @if ($event->icon_background)
+                                    <div
+                                        class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                                        style="background-color: {{ $event->icon_background }}"
+                                    >
+                                        <img
+                                            src="{{ $event->icon }}"
+                                            alt="{{ $event->title }}"
+                                            class="w-5 h-5"
+                                        >
+                                    </div>
+                                @else
+                                    <img
+                                        src="{{ $event->icon }}"
+                                        alt="{{ $event->title }}"
+                                        width="24"
+                                        height="24"
+                                        class="shrink-0"
+                                    >
+                                @endif
+                            @endif
 
-                <span
-                    class="px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-white/90 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-                    Event
-                </span>
+                            {{-- Title --}}
+                            <div class="flex-1 text-center font-medium text-md">
+                                {{ $event->title }}
+                            </div>
 
-                <div class="flex-1 h-px bg-white/20"></div>
-            </div>
+                            {{-- Copy --}}
+                            @if ($event->url)
+                                <button
+                                    type="button"
+                                    class="copy-btn w-9 h-9 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:text-[#03AE91] transition shrink-0"
+                                    data-link="{{ $event->url }}"
+                                    title="Salin Link"
+                                >
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            @endif
 
-            <div class="space-y-5">
+                        </a>
+                    @endforeach
 
-                <!-- Mini Class -->
-                <a href="https://alhazen.academy/plus/program/ai-python-quickstart/" target="_blank"
-                    class="link-card rounded-3xl py-5 flex items-center px-5">
+                </div>
 
-                    <img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/python/default.svg"
-                        alt="Python" width="24" height="24" />
-
-                    <div class="flex-1 text-center font-medium text-md">
-                        AI & Python Quickstart
-                    </div>
-
-                    <button type="button"
-                        class="copy-btn w-9 h-9 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:text-[#03AE91] transition"
-                        data-link="https://alhazen.academy/plus/program/ai-python-quickstart/" title="Salin Link">
-
-                        <i class="fa-regular fa-copy"></i>
-
-                    </button>
-
-                </a>
-
-            </div> --}}
+            @endif
 
 
             <!-- ==================== WEBSITE ==================== -->
