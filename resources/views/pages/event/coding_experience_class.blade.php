@@ -18,7 +18,7 @@
     <link rel="icon" href="https://alhazen.academy/assets/logo-new.webp" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -48,7 +48,7 @@
         *, *::before, *::after { box-sizing: border-box; }
         html, body { margin: 0; padding: 0; }
         body, .theme-kids * { font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Fredoka', ui-sans-serif, system-ui, sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; font-weight: 700; letter-spacing: -.01em; }
 
         body {
             background: var(--color-background);
@@ -92,7 +92,7 @@
         .logo-img { height: 2.5rem; width: auto; }
         .logo-fallback {
             display: none; align-items: center; gap: .6rem;
-            font-family: 'Fredoka'; font-weight: 600; font-size: 1.05rem;
+            font-family: 'Poppins'; font-weight: 700; font-size: 1.05rem;
             color: var(--color-primary); white-space: nowrap;
         }
         .logo-fallback img { width: 30px; height: 30px; object-fit: contain; flex-shrink: 0; }
@@ -111,7 +111,7 @@
         .dd.open .dd-btn svg { transform: rotate(180deg); }
         .dd-panel {
             display: none; position: absolute; left: 0; top: 100%; margin-top: .75rem;
-            width: 14rem; border-radius: .75rem; border: 1px solid var(--color-neutral);
+            width: 14rem; border-radius: .5rem; border: 1px solid var(--color-neutral);
             background: #fff; padding: .5rem 0; z-index: 50;
         }
         .dd.open .dd-panel { display: block; }
@@ -119,7 +119,7 @@
         .dd-panel a:hover { color: var(--color-text); background: rgba(229, 231, 235, .4); }
 
         .nav-btn-primary {
-            padding: .7rem 1.25rem; border-radius: .75rem; background: var(--color-primary); color: #fff;
+            padding: .7rem 1.25rem; border-radius: .375rem; background: var(--color-primary); color: #fff;
             font-weight: 600; font-size: .95rem; white-space: nowrap;
             transition: transform .2s, background .2s;
         }
@@ -129,14 +129,14 @@
 
         .nav-burger {
             display: grid; place-items: center; width: 42px; height: 42px;
-            border-radius: .6rem; border: 1px solid var(--color-neutral);
+            border-radius: .375rem; border: 1px solid var(--color-neutral);
             background: transparent; font-size: 1.3rem; cursor: pointer; color: var(--color-text);
         }
         @media (min-width: 768px) { .nav-burger { display: none; } }
 
         .mobile-menu {
             position: absolute; top: 4rem; right: 1rem; z-index: 49; width: 18rem;
-            background: #fff; border: 1px solid var(--color-neutral); border-radius: .75rem;
+            background: #fff; border: 1px solid var(--color-neutral); border-radius: .5rem;
             background: #fff; display: none; backdrop-filter: blur(10px);
         }
         .mobile-menu.open { display: block; }
@@ -158,7 +158,7 @@
         .mm-sub-links a:hover { background: #FEF2F2; }
         .mm-cta {
             display: block; margin: .75rem 1rem .5rem; padding: .8rem; text-align: center;
-            border-radius: .75rem; background: var(--color-primary); color: #fff; font-weight: 600;
+            border-radius: .375rem; background: var(--color-primary); color: #fff; font-weight: 600;
         }
         .mm-cta:hover { background: var(--color-accent); }
         .mm-login { display: block; text-align: center; padding: .55rem 1rem 1rem; color: var(--color-primary); font-size: .9rem; text-decoration: underline; }
@@ -166,7 +166,7 @@
         /* ============ HERO (game cover) ============ */
         .hero { padding: 2rem 0 0; }
         .hero-banner {
-            position: relative; border-radius: 1.75rem; overflow: hidden;
+            position: relative; border-radius: 1rem; overflow: hidden;
             background: #7F1D1D; min-height: 560px;
             display: flex; align-items: center; justify-content: center;
         }
@@ -200,7 +200,7 @@
             display: inline-flex; align-items: center; gap: .5rem;
             background: rgba(15,23,42,.45); border: 1px solid rgba(255,255,255,.35);
             color: #fff; font-size: .8rem; font-weight: 600; padding: .45rem .9rem;
-            border-radius: 999px; backdrop-filter: blur(4px);
+            border-radius: .375rem; backdrop-filter: blur(4px);
         }
         .hero-title { color: #fff; font-weight: 700; margin: 1.1rem 0 .9rem; }
         .hero-title .hl { color: #FDE047; }
@@ -209,20 +209,20 @@
         .chip {
             display: inline-flex; align-items: center; gap: .4rem;
             background: rgba(15,23,42,.45); color: #fff; font-size: .82rem; font-weight: 500;
-            padding: .45rem .85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.3);
+            padding: .45rem .85rem; border-radius: .375rem; border: 1px solid rgba(255,255,255,.3);
             backdrop-filter: blur(4px);
         }
         .hero-price { display: flex; align-items: baseline; gap: .8rem; margin-bottom: 1.4rem; flex-wrap: wrap; justify-content: center; }
         .price-strike { color: rgba(255,255,255,.85); text-decoration: line-through; font-size: 1rem; }
-        .price-now { color: #FDE047; font-family: 'Fredoka'; font-weight: 700; font-size: 2.4rem; line-height: 1; }
+        .price-now { color: #FDE047; font-family: 'Poppins'; font-weight: 800; font-size: 2.4rem; line-height: 1; }
         .price-save {
             background: #FDE047; color: #7F1D1D; font-size: .75rem; font-weight: 700;
-            padding: .3rem .7rem; border-radius: 999px; transform: rotate(-3deg);
+            padding: .3rem .7rem; border-radius: .375rem; transform: rotate(-3deg);
         }
         .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
-            padding: .9rem 1.8rem; border-radius: .8rem; font-weight: 600; cursor: pointer;
+            padding: .9rem 1.8rem; border-radius: .5rem; font-weight: 600; cursor: pointer;
             border: 0; font-family: inherit; transition: transform .2s, background .2s;
         }
         .btn-img { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
@@ -244,11 +244,11 @@
             padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: .9rem;
         }
         .stat-icon {
-            width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+            width: 46px; height: 46px; border-radius: .375rem; display: grid; place-items: center;
             font-size: 1.3rem; flex-shrink: 0;
         }
         .stat-icon img { width: 27px; height: 27px; object-fit: contain; }
-        .stat-card b { display: block; font-family: 'Fredoka'; font-size: 1.05rem; line-height: 1.2; }
+        .stat-card b { display: block; font-family: 'Poppins'; font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
         .stat-card span { font-size: .78rem; color: rgba(15,23,42,.6); }
         .stat-card { transition: background .25s, color .25s; }
         .stat-solid-red { background: #DC2626; border-color: #DC2626; color: #fff; }
@@ -285,7 +285,7 @@
         .showcase-wrap { position: relative; }
         .showcase-blob { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: rgba(220,38,38,.1); top: -60px; right: -40px; z-index: 0; }
         .showcase {
-            position: relative; z-index: 1; border-radius: 1.5rem; overflow: hidden;
+            position: relative; z-index: 1; border-radius: .75rem; overflow: hidden;
             border: 6px solid #fff; background: #0F172A;
             aspect-ratio: 4 / 3;
         }
@@ -318,7 +318,7 @@
         .showcase-caption {
             position: absolute; left: 14px; bottom: 14px; z-index: 2;
             background: rgba(15,23,42,.78); color: #fff; font-size: .78rem; font-weight: 600;
-            padding: .5rem .9rem; border-radius: 999px; backdrop-filter: blur(4px);
+            padding: .5rem .9rem; border-radius: .375rem; backdrop-filter: blur(4px);
             display: inline-flex; align-items: center; gap: .45rem;
         }
         .showcase-caption img { width: 16px; height: 16px; object-fit: contain; flex-shrink: 0; }
@@ -328,7 +328,7 @@
         .flow-grid { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
         @media (min-width: 640px) { .flow-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1024px) { .flow-grid { grid-template-columns: repeat(4, 1fr); } }
-        .flow-card { border-radius: 1.1rem; overflow: hidden; color: #fff; position: relative; min-height: 210px; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.4rem; transition: transform .25s; }
+        .flow-card { border-radius: .5rem; overflow: hidden; color: #fff; position: relative; min-height: 210px; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.4rem; transition: transform .25s; }
         .flow-card:hover { transform: translateY(-6px); }
         .flow-card .fc-emoji { font-size: 2.6rem; position: absolute; top: 1rem; right: 1rem; opacity: .95; transition: transform .3s; }
         .flow-card img.fc-emoji { width: 62px; height: 62px; object-fit: contain; }
@@ -337,7 +337,7 @@
         .flow-card p { margin: 0; font-size: .88rem; opacity: .92; }
         .flow-card .fc-point {
             display: inline-block; margin-top: .8rem; font-size: .8rem; font-weight: 700;
-            padding: .3rem .7rem; border-radius: 999px; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.35);
+            padding: .3rem .7rem; border-radius: .375rem; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.35);
         }
         .fc-red { background: #DC2626; }
         .fc-gray { background: #64748B; }
@@ -351,10 +351,10 @@
         @media (min-width: 1024px) { .materi-grid { grid-template-columns: repeat(3, 1fr); } }
         .materi-card { background: #fff; border: 1px solid var(--color-neutral); border-radius: 1.2rem; padding: 1.6rem; transition: transform .25s; }
         .materi-card:hover { transform: translateY(-5px); }
-        .materi-num { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: 'Fredoka'; font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem; }
+        .materi-num { width: 46px; height: 46px; border-radius: .375rem; display: grid; place-items: center; font-family: 'Poppins'; font-weight: 800; font-size: 1.25rem; margin-bottom: 1rem; }
         .materi-card h3 { margin: 0 0 .5rem; font-size: 1.15rem; }
         .materi-card p { margin: 0; font-size: .9rem; color: rgba(15,23,42,.7); line-height: 1.55; }
-        .materi-card .m-tag { display: inline-block; margin-top: .8rem; font-size: .72rem; font-weight: 600; color: var(--color-primary); background: #FEF2F2; padding: .25rem .6rem; border-radius: 999px; }
+        .materi-card .m-tag { display: inline-block; margin-top: .8rem; font-size: .72rem; font-weight: 600; color: var(--color-primary); background: #FEF2F2; padding: .25rem .6rem; border-radius: .25rem; }
         .m-tag img { width: 15px; height: 15px; object-fit: contain; vertical-align: -2px; margin-right: .35rem; }
 
         .materi-card { position: relative; overflow: hidden; }
@@ -399,7 +399,7 @@
 
         .jadwal-head { padding: 1.4rem 1.4rem 1.1rem; display: flex; align-items: center; gap: 1rem; }
         .jadwal-head .j-icon {
-            width: 86px; height: 86px; border-radius: 20px; flex-shrink: 0;
+            width: 86px; height: 86px; border-radius: .5rem; flex-shrink: 0;
             background: var(--j-tint, #FEF2F2); border: 1px solid var(--j-soft, #FEE2E2);
             display: grid; place-items: center; padding: 14px;
             box-shadow: 0 8px 18px -8px rgba(15,23,42,.25);
@@ -415,15 +415,15 @@
             display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
             background: #F8FAFC; border: 1px solid var(--color-neutral); border-radius: .9rem; padding: .55rem .7rem;
         }
-        .j-day { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #fff; background: #DC2626; padding: .22rem .6rem; border-radius: 999px; }
-        .j-time { font-family: 'Fredoka'; font-weight: 700; font-size: .84rem; color: var(--color-text); }
+        .j-day { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #fff; background: #DC2626; padding: .22rem .6rem; border-radius: .25rem; }
+        .j-time { font-family: 'Poppins'; font-weight: 700; font-size: .84rem; color: var(--color-text); }
         .j-tutor { margin-left: auto; font-size: .76rem; color: #374151; display: inline-flex; align-items: center; gap: .35rem; }
         .j-tutor .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--j-primary, var(--color-primary)); flex-shrink: 0; }
                 .jadwal-note { text-align: center; margin-top: 1.8rem; color: rgba(15,23,42,.6); font-size: .9rem; }
         .jadwal-start {
             display: inline-flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap;
             background: #fff; border: 1.5px solid #F5D0CE; color: var(--color-text);
-            font-size: .92rem; padding: .72rem 1.25rem; border-radius: 999px;
+            font-size: .92rem; padding: .72rem 1.25rem; border-radius: .5rem;
             box-shadow: 0 8px 20px -12px rgba(127,29,29,.35);
             margin: 1.3rem auto 0; text-align: center; line-height: 1.5; max-width: 40rem;
         }
@@ -433,7 +433,7 @@
         .jadwal-table-wrap { max-width: 680px; margin: 0 auto; }
         .jadwal-table {
             width: 100%; border-collapse: collapse; border-spacing: 0;
-            background: #fff; border: 1.5px solid #EDE7E0; border-radius: 1.25rem; overflow: hidden;
+            background: #fff; border: 1.5px solid #EDE7E0; border-radius: .5rem; overflow: hidden;
             box-shadow: 0 12px 30px -20px rgba(15,23,42,.18);
         }
         .jadwal-table thead th {
@@ -441,14 +441,16 @@
             font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
             padding: 1.05rem 1.4rem;
         }
-        .jadwal-table thead th:first-child { border-radius: 1.25rem 0 0 0; }
-        .jadwal-table thead th:last-child { border-radius: 0 1.25rem 0 0; }
+        .jadwal-table thead th:first-child { border-radius: .5rem 0 0 0; }
+        .jadwal-table thead th:last-child { border-radius: 0 .5rem 0 0; }
         .jadwal-table tbody td { padding: 1.05rem 1.4rem; font-size: .95rem; color: var(--color-text); border: 0; }
-        .jadwal-table th:first-child, .jadwal-table td:first-child { text-align: left; }
-        .jadwal-table th:nth-child(2), .jadwal-table td:nth-child(2) { text-align: center; }
+        .jadwal-table th:first-child, .jadwal-table .j-day-name { text-align: left; }
+        .jadwal-table th:nth-child(2), .jadwal-table .jt-date, .jadwal-table .jt-time { text-align: center; }
         .jadwal-table th:last-child, .jadwal-table td:last-child { text-align: left; }
-        .jadwal-table tbody td:first-child { font-weight: 700; vertical-align: middle; }
-        .jadwal-table .jt-time { font-family: 'Fredoka'; font-weight: 700; color: #475569; }
+        .jadwal-table .j-day-name { font-weight: 700; vertical-align: middle; white-space: nowrap; }
+        .jadwal-table .jt-time { font-family: 'Poppins'; font-weight: 700; color: #475569; }
+        .jadwal-table .jt-date { font-weight: 600; color: #475569; white-space: nowrap; }
+        .jadwal-table .jt-date.is-closed { font-weight: 400; color: rgba(15,23,42,.45); }
 
         /* ============ HARGA ============ */
         .harga-section { position: relative; overflow: hidden; background: #7F1D1D; }
@@ -466,23 +468,23 @@
         }
         .price-ribbon {
             position: absolute; top: -16px; left: 50%; transform: translateX(-50%) rotate(-2deg);
-            background: #FDE047; color: #7F1D1D; font-family: 'Fredoka'; font-weight: 700; font-size: .85rem;
-            padding: .5rem 1.2rem; border-radius: 999px; white-space: nowrap;
+            background: #FDE047; color: #7F1D1D; font-family: 'Poppins'; font-weight: 700; font-size: .85rem;
+            padding: .5rem 1.2rem; border-radius: .375rem; white-space: nowrap;
             display: inline-flex; align-items: center; gap: .4rem;
         }
         .price-ribbon img { width: 18px; height: 18px; object-fit: contain; flex-shrink: 0; }
         .price-card h3 { color: var(--color-primary); margin: 1rem 0 .3rem; font-size: 1.4rem; }
         .price-card .pc-sub { color: rgba(15,23,42,.6); font-size: .9rem; margin: 0 0 1.2rem; }
         .price-old { color: rgba(15,23,42,.45); text-decoration: line-through; font-size: 1.15rem; }
-        .price-main { font-family: 'Fredoka'; font-weight: 700; font-size: 3.4rem; line-height: 1; color: var(--color-primary); }
+        .price-main { font-family: 'Poppins'; font-weight: 800; font-size: 3.4rem; line-height: 1; color: var(--color-primary); }
         .price-main small { font-size: 1.5rem; }
         .price-note { color: rgba(15,23,42,.6); font-size: .82rem; margin: .4rem 0 1.4rem; }
         .price-includes { list-style: none; padding: 0; margin: 0 0 1.6rem; text-align: left; display: grid; gap: .65rem; }
         .price-includes li { display: flex; gap: .7rem; align-items: flex-start; font-size: .92rem; color: rgba(15,23,42,.85); }
-        .price-includes .check { width: 22px; height: 22px; border-radius: 50%; background: #DCFCE7; color: #16A34A; display: grid; place-items: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+        .price-includes .check { width: 22px; height: 22px; border-radius: .375rem; background: #DCFCE7; color: #16A34A; display: grid; place-items: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
         .countdown { display: flex; gap: .6rem; justify-content: center; margin: 1.2rem 0 1.5rem; }
-        .cd-box { background: #FEF2F2; border: 1px solid #FECACA; border-radius: .8rem; padding: .55rem .7rem; min-width: 64px; }
-        .cd-box b { font-family: 'Fredoka'; font-size: 1.3rem; color: var(--color-primary); display: block; line-height: 1.1; }
+        .cd-box { background: #FEF2F2; border: 1px solid #FECACA; border-radius: .375rem; padding: .55rem .7rem; min-width: 64px; }
+        .cd-box b { font-family: 'Poppins'; font-weight: 800; font-size: 1.3rem; color: var(--color-primary); display: block; line-height: 1.1; }
         .cd-box span { font-size: .62rem; text-transform: uppercase; letter-spacing: .06em; color: rgba(15,23,42,.55); }
         .cd-label { font-size: .8rem; color: rgba(15,23,42,.6); margin-bottom: .5rem; display: flex; align-items: center; justify-content: center; gap: .4rem; }
         .cd-label img { width: 17px; height: 17px; object-fit: contain; flex-shrink: 0; }
@@ -492,13 +494,13 @@
         .faq-list { max-width: 46rem; margin: 0 auto; display: grid; gap: .9rem; padding: 0 1rem; }
         .faq-item { background: #fff; border: 1px solid var(--color-neutral); border-radius: 1rem; }
         .faq-q { width: 100%; text-align: left; background: none; border: 0; padding: 1.1rem 1.3rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; font-family: inherit; font-size: .98rem; font-weight: 600; color: var(--color-text); }
-        .faq-q .chev { margin-left: auto; width: 30px; height: 30px; border-radius: 50%; background: #FEF2F2; color: var(--color-primary); display: grid; place-items: center; flex-shrink: 0; transition: transform .25s; }
+        .faq-q .chev { margin-left: auto; width: 30px; height: 30px; border-radius: .375rem; background: #FEF2F2; color: var(--color-primary); display: grid; place-items: center; flex-shrink: 0; transition: transform .25s; }
         .faq-item.open .chev { transform: rotate(180deg); }
         .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
         .faq-a-inner { padding: 0 1.3rem 1.15rem; font-size: .92rem; color: rgba(15,23,42,.7); line-height: 1.6; }
 
         /* ============ CTA BAWAH ============ */
-        .cta-band { text-align: center; padding: 4.5rem 1.25rem; background: #FDE047; border-radius: 1.75rem; position: relative; overflow: hidden; }
+        .cta-band { text-align: center; padding: 4.5rem 1.25rem; background: #FDE047; border-radius: .75rem; position: relative; overflow: hidden; }
         .cta-band h2 { color: #7F1D1D; margin: 0 0 .6rem; }
         .cta-band p { color: rgba(127,29,29,.85); max-width: 34rem; margin: 0 auto 1.5rem; }
         .cta-band::before, .cta-band::after {
@@ -524,16 +526,17 @@
 
         @media (max-width: 640px) {
             .price-main { font-size: 2.8rem; }
-            .hero-banner { border-radius: 1.4rem; }
+            .hero-banner { border-radius: .75rem; }
             .hero-grid { padding: 2rem 1rem; }
+            .jadwal-table thead th, .jadwal-table tbody td { padding: .85rem .55rem; font-size: .875rem; }
         }
 
         /* ============ DESIGN SYSTEM KEMERDEKAAN ============ */
         :root {
-            --ds-radius: 1.25rem;
-            --ds-radius-lg: 1.6rem;
-            --ds-shadow: 0 10px 30px -12px rgba(127,29,29,.28);
-            --ds-border: 1.5px solid #F3D0D0;
+            --ds-radius: .5rem;
+            --ds-radius-lg: .75rem;
+            --ds-shadow: 0 4px 16px -8px rgba(127,29,29,.25);
+            --ds-border: 1px solid #F3D0D0;
             --ds-red: #DC2626;
             --ds-red-dark: #7F1D1D;
             --ds-gold: #FDE047;
@@ -544,7 +547,7 @@
         .section-head h2 { position: relative; display: inline-block; padding-bottom: .7rem; }
         .section-head h2::after {
             content: ""; position: absolute; left: 50%; transform: translateX(-50%); bottom: 0;
-            width: 96px; height: 9px; border-radius: 999px;
+            width: 96px; height: 9px; border-radius: .25rem;
             background: repeating-linear-gradient(90deg, var(--ds-red) 0 12px, #fff 12px 24px);
             border: 1px solid #F6C6C6;
         }
@@ -615,6 +618,7 @@
             <a class="mm-item" href="#faq">FAQ</a>
 
             <a href="#jadwal" class="mm-cta">Daftar Kelas</a>
+            <a href="https://apps.alhazen.academy/#/login" class="mm-login">Masuk / Login</a>
         </div>
     </header>
 
@@ -807,24 +811,24 @@
         <div class="container">
             <div class="section-head reveal">
                 <h2 class="text-h2">Pilih Jadwal Kelas-mu</h2>
-                <p>Kelas ini menggunakan <strong>Scratch</strong>, blok visual ramah anak, tanpa perlu pengalaman coding. Cukup lihat ketersediaan waktu, langsung pilih yang paling cocok!</p>
-                <p class="jadwal-start reveal">Kelas berjalan mulai <strong>Senin, 10 Agustus 2026</strong> Pilih hari &amp; jam yang paling cocok di bawah ini!</p>
+                <p>Pilih hari &amp; jam yang paling cocok, lalu klik Daftar. Kelas online via Zoom, durasi ±60 menit.</p>
+                <p class="jadwal-start reveal">Batas pendaftaran: <strong>17 Agustus 2026</strong> &bull; Kelas mulai: <strong>Senin, 10 Agustus 2026</strong></p>
             </div>
 
             <div class="jadwal-table-wrap reveal">
                 <table class="jadwal-table">
                     <thead>
-                        <tr><th scope="col">Hari</th><th scope="col">Jam</th><th scope="col">Tutor</th></tr>
+                        <tr><th scope="col">Hari</th><th scope="col">Tanggal</th><th scope="col">Jam</th><th scope="col">Tutor</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Senin</td><td class="jt-time">18.30 WIB</td><td>Kak Hilyah</td></tr>
-                        <tr><td>Selasa</td><td class="jt-time">19.00 WIB</td><td>Kak Refina</td></tr>
-                        <tr><td>Rabu</td><td class="jt-time">14.00 WIB</td><td>Kak Miftah</td></tr>
-                        <tr><td>Kamis</td><td class="jt-time">16.00 WIB</td><td>Kak Refina</td></tr>
-                        <tr><td rowspan="3">Jumat</td><td class="jt-time">16.00 WIB</td><td>Kak Ardi</td></tr>
-                        <tr><td class="jt-time" style="text-align: center;">18.30 WIB</td><td>Kak Ardi</td></tr>
-                        <tr><td class="jt-time" style="text-align: center;">18.30 WIB</td><td>Kak Refina</td></tr>
-                        <tr><td>Sabtu</td><td class="jt-time">13.00 WIB</td><td>Kak Miftah</td></tr>
+                        <tr><td class="j-day-name">Senin</td><td class="jt-date" data-day="0"></td><td class="jt-time">18.30 WIB</td><td>Kak Hilyah</td></tr>
+                        <tr><td class="j-day-name">Selasa</td><td class="jt-date" data-day="1"></td><td class="jt-time">19.00 WIB</td><td>Kak Refina</td></tr>
+                        <tr><td class="j-day-name">Rabu</td><td class="jt-date" data-day="2"></td><td class="jt-time">14.00 WIB</td><td>Kak Miftah</td></tr>
+                        <tr><td class="j-day-name">Kamis</td><td class="jt-date" data-day="3"></td><td class="jt-time">16.00 WIB</td><td>Kak Refina</td></tr>
+                        <tr><td class="j-day-name" rowspan="3">Jumat</td><td class="jt-date" data-day="4"></td><td class="jt-time">16.00 WIB</td><td>Kak Ardi</td></tr>
+                        <tr><td class="jt-date" data-day="4"></td><td class="jt-time">18.30 WIB</td><td>Kak Ardi</td></tr>
+                        <tr><td class="jt-date" data-day="4"></td><td class="jt-time">18.30 WIB</td><td>Kak Refina</td></tr>
+                        <tr><td class="j-day-name">Sabtu</td><td class="jt-date" data-day="5"></td><td class="jt-time">13.00 WIB</td><td>Kak Miftah</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -909,11 +913,7 @@
                 </div>
                 <div class="faq-item reveal">
                     <button class="faq-q" aria-expanded="false">Bagaimana cara mendaftar?<span class="chev">▼</span></button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">
-                            Klik tombol <strong>"Daftar Sekarang"</strong>, kemudian kamu akan diarahkan ke formulir registrasi. Isi data lengkap dan jadwal yang dipilih. Lanjut ke proses pembayaran dan pendaftaran selesai. <br> Setelah itu Admin Alhazen Academy akan menghubungi Anda untuk kelanjutan kelasnya.
-                        </div>
-                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">Klik tombol <strong>"Daftar"</strong> di halaman ini, lalu pilih <strong>jadwal kelas</strong> yang paling cocok. Setelah itu klik <strong>"Daftar Sekarang"</strong>, kamu akan diarahkan ke form registrasi dan admin akan membantu proses pendaftaran serta pembayaran dengan cepat.</div></div>
                 </div>
             </div>
         </div>
@@ -932,7 +932,7 @@
 
 <!-- ================= FOOTER (mirip contoh Alhazen) ================= -->
     <div class="stripe-divider" aria-hidden="true"></div>
-    <footer class="overflow-hidden relative rounded-t-[56px] inset-0 bg-[#B91C1C]">
+    <footer class="overflow-hidden relative rounded-t-2xl inset-0 bg-[#B91C1C]">
         <!-- Decorative icons background -->
         <img src="https://alhazen.academy/assets/kids/image-footer/bg-footer.webp" alt=""
             class="absolute bottom-0 left-0 w-full object-cover object-bottom opacity-95 pointer-events-none select-none"
@@ -1191,6 +1191,32 @@
                 floatTop.classList.toggle('show', show);
             });
             floatTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            /* ================= TANGGAL JADWAL (dinamis per minggu) ================= */
+            (function () {
+                var cells = document.querySelectorAll('.jt-date');
+                if (!cells.length) return;
+                var today = new Date();
+                today.setHours(0, 0, 0, 0);
+                var todayIdx = (today.getDay() + 6) % 7; // 0 = Senin ... 6 = Minggu
+                var monday = new Date(today);
+                monday.setDate(today.getDate() - todayIdx); // Senin pekan berjalan
+                var fmt = new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'short' });
+                var cutoff = new Date(2026, 7, 30); // batas akhir jadwal: 30 Agustus 2026
+                cutoff.setHours(0, 0, 0, 0);
+                cells.forEach(function (td) {
+                    var i = parseInt(td.getAttribute('data-day'), 10);
+                    var offset = i <= todayIdx ? 7 + i : i;
+                    var d = new Date(monday);
+                    d.setDate(d.getDate() + offset);
+                    if (d.getTime() > cutoff.getTime()) {
+                        td.textContent = 'Kelas tidak ada';
+                        td.classList.add('is-closed');
+                    } else {
+                        td.textContent = fmt.format(d);
+                    }
+                });
+            })();
 
             /* ================= COUNTDOWN 17 AGUSTUS ================= */
             var target = new Date('2026-08-17T00:00:00+07:00').getTime();
