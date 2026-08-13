@@ -492,17 +492,26 @@
                         <div class="section-title">Evaluasi Pemahaman Materi</div>
                         <div class="q-label"><span>1.</span> Seberapa mudah materi / modul ini untuk dipahami?</div>
                         <div id="opts-rating" class="options-container">
-                            <div class="star-rating">
-                                <input type="radio" id="st5" name="rating" value="5"><label for="st5"
-                                    title="Sangat mudah">&#9733;</label>
-                                <input type="radio" id="st4" name="rating" value="4"><label for="st4"
-                                    title="Mudah">&#9733;</label>
-                                <input type="radio" id="st3" name="rating" value="3"><label for="st3"
-                                    title="Biasa aja">&#9733;</label>
-                                <input type="radio" id="st2" name="rating" value="2"><label for="st2"
-                                    title="Agak sulit">&#9733;</label>
-                                <input type="radio" id="st1" name="rating" value="1"><label for="st1"
-                                    title="Sangat sulit">&#9733;</label>
+                            <div class="star-rating" style="font-size: 3rem;">
+                                <input type="radio" id="st5" name="rating" value="5">
+                                <label for="st5" title="Sangat mudah"
+                                    style="font-size: 3rem; width: 3.6rem; height: 3.6rem; line-height: 3.6rem;">&#9733;</label>
+
+                                <input type="radio" id="st4" name="rating" value="4">
+                                <label for="st4" title="Mudah"
+                                    style="font-size: 3rem; width: 3.6rem; height: 3.6rem; line-height: 3.6rem;">&#9733;</label>
+
+                                <input type="radio" id="st3" name="rating" value="3">
+                                <label for="st3" title="Biasa aja"
+                                    style="font-size: 3rem; width: 3.6rem; height: 3.6rem; line-height: 3.6rem;">&#9733;</label>
+
+                                <input type="radio" id="st2" name="rating" value="2">
+                                <label for="st2" title="Agak sulit"
+                                    style="font-size: 3rem; width: 3.6rem; height: 3.6rem; line-height: 3.6rem;">&#9733;</label>
+
+                                <input type="radio" id="st1" name="rating" value="1">
+                                <label for="st1" title="Sangat sulit"
+                                    style="font-size: 3rem; width: 3.6rem; height: 3.6rem; line-height: 3.6rem;">&#9733;</label>
                             </div>
                         </div>
                         <div class="star-text" id="starText">Klik bintang untuk menilai</div>
