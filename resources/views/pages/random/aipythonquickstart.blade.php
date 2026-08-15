@@ -1483,37 +1483,79 @@
                 width: 100%;
             }
         }
+
+        /* custom */
+        /* ── COURSE VIDEO ── */
+        .course-video-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 14px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: var(--radius);
+            background: #000;
+        }
+
+        .course-video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .course-video-caption {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 16px 8px 4px;
+            color: var(--gray-500);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .course-video-caption i {
+            color: var(--blue);
+            font-size: 1rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
     </style>
 
     <!-- JSON-LD Structured Data -->
     @verbatim
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "AI & Python Quickstart: Bikin Aplikasi Penarik Data Otomatis dalam 2 Jam",
-      "description": "Kelas live online 2 jam untuk pemula. Bikin aplikasi Python yang mengambil data dari website secara otomatis dengan bantuan AI. Tanpa background IT, hanya Rp49.000.",
-      "provider": {
-        "@type": "Organization",
-        "name": "Alhazen Plus",
-        "url": "https://www.alhazen.academy",
-        "logo": "https://lh3.googleusercontent.com/d/1Otrb-FnAy3zpUSdE003Em617u4DPlUEE"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "49000",
-        "priceCurrency": "IDR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.alhazen.academy/program/ai-python-quickstart"
-      },
-      "courseMode": "online",
-      "educationalLevel": "Beginner",
-      "inLanguage": "id",
-      "isAccessibleForFree": false,
-      "courseWorkload": "PT2H"
-    }
-    </script>
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "AI & Python Quickstart: Bikin Aplikasi Penarik Data Otomatis dalam 2 Jam",
+            "description": "Kelas live online 2 jam untuk pemula. Bikin aplikasi Python yang mengambil data dari website secara otomatis dengan bantuan AI. Tanpa background IT, hanya Rp49.000.",
+            "provider": {
+                "@type": "Organization",
+                "name": "Alhazen Plus",
+                "url": "https://www.alhazen.academy",
+                "logo": "https://lh3.googleusercontent.com/d/1Otrb-FnAy3zpUSdE003Em617u4DPlUEE"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "49000",
+                "priceCurrency": "IDR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://www.alhazen.academy/program/ai-python-quickstart"
+            },
+            "courseMode": "online",
+            "educationalLevel": "Beginner",
+            "inLanguage": "id",
+            "isAccessibleForFree": false,
+            "courseWorkload": "PT2H"
+            }
+        </script>
     @endverbatim
 </head>
 
@@ -1683,9 +1725,62 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════════════
+     WHAT YOU WILL LEARN
+     ══════════════════════════════════════════════════════════════ -->
+    <section class="section-bg" id="yang-dipelajari">
+        <div class="container">
+
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-7">
+                    <span class="eyebrow">Preview Materi</span>
+
+                    <h2 class="section-heading">
+                        Lihat Apa yang Akan Kamu Pelajari
+                    </h2>
+
+                    <p class="section-desc">
+                        Intip sedikit materi dan gambaran project yang akan
+                        kamu buat selama mengikuti kelas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+
+                    <div class="course-video-card reveal">
+
+                        <div class="course-video-wrapper">
+                            <iframe
+                                src="https://drive.google.com/file/d/1k3gRPuQkd6muG20EnEonPCVyPb1KYlt-/preview"
+                                title="Preview Materi Kelas"
+                                allow="autoplay"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="course-video-caption">
+                            <i class="bi bi-play-circle-fill"></i>
+
+                            <span>
+                                Tonton video ini untuk melihat gambaran
+                                materi dan project yang akan kamu buat
+                                di kelas.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
      WHY PEOPLE REGISTER
      ══════════════════════════════════════════════════════════════ -->
-    <section class="section-bg" id="kata-mereka">
+    <section id="kata-mereka">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
@@ -1822,7 +1917,7 @@
     <!-- ══════════════════════════════════════════════════════════════
      INSTRUCTOR
      ══════════════════════════════════════════════════════════════ -->
-    <section id="pengajar">
+    <section class="section-bg" id="pengajar">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
@@ -1867,7 +1962,7 @@
     <!-- ══════════════════════════════════════════════════════════════
      PRICING
      ══════════════════════════════════════════════════════════════ -->
-    <section class="section-bg">
+    <section >
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -1914,7 +2009,7 @@
     <!-- ══════════════════════════════════════════════════════════════
      FAQ
      ══════════════════════════════════════════════════════════════ -->
-    <section id="faq">
+    <section class="section-bg" id="faq">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-lg-7">
