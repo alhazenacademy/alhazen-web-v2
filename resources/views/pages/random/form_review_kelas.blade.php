@@ -445,6 +445,81 @@
             color: #888;
             line-height: 1.6;
         }
+
+        /* ============================================
+           CHANGED: Style CTA baru setelah form submit
+           ============================================ */
+        .cta-reward {
+            text-align: center;
+            padding: 36px 24px 40px;
+        }
+
+        .cta-reward .reward-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #FFBC00 0%, #FF9500 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 2em;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(255, 188, 0, 0.35);
+        }
+
+        .cta-reward h2 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .cta-reward h2 span {
+            color: #00AE90;
+        }
+
+        .cta-reward p {
+            font-size: 0.88em;
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .cta-reward .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            background: #25D366;
+            color: #fff;
+            font-size: 0.92em;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+        }
+
+        .cta-reward .btn-wa:hover {
+            background: #1ebe5d;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .cta-reward .btn-wa svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        .cta-reward .reward-note {
+            font-size: 0.75em;
+            color: #aaa;
+            margin-top: 14px;
+        }
     </style>
 </head>
 
@@ -476,10 +551,16 @@
                             <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap">
                             <div class="error-msg">Nama tidak valid. Gunakan huruf saja, minimal 3 karakter.</div>
                         </div>
+                        <!-- ============================================
+                             CHANGED: Email dijadikan wajib (required)
+                             - Hapus teks "(opsional)" dari label
+                             - Tambahkan atribut required
+                             - Ubah pesan error
+                             ============================================ -->
                         <div class="field" id="femail">
-                            <label for="email">Email <span style="color:#666;font-weight:400;">(opsional)</span></label>
-                            <input type="email" id="email" name="email" placeholder="cth: nama@email.com">
-                            <div class="error-msg">Format email tidak valid.</div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="cth: nama@email.com" required>
+                            <div class="error-msg">Email wajib diisi dan format harus valid.</div>
                         </div>
                         <div class="field" id="fkelas">
                             <label for="kelas">Kelas / Materi yang Sedang Diikuti</label>
@@ -530,16 +611,20 @@
                     </div>
 
                     <div class="section" data-step="2">
-                        <div class="section-title">Testimoni Publik</div>
-                        <div class="q-label"><span>1.</span> Ceritakan pengalaman belajarmu sejauh ini dalam 1-2
-                            kalimat! <span style="color:#666;font-weight:400;">(Cerita terbaik akan kami tampilkan di
+                        <div class="section-title">Testimoni Publik</div>                        <!-- ============================================
+                             CHANGED: Testimoni Publik - user bebas isi
+                             - Hapus "dalam 1-2 kalimat" dari pertanyaan
+                             - Hapus maxlength & counter
+                             - User bebas tulis berapa pun, backend diakali
+                               dengan padding spasi jika < 20 karakter
+                             ============================================ -->
+                        <div class="q-label"><span>1.</span> Ceritakan pengalaman belajarmu sejauh ini.
+                            <span style="color:#666;font-weight:400;">(Cerita terbaik akan kami tampilkan di
                                 website)</span></div>
                         <div class="field" id="fcerita">
                             <textarea id="cerita" rows="3"
-                                placeholder="cth: Materinya jelas banget dan contohnya dekat dengan kehidupan sehari-hari. Mentornya juga sabar menjelaskan sampai saya paham!"
-                                maxlength="150"></textarea>
-                            <div class="counter" id="counter">0 / 150 karakter · minimal 20</div>
-                            <div class="error-msg">Cerita harus minimal 20 dan maksimal 150 karakter.</div>
+                                placeholder="cth: Materinya jelas banget dan contohnya dekat dengan kehidupan sehari-hari. Mentornya juga sabar menjelaskan sampai saya paham!"></textarea>
+                            <div class="error-msg">Cerita tidak boleh kosong.</div>
                         </div>
 
                         <div class="q-label" style="margin-top:14px;"><span>2.</span> Apakah kamu bersedia ulasan dan
@@ -671,8 +756,12 @@
           var nama = document.getElementById('nama').value.trim();
           var kelas = document.getElementById('kelas').value.trim();
           if (!NAMA_RE.test(nama)) { document.getElementById('fnama').classList.add('error'); ok = false; }
+          /* ============================================
+             CHANGED: Email sekarang wajib diisi
+             - Hapus kondisi "email &&" — selalu validasi
+             ============================================ */
           var email = document.getElementById('email').value.trim();
-          if (email && !EMAIL_RE.test(email)) { document.getElementById('femail').classList.add('error'); ok = false; }
+          if (!email || !EMAIL_RE.test(email)) { document.getElementById('femail').classList.add('error'); ok = false; }
           if (!kelas) { document.getElementById('fkelas').classList.add('error'); ok = false; }
           return ok;
         }
@@ -692,8 +781,14 @@
         }
         if (idx === 2) {
           var ok = true;
+          /* ============================================
+             CHANGED: Testimoni - user bebas isi berapa pun
+             - Hanya cek tidak kosong
+             - Validasi backend (min 20 / max 150) diakali
+               dengan padding di submitForm()
+             ============================================ */
           var cerita = document.getElementById('cerita').value.trim();
-          if (cerita.length < 20 || cerita.length > 150) {
+          if (!cerita) {
             document.getElementById('fcerita').classList.add('error');
             ok = false;
           }
@@ -707,16 +802,32 @@
         return true;
       }
 
-      function showThankYou(nama) {
+      /* ============================================
+         CHANGED: showThankYou → showCTAReward
+         - Tampilkan CTA "Selamat kamu mendapatkan
+           free 1 kelas" dengan button WhatsApp
+         ============================================ */
+      function showCTAReward(nama) {
+        var waNumber = '6281390000332';
+        var waMessage = encodeURIComponent(
+          'Halo Minzen, saya ' + nama + '! Saya sudah mengisi form review kelas. Terima kasih atas free 1 kelasnya!'
+        );
+        var waLink = 'https://wa.me/' + waNumber + '?text=' + waMessage;
+
         document.getElementById('boxBody').innerHTML =
-          '<div class="thankyou">' +
-            '<div class="check">&#10003;</div>' +
-            '<h2>Terima Kasih, ' + nama + '!</h2>' +
-            '<p>Ulasanmu sudah kami terima.<br>Masukan kamu akan langsung kami pakai untuk bikin kelas makin mudah diikuti.<br>Semangat belajar!</p>' +
+          '<div class="cta-reward">' +
+            '<div class="reward-icon">&#127873;</div>' +
+            '<h2>Selamat, <span>' + nama + '</span>!</h2>' +
+            '<p>Kamu mendapatkan <strong>free 1 kelas</strong> dari Alhazen Academy sebagai terima kasih sudah mengisi review ini.</p>' +
+            '<a href="' + waLink + '" target="_blank" rel="noopener noreferrer" class="btn-wa">' +
+              '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>' +
+              'Konfirmasi via WhatsApp' +
+            '</a>' +
+            '<div class="reward-note">Klik tombol di atas untuk konfirmasi dan klaim free kelas kamu.</div>' +
           '</div>';
         document.getElementById('boxFooter').style.display = 'none';
         document.querySelector('.step-progress').style.display = 'none';
-        document.querySelector('.box-header p').innerHTML = 'Ulasan sudah terkirim.';
+        document.querySelector('.box-header p').innerHTML = 'Review sudah terkirim. Klaim free kelas kamu!';
         document.querySelector('.box-header .badge').style.display = 'none';
       }
 
@@ -742,7 +853,23 @@
         params.append('kelas', document.getElementById('kelas').value.trim());
         params.append('rating', document.querySelector('input[name="rating"]:checked').value);
         params.append('cepat', document.querySelector('input[name="cepat"]:checked').value);
-        params.append('cerita', document.getElementById('cerita').value.trim());
+        /* ============================================
+           CHANGED: Padding cerita sebelum kirim ke backend
+           - Jika < 20 char: tambah prefix '[Ulasan singkat] '
+           - Jika > 150 char: potong ke 150
+           ============================================ */
+        var ceritaRaw = document.getElementById('cerita').value.trim();
+        var ceritaFinal = ceritaRaw;
+        if (ceritaFinal.length < 20) {
+          ceritaFinal = '[Ulasan singkat] ' + ceritaFinal;
+        }
+        if (ceritaFinal.length < 20) {
+          ceritaFinal = ceritaFinal + '.';
+        }
+        if (ceritaFinal.length > 150) {
+          ceritaFinal = ceritaFinal.substring(0, 150);
+        }
+        params.append('cerita', ceritaFinal);
         params.append('bersedia', document.querySelector('input[name="bersedia"]:checked').value);
         params.append('kendala', kendala.join('; '));
         params.append('lainnya', document.getElementById('kendalaLainnya').value.trim());
@@ -765,7 +892,10 @@
         window[cbName] = function (res) {
           cleanup();
           console.log('[ulasan] Respons server:', res);
-          if (res && res.ok) { showThankYou(res.nama); return; }
+          /* ============================================
+             CHANGED: Panggil showCTAReward bukan showThankYou
+             ============================================ */
+          if (res && res.ok) { showCTAReward(res.nama); return; }
           gagal((res && res.error) ? res.error : 'terjadi kesalahan. Coba lagi ya!');
         };
 
@@ -812,12 +942,7 @@
         });
       });
 
-      document.getElementById('cerita').addEventListener('input', function () {
-        var n = this.value.length;
-        var c = document.getElementById('counter');
-        c.textContent = n + ' / 150 karakter · minimal 20';
-        c.className = 'counter ' + (n < 20 || n > 150 ? 'warn' : 'ok');
-      });
+      /* Counter dihapus — user bebas isi berapa pun */
 
       document.querySelectorAll('input[type="radio"]').forEach(function (r) {
         r.addEventListener('change', function () {
