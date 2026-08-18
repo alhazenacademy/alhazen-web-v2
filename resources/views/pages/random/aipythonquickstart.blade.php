@@ -1526,6 +1526,12 @@
             margin-top: 3px;
             flex-shrink: 0;
         }
+
+        @media (max-width: 768px) {
+            .course-video-wrapper {
+                aspect-ratio: 1 / 1;
+            }
+        }
     </style>
 
     <!-- JSON-LD Structured Data -->
