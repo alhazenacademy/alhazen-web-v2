@@ -831,11 +831,22 @@
         document.querySelector('.box-header .badge').style.display = 'none';
       }
 
-      function submitForm() {
+      /* ============================================
+         FIXED: submitForm dengan retry & timeout lebih besar
+         - Timeout: 30 detik (naik dari 15)
+         - Auto-retry maks 2x saat timeout/network error
+         - Deteksi Apps Script return HTML bukan JS
+         - Error logging lebih detail
+         ============================================ */
+      var SUBMIT_TIMEOUT = 30000; /* 30 detik, naik dari 15 */
+      var MAX_RETRY = 2;
+
+      function submitForm(attempt) {
+        attempt = attempt || 0;
         var kendala = [];
         document.querySelectorAll('#opts-kendala input:checked').forEach(function (c) { kendala.push(c.value); });
         btnNext.disabled = true;
-        btnNext.textContent = 'Mengirim...';
+        btnNext.textContent = attempt === 0 ? 'Mengirim...' : 'Mencoba lagi... (' + (attempt + 1) + '/' + (MAX_RETRY + 1) + ')';
 
         function gagal(msg) {
           btnNext.disabled = false;
@@ -845,7 +856,7 @@
           m.style.display = 'block';
         }
 
-        var cbName = '__ulasanCb' + Date.now();
+        var cbName = '__ulasanCb' + Date.now() + '_' + attempt;
         var params = new URLSearchParams();
         params.append('prefix', cbName);
         params.append('nama', document.getElementById('nama').value.trim());
@@ -853,11 +864,7 @@
         params.append('kelas', document.getElementById('kelas').value.trim());
         params.append('rating', document.querySelector('input[name="rating"]:checked').value);
         params.append('cepat', document.querySelector('input[name="cepat"]:checked').value);
-        /* ============================================
-           CHANGED: Padding cerita sebelum kirim ke backend
-           - Jika < 20 char: tambah prefix '[Ulasan singkat] '
-           - Jika > 150 char: potong ke 150
-           ============================================ */
+        /* Padding cerita: < 20 char → prefix '[Ulasan singkat] '; > 150 char → potong */
         var ceritaRaw = document.getElementById('cerita').value.trim();
         var ceritaFinal = ceritaRaw;
         if (ceritaFinal.length < 20) {
@@ -876,12 +883,6 @@
         params.append('masukan', document.getElementById('masukan').value.trim());
         params.append('t', Date.now());
 
-        var timer = setTimeout(function () {
-          cleanup();
-          console.warn('[ulasan] Timeout 15 detik, tidak ada respons dari server.');
-          gagal('waktu habis. Coba lagi ya!');
-        }, 15000);
-
         function cleanup() {
           clearTimeout(timer);
           delete window[cbName];
@@ -889,12 +890,26 @@
           if (s) s.parentNode.removeChild(s);
         }
 
+        function retryOrFail(reason) {
+          cleanup();
+          console.warn('[ulasan] Percobaan ' + (attempt + 1) + ' gagal:', reason);
+          if (attempt < MAX_RETRY) {
+            console.log('[ulasan] Mencoba lagi dalam 2 detik... (percobaan ' + (attempt + 2) + '/' + (MAX_RETRY + 1) + ')');
+            btnNext.textContent = 'Mencoba ulang...';
+            setTimeout(function () { submitForm(attempt + 1); }, 2000);
+          } else {
+            console.error('[ulasan] Semua percobaan gagal. Server mungkin sedang down atau ada masalah deployment Apps Script.');
+            gagal('server tidak merespons setelah ' + (MAX_RETRY + 1) + ' percobaan. Silakan coba beberapa menit lagi ya!');
+          }
+        }
+
+        var timer = setTimeout(function () {
+          retryOrFail('Timeout ' + (SUBMIT_TIMEOUT / 1000) + ' detik - server tidak merespons');
+        }, SUBMIT_TIMEOUT);
+
         window[cbName] = function (res) {
           cleanup();
-          console.log('[ulasan] Respons server:', res);
-          /* ============================================
-             CHANGED: Panggil showCTAReward bukan showThankYou
-             ============================================ */
+          console.log('[ulasan] Respons server (percobaan ' + (attempt + 1) + '):', res);
           if (res && res.ok) { showCTAReward(res.nama); return; }
           gagal((res && res.error) ? res.error : 'terjadi kesalahan. Coba lagi ya!');
         };
@@ -902,12 +917,22 @@
         var script = document.createElement('script');
         script.id = cbName;
         script.src = SCRIPT_URL + '?' + params.toString();
-        console.log('[ulasan] Memanggil backend:', script.src);
+        console.log('[ulasan] Memanggil backend (percobaan ' + (attempt + 1) + '):', script.src);
+
         script.onerror = function () {
-          cleanup();
-          console.error('[ulasan] Script tag gagal dimuat. Cek URL & pengaturan akses deployment:', SCRIPT_URL);
-          gagal('gagal terhubung ke server. Coba lagi ya!');
+          retryOrFail('Script tag gagal dimuat (network error)');
         };
+
+        /* Deteksi jika Apps Script return HTML (misal consent page/error page) */
+        script.onload = function () {
+          /* Cek apakah script yang dimuat mengandung HTML (bukan JS callback) */
+          var el = document.getElementById(cbName);
+          if (el && el.textContent && el.textContent.trim().charAt(0) === '<') {
+            console.error('[ulasan] Apps Script mengembalikan HTML bukan JavaScript. Kemungkinan ada masalah deployment/autorisasi.');
+            retryOrFail('Server mengembalikan respons yang tidak valid (HTML bukan JSON)');
+          }
+        };
+
         document.body.appendChild(script);
       }
 
