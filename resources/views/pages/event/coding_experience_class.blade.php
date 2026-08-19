@@ -812,7 +812,7 @@
             <div class="section-head reveal">
                 <h2 class="text-h2">Pilih Jadwal Kelas-mu</h2>
                 <p>Pilih hari &amp; jam yang paling cocok, lalu klik Daftar. Kelas online via Zoom, durasi ±60 menit.</p>
-                <p class="jadwal-start reveal">Batas pendaftaran: <strong>17 Agustus 2026</strong> &bull; Kelas mulai: <strong>Senin, 10 Agustus 2026</strong></p>
+                <p class="jadwal-start reveal">Kelas mulai: <strong>Senin, 10 Agustus 2026</strong></p>
             </div>
 
             <div class="jadwal-table-wrap reveal">
@@ -1222,7 +1222,7 @@
             })();
 
             /* ================= COUNTDOWN 17 AGUSTUS ================= */
-            var target = new Date('2026-08-17T00:00:00+07:00').getTime();
+            var target = new Date('2026-09-01T00:00:00+07:00').getTime();
             var cdD = document.getElementById('cdD'), cdH = document.getElementById('cdH'),
                 cdM = document.getElementById('cdM'), cdS = document.getElementById('cdS');
             function tick() {
