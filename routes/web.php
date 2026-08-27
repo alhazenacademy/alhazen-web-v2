@@ -38,9 +38,9 @@ Route::get('/event/master-gemini', [LandingController::class, 'event_master_gemi
 Route::get('/event/coding-experience', [LandingController::class, 'coding_experience'])->name('coding-experience');
 
 Route::get('/links', [LandingController::class, 'links'])->name('links');
-Route::get('/plus/program/ai-python-quickstart', function () {
-    return view('pages.random.aipythonquickstart');
-});
+// Route::get('/plus/program/ai-python-quickstart', function () {
+//     return view('pages.random.aipythonquickstart');
+// });
 Route::get('/form-review-kelas', [LandingController::class, 'form_review_kelas']);
 Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
