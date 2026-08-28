@@ -61,6 +61,9 @@ public/sitemap-pages.xml
 public/sitemap-posts.xml
 public/sitemap-categories.xml
 
+# Ignore AI documentation folder
+.ai
+
 # Ignore IDE helper files
 _ide_helper.php
 _ide_helper_models.php

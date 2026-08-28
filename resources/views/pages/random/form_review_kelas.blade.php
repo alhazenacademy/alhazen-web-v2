@@ -840,9 +840,55 @@
          ============================================ */
       var SUBMIT_TIMEOUT = 30000; /* 30 detik, naik dari 15 */
       var MAX_RETRY = 2;
+      var submitted = false; /* cegah retry duplikat dalam sesi yang sama */
+      var DEDUP_TTL = 5 * 60 * 1000; /* 5 menit — jangka waktu deduplikasi */
+      var DEDUP_KEY = 'ulasan_dedup';
+
+      /**
+       * Generate hash simpel dari email + kelas untuk deduplikasi.
+       * Tidak perlu kriptografi — cukup pembeda unik per user.
+       */
+      function ulasanHash(email, kelas) {
+        var raw = email.toLowerCase().trim() + '|' + kelas.toLowerCase().trim();
+        var hash = 0;
+        for (var i = 0; i < raw.length; i++) {
+          hash = ((hash << 5) - hash + raw.charCodeAt(i)) | 0;
+        }
+        return 'h' + Math.abs(hash).toString(36);
+      }
+
+      /**
+       * Cek apakah kombinasi email+kelas sudah pernah disubmit
+       * dalam rentang DEDUP_TTL. Kalau belum, simpan timestamp-nya.
+       * @return {boolean} true = sudah pernah (duplikat), false = aman
+       */
+      function checkDedup(email, kelas) {
+        try {
+          var hash = ulasanHash(email, kelas);
+          var store = JSON.parse(localStorage.getItem(DEDUP_KEY) || '{}');
+          var prev = store[hash];
+          if (prev && (Date.now() - prev) < DEDUP_TTL) {
+            return true; /* duplikat — baru disubmit < 5 menit lalu */
+          }
+          store[hash] = Date.now();
+          localStorage.setItem(DEDUP_KEY, JSON.stringify(store));
+          return false;
+        } catch (e) {
+          /* localStorage tidak tersedia — skip dedup, biarkan lanjut */
+          return false;
+        }
+      }
 
       function submitForm(attempt) {
         attempt = attempt || 0;
+        if (submitted) return; /* sudah terkirim dalam sesi ini — stop */
+        /* Deduplikasi lintas-sesi via localStorage */
+        var emailVal = document.getElementById('email').value.trim();
+        var kelasVal = document.getElementById('kelas').value.trim();
+        if (attempt === 0 && checkDedup(emailVal, kelasVal)) {
+          gagal('Sepertinya ulasan untuk kelas ini sudah dikirim beberapa menit lalu. Jika yakin ada kesalahan, silakan tunggu beberapa menit lalu coba lagi.');
+          return;
+        }
         var kendala = [];
         document.querySelectorAll('#opts-kendala input:checked').forEach(function (c) { kendala.push(c.value); });
         btnNext.disabled = true;
@@ -904,10 +950,12 @@
         }
 
         var timer = setTimeout(function () {
+          submitted = true; /* timeout — kemungkinan besar sudah masuk di server, jangan retry */
           retryOrFail('Timeout ' + (SUBMIT_TIMEOUT / 1000) + ' detik - server tidak merespons');
         }, SUBMIT_TIMEOUT);
 
         window[cbName] = function (res) {
+          submitted = true; /* server merespons — pastikan tidak retry */
           cleanup();
           console.log('[ulasan] Respons server (percobaan ' + (attempt + 1) + '):', res);
           if (res && res.ok) { showCTAReward(res.nama); return; }
