@@ -919,6 +919,22 @@
         </div>
     </section>
 
+    <!-- ================= KELAS SERU LAINNYA ================= -->
+    <section class="section harga-section">
+        <img src="https://lh3.googleusercontent.com/d/12SMxHglLto4FGmD0Ssxl7CBTX8MddMQp" alt="" class="harga-bg" loading="lazy" onerror="this.remove()">
+        <div class="harga-overlay"></div>
+        <div class="container">
+            <div class="price-card reveal">
+                <span class="price-ribbon"><img src="https://lh3.googleusercontent.com/d/1PO1NKjXbLepZsW4Jv4IWzvY5rdqX17hI" alt="" loading="lazy"> COMING SOON</span>
+                <h3>Akan Segera Hadir Kelas Seru Lainnya!</h3>
+                <p class="pc-sub">Kelas-kelas coding &amp; kreatif lainnya sedang disiapkan. Penasaran? Langsung tanya aja lewat WhatsApp!</p>
+                <a href="https://wa.me/6281390000332?text=Halo%20MinZen!%20Saya%20mau%20tanya%20jadwal%20kelas%20selanjutnya%20setelah%20Coding%20Experience%20Class." target="_blank" rel="noopener" class="btn btn-red btn-big btn-shine shine-loop" style="width:100%;">
+                    <img src="https://alhazen.academy/assets/kids/icon-wa-white.png" alt="" class="btn-img"> Tanya Kelas Selanjutnya via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- ================= CTA BAWAH ================= -->
     <section class="section" style="padding-top:1rem;">
         <div class="container">
