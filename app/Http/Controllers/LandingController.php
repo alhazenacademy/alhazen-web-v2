@@ -1074,8 +1074,13 @@ class LandingController extends Controller
     }
 
     public function coding_experience(){
+        // Comingsoon
+        $salesPhone = optional(SalesNumber::active()->inRandomOrder()->first())->phone_number;
+        $launchAt = "2026-09-15T00:00:00";
+        return view('pages.event.coding_experience_class_coming_soon', compact('salesPhone', 'launchAt'));
 
-        return view('pages.event.coding_experience_class');
+        // Class Active
+        // return view('pages.event.coding_experience_class');
     }
 
     public function form_review_kelas(){
