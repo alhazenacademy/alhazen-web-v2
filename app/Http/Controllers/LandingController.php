@@ -79,6 +79,23 @@ class LandingController extends Controller
             ->all();
     }
 
+    private function getStudentWorks(): array
+    {
+        return StudentWork::latest()
+            ->get()
+            ->map(fn ($work) => [
+                'image'       => $work->image_url,
+                'hover_image' => $work->hover_image_url,
+                'alt'         => $work->alt,
+                'title'       => $work->title,
+                'description' => $work->description,
+                'demo_link'   => $work->demo_link,
+                'category'    => $work->category,
+                'bg-text'     => $work->bg_text,
+            ])
+            ->all();
+    }
+
     // ─── Public Methods ────────────────────────────────────────────
 
     public function index()
@@ -88,6 +105,7 @@ class LandingController extends Controller
         $faqs         = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
         $cards        = $this->getTutorCards();
+        $studentWorks = $this->getStudentWorks();
 
         // Section Articles
         $featured = Article::featureArticle()->first();
@@ -143,19 +161,6 @@ class LandingController extends Controller
             ->get()
             ->map(fn ($banner) => asset('storage/' . $banner->image))
             ->toArray();
-
-        $studentWorks = StudentWork::latest()
-            ->get()
-            ->map(fn ($work) => [
-                'image'       => $work->image_url,
-                'hover_image' => $work->hover_image_url,
-                'alt'         => $work->alt,
-                'title'       => $work->title,
-                'description' => $work->description,
-                'demo_link'   => $work->demo_link,
-                'category'    => $work->category,
-                'bg-text'     => $work->bg_text,
-            ]);
 
         return view('pages.index', compact(
             'salesPhone', 'cards', 'featured', 'latestArticle',
@@ -517,9 +522,10 @@ class LandingController extends Controller
         $faqs         = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
         $cards        = $this->getTutorCards();
+        $studentWorks = $this->getStudentWorks();
 
         return view('pages.event.ramadhan_technoclass', compact(
-            'salesPhone', 'cards', 'faqs', 'programLinks'
+            'salesPhone', 'cards', 'faqs', 'programLinks', 'studentWorks'
         ) + $footerData);
     }
 
