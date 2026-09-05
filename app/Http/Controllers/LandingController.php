@@ -576,12 +576,8 @@ class LandingController extends Controller
     public function coding_experience()
     {
         $salesPhone = $this->getSalesPhone();
-        $launchAt   = '2026-09-15T00:00:00';
 
-        return view('pages.event.coding_experience_class_coming_soon', compact('salesPhone', 'launchAt'));
-
-        // Class Active
-        // return view('pages.event.coding_experience_class');
+        return view('pages.event.coding_experience_class.september', compact('salesPhone'));
     }
 
     public function form_review_kelas()
