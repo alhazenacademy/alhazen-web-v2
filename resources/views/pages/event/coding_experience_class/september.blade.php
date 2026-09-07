@@ -426,15 +426,37 @@
         .jadwal-table tr.row-past .jt-date { text-decoration: line-through; color: rgba(15,23,42,.35); }
         .jadwal-table tr.row-past .j-day-name { color: rgba(15,23,42,.4); }
         .jadwal-table tr.row-past .jt-time { color: rgba(71,85,105,.4); }
-        .jadwal-table tr.row-closed td { background: #FEF2F2; opacity: .6; }
-        .jadwal-table tr.row-closed .jt-date { color: #DC2626; font-weight: 600; }
-        .jadwal-table tr.row-closed .j-day-name { color: rgba(15,23,42,.4); }
-        .jadwal-table tr.row-closed .jt-time { color: rgba(71,85,105,.4); text-decoration: line-through; }
-        .jadwal-table .jt-closed-note { display: block; font-size: .68rem; font-weight: 700; color: #DC2626; margin-top: .2rem; white-space: normal; }
         .jadwal-table tr.row-active td { background: #ffffff; }
         .jadwal-table tr.row-active .jt-date { color: #059669; font-weight: 700; }
         .jadwal-table tr.row-active .j-day-name { color: #059669; }
         .jadwal-table tr.row-active { border-left: 3px solid #059669; }
+        .jt-next-week-label {
+            display: block;
+            font-size: .65rem;
+            font-weight: 700;
+            color: #6B7280;
+            margin-top: .2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .jadwal-table tr.row-next-week td {
+            background: rgba(15,23,42,.06);
+        }
+
+        .jadwal-table tr.row-next-week .jt-date {
+            color: #4B5563;
+            font-weight: 700;
+        }
+
+        .jadwal-table tr.row-next-week .j-day-name {
+            color: #6B7280;
+        }
+
+        .jadwal-table tr.row-next-week {
+            border-left: 3px solid #D1D5DB;
+        }
+        /* Jadwal note */
         .jadwal-weekly-note {
             text-align: center; margin-top: 1.2rem; padding: .7rem 1rem;
             background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: .5rem;
@@ -1103,24 +1125,20 @@
                 var fmtFull = new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
                 var today = new Date();
                 today.setHours(0, 0, 0, 0);
-                var todayIdx = (today.getDay() + 6) % 7; // 0=Mon ... 6=Sun
+                var todayIdx = (today.getDay() + 6) % 7;
                 var monday = new Date(today);
-                monday.setDate(today.getDate() - todayIdx); // this week Monday
-                // If today is Mon-Sat, show THIS week; if Sun, show NEXT week
+                monday.setDate(today.getDate() - todayIdx);
                 if (todayIdx === 6) {
                     monday.setDate(monday.getDate() + 7);
                 }
-                // Anchor: earliest start is 7 Sep 2026 (Monday)
-                var anchor = new Date(2026, 8, 7); // Sep 7 2026
+                var anchor = new Date(2026, 8, 14);
                 if (monday.getTime() < anchor.getTime()) {
                     monday = new Date(anchor);
                 }
-                // Update "Kelas mulai" text
                 var mulaiEl = document.getElementById('jadwalMulai');
                 if (mulaiEl) {
                     mulaiEl.textContent = fmtFull.format(monday);
                 }
-                // Update countdown target to next Monday 00:00
                 var countdownTarget = monday.getTime();
                 var cdD = document.getElementById('cdD'), cdH = document.getElementById('cdH'),
                     cdM = document.getElementById('cdM'), cdS = document.getElementById('cdS');
@@ -1135,31 +1153,45 @@
                 }
                 tickCd();
                 setInterval(tickCd, 1000);
-                // Fill each row's date and mark state: past / closed (H-3) / active
-                var CLOSED_DAYS = 1; // max H-3
+
                 cells.forEach(function (td) {
                     var i = parseInt(td.getAttribute('data-day'), 10);
                     if (isNaN(i)) return;
                     var d = new Date(monday);
                     d.setDate(monday.getDate() + i);
+
+                    var diffMs = d.getTime() - today.getTime();
+                    var isNextWeek = false;
+
+                    // ✨ Jika sudah lewat atau hari ini, pindahin ke minggu depan
+                    if (diffMs <= 0) {
+                        d.setDate(d.getDate() + 7);
+                        diffMs = d.getTime() - today.getTime();
+                        isNextWeek = true;
+                    }
+
                     td.textContent = fmt.format(d);
+
+                    // ✨ Tambah label "minggu depan"
+                    if (isNextWeek) {
+                        var label = document.createElement('span');
+                        label.className = 'jt-next-week-label';
+                        label.textContent = 'minggu depan';
+                        td.appendChild(label);
+                    }
+
                     var row = td.closest('tr');
                     if (!row) return;
-                    var diffMs = d.getTime() - today.getTime();
+
                     var diffDays = Math.floor(diffMs / 86400000);
+
                     if (diffDays < 0) {
-                        // sudah lewat
                         row.classList.add('row-past');
-                    } else if (diffDays < CLOSED_DAYS) {
-                        // mepet H-3, pendaftaran ditutup
-                        row.classList.add('row-closed');
-                        var note = document.createElement('span');
-                        note.className = 'jt-closed-note';
-                        note.textContent = '⚠️ Pendaftaran ditutup';
-                        td.appendChild(note);
                     } else {
-                        // available
                         row.classList.add('row-active');
+                        if (isNextWeek) {
+                            row.classList.add('row-next-week');
+                        }
                     }
                 });
             })();
