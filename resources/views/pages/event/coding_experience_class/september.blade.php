@@ -705,7 +705,7 @@
                     <div class="showcase-blob"></div>
                     <div class="showcase">
                         {{-- Poster placeholder — nanti diganti dengan demo game jika sudah jadi --}}
-                        <img src="{{ asset('assets/custom/coding_experience_class/september.jpeg') }}" alt="Poster Coding Experience Class - Belajar Bikin Game Lari ke Sekolah" class="sc-art" loading="lazy" onerror="this.remove()">
+                        <img src="{{ asset('assets/custom/coding_experience_class/september_demo.gif') }}" alt="Poster Coding Experience Class - Belajar Bikin Game Lari ke Sekolah" class="sc-art" loading="lazy" onerror="this.remove()">
                     </div>
                 </div>
 
