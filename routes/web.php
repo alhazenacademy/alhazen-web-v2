@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\TrialClassController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/kursus-coding-anak', [LandingController::class, 'kursus_coding_anak'])->name('kursus-coding-anak');
@@ -36,6 +35,7 @@ Route::get('/event/starter-project', [LandingController::class, 'event_starter_p
 Route::get('/event/master-gpt', [LandingController::class, 'event_master_gpt'])->name('master-gpt');
 Route::get('/event/master-gemini', [LandingController::class, 'event_master_gemini'])->name('master-gemini');
 Route::get('/event/coding-experience', [LandingController::class, 'coding_experience'])->name('coding-experience');
+Route::get('/event/kelas-group-promo', [LandingController::class, 'kelas_group_promo'])->name('kelas-group-promo');
 
 Route::get('/links', [LandingController::class, 'links'])->name('links');
 // Route::get('/plus/program/ai-python-quickstart', function () {
