@@ -82,7 +82,7 @@
             <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <span class="inline-block py-2 px-4 bg-accent text-dark font-bold text-sm tracking-widest uppercase rounded-full mb-6">
-                        Mulai 14 September 2026
+                        Kelas Spesial September
                     </span>
                     <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight-custom leading-[1.05] mb-8">
                         Lanjutkan<br>
@@ -242,7 +242,10 @@
 
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     {{-- Card Coding --}}
-                    <div class="group bg-primary p-10 rounded-lg transition-all duration-200 hover:scale-[1.02]">
+                    <div class="group relative bg-primary p-10 rounded-lg transition-all duration-200 hover:scale-[1.02]">
+                        <div class="absolute -top-5 -right-5 rotate-6 bg-accent text-dark font-extrabold px-5 py-3 rounded-full border-4 border-white shadow-lg text-sm md:text-base">
+                            Mulai Rp 99.000
+                        </div>
                         <div class="w-16 h-16 bg-dark flex items-center justify-center rounded-lg mb-8 transition-transform duration-200 group-hover:scale-110">
                             <iconify-icon icon="lucide:code" class="text-white text-3xl"></iconify-icon>
                         </div>
@@ -250,7 +253,7 @@
                         <p class="text-white leading-relaxed mb-6">
                             Pelajari logika pemrograman &amp; buat project sendiri. Materi disesuaikan jenjang anak.
                         </p>
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3">
                             <li class="flex items-center gap-3 text-white">
                                 <iconify-icon icon="lucide:check" class="text-lg flex-shrink-0"></iconify-icon>
                                 Kelas 1-3 SD: Code.org (blok visual)
@@ -264,13 +267,13 @@
                                 SMP/SMA: Python &amp; Web Development
                             </li>
                         </ul>
-                        <div class="flex items-center text-white font-bold gap-2">
-                            Mulai Rp 99.000 <iconify-icon icon="lucide:arrow-right"></iconify-icon>
-                        </div>
                     </div>
 
                     {{-- Card Roblox --}}
-                    <div class="group bg-emerald p-10 rounded-lg transition-all duration-200 hover:scale-[1.02]">
+                    <div class="group relative bg-emerald p-10 rounded-lg transition-all duration-200 hover:scale-[1.02]">
+                        <div class="absolute -top-5 -right-5 rotate-6 bg-accent text-dark font-extrabold px-5 py-3 rounded-full border-4 border-white shadow-lg text-sm md:text-base">
+                            Mulai Rp 99.000
+                        </div>
                         <div class="w-16 h-16 bg-dark flex items-center justify-center rounded-lg mb-8 transition-transform duration-200 group-hover:scale-110">
                             <iconify-icon icon="lucide:gamepad-2" class="text-white text-3xl"></iconify-icon>
                         </div>
@@ -278,7 +281,7 @@
                         <p class="text-white leading-relaxed mb-6">
                             Belajar bikin game sendiri di Roblox Studio. Bukan cuma main game, tapi game development sungguhan!
                         </p>
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-3">
                             <li class="flex items-center gap-3 text-white">
                                 <iconify-icon icon="lucide:check" class="text-lg flex-shrink-0"></iconify-icon>
                                 Desain level &amp; dunia game
@@ -296,9 +299,6 @@
                                 Cocok untuk semua jenjang
                             </li>
                         </ul>
-                        <div class="flex items-center text-white font-bold gap-2">
-                            Mulai Rp 99.000 <iconify-icon icon="lucide:arrow-right"></iconify-icon>
-                        </div>
                     </div>
                 </div>
             </div>
