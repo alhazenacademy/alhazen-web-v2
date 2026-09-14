@@ -63,6 +63,8 @@ public/sitemap-categories.xml
 
 # Ignore AI documentation folder
 .ai
+.opencode
+AGENTS.md
 
 # Ignore IDE helper files
 _ide_helper.php

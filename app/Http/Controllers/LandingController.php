@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Faq;
-use App\Models\Tutor;
 use App\Models\Article;
+use App\Models\Banner;
+use App\Models\Category;
+use App\Models\Faq;
+use App\Models\LinkPage;
 use App\Models\Program;
 use App\Models\SalesNumber;
 use App\Models\SiteSetting;
-use App\Models\Category;
-use App\Models\Banner;
-use App\Models\LinkPage;
 use App\Models\StudentWork;
+use App\Models\Tutor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class LandingController extends Controller
 {
@@ -31,10 +31,10 @@ class LandingController extends Controller
 
         return [
             'whatsapp' => $settings['whatsapp'] ?? null,
-            'email'    => $settings['email'] ?? null,
-            'website'  => $settings['website'] ?? null,
-            'address'  => $settings['address'] ?? null,
-            'socials'  => collect($settings['socials'] ?? [])
+            'email' => $settings['email'] ?? null,
+            'website' => $settings['website'] ?? null,
+            'address' => $settings['address'] ?? null,
+            'socials' => collect($settings['socials'] ?? [])
                 ->where('is_active', true)
                 ->sortBy('sort_order'),
         ];
@@ -52,7 +52,7 @@ class LandingController extends Controller
             ->get()
             ->map(fn (Program $program) => [
                 'label' => $program->name,
-                'url'   => match (strtolower($program->name)) {
+                'url' => match (strtolower($program->name)) {
                     'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
                     'roblox', 'roblox studio' => 'kursus-roblox',
                     default => 'program',
@@ -68,13 +68,13 @@ class LandingController extends Controller
             ->ordered()
             ->get()
             ->map(fn (Tutor $t) => [
-                'name'     => $t->name,
-                'years'    => $t->years,
-                'skills'   => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
-                'photo'    => $t->photo_url,
+                'name' => $t->name,
+                'years' => $t->years,
+                'skills' => is_array($t->skills) ? implode(', ', $t->skills) : (string) $t->skills,
+                'photo' => $t->photo_url,
                 'bg-photo' => $t->bg_color_safe,
-                'gender'   => $t->gender,
-                'bio'      => $t->bio,
+                'gender' => $t->gender,
+                'bio' => $t->bio,
             ])
             ->all();
     }
@@ -84,14 +84,14 @@ class LandingController extends Controller
         return StudentWork::latest()
             ->get()
             ->map(fn ($work) => [
-                'image'       => $work->image_url,
+                'image' => $work->image_url,
                 'hover_image' => $work->hover_image_url,
-                'alt'         => $work->alt,
-                'title'       => $work->title,
+                'alt' => $work->alt,
+                'title' => $work->title,
                 'description' => $work->description,
-                'demo_link'   => $work->demo_link,
-                'category'    => $work->category,
-                'bg-text'     => $work->bg_text,
+                'demo_link' => $work->demo_link,
+                'category' => $work->category,
+                'bg-text' => $work->bg_text,
             ])
             ->all();
     }
@@ -100,11 +100,11 @@ class LandingController extends Controller
 
     public function index()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
         $studentWorks = $this->getStudentWorks();
 
         // Section Articles
@@ -128,15 +128,15 @@ class LandingController extends Controller
                 $info = $program->info;
 
                 return [
-                    'bg'         => $info->bg_class ?? 'bg-[#E5E7EB]',
+                    'bg' => $info->bg_class ?? 'bg-[#E5E7EB]',
                     'text-color' => $info->text_color_class ?? 'text-[#0F172A]',
-                    'child'      => $info
+                    'child' => $info
                         ? $info->child_image_url
                         : asset('assets/kids/program-detail/anak.webp'),
-                    'icon'  => $info && $info->icon_path ? asset($info->icon_path) : null,
+                    'icon' => $info && $info->icon_path ? asset($info->icon_path) : null,
                     'title' => $info->title ?? $program->name,
-                    'sub'   => $info->short_tagline ?? $info->subtitle ?? '',
-                    'url'   => match (strtolower($program->name)) {
+                    'sub' => $info->short_tagline ?? $info->subtitle ?? '',
+                    'url' => match (strtolower($program->name)) {
                         'coding', 'coding anak', 'kursus coding' => 'kursus-coding-anak',
                         'roblox', 'roblox studio' => 'kursus-roblox',
                         default => 'program',
@@ -147,19 +147,19 @@ class LandingController extends Controller
             ->toArray();
 
         $programCards[] = [
-            'bg'         => 'bg-[#E5E7EB]',
+            'bg' => 'bg-[#E5E7EB]',
             'text-color' => 'text-[#0F172A]',
-            'child'      => asset('assets/kids/program-detail/anak.webp'),
-            'icon'       => asset('assets/kids/program-detail/icon-program6.png'),
-            'title'      => 'View All',
-            'sub'        => 'Explore all our courses',
-            'url'        => 'program',
+            'child' => asset('assets/kids/program-detail/anak.webp'),
+            'icon' => asset('assets/kids/program-detail/icon-program6.png'),
+            'title' => 'View All',
+            'sub' => 'Explore all our courses',
+            'url' => 'program',
         ];
 
         $banners = Banner::where('is_active', true)
             ->orderBy('sort_order')
             ->get()
-            ->map(fn ($banner) => asset('storage/' . $banner->image))
+            ->map(fn ($banner) => asset('storage/'.$banner->image))
             ->toArray();
 
         return view('pages.index', compact(
@@ -170,11 +170,11 @@ class LandingController extends Controller
 
     public function program()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         // Section Program Tabs & Content
         $programs = Program::query()
@@ -190,15 +190,15 @@ class LandingController extends Controller
             $info = $program->info;
 
             return [
-                'key'       => $program->key,
-                'label'     => $info->title ?? $program->name,
-                'icon'      => $info && $info->icon_path ? asset($info->icon_path) : null,
-                'bg'        => $info->bg_class ?? 'bg-[#E5E7EB]',
+                'key' => $program->key,
+                'label' => $info->title ?? $program->name,
+                'icon' => $info && $info->icon_path ? asset($info->icon_path) : null,
+                'bg' => $info->bg_class ?? 'bg-[#E5E7EB]',
                 'textColor' => $info->text_color_class ?? 'text-[#0F172A]',
-                'child'     => $info
+                'child' => $info
                     ? $info->child_image_url
                     : asset('assets/kids/program-detail/anak.webp'),
-                'sub'       => $info->short_tagline ?? $info->subtitle ?? '',
+                'sub' => $info->short_tagline ?? $info->subtitle ?? '',
             ];
         })->values()->toArray();
 
@@ -207,15 +207,15 @@ class LandingController extends Controller
 
             return [
                 $program->key => [
-                    'title'    => $info->title ?? $program->name,
+                    'title' => $info->title ?? $program->name,
                     'subtitle' => $info->subtitle ?? '',
-                    'modules'  => $info->modules_label ?? '',
+                    'modules' => $info->modules_label ?? '',
                     'students' => $info->students_label ?? '',
-                    'desc'     => $info->description ?? '',
-                    'tools'    => $info->tools ?? [],
-                    'price'    => $info->price_label ?? '',
-                    'ctaText'  => $info->cta_text ?? '',
-                    'ctaHref'  => $info->cta_href,
+                    'desc' => $info->description ?? '',
+                    'tools' => $info->tools ?? [],
+                    'price' => $info->price_label ?? '',
+                    'ctaText' => $info->cta_text ?? '',
+                    'ctaHref' => $info->cta_href,
                 ],
             ];
         })->toArray();
@@ -234,11 +234,11 @@ class LandingController extends Controller
 
     public function about()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $mapembed     = SiteSetting::companySettings()['map_embed'] ?? null;
+        $mapembed = SiteSetting::companySettings()['map_embed'] ?? null;
 
         return view('pages.about', compact(
             'mapembed', 'faqs', 'programLinks', 'salesPhone'
@@ -247,25 +247,25 @@ class LandingController extends Controller
 
     public function article()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
 
         $categories = Category::select('name', 'slug')
             ->orderBy('name')
             ->get()
             ->map(fn ($c) => [
-                'label'  => $c->name,
-                'href'   => route('category.show', $c->slug),
+                'label' => $c->name,
+                'href' => route('category.show', $c->slug),
                 'active' => false,
             ])
             ->values()
             ->toArray();
 
         array_unshift($categories, [
-            'label'  => 'All',
-            'href'   => route('artikel'),
+            'label' => 'All',
+            'href' => route('artikel'),
             'active' => true,
         ]);
 
@@ -273,12 +273,12 @@ class LandingController extends Controller
             ->latest('published_at')
             ->get()
             ->map(fn (Article $a) => [
-                'title'   => $a->title,
-                'slug'    => $a->slug,
-                'date'    => optional($a->published_at)->translatedFormat('F d, Y'),
-                'image'   => $a->cover_image_url,
-                'alt'     => $a->cover_image_alt,
-                'url'     => route('artikel.show', $a->slug),
+                'title' => $a->title,
+                'slug' => $a->slug,
+                'date' => optional($a->published_at)->translatedFormat('F d, Y'),
+                'image' => $a->cover_image_url,
+                'alt' => $a->cover_image_alt,
+                'url' => route('artikel.show', $a->slug),
                 'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
             ])
             ->toArray();
@@ -290,8 +290,8 @@ class LandingController extends Controller
 
     public function articleShow(Request $request, string $slug)
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
         $programLinks = $this->getProgramLinks();
 
         $article = Article::query()
@@ -323,12 +323,12 @@ class LandingController extends Controller
             ->get(['title', 'slug', 'cover_image', 'cover_image_alt', 'published_at', 'content'])
             ->map(function (Article $a) {
                 return [
-                    'title'   => $a->title,
-                    'slug'    => $a->slug,
-                    'date'    => $a->published_at_formatted,
-                    'image'   => $a->cover_image_url,
-                    'alt'     => $a->cover_image_alt,
-                    'url'     => route('artikel.show', $a->slug),
+                    'title' => $a->title,
+                    'slug' => $a->slug,
+                    'date' => $a->published_at_formatted,
+                    'image' => $a->cover_image_url,
+                    'alt' => $a->cover_image_alt,
+                    'url' => route('artikel.show', $a->slug),
                     'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, ' [...]'),
                 ];
             })
@@ -350,9 +350,9 @@ class LandingController extends Controller
 
     public function katalog()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
 
         return view('pages.katalog', compact(
@@ -362,11 +362,11 @@ class LandingController extends Controller
 
     public function kursus_coding_anak()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.program.kursus_coding_anak', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -375,11 +375,11 @@ class LandingController extends Controller
 
     public function kursus_roblox()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.program.kursus_roblox', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -388,26 +388,26 @@ class LandingController extends Controller
 
     public function category(string $slug)
     {
-        $category     = Category::where('slug', $slug)->firstOrFail();
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
 
         $categories = Category::select('name', 'slug')
             ->orderBy('name')
             ->get()
             ->map(fn ($c) => [
-                'label'  => $c->name,
-                'href'   => route('category.show', $c->slug),
+                'label' => $c->name,
+                'href' => route('category.show', $c->slug),
                 'active' => $c->slug === $slug,
             ])
             ->values()
             ->toArray();
 
         array_unshift($categories, [
-            'label'  => 'All',
-            'href'   => route('artikel'),
+            'label' => 'All',
+            'href' => route('artikel'),
             'active' => false,
         ]);
 
@@ -416,33 +416,33 @@ class LandingController extends Controller
             ->latest('published_at')
             ->get()
             ->map(fn ($a) => [
-                'title'   => $a->title,
-                'slug'    => $a->slug,
-                'date'    => optional($a->published_at)->translatedFormat('F d, Y'),
-                'image'   => $a->cover_image_url,
+                'title' => $a->title,
+                'slug' => $a->slug,
+                'date' => optional($a->published_at)->translatedFormat('F d, Y'),
+                'image' => $a->cover_image_url,
                 'excerpt' => Str::words(strip_tags($a->content ?? ''), 25, '...'),
             ])
             ->toArray();
 
         return view('pages.artikel', [
-            'posts'        => $posts,
-            'categories'   => $categories,
-            'catTitle'     => 'Kategori',
-            'title'        => $category->name,
-            'description'  => $category->description,
-            'salesPhone'   => $salesPhone,
-            'faqs'         => $faqs,
+            'posts' => $posts,
+            'categories' => $categories,
+            'catTitle' => 'Kategori',
+            'title' => $category->name,
+            'description' => $category->description,
+            'salesPhone' => $salesPhone,
+            'faqs' => $faqs,
             'programLinks' => $programLinks,
         ] + $footerData);
     }
 
     public function holiday_program()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.event.holiday_program', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -451,11 +451,11 @@ class LandingController extends Controller
 
     public function kursus_blender()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.program.kursus_blender', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -464,11 +464,11 @@ class LandingController extends Controller
 
     public function kursus_python()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.program.kursus_python', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -477,11 +477,11 @@ class LandingController extends Controller
 
     public function kursus_php()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.program.kursus_php', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -497,11 +497,11 @@ class LandingController extends Controller
 
     public function alhazen_hackathon()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.event.alhazen_hackathon', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -517,11 +517,11 @@ class LandingController extends Controller
 
     public function ramadhan_technoclass()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
         $studentWorks = $this->getStudentWorks();
 
         return view('pages.event.ramadhan_technoclass', compact(
@@ -531,11 +531,11 @@ class LandingController extends Controller
 
     public function kursus_front_end()
     {
-        $salesPhone   = $this->getSalesPhone();
-        $footerData   = $this->getFooterData();
-        $faqs         = $this->getFaqs();
+        $salesPhone = $this->getSalesPhone();
+        $footerData = $this->getFooterData();
+        $faqs = $this->getFaqs();
         $programLinks = $this->getProgramLinks();
-        $cards        = $this->getTutorCards();
+        $cards = $this->getTutorCards();
 
         return view('pages.program.kursus_front_end', compact(
             'salesPhone', 'cards', 'faqs', 'programLinks'
@@ -578,6 +578,13 @@ class LandingController extends Controller
         $salesPhone = $this->getSalesPhone();
 
         return view('pages.event.coding_experience_class.september', compact('salesPhone'));
+    }
+
+    public function kelas_group_promo()
+    {
+        $salesPhone = $this->getSalesPhone();
+
+        return view('pages.event.kelas_group_promo.september', compact('salesPhone'));
     }
 
     public function form_review_kelas()
