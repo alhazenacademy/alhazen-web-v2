@@ -38,9 +38,10 @@ Selamat datang di **Ruang Tulis by Alhazen**! Dokumen ini memuat seluruh contoh 
 ---
 
 ## 5. Link & Gambar
-- [Kunjungi Website Alhazen Academy](https://alhazenacademy.com)
+- [Kunjungi Website Alhazen Academy](https://alhazen.academy)
 - Gambar Logo:
-![Logo Alhazen Academy](https://alhazenacademy.com/assets/logo-new.webp)
+
+![Logo Alhazen Academy](https://alhazen.academy/assets/nav-logo-new.webp)
 
 ---
 

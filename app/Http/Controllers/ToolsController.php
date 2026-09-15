@@ -51,7 +51,7 @@ class ToolsController extends Controller
         $salesPhone = $this->getSalesPhone();
         $footerData = $this->getFooterData();
         $programLinks = $this->getProgramLinks();
-        $starterPath = resource_path('views/pages/tools/ruang_tulis_starter.md');
+        $starterPath = public_path('assets/kids/tools/ruang-tulis-starter.md');
         $starterText = file_exists($starterPath) ? file_get_contents($starterPath) : '';
 
         return view('pages.tools.ruang_tulis', [
