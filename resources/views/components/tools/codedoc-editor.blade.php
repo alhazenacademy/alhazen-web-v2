@@ -1,4 +1,4 @@
-<section x-data="codedoc()" :class="isPresentation ? 'fixed inset-0 z-50 bg-background overflow-hidden p-0 flex flex-col' : (isFullscreen ? 'fixed inset-0 z-50 bg-background overflow-y-auto pt-6' : 'min-h-screen pt-6 pb-12 bg-background')" class="transition-all duration-300">
+<section x-data="codedoc()" :class="isPresentation ? 'fixed inset-0 z-50 bg-white overflow-hidden p-0 flex flex-col' : (isFullscreen ? 'fixed inset-0 z-50 bg-background overflow-y-auto pt-6' : 'min-h-screen pt-6 pb-12 bg-background')" class="transition-all duration-300">
     <div :class="isPresentation ? 'flex-1 flex flex-col min-h-0 max-w-none p-0' : (isFullscreen ? 'max-w-none px-6' : 'max-w-[1600px] mx-auto px-4 sm:px-6')">
         {{-- Custom Popup / Modal --}}
         <div x-show="showPopup" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
