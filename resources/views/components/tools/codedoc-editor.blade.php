@@ -118,7 +118,7 @@
             </div>
 
             {{-- Preview Pane --}}
-            <div x-ref="preview" :class="isPresentation ? 'flex-1 min-h-0 w-full max-w-5xl mx-auto h-full overflow-y-auto px-5 py-8 sm:px-6 sm:py-10 md:p-12 bg-white/50 dark:bg-dark/50 markdown-preview border-0 rounded-none shadow-none' : (mode === 'preview' ? 'max-w-4xl mx-auto h-[60vh] sm:h-[70vh] lg:h-[75vh] overflow-y-auto p-4 sm:p-6 md:p-8 rounded-2xl border border-[var(--color-neutral)]/40 bg-white/50 dark:bg-dark/50 shadow-sm markdown-preview' : 'h-[45vh] sm:h-[55vh] lg:h-[75vh] overflow-y-auto p-4 sm:p-6 md:p-8 rounded-2xl border border-[var(--color-neutral)]/40 bg-white/50 dark:bg-dark/50 max-w-none shadow-sm markdown-preview')" id="preview-pane">
+            <div x-ref="preview" @click="handlePreviewClick($event)" :class="isPresentation ? 'flex-1 min-h-0 w-full max-w-5xl mx-auto h-full overflow-y-auto px-5 py-8 sm:px-6 sm:py-10 md:p-12 bg-white/50 dark:bg-dark/50 markdown-preview border-0 rounded-none shadow-none' : (mode === 'preview' ? 'max-w-4xl mx-auto h-[60vh] sm:h-[70vh] lg:h-[75vh] overflow-y-auto p-4 sm:p-6 md:p-8 rounded-2xl border border-[var(--color-neutral)]/40 bg-white/50 dark:bg-dark/50 shadow-sm markdown-preview' : 'h-[45vh] sm:h-[55vh] lg:h-[75vh] overflow-y-auto p-4 sm:p-6 md:p-8 rounded-2xl border border-[var(--color-neutral)]/40 bg-white/50 dark:bg-dark/50 max-w-none shadow-sm markdown-preview')" id="preview-pane">
                 <div x-html="renderedHtml"></div>
             </div>
         </div>
@@ -185,14 +185,106 @@
                         }
                     });
                 },
+                slugifyHeading(text) {
+                    const plain = (text || '')
+                        .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
+                        .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+                        .replace(/[`*_~#]/g, '')
+                        .trim()
+                        .toLowerCase()
+                        .replace(/[^\w\s-]+/g, '')
+                        .replace(/\s+/g, '-')
+                        .replace(/-+/g, '-')
+                        .replace(/^-+|-+$/g, '');
+                    return plain;
+                },
+                parseTOC(text) {
+                    const toc = [];
+                    const seen = {};
+                    const lines = text.split('\n');
+                    let inFence = false;
+                    lines.forEach(line => {
+                        if (/^\s*(```|~~~)/.test(line)) {
+                            inFence = !inFence;
+                            return;
+                        }
+                        if (inFence) return;
+                        const match = line.match(/^(#{1,6})\s+(.*)/);
+                        if (match) {
+                            const level = match[1].length;
+                            const title = match[2].trim();
+                            let slug = this.slugifyHeading(title) || 'section';
+                            if (seen[slug] !== undefined) {
+                                seen[slug] += 1;
+                                slug = `${slug}-${seen[slug]}`;
+                            } else {
+                                seen[slug] = 0;
+                            }
+                            toc.push({ level, title, slug });
+                        }
+                    });
+
+                    let tocHtml = '<div class="md-toc p-4 bg-neutral-50 dark:bg-white/5 rounded-xl border border-neutral-200/70 mb-6"><h4 class="font-bold mb-2">Daftar Isi</h4><ul>';
+                    toc.forEach(item => {
+                        const indent = (item.level - 1) * 1.5;
+                        const label = typeof marked.parseInline === 'function' ? marked.parseInline(item.title) : item.title;
+                        tocHtml += `<li style="margin-left: ${indent}rem"><a href="#${item.slug}" data-toc-link class="text-primary hover:underline">${label}</a></li>`;
+                    });
+                    tocHtml += '</ul></div>';
+
+                    return text.replace(/\[TOC\]/gi, tocHtml);
+                },
+                assignHeadingIds() {
+                    const preview = this.$refs.preview;
+                    if (!preview) return;
+                    const seen = {};
+                    preview.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
+                        if (heading.closest('.md-toc')) return;
+                        let slug = this.slugifyHeading(heading.textContent) || 'section';
+                        if (seen[slug] !== undefined) {
+                            seen[slug] += 1;
+                            slug = `${slug}-${seen[slug]}`;
+                        } else {
+                            seen[slug] = 0;
+                        }
+                        heading.id = slug;
+                    });
+                },
+                handlePreviewClick(event) {
+                    const link = event.target.closest('a[href^="#"]');
+                    if (!link) return;
+                    const hash = link.getAttribute('href');
+                    if (!hash || hash.length < 2) return;
+                    const preview = this.$refs.preview;
+                    if (!preview) return;
+                    let id = '';
+                    try {
+                        id = decodeURIComponent(hash.slice(1));
+                    } catch (e) {
+                        id = hash.slice(1);
+                    }
+                    if (!id) return;
+                    const target = preview.querySelector('#' + CSS.escape(id));
+                    if (!target) return;
+                    event.preventDefault();
+                    const paneRect = preview.getBoundingClientRect();
+                    const targetRect = target.getBoundingClientRect();
+                    preview.scrollTo({
+                        top: preview.scrollTop + targetRect.top - paneRect.top - 16,
+                        behavior: 'smooth'
+                    });
+                },
                 render() {
                     try {
-                        const rawHtml = marked.parse(this.parseAdmonitions(this.content));
+                        const contentWithAdmonitions = this.parseAdmonitions(this.content);
+                        const contentWithTOC = this.parseTOC(contentWithAdmonitions);
+                        const rawHtml = marked.parse(contentWithTOC);
                         this.renderedHtml = DOMPurify.sanitize(rawHtml);
                     } catch (e) {
                         this.renderedHtml = '<p class="text-red-500">Error parsing markdown</p>';
                     }
                     this.$nextTick(() => {
+                        this.assignHeadingIds();
                         document.querySelectorAll('#preview-pane pre code').forEach((block) => {
                             hljs.highlightElement(block);
                         });
