@@ -118,6 +118,14 @@
                     <code class="font-mono">:::success Judul ... :::</code>
                 </div>
                 <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">Footnote</p>
+                    <code class="font-mono">Text[^1]<br>[^1]: Catatan</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">TOC</p>
+                    <code class="font-mono">[TOC]</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
                     <p class="font-semibold text-text mb-0.5">Diagram & Rumus</p>
                     <code class="font-mono">```mermaid, $x^2$</code>
                 </div>
@@ -138,14 +146,18 @@
         </div>
     </div>
 
-    <script>
+            <script>
         window.codedoc = function() {
-            // Configure Marked
+            // Configure Marked with GFM Footnotes enabled
             marked.setOptions({
                 gfm: true,
                 breaks: true,
                 headerIds: true,
-                mangle: false
+                mangle: false,
+                pedantic: false,
+                sanitize: false,
+                smartLists: true,
+                smartypants: false
             });
 
             return {
@@ -289,12 +301,42 @@
                         behavior: 'smooth'
                     });
                 },
+                parseFootnotes(text) {
+                    const definitions = {};
+                    const withoutDefs = text.replace(/^\[\^([^\]]+)\]:\s*(.*)$/gm, (match, label, def) => {
+                        definitions[label.trim()] = (def || '').trim();
+                        return '';
+                    });
+                    const order = [];
+                    const withRefs = withoutDefs.replace(/\[\^([^\]]+)\]/g, (match, label) => {
+                        const key = (label || '').trim();
+                        if (!(key in definitions)) return match;
+                        let idx = order.indexOf(key);
+                        if (idx === -1) {
+                            order.push(key);
+                            idx = order.length - 1;
+                        }
+                        const num = idx + 1;
+                        return `<sup id="fnref-${num}"><a href="#fn-${num}">[${num}]</a></sup>`;
+                    });
+                    if (order.length === 0) return withRefs;
+                    let footnotesHtml = '\n\n<div class="footnotes"><hr><ol>';
+                    order.forEach((key, i) => {
+                        const num = i + 1;
+                        const defMd = definitions[key] || '';
+                        const defHtml = typeof marked.parseInline === 'function' ? marked.parseInline(defMd) : marked.parse(defMd);
+                        footnotesHtml += `<li id="fn-${num}">${defHtml} <a href="#fnref-${num}" class="footnote-backref">↩</a></li>`;
+                    });
+                    footnotesHtml += '</ol></div>';
+                    return withRefs + footnotesHtml;
+                },
                 render() {
                     try {
                         const contentWithAdmonitions = this.parseAdmonitions(this.content);
                         const contentWithTOC = this.parseTOC(contentWithAdmonitions);
-                        const rawHtml = marked.parse(contentWithTOC);
-                        this.renderedHtml = DOMPurify.sanitize(rawHtml);
+                        const contentWithFootnotes = this.parseFootnotes(contentWithTOC);
+                        const rawHtml = marked.parse(contentWithFootnotes);
+                        this.renderedHtml = DOMPurify.sanitize(rawHtml, { ADD_TAGS: ['sup'], ADD_ATTR: ['id', 'class', 'style', 'target'] });
                     } catch (e) {
                         this.renderedHtml = '<p class="text-red-500">Error parsing markdown</p>';
                     }
@@ -375,6 +417,10 @@
         .markdown-preview .md-alert-success { background: #ecfdf5; border-color: #059669; color: #065f46; }
         .markdown-preview .md-alert-danger { background: #fef2f2; border-color: #ef4444; color: #991b1b; }
         .markdown-preview .md-alert-info { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
-        .markdown-preview .md-alert-warning { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
+        .markdown-preview .footnotes { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em; opacity: 0.9; }
+        .markdown-preview .footnotes ol { padding-left: 1.25rem; }
+        .markdown-preview .footnote-backref { margin-left: 0.25rem; text-decoration: none; color: #059669; font-weight: bold; }
+        .markdown-preview sup a { color: #059669; text-decoration: none; font-weight: bold; padding: 0 0.15rem; }
+        .markdown-preview sup a:hover { text-decoration: underline; }
     </style>
 </section>
