@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ShortLinkController;
+use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\TrialClassController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,7 @@ Route::get('/links', [LandingController::class, 'links'])->name('links');
 //     return view('pages.random.aipythonquickstart');
 // });
 Route::get('/form-review-kelas', [LandingController::class, 'form_review_kelas']);
+Route::get('/tools/alhazen-codedoc', [ToolsController::class, 'alhazen_codedoc'])->name('tools.alhazen-codedoc');
 Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
 // Route::view('/pro', 'pro')->name('adult');

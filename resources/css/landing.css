@@ -5,6 +5,7 @@
 @source '../views/components/layout.blade.php';
 @source '../views/pages/*.blade.php';
 @source '../views/pages/artikel/*.blade.php';
+@source '../views/pages/tools/*.blade.php';
 @source '../js/landing.js';
 @source '../js/landing/*.js';
 
