@@ -46,13 +46,15 @@ class ToolsController extends Controller
             ->all();
     }
 
-    public function alhazen_codedoc()
+    public function ruang_tulis()
     {
         $salesPhone = $this->getSalesPhone();
         $footerData = $this->getFooterData();
         $programLinks = $this->getProgramLinks();
+        $starterPath = resource_path('views/pages/tools/ruang_tulis_starter.md');
+        $starterText = file_exists($starterPath) ? file_get_contents($starterPath) : '';
 
-        return view('pages.tools.alhazen_codedoc', [
+        return view('pages.tools.ruang_tulis', [
             'salesPhone' => $salesPhone,
             'whatsapp' => $footerData['whatsapp'],
             'email' => $footerData['email'],
@@ -60,6 +62,7 @@ class ToolsController extends Controller
             'address' => $footerData['address'],
             'socials' => $footerData['socials'],
             'programLinks' => $programLinks,
+            'starterText' => $starterText,
         ]);
     }
 }

@@ -43,7 +43,7 @@ Route::get('/links', [LandingController::class, 'links'])->name('links');
 //     return view('pages.random.aipythonquickstart');
 // });
 Route::get('/form-review-kelas', [LandingController::class, 'form_review_kelas']);
-Route::get('/tools/alhazen-codedoc', [ToolsController::class, 'alhazen_codedoc'])->name('tools.alhazen-codedoc');
+Route::get('/tools/ruang-tulis', [ToolsController::class, 'ruang_tulis'])->name('tools.ruang-tulis');
 Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
 // Route::view('/pro', 'pro')->name('adult');

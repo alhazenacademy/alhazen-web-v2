@@ -1,11 +1,11 @@
-<x-layout title="Alhazen CodeDoc - Markdown Editor Online Gratis"
-    description="Tool editor Markdown gratis dengan live preview, syntax highlighting, dan dukungan diagram Mermaid. Cocok untuk catatan coding."
-    wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website Alhazen Academy."
+<x-layout title="Ruang Tulis by Alhazen - Editor Markdown Online Gratis"
+    description="Tool editor Markdown gratis dengan live preview, syntax highlighting, dan dukungan diagram Mermaid. Cocok untuk catatan coding dan dokumentasi."
+    wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website Alhazen Academy - Ruang Tulis."
     :sales-phone="$salesPhone">
 
     <x-navbar variant="kids" />
 
-    <x-tools.codedoc-editor />
+    <x-tools.ruang-tulis-editor :starter-text="$starterText" />
 
     <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" :program-links="$programLinks" />
 

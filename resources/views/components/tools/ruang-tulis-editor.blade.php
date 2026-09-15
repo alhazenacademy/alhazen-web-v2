@@ -1,4 +1,5 @@
-<section x-data="codedoc()" :class="isPresentation ? 'fixed inset-0 z-50 bg-white overflow-hidden p-0 flex flex-col' : (isFullscreen ? 'fixed inset-0 z-50 bg-background overflow-y-auto pt-6' : 'min-h-screen pt-6 pb-12 bg-background')" class="transition-all duration-300">
+@props(['starterText' => ''])
+<section x-data="ruangTulis(@js($starterText))" :class="isPresentation ? 'fixed inset-0 z-50 bg-white overflow-hidden p-0 flex flex-col' : (isFullscreen ? 'fixed inset-0 z-50 bg-background overflow-y-auto pt-6' : 'min-h-screen pt-6 pb-12 bg-background')" class="transition-all duration-300">
     <div :class="isPresentation ? 'flex-1 flex flex-col min-h-0 max-w-none p-0' : (isFullscreen ? 'max-w-none px-6' : 'max-w-[1600px] mx-auto px-4 sm:px-6')">
         {{-- Custom Popup / Modal --}}
         <div x-show="showPopup" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
@@ -86,48 +87,52 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs text-text/80">
                 <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">Daftar Isi (TOC)</p>
+                    <code class="font-mono">[TOC]</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
                     <p class="font-semibold text-text mb-0.5">Heading</p>
                     <code class="font-mono"># H1, ## H2, ### H3</code>
                 </div>
                 <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">Format</p>
-                    <code class="font-mono">**tebal** *miring* ~~coret~~</code>
+                    <p class="font-semibold text-text mb-0.5">Format Teks</p>
+                    <code class="font-mono">**tebal** *miring* ~~coret~~ `kode`</code>
                 </div>
                 <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">List</p>
-                    <code class="font-mono">- item, 1. nomor, - [x]</code>
+                    <p class="font-semibold text-text mb-0.5">List & Checklist</p>
+                    <code class="font-mono">- item, 1. nomor, - [x], - [ ]</code>
                 </div>
                 <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">Link & Gambar</p>
-                    <code class="font-mono">[teks](url) ![alt](img)</code>
-                </div>
-                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">Kode</p>
-                    <code class="font-mono">`inline` ```python</code>
-                </div>
-                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">Tabel</p>
-                    <code class="font-mono">| A | B | --- |</code>
-                </div>
-                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">Quote</p>
+                    <p class="font-semibold text-text mb-0.5">Quote & Garis</p>
                     <code class="font-mono">&gt; kutipan, --- garis</code>
                 </div>
                 <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">Alert</p>
-                    <code class="font-mono">:::success Judul ... :::</code>
+                    <p class="font-semibold text-text mb-0.5">Link & Gambar</p>
+                    <code class="font-mono">[teks](url) ![alt](img-url)</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">Blok Kode</p>
+                    <code class="font-mono">```python ... ``` ```html ... ```</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">Tabel</p>
+                    <code class="font-mono">| Fitur | Status | --- |</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">Alert Box</p>
+                    <code class="font-mono">:::success / info / warning / danger ... :::</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">Diagram Mermaid</p>
+                    <code class="font-mono">```mermaid graph TD; ... ```</code>
+                </div>
+                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
+                    <p class="font-semibold text-text mb-0.5">Rumus KaTeX</p>
+                    <code class="font-mono">$x^2$ $$E=mc^2$$</code>
                 </div>
                 <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
                     <p class="font-semibold text-text mb-0.5">Footnote</p>
-                    <code class="font-mono">Text[^1]<br>[^1]: Catatan</code>
-                </div>
-                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">TOC</p>
-                    <code class="font-mono">[TOC]</code>
-                </div>
-                <div class="p-2 rounded-lg bg-neutral-50 dark:bg-white/5 border border-neutral-200/70 dark:border-white/10">
-                    <p class="font-semibold text-text mb-0.5">Diagram & Rumus</p>
-                    <code class="font-mono">```mermaid, $x^2$</code>
+                    <code class="font-mono">teks[^1] [^1]: catatan</code>
                 </div>
             </div>
         </div>
@@ -146,8 +151,8 @@
         </div>
     </div>
 
-            <script>
-        window.codedoc = function() {
+    <script>
+        window.ruangTulis = function(initialStarter = '') {
             // Configure Marked with GFM Footnotes enabled
             marked.setOptions({
                 gfm: true,
@@ -169,7 +174,7 @@
                 isPresentation: false,
                 showHelp: false,
                 popupMessage: '',
-                content: localStorage.getItem('alhazen-codedoc:draft') || '# Alhazen CodeDoc\n\nSelamat datang di **Alhazen CodeDoc**!\n\nTulis dokumentasi, catatan belajar, atau kode Markdown Anda dengan live preview.\n\n## Contoh Fitur:\n- **Teks tebal** dan *miring*\n- List item terstruktur\n- Tabel Markdown\n\n| Fitur | Status |\n| :--- | :--- |\n| Live Preview | Aktif |\n| Mermaid | Aktif |\n\n```python\n# Contoh Code Block\nprint("Halo Alhazen!")\n```\n\n```html\n<div>Halo Alhazen</div>\n```\n',
+                content: localStorage.getItem('ruang-tulis:draft') || initialStarter,
                 renderedHtml: '',
                 toggleFullscreen() {
                     this.isFullscreen = !this.isFullscreen;
@@ -194,7 +199,7 @@
                 init() {
                     this.render();
                     this.$watch('content', () => {
-                        localStorage.setItem('alhazen-codedoc:draft', this.content);
+                        localStorage.setItem('ruang-tulis:draft', this.content);
                         this.render();
                     });
                 },
@@ -261,6 +266,35 @@
 
                     return text.replace(/\[TOC\]/gi, tocHtml);
                 },
+                parseFootnotes(text) {
+                    const definitions = {};
+                    const withoutDefs = text.replace(/^\[\^([^\]]+)\]:\s*(.*)$/gm, (match, label, def) => {
+                        definitions[label.trim()] = (def || '').trim();
+                        return '';
+                    });
+                    const order = [];
+                    const withRefs = withoutDefs.replace(/\[\^([^\]]+)\]/g, (match, label) => {
+                        const key = (label || '').trim();
+                        if (!(key in definitions)) return match;
+                        let idx = order.indexOf(key);
+                        if (idx === -1) {
+                            order.push(key);
+                            idx = order.length - 1;
+                        }
+                        const num = idx + 1;
+                        return `<sup id="fnref-${num}"><a href="#fn-${num}">[${num}]</a></sup>`;
+                    });
+                    if (order.length === 0) return withRefs;
+                    let footnotesHtml = '\n\n<div class="footnotes"><hr><ol>';
+                    order.forEach((key, i) => {
+                        const num = i + 1;
+                        const defMd = definitions[key] || '';
+                        const defHtml = typeof marked.parseInline === 'function' ? marked.parseInline(defMd) : marked.parse(defMd);
+                        footnotesHtml += `<li id="fn-${num}">${defHtml} <a href="#fnref-${num}" class="footnote-backref">↩</a></li>`;
+                    });
+                    footnotesHtml += '</ol></div>';
+                    return withRefs + footnotesHtml;
+                },
                 assignHeadingIds() {
                     const preview = this.$refs.preview;
                     if (!preview) return;
@@ -301,35 +335,6 @@
                         behavior: 'smooth'
                     });
                 },
-                parseFootnotes(text) {
-                    const definitions = {};
-                    const withoutDefs = text.replace(/^\[\^([^\]]+)\]:\s*(.*)$/gm, (match, label, def) => {
-                        definitions[label.trim()] = (def || '').trim();
-                        return '';
-                    });
-                    const order = [];
-                    const withRefs = withoutDefs.replace(/\[\^([^\]]+)\]/g, (match, label) => {
-                        const key = (label || '').trim();
-                        if (!(key in definitions)) return match;
-                        let idx = order.indexOf(key);
-                        if (idx === -1) {
-                            order.push(key);
-                            idx = order.length - 1;
-                        }
-                        const num = idx + 1;
-                        return `<sup id="fnref-${num}"><a href="#fn-${num}">[${num}]</a></sup>`;
-                    });
-                    if (order.length === 0) return withRefs;
-                    let footnotesHtml = '\n\n<div class="footnotes"><hr><ol>';
-                    order.forEach((key, i) => {
-                        const num = i + 1;
-                        const defMd = definitions[key] || '';
-                        const defHtml = typeof marked.parseInline === 'function' ? marked.parseInline(defMd) : marked.parse(defMd);
-                        footnotesHtml += `<li id="fn-${num}">${defHtml} <a href="#fnref-${num}" class="footnote-backref">↩</a></li>`;
-                    });
-                    footnotesHtml += '</ol></div>';
-                    return withRefs + footnotesHtml;
-                },
                 render() {
                     try {
                         const contentWithAdmonitions = this.parseAdmonitions(this.content);
@@ -342,12 +347,47 @@
                     }
                     this.$nextTick(() => {
                         this.assignHeadingIds();
-                        document.querySelectorAll('#preview-pane pre code').forEach((block) => {
-                            hljs.highlightElement(block);
-                        });
-                        try {
-                            mermaid.run({ querySelector: '#preview-pane .mermaid' });
-                        } catch (e) {}
+                        const preview = this.$refs.preview || document.getElementById('preview-pane');
+                        if (preview) {
+                            preview.querySelectorAll('pre code').forEach((block) => {
+                                if (block.className.includes('language-mermaid')) return;
+                                try {
+                                    hljs.highlightElement(block);
+                                } catch (e) {}
+                            });
+                            preview.querySelectorAll('pre code.language-mermaid, pre code[class*="language-mermaid"]').forEach((block) => {
+                                const pre = block.closest('pre');
+                                if (!pre) return;
+                                const div = document.createElement('div');
+                                div.className = 'mermaid';
+                                div.textContent = block.textContent;
+                                pre.replaceWith(div);
+                            });
+                            if (typeof mermaid !== 'undefined') {
+                                try {
+                                    if (!window.__mermaidInit) {
+                                        mermaid.initialize({ startOnLoad: false });
+                                        window.__mermaidInit = true;
+                                    }
+                                    mermaid.run({ querySelector: '#preview-pane .mermaid' });
+                                } catch (e) {
+                                    console.error('Mermaid render error:', e);
+                                }
+                            }
+                            if (typeof renderMathInElement !== 'undefined') {
+                                try {
+                                    renderMathInElement(preview, {
+                                        delimiters: [
+                                            {left: '$$', right: '$$', display: true},
+                                            {left: '$', right: '$', display: false}
+                                        ],
+                                        throwOnError: false
+                                    });
+                                } catch (e) {
+                                    console.error('KaTeX render error:', e);
+                                }
+                            }
+                        }
                     });
                 },
                 copyMarkdown() {
@@ -356,10 +396,10 @@
                 },
                 downloadFile(format = 'md') {
                     let blob;
-                    let filename = 'alhazen-codedoc';
+                    let filename = 'ruang-tulis';
                     if (format === 'html') {
                         const body = this.renderedHtml || '';
-                        const html = `<!DOCTYPE html>\n<html lang="id">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Alhazen CodeDoc Export</title>\n<style>\nbody{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#111827;max-width:800px;margin:0 auto;padding:2rem 1.25rem}\nh1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.25rem}\ntable{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:.5rem .75rem;text-align:left}\npre{background:#f6f8fa;padding:1rem;border-radius:.75rem;overflow-x:auto}\ncode{font-family:ui-monospace,Menlo,Consolas,monospace}\nimg{max-width:100%;height:auto}\n</style>\n</head>\n<body>\n${body}\n</body>\n</html>`;
+                        const html = `<!DOCTYPE html>\n<html lang="id">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Ruang Tulis by Alhazen Export</title>\n<style>\nbody{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#111827;max-width:800px;margin:0 auto;padding:2rem 1.25rem}\nh1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.25rem}\ntable{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:.5rem .75rem;text-align:left}\npre{background:#f6f8fa;padding:1rem;border-radius:.75rem;overflow-x:auto}\ncode{font-family:ui-monospace,Menlo,Consolas,monospace}\nimg{max-width:100%;height:auto}\n</style>\n</head>\n<body>\n${body}\n</body>\n</html>`;
                         blob = new Blob([html], { type: 'text/html;charset=utf-8' });
                         filename += '.html';
                     } else if (format === 'txt') {
@@ -384,7 +424,7 @@
                 },
                 executeClear() {
                     this.content = '';
-                    localStorage.removeItem('alhazen-codedoc:draft');
+                    localStorage.removeItem('ruang-tulis:draft');
                     this.showConfirm = false;
                     this.showNotification('Editor telah dibersihkan!');
                 }
@@ -417,6 +457,7 @@
         .markdown-preview .md-alert-success { background: #ecfdf5; border-color: #059669; color: #065f46; }
         .markdown-preview .md-alert-danger { background: #fef2f2; border-color: #ef4444; color: #991b1b; }
         .markdown-preview .md-alert-info { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+        .markdown-preview .md-alert-warning { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
         .markdown-preview .footnotes { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em; opacity: 0.9; }
         .markdown-preview .footnotes ol { padding-left: 1.25rem; }
         .markdown-preview .footnote-backref { margin-left: 0.25rem; text-decoration: none; color: #059669; font-weight: bold; }
