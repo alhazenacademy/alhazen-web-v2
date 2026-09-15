@@ -21,6 +21,20 @@
             </div>
         </div>
 
+        {{-- Download Format Popup --}}
+        <div x-show="showDownload" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs" @click.self="showDownload = false">
+            <div class="bg-white dark:bg-dark p-6 rounded-2xl shadow-2xl border border-[var(--color-neutral)]/40 max-w-sm w-full transform transition-all">
+                <h3 class="font-bold text-lg mb-1 text-text text-center">Download Dokumen</h3>
+                <p class="text-text/70 text-sm mb-5 text-center">Pilih format file yang ingin diunduh.</p>
+                <div class="flex flex-col gap-2">
+                    <button @click="downloadFile('md')" class="w-full text-center px-4 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold shadow-sm transition cursor-pointer">Markdown (.md)</button>
+                    <button @click="downloadFile('html')" class="w-full text-center px-4 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold shadow-sm transition cursor-pointer">HTML (.html)</button>
+                    <button @click="downloadFile('txt')" class="w-full text-center px-4 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold shadow-sm transition cursor-pointer">Plain Text (.txt)</button>
+                </div>
+                <button @click="showDownload = false" class="w-full mt-4 bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-xl font-semibold transition cursor-pointer shadow-md">Batal</button>
+            </div>
+        </div>
+
         {{-- Toolbar --}}
         <div x-show="!isPresentation" class="mb-4 sm:mb-6 p-3 sm:p-4 bg-white/80 dark:bg-dark/80 rounded-2xl border border-[var(--color-neutral)]/40 backdrop-blur shadow-sm flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <div class="flex items-center gap-2 w-full sm:w-auto">
@@ -32,7 +46,7 @@
                 <button @click="copyMarkdown()" title="Copy Markdown" class="shrink-0 p-2.5 min-w-[44px] min-h-[44px] bg-neutral-100 hover:bg-neutral-200 text-text/80 rounded-xl transition cursor-pointer flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
                 </button>
-                <button @click="downloadMarkdown()" title="Download .md" class="shrink-0 p-2.5 min-w-[44px] min-h-[44px] bg-neutral-100 hover:bg-neutral-200 text-text/80 rounded-xl transition cursor-pointer flex items-center justify-center">
+                <button @click="showDownload = true" title="Download" class="shrink-0 p-2.5 min-w-[44px] min-h-[44px] bg-neutral-100 hover:bg-neutral-200 text-text/80 rounded-xl transition cursor-pointer flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 </button>
                 <button @click="clearDraft()" title="Clear Editor" class="shrink-0 p-2.5 min-w-[44px] min-h-[44px] bg-red-50 hover:bg-red-100 text-red-600 rounded-xl transition cursor-pointer flex items-center justify-center">
@@ -138,6 +152,7 @@
                 mode: 'split',
                 showPopup: false,
                 showConfirm: false,
+                showDownload: false,
                 isFullscreen: false,
                 isPresentation: false,
                 showHelp: false,
@@ -297,14 +312,30 @@
                     navigator.clipboard.writeText(this.content);
                     this.showNotification('Markdown berhasil disalin ke clipboard!');
                 },
-                downloadMarkdown() {
-                    const blob = new Blob([this.content], { type: 'text/markdown' });
+                downloadFile(format = 'md') {
+                    let blob;
+                    let filename = 'alhazen-codedoc';
+                    if (format === 'html') {
+                        const body = this.renderedHtml || '';
+                        const html = `<!DOCTYPE html>\n<html lang="id">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Alhazen CodeDoc Export</title>\n<style>\nbody{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#111827;max-width:800px;margin:0 auto;padding:2rem 1.25rem}\nh1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.25rem}\ntable{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:.5rem .75rem;text-align:left}\npre{background:#f6f8fa;padding:1rem;border-radius:.75rem;overflow-x:auto}\ncode{font-family:ui-monospace,Menlo,Consolas,monospace}\nimg{max-width:100%;height:auto}\n</style>\n</head>\n<body>\n${body}\n</body>\n</html>`;
+                        blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+                        filename += '.html';
+                    } else if (format === 'txt') {
+                        blob = new Blob([this.content], { type: 'text/plain;charset=utf-8' });
+                        filename += '.txt';
+                    } else {
+                        blob = new Blob([this.content], { type: 'text/markdown;charset=utf-8' });
+                        filename += '.md';
+                    }
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = 'alhazen-codedoc.md';
+                    a.download = filename;
+                    document.body.appendChild(a);
                     a.click();
+                    a.remove();
                     URL.revokeObjectURL(url);
+                    this.showDownload = false;
                 },
                 clearDraft() {
                     this.showConfirm = true;
