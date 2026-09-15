@@ -1,6 +1,11 @@
 @props(['starterText' => ''])
-<section x-data="ruangTulis(@js($starterText))" :class="isPresentation ? 'fixed inset-0 z-50 bg-white overflow-hidden p-0 flex flex-col' : (isFullscreen ? 'fixed inset-0 z-50 bg-background overflow-y-auto pt-6' : 'min-h-screen pt-6 pb-12 bg-background')" class="transition-all duration-300">
-    <div :class="isPresentation ? 'flex-1 flex flex-col min-h-0 max-w-none p-0' : (isFullscreen ? 'max-w-none px-6' : 'max-w-[1600px] mx-auto px-4 sm:px-6')">
+<script>
+window.__ruangTulisStarter = @js($starterText);
+</script>
+<section x-data="ruangTulis()" 
+    :class="isPresentation ? 'fixed inset-0 z-50 bg-white overflow-hidden p-0 flex flex-col' : (isFullscreen ? 'fixed inset-0 z-50 bg-background overflow-y-auto pt-6' : 'bg-background')" 
+    class="transition-all duration-300">
+    <div :class="isPresentation ? 'flex-1 flex flex-col min-h-0 max-w-none p-0' : (isFullscreen ? 'max-w-none px-6' : 'max-w-[1600px] mx-auto px-4 sm:px-6 pt-6 pb-12')">
         {{-- Custom Popup / Modal --}}
         <div x-show="showPopup" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
             <div class="bg-white dark:bg-dark p-6 rounded-2xl shadow-2xl border border-[var(--color-neutral)]/40 max-w-sm w-full text-center transform transition-all">
@@ -152,7 +157,8 @@
     </div>
 
     <script>
-        window.ruangTulis = function(initialStarter = '') {
+        window.ruangTulis = function() {
+            const initialStarter = window.__ruangTulisStarter || '';
             // Configure Marked with GFM Footnotes enabled
             marked.setOptions({
                 gfm: true,
@@ -176,6 +182,7 @@
                 popupMessage: '',
                 content: localStorage.getItem('ruang-tulis:draft') || initialStarter,
                 renderedHtml: '',
+                _mathStore: [],
                 toggleFullscreen() {
                     this.isFullscreen = !this.isFullscreen;
                 },
@@ -217,8 +224,87 @@
                         }
                     });
                 },
+                storeMath(latex, display, original) {
+                    const token = 'KAMATHTOKEN' + this._mathStore.length + 'KAMATH';
+                    this._mathStore.push({ latex: latex, display: display, original: original });
+                    return token;
+                },
+                protectMath(text) {
+                    this._mathStore = [];
+                    const lines = (text || '').split('\n');
+                    let inFence = false;
+                    let fenceChar = '';
+                    const chunks = [];
+                    let buf = [];
+                    const flush = (isCode) => {
+                        const chunk = buf.join('\n');
+                        chunks.push(isCode ? chunk : this.protectMathChunk(chunk));
+                        buf = [];
+                    };
+                    lines.forEach((line) => {
+                        const m = line.match(/^[ \t]*(```+|~~~+)/);
+                        if (m) {
+                            const ch = m[1][0];
+                            if (!inFence) {
+                                flush(false);
+                                inFence = true;
+                                fenceChar = ch;
+                            } else if (ch === fenceChar) {
+                                buf.push(line);
+                                flush(true);
+                                inFence = false;
+                                fenceChar = '';
+                                return;
+                            }
+                            buf.push(line);
+                            return;
+                        }
+                        buf.push(line);
+                    });
+                    flush(inFence);
+                    return chunks.join('\n');
+                },
+                protectMathChunk(chunk) {
+                    const parts = chunk.split(/(`[^`]*`)/g);
+                    for (let i = 0; i < parts.length; i += 2) {
+                        parts[i] = this.protectMathText(parts[i]);
+                    }
+                    return parts.join('');
+                },
+                protectMathText(part) {
+                    let s = part.split('\\$').join('KAMATHESCAPEDDOLLAR');
+                    s = s.replace(/\$\$([\s\S]+?)\$\$/g, (m, latex) => {
+                        latex = (latex || '').trim();
+                        if (!latex) return m;
+                        return this.storeMath(latex, true, m);
+                    });
+                    s = s.replace(/(^|[^\w$])\$(?=[^\s$])([^$\n]+?)\$(?![0-9])/g, (m, prefix, latex) => {
+                        if (/^\s|\s$/.test(latex)) return m;
+                        latex = latex.trim();
+                        if (!latex) return m;
+                        return prefix + this.storeMath(latex, false, '$' + latex + '$');
+                    });
+                    return s;
+                },
+                restoreMath(html) {
+                    let out = html || '';
+                    this._mathStore.forEach((item, i) => {
+                        const token = 'KAMATHTOKEN' + i + 'KAMATH';
+                        let replacement = item.original;
+                        if (typeof katex !== 'undefined') {
+                            try {
+                                replacement = katex.renderToString(item.latex, { displayMode: item.display, throwOnError: false, trust: false, output: 'html', strict: false });
+                            } catch (e) {
+                                replacement = item.original;
+                            }
+                        }
+                        out = out.split(token).join(replacement);
+                    });
+                    return out.split('KAMATHESCAPEDDOLLAR').join('$');
+                },
                 slugifyHeading(text) {
                     const plain = (text || '')
+                        .replace(/KAMATHTOKEN\d+KAMATH/g, '')
                         .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
                         .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
                         .replace(/[`*_~#]/g, '')
@@ -337,11 +423,14 @@
                 },
                 render() {
                     try {
-                        const contentWithAdmonitions = this.parseAdmonitions(this.content);
+                        this._mathStore = [];
+                        const contentWithMath = this.protectMath(this.content);
+                        const contentWithAdmonitions = this.parseAdmonitions(contentWithMath);
                         const contentWithTOC = this.parseTOC(contentWithAdmonitions);
                         const contentWithFootnotes = this.parseFootnotes(contentWithTOC);
                         const rawHtml = marked.parse(contentWithFootnotes);
-                        this.renderedHtml = DOMPurify.sanitize(rawHtml, { ADD_TAGS: ['sup'], ADD_ATTR: ['id', 'class', 'style', 'target'] });
+                        const htmlWithMath = this.restoreMath(rawHtml);
+                        this.renderedHtml = DOMPurify.sanitize(htmlWithMath, { ADD_TAGS: ['sup', 'span', 'annotation'], ADD_ATTR: ['id', 'class', 'style', 'target', 'xmlns', 'aria-hidden', 'encoding'] });
                     } catch (e) {
                         this.renderedHtml = '<p class="text-red-500">Error parsing markdown</p>';
                     }
@@ -372,19 +461,6 @@
                                     mermaid.run({ querySelector: '#preview-pane .mermaid' });
                                 } catch (e) {
                                     console.error('Mermaid render error:', e);
-                                }
-                            }
-                            if (typeof renderMathInElement !== 'undefined') {
-                                try {
-                                    renderMathInElement(preview, {
-                                        delimiters: [
-                                            {left: '$$', right: '$$', display: true},
-                                            {left: '$', right: '$', display: false}
-                                        ],
-                                        throwOnError: false
-                                    });
-                                } catch (e) {
-                                    console.error('KaTeX render error:', e);
                                 }
                             }
                         }
@@ -432,6 +508,7 @@
         }
     </script>
     <style>
+        .mermaidTooltip { position: fixed !important; pointer-events: none; }
         .markdown-preview h1 { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; margin-top: 1.5rem; }
         .markdown-preview h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.75rem; margin-top: 1.25rem; }
         .markdown-preview h3 { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem; margin-top: 1rem; }
