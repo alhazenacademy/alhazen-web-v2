@@ -1,5 +1,7 @@
-import Alpine from 'alpinejs'
-window.Alpine = Alpine
+import collapse from '@alpinejs/collapse'
+document.addEventListener('alpine:init', () => {
+    window.Alpine.plugin(collapse)
+})
 
 import './landing/swiper-init'
 import './landing/theme'
@@ -114,4 +116,3 @@ window.leadForm = function leadForm(opts = {}) {
     }
 }
 
-Alpine.start()

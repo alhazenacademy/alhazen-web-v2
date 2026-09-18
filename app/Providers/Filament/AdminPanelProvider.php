@@ -31,7 +31,7 @@ use Filament\View\PanelsRenderHook;
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
-    {   
+    {
         // Menambahkan tag meta noindex, nofollow pada head panel admin Filament
         FilamentView::registerRenderHook(
             PanelsRenderHook::HEAD_END,
@@ -44,8 +44,8 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->profile(EditProfile::class, isSimple: false)
-            ->favicon(asset('assets/logo.webp'))
-            ->brandLogo(asset('assets/cms-logo.webp'))
+            ->favicon(asset('assets/logo-new.webp'))
+            ->brandLogo(asset('assets/cms-logo-new.webp'))
             ->brandName('Alhazen Academy CMS')
             ->colors([
                 'primary' => Color::hex('#059669'),

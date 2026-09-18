@@ -61,7 +61,15 @@ public/sitemap-pages.xml
 public/sitemap-posts.xml
 public/sitemap-categories.xml
 
+# Ignore AI documentation folder
+.ai
+.opencode
+AGENTS.md
+
 # Ignore IDE helper files
 _ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
+
+# Ignore helper scripts
+push-all.sh

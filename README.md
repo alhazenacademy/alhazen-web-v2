@@ -1,61 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Alhazen Academy Web & CMS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Platform web dan sistem manajemen konten (CMS) resmi untuk **Alhazen Academy** — lembaga kursus koding, AI, dan robotika untuk anak-anak.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Backend:** Laravel 12, PHP 8.2+
+- **Admin Panel:** Filament 4
+- **Frontend:** Blade, Tailwind CSS 4, Alpine.js, Swiper
+- **Database:** SQLite (default) / MySQL
+- **Permissions:** Spatie Permission + Filament Shield
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Memulai Pengembangan (Quick Start)
 
-## Learning Laravel
+Ikuti langkah-langkah di bawah untuk menjalankan proyek di lingkungan lokal:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Clone repository & masuk ke direktori proyek:**
+   ```bash
+   git clone <repository-url>
+   cd alhazen-web-v2
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. **Install dependensi PHP & Node.js:**
+   ```bash
+   composer install
+   npm install
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. **Konfigurasi Environment:**
+   Salin file `.env.example` menjadi `.env` dan buat key aplikasi:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Laravel Sponsors
+4. **Migrasi dan Seed Database:**
+   ```bash
+   php artisan migrate --seed
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. **Jalankan Server Pengembangan:**
+   Anda dapat menjalankan server lokal dan Vite secara bersamaan:
+   ```bash
+   composer dev
+   ```
+   Atau jalankan secara terpisah:
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Perintah Penting (Commands)
 
-## Contributing
+| Perintah | Deskripsi |
+|---|---|
+| `composer dev` | Menjalankan server, queue, logs, dan Vite secara paralel |
+| `php artisan serve` | Menjalankan server pengembangan Laravel saja |
+| `npm run dev` | Menjalankan Vite development server |
+| `npm run build` | Kompilasi aset frontend untuk produksi |
+| `php artisan migrate` | Menjalankan migrasi database |
+| `php artisan db:seed` | Menjalankan seeder database |
+| `php artisan shield:generate` | Regenerasi permission Filament Shield |
+| `composer test` | Membersihkan konfigurasi dan menjalankan unit test |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Daftar Halaman Utama & Fungsinya
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Beranda (`/`)**
+   - Halaman utama penyambung pengunjung: menampilkan banner program, keunggulan lembaga, daftar kursus populer, testimoni, dan CTA pendaftaran kelas gratis.
+2. **Program (`/program`)**
+   - Katalog lengkap seluruh program kursus dan pelatihan teknologi (Koding Anak, Python, Roblox, Blender, dll.).
+3. **Detail Kursus (`/kursus-...`)**
+   - Halaman mendalam untuk setiap jenis kursus spesifik (kurikulum, target usia, manfaat).
+4. **Katalog Buku (`/katalog`)**
+   - Daftar buku dan modul pembelajaran teknologi yang diterbitkan/digunakan oleh Alhazen Academy.
+5. **Artikel / Blog (`/artikel` & `/artikel/{slug}`)**
+   - Pusat informasi, tips pendidikan teknologi anak, berita kegiatan, dan artikel edukatif.
+6. **Tentang Kami (`/about`)**
+   - Profil lembaga, visi & misi, pendekatan kurikulum STEM & kepemimpinan Islam, serta kontak resmi.
+7. **Lokasi (`/lokasi`)**
+   - Informasi alamat cabang/mitra pusat belajar fisik lengkap dengan peta lokasi.
+8. **Pendaftaran Kelas Gratis (`/trial`)**
+   - Formulir interaktif bagi orang tua untuk mendaftarkan anak mengikuti *trial class* (uji coba gratis).
+9. **Halaman Event Spesial (`/event/...`)**
+   - Halaman kampanye event berkala (seperti Ramadhan NgabuburIT Class, Coding Experience, Hackathon).
+10. **Halaman Terima Kasih (`/thank-you`)**
+    - Konfirmasi setelah pengguna sukses mengirimkan data pendaftaran atau *lead*.
+11. **Tautan Sosial / Linktree (`/links`)**
+    - Kumpulan tautan penting (WhatsApp, pendaftaran, sosial media) untuk akses perangkat seluler.

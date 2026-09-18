@@ -1,13 +1,13 @@
-<x-layout title="Tentang Kami - Alhazen Academy" 
-    description="Alhazen Academy adalah lembaga kursus anak dan dewasa yang fokus pada edukasi teknologi dan skill masa depan. Dengan metode belajar yang fun dan interkatif" 
+<x-layout title="Tentang Kami - Alhazen Academy"
+    description="Alhazen Academy adalah lembaga kursus anak dan dewasa yang fokus pada edukasi teknologi dan skill masa depan. Dengan metode belajar yang fun dan interkatif"
     wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy." :sales-phone="$salesPhone">
     <x-navbar variant="kids" />
     <x-about.hero title="Tentang Alhazen Academy"
         subtitle="Menginspirasi generasi digital dengan cara belajar yang menyenangkan dan bermakna."
         ctaText="Pelajari Program Kami" ctaHref="{{ route('program') }}" imgLT="assets/kids/about/hero-1.webp"
         imgLB="assets/kids/about/hero-2.webp" imgRT="assets/kids/about/hero-3.webp" imgRB="assets/kids/about/hero-4.webp"
-        mascot="/assets/kids/about/mascot-about.webp" />
-    <x-about.who logo="/assets/kids/about/logo-about.webp" titleWho="Siapa Kami ?" :paragraphsWho="[
+        mascot="assets/kids/about/mascot-about.webp" />
+    <x-about.who logo="/assets/nav-logo-new.webp" titleWho="Siapa Kami ?" :paragraphsWho="[
         'Alhazen Academy merupakan lembaga kursus dan konsultan Pendidikan khususnya dalam bidang pendidikan teknologi, mendukung pengembangan teknologi industri 4.0 dengan Islamic Leadership dan STEM (Science, Technology, Engineering, Math).',
         'Berdiri pada tahun 2022 dengan nama <strong>PT. Alhazen Global Teknologi</strong>, Alhazen Academy dengan lebih dari 2000 alumni murid yang telah kami edukasi, merupakan destinasi utama bagi siapa saja yang mencari pendidikan coding berkualitas.',
         'Dengan kolaborasi yang telah kami bangun dengan lebih dari 10 sekolah terkemuka dan program inovatif <strong>Alhazen goes to School</strong> yang telah menjangkau lebih dari 100 sekolah di seluruh Indonesia, kami menawarkan pengalaman belajar yang menyenangkan. ',
