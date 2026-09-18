@@ -38,6 +38,11 @@ Route::get('/event/master-gemini', [LandingController::class, 'event_master_gemi
 Route::get('/event/coding-experience', [LandingController::class, 'coding_experience'])->name('coding-experience');
 Route::get('/event/kelas-coding-roblox', [LandingController::class, 'kelas_group_promo'])->name('kelas-group-promo');
 
+/** WEBINAR */
+Route::get('/webinar/didik-anak-era-ai', function () {
+    return view('pages.event.webinar.mendidik-anak-ai');
+})->name('event.mendidik-anak-ai');
+
 Route::get('/links', [LandingController::class, 'links'])->name('links');
 // Route::get('/plus/program/ai-python-quickstart', function () {
 //     return view('pages.random.aipythonquickstart');
