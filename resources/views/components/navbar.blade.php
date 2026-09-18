@@ -39,7 +39,7 @@
 @endphp
 
 <header class="sticky top-0 z-40 bg-background/90 backdrop-blur">
-    <nav role="navigation" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <nav role="navigation" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 grid grid-cols-[auto_1fr_auto] items-center gap-4">
 
         {{-- LEFT: Brand --}}
         <a href="{{ route('home') }}" class="flex items-center gap-3">
@@ -47,9 +47,9 @@
             <span class="sr-only">Alhazen</span>
         </a>
 
-        {{-- RIGHT: Desktop menu and Dashboard --}}
-        <div class="hidden md:flex items-center gap-8">
-            <ul class="flex items-center gap-8">
+        {{-- CENTER: Desktop menu --}}
+        <div class="hidden lg:flex justify-center items-center">
+            <ul class="flex items-center gap-6">
                 @foreach ($nav as $item)
                     {{-- Menu utama --}}
                     <li>
@@ -62,7 +62,7 @@
                     @if ($item['route'] === 'home' && !empty($moreProgramNav))
                         <li x-data="{ openMore: false }" class="relative">
                             <button type="button"
-                                @click="openMore = !openMore"@keydown.escape.window="openMore = false"
+                                @click="openMore = !openMore" @keydown.escape.window="openMore = false"
                                 class="inline-flex items-center gap-1 text-body {{ request()->routeIs(collect($moreProgramNav)->pluck('route')->all()) ? 'font-medium text-[var(--color-text)]/100' : 'text-[var(--color-text)]/50 hover:text-[var(--color-text)]/100' }} pb-1 transition-all duration-200 ease-in-out">
                                 <span>Program</span>
                                 <svg class="w-3.5 h-3.5" :class="{ 'rotate-180': openMore }" viewBox="0 0 20 20"
@@ -116,25 +116,31 @@
                     @endif
                 @endforeach
             </ul>
+        </div>
 
-            {{-- Button: Daftar Kelas Gratis (primary, hover accent) --}}
+        {{-- RIGHT (Desktop): Actions --}}
+        <div class="hidden lg:flex items-center justify-end gap-4">
+            {{-- Button: Daftar Kelas Gratis --}}
             <a href="{{ route('trial') }}"
-                class="my-5 px-4 py-3 inline-flex items-center rounded-xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out">
+                class="px-4 py-3 inline-flex items-center rounded-xl text-button bg-primary text-white hover:bg-accent hover:scale-105 transition-all duration-200 ease-in-out whitespace-nowrap">
                 Daftar Kelas Gratis
             </a>
 
-            {{-- Link: Masuk / Login (underlined) --}}
+            {{-- Link: Login --}}
             <a href="https://apps.alhazen.academy/#/login"
-                class="my-5 inline-flex items-center text-button text-primary underline hover:text-accent transition-all duration-200 ease-in-out">
+                class="inline-flex items-center text-button text-primary underline hover:text-accent transition-all duration-200 ease-in-out whitespace-nowrap">
                 Masuk / Login
             </a>
         </div>
 
-        {{-- MOBILE: burger --}}
-        <div class="md:hidden" x-data="{ open: false, openMore: false }" x-cloak>
+        {{-- RIGHT (Mobile/Tablet): Burger --}}
+        <div class="lg:hidden flex items-center justify-end" x-data="{ open: false, openMore: false }" x-cloak>
             <button @click="open = !open" aria-label="Open menu"
                 class="p-2 rounded-lg border border-neutral text-text hover:bg-neutral hover:text-primary transition-all duration-200 ease-in-out">
-                ☰
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    <path x-show="open" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" x-cloak />
+                </svg>
             </button>
 
             <div x-show="open" @click.outside="open = false" x-transition
