@@ -270,7 +270,7 @@
                                                 <div class="md:pl-1">
                                                     <div
                                                         class="grid gap-3 [grid-template-columns:repeat(auto-fill,minmax(110px,1fr))]">
-                                                        <template x-for="t in times" :key="t.time">
+                                                        <template x-for="t in availableTimes()" :key="t.time">
                                                             <button type="button" @click="form.schedule_time = t.time"
                                                                 class="shrink-0 whitespace-nowrap rounded-2xl px-5 py-3 font-semibold transition border border-[color-mix(in_oklab,var(--color-neutral)_50%,#fff)] cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
                                                                 :class="form.schedule_time === t.time ?

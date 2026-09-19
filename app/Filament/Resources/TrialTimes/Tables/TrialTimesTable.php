@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\TrialTimes\Tables;
 
-use Filament\Tables\Table;
-use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Tables\Columns\IconColumn;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Table;
 
 class TrialTimesTable
 {
@@ -18,36 +18,25 @@ class TrialTimesTable
             ->columns([
                 TextColumn::make('time')
                     ->label('Waktu')
-                    ->time()
+                    ->time('H:i')
                     ->sortable()
                     ->searchable(),
 
-                IconColumn::make('is_active')
+                ToggleColumn::make('is_active')
                     ->label('Aktif')
-                    ->sortable()
-                    ->boolean(),
+                    ->sortable(),
 
                 TextColumn::make('sort_order')
                     ->label('Urutan')
                     ->numeric()
                     ->sortable(),
-
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 TernaryFilter::make('is_active')
                     ->label('Status Aktif'),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()->slideOver(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
