@@ -2,8 +2,6 @@
 
 namespace App\Filament\Resources\TrialTimes;
 
-use App\Filament\Resources\TrialTimes\Pages\CreateTrialTime;
-use App\Filament\Resources\TrialTimes\Pages\EditTrialTime;
 use App\Filament\Resources\TrialTimes\Pages\ListTrialTimes;
 use App\Filament\Resources\TrialTimes\Schemas\TrialTimeForm;
 use App\Filament\Resources\TrialTimes\Tables\TrialTimesTable;
@@ -49,8 +47,6 @@ class TrialTimeResource extends Resource
     {
         return [
             'index' => ListTrialTimes::route('/'),
-            'create' => CreateTrialTime::route('/create'),
-            'edit' => EditTrialTime::route('/{record}/edit'),
         ];
     }
 }

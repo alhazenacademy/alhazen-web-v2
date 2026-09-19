@@ -281,6 +281,17 @@ window.trialForm = function trialForm(opts = {}) {
         times: opts.times,
         holidays: opts.holidays ?? [],
 
+        availableTimes() {
+            if (!this.form.schedule_date) return [];
+            const [year, month, day] = this.form.schedule_date.split("-").map(Number);
+            const date = new Date(year, month - 1, day);
+            const dayOfWeek = date.getDay(); // 0: Minggu, 1: Senin, ..., 6: Sabtu
+
+            return (this.times || []).filter(
+                (item) => Number(item.day_of_week) === Number(dayOfWeek)
+            );
+        },
+
         get progress() {
             if (this.step === 1) return 25;
             if (this.step === 2) return 50;
@@ -346,6 +357,10 @@ window.trialForm = function trialForm(opts = {}) {
 
                 onChange: (_sel, dateStr) => {
                     this.form.schedule_date = dateStr;
+                    const avail = this.availableTimes();
+                    if (!avail.some((t) => t.time === this.form.schedule_time)) {
+                        this.form.schedule_time = avail[0]?.time || "";
+                    }
                 },
             });
 

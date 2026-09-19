@@ -5,11 +5,11 @@
 
             <!-- Text -->
             <div>
-                <h2 class="text-h2 font-extrabold leading-tight mb-4">
+                <h2 class="text-h2 font-bold text-primary">
                     Dapat Sertifikat<br>
-                    <span class="text-primary">
-                        Kelulusan Resmi
-                    </span>
+                </h2>
+                <h2 class="text-h2 font-bold text-text  mb-4">
+                    Kelulusan Resmi
                 </h2>
 
                 <p class="text-text/80 leading-relaxed mb-5">
