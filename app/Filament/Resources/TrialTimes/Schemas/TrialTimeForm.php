@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\TrialTimes\Schemas;
 
-use App\Models\TrialTime;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\Toggle;
@@ -11,6 +11,18 @@ use Filament\Schemas\Schema;
 
 class TrialTimeForm
 {
+    public static function dayOptions(): array
+    {
+        return [
+            1 => 'Senin',
+            2 => 'Selasa',
+            3 => 'Rabu',
+            4 => 'Kamis',
+            5 => 'Jumat',
+            6 => 'Sabtu',
+        ];
+    }
+
     public static function configure(Schema $schema): Schema
     {
         return $schema
@@ -21,21 +33,28 @@ class TrialTimeForm
                     ->columns(columns: 1)
                     ->columnSpan('full')
                     ->schema([
+                        Hidden::make('day_of_week')
+                            ->required(),
+
                         TimePicker::make('time')
                             ->label('Waktu')
-                            ->required(),
+                            ->required()
+                            ->seconds(false)
+                            ->format('H:i')
+                            ->displayFormat('H:i')
+                            ->helperText(fn ($get) => 'Jam khusus untuk hari '.(self::dayOptions()[(int) $get('day_of_week')] ?? '').'. Rat-rata jam tersedia antara 09:00 – 20:00. Catatan: tulis pakai format 12 jam AM/PM, contoh 08:00 PM = 20:00.'),
 
                         Toggle::make('is_active')
                             ->label('Aktif')
                             ->required()
-                            ->helperText('Jika nonaktif, waktu trial class ini tidak akan ditampilkan di halaman publik.')
-                            ->default(true),
+                            ->default(true)
+                            ->helperText('Jika nonaktif, waktu trial class ini tidak akan ditampilkan di halaman publik.'),
 
                         TextInput::make('sort_order')
                             ->label('Urutan')
                             ->required()
                             ->numeric()
-                            ->default(fn() => (TrialTime::max('sort_order') ?? 0) + 1),
+                            ->helperText('Terisi otomatis. Urutan tampilan jam di halaman publik.'),
                     ]),
             ]);
     }
