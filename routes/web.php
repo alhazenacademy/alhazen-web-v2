@@ -43,6 +43,11 @@ Route::get('/webinar/didik-anak-era-ai', function () {
     return view('pages.event.webinar.mendidik-anak-ai');
 })->name('event.mendidik-anak-ai');
 
+/** UJIAN */
+Route::get('/ujian/kelas-6', function () {
+    return view('pages.kurikulum.ujian.ujian-kelas-6');
+});
+
 Route::get('/links', [LandingController::class, 'links'])->name('links');
 // Route::get('/plus/program/ai-python-quickstart', function () {
 //     return view('pages.random.aipythonquickstart');
