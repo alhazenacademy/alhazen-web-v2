@@ -429,7 +429,7 @@
         }
 
         /* ============ FLOW GAME ============ */
-        .flow-section { background: #F2F6F6; }
+        .flow-section { background: var(--bright-snow); }
         .flow-grid { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
         @media (min-width: 640px) { .flow-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1024px) { .flow-grid { grid-template-columns: repeat(4, 1fr); } }
