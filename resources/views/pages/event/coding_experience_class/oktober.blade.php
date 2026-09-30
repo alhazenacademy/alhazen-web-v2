@@ -220,10 +220,7 @@
             display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem;
         }
         .hero-badge {
-            display: inline-flex; align-items: center; gap: .45rem;
-            padding: .5rem 1.1rem; border-radius: 999px; font-size: .82rem; font-weight: 600;
-            color: var(--neu-accent); background: var(--neu-surface);
-            box-shadow: inset 2px 2px 5px var(--neu-dark), inset -2px -2px 5px var(--neu-light);
+            display: inline-flex; align-items: center; justify-content: center; width: 140px; max-width: 100%; height: auto; margin-bottom: 0.5rem;
         }
         .hero-title { color: var(--neu-text); margin: 1.3rem 0 .8rem; }
         .hero-title .hl { color: var(--neu-accent); }
@@ -719,7 +716,7 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-inner">
-                <span class="hero-badge">Mulai 5 Oktober 2026</span>
+                <img class="hero-badge" src="{{asset('assets/custom/coding_experience_class/cec_logo.png')}}" alt="Coding Experience Class Logo">
                 <h1 class="hero-title text-h1">Bantu Umar <span class="hl">Lari ke Sekolah</span></h1>
                 <p class="hero-sub text-body">
                     Kelas coding 1 hari yang dirancang untuk memfasilitasi rasa penasaran anak yang ingin mencoba membuat game. Belajar logika sambil bikin game seru lari ke sekolah.
