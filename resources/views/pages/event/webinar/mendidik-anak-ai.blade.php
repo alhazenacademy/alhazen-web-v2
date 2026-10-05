@@ -156,15 +156,25 @@
 
     <!-- HERO -->
     <section class="max-w-5xl mx-auto px-5 pt-14 pb-12 lg:pt-20 lg:pb-16">
-        <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-5">Webinar online via Zoom · 90 menit</p>
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="eyebrow text-[11px] font-bold uppercase text-blue-spruce bg-azure-mist/60 px-3.5 py-1.5 rounded-full">
+                Webinar online via Zoom · 60 menit
+            </span>
+            <div class="inline-flex items-center gap-2.5 bg-graphite text-white px-3.5 py-1 rounded-full text-[11px]">
+                <span class="text-white/60 font-medium">Kolaborasi:</span>
+                <img src="{{ asset('assets/custom/mendidik-anak-ai/logo_madinah_plus.png') }}" alt="Madinah Plus" class="h-4 w-auto object-contain">
+                <span class="text-white/30 text-[10px]">✕</span>
+                <img src="{{ asset('assets/custom/mendidik-anak-ai/logo_drb.png') }}" alt="DRB" class="h-4 w-auto object-contain">
+            </div>
+        </div>
         <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-end">
             <div>
                 <h1 class="text-4xl sm:text-5xl lg:text-[3.6rem] font-extrabold leading-[1.05] tracking-tight">Mendidik
                     Anak<br>di Era AI.</h1>
                 <p class="mt-4 text-xl sm:text-2xl font-medium text-graphite/80 leading-snug">Mana yang harus
                     dibatasi,<br class="hidden sm:block"> mana yang harus dipelajari?</p>
-                <p class="mt-5 text-[15px] leading-relaxed text-graphite/70 max-w-xl">Panduan pola asuh + wawasan
-                    teknologi untuk orang tua anak SD–SMA. Dua sisi saling melengkapi: parenting dan teknologi.</p>
+                <p class="mt-5 text-[15px] leading-relaxed text-graphite/70 max-w-xl">Panduan pola asuh dan wawasan
+                    teknologi untuk orang tua anak SD–SMA bersama pakar parenting Islam.</p>
                 <div class="mt-7 flex flex-wrap items-center gap-3">
                     <a href="#daftar"
                         class="bg-watermelon text-white text-sm font-bold px-6 py-3 rounded-full hover:opacity-90 shadow-md shadow-watermelon/20 transition-all">Amankan
@@ -174,12 +184,12 @@
                         agenda</a>
                 </div>
                 <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-graphite/70 num">
-                    <span><i class="fa-solid fa-calendar-days text-blue-spruce mr-1.5"></i>Sabtu, 18 Oktober 2026</span>
-                    <span><i class="fa-solid fa-clock text-blue-spruce mr-1.5"></i>09.00–10.30 WIB</span>
+                    <span><i class="fa-solid fa-calendar-days text-blue-spruce mr-1.5"></i>Sabtu, 31 Oktober 2026</span>
+                    <span><i class="fa-solid fa-clock text-blue-spruce mr-1.5"></i>10.00–11.00 WIB</span>
                     <span><i class="fa-solid fa-video text-blue-spruce mr-1.5"></i>Zoom</span>
                 </div>
             </div>
-            <div>
+            <div class="hidden lg:block">
                 <div class="rounded-2xl overflow-hidden border border-graphite/10 shadow-lg">
                     <img src="https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?q=80&w=1200&auto=format&fit=crop"
                         alt="Langit biru berawan" class="hero-img w-full">
@@ -207,9 +217,8 @@
                 perubahan bergerak lebih cepat. Anak tumbuh di dunia yang tidak sama dengan dunia tempat kita
                 dibesarkan.</p>
             <p>Banyak orang tua bingung: ingin melindungi anak dari sisi negatif teknologi, tapi sadar teknologi tak
-                bisa dibendung dan jadi bagian masa depan anak. Webinar ini menjawab kegelisahan itu dari dua sisi:
-                <span class="font-bold text-graphite">parenting</span> dan <span
-                    class="font-bold text-graphite">teknologi</span>.</p>
+                bisa dibendung dan jadi bagian masa depan anak. Webinar ini hadir menjawab kegelisahan itu melalui
+                pendekatan pola asuh yang bijak dan relevan dengan perkembangan zaman.</p>
         </div>
     </section>
 
@@ -218,64 +227,54 @@
         <div class="max-w-5xl mx-auto px-5 py-12 lg:py-20">
             <div class="max-w-2xl">
                 <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">02 — Pembicara</p>
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Dua sisi, saling melengkapi.</h2>
-                <p class="mt-3 text-[15px] text-graphite/65 leading-relaxed">Satu panggung, dua sudut pandang. Parenting
-                    sebagai fondasi, teknologi sebagai bekal masa depan.</p>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Belajar langsung dari pakarnya.</h2>
+                <p class="mt-3 text-[15px] text-graphite/65 leading-relaxed">Parenting sebagai fondasi utama membimbing anak di era kecerdasan buatan.</p>
             </div>
-            <div class="mt-10 grid md:grid-cols-2 gap-10 lg:gap-14">
-                <div class="relative">
-                    <span
-                        class="pointer-events-none select-none absolute -top-7 left-0 text-[5rem] leading-none font-extrabold text-watermelon/80 num">01</span>
+            <div class="mt-10 bg-graphite/[0.03] border border-graphite/10 rounded-[2.5rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden">
+                <span
+                    class="pointer-events-none select-none absolute -top-8 -right-4 sm:top-2 sm:right-6 text-[7rem] sm:text-[9rem] leading-none font-extrabold text-watermelon/15 num">01</span>
+                <div class="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-8 lg:gap-12 items-center relative">
                     <div
-                        class="relative flex items-end justify-center bg-graphite/[0.04] rounded-[2rem] px-6 pt-8 overflow-hidden">
+                        class="relative flex items-end justify-center bg-white rounded-3xl pt-6 border border-graphite/10 shadow-sm overflow-hidden">
                         <span
-                            class="absolute top-5 left-5 text-[11px] font-bold uppercase tracking-widest text-blue-spruce bg-white px-3 py-1.5 rounded-full shadow-sm">Parenting</span>
-                        <img src="https://www.pngall.com/wp-content/uploads/2016/05/Man-Download-PNG.png"
-                            alt="Ustadz Awang Insandaru"
-                            class="h-80 sm:h-96 w-auto max-w-full object-contain object-bottom drop-shadow-xl">
+                            class="absolute top-4 left-4 text-[11px] font-bold uppercase tracking-widest text-blue-spruce bg-azure-mist/80 px-3 py-1.5 rounded-full">Parenting</span>
+                        <img src="{{ asset('assets/custom/mendidik-anak-ai/pembicara.png') }}"
+                            alt="Ustadz dr. Raehanul Bahraen, M.Sc., Sp.PK"
+                            class="h-72 sm:h-100 w-auto max-w-full object-contain object-bottom drop-shadow-lg">
                     </div>
-                    <h3 class="font-bold text-2xl mt-6">Ustadz Awang Insandaru</h3>
-                    <p class="text-sm font-medium text-graphite/60 mt-1">Sisi Parenting dalam Mendidik Anak di Era AI
-                    </p>
-                    <ul class="mt-5 space-y-2.5 text-sm text-graphite/75">
-                        <li class="flex gap-2.5"><i
-                                class="fa-solid fa-check text-blue-spruce mt-1 text-xs"></i>Komunikasi terbuka dengan
-                            anak soal teknologi</li>
-                        <li class="flex gap-2.5"><i class="fa-solid fa-check text-blue-spruce mt-1 text-xs"></i>Kapan
-                            membatasi, kapan memberi kebebasan</li>
-                        <li class="flex gap-2.5"><i class="fa-solid fa-check text-blue-spruce mt-1 text-xs"></i>Prinsip
-                            parenting yang tak lekang zaman</li>
-                        <li class="flex gap-2.5"><i
-                                class="fa-solid fa-check text-blue-spruce mt-1 text-xs"></i>Ketahanan mental agar tak
-                            bergantung berlebihan</li>
-                    </ul>
-                </div>
-                <div class="relative md:mt-12">
-                    <span
-                        class="pointer-events-none select-none absolute -top-7 left-0 text-[5rem] leading-none font-extrabold text-watermelon/80 num">02</span>
-                    <div
-                        class="relative flex items-end justify-center bg-graphite/[0.04] rounded-[2rem] px-6 pt-8 overflow-hidden">
-                        <span
-                            class="absolute top-5 left-5 text-[11px] font-bold uppercase tracking-widest text-blue-bell bg-white px-3 py-1.5 rounded-full shadow-sm">Teknologi</span>
-                        <img src="https://www.pngall.com/wp-content/uploads/2016/05/Man-Download-PNG.png"
-                            alt="Reza Malik"
-                            class="h-80 sm:h-96 w-auto max-w-full object-contain object-bottom drop-shadow-xl">
+                    <div>
+                        <h3 class="font-extrabold text-2xl sm:text-3xl text-graphite">Ustadz dr. Raehanul Bahraen, M.Sc., Sp.PK</h3>
+                        <p class="text-base font-semibold text-blue-spruce mt-1">Dokter Sp.PK · Da'i Terstandarisasi MUI</p>
+                        <p class="text-sm text-graphite/70 mt-3 leading-relaxed">
+                            Dokter spesialis dan pendakwah yang aktif mengedukasi keluarga muslim dalam mengasuh serta mendidik anak di era modern.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                            <span class="bg-white border border-graphite/10 px-3 py-1.5 rounded-lg text-graphite/80 font-medium"><i class="fa-solid fa-graduation-cap text-blue-spruce mr-1.5"></i>Alumni Ma'had Al-Ilmi Yogyakarta</span>
+                            <span class="bg-white border border-graphite/10 px-3 py-1.5 rounded-lg text-graphite/80 font-medium"><i class="fa-solid fa-book-bookmark text-blue-spruce mr-1.5"></i>Mahasiswa S2 Fakultas Dakwah Al-Madinah International University</span>
+                            <span class="bg-white border border-graphite/10 px-3 py-1.5 rounded-lg text-graphite/80 font-medium"><i class="fa-solid fa-award text-blue-spruce mr-1.5"></i>Da'i Terstandarisasi MUI</span>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-graphite/10">
+                            <p class="text-xs font-bold uppercase tracking-wider text-graphite/50 mb-3">Poin Bahasan Utama:</p>
+                            <ul class="grid sm:grid-cols-2 gap-3 text-sm text-graphite/80">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i>
+                                    <span>Komunikasi terbuka dengan anak soal teknologi</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i>
+                                    <span>Kapan membatasi, kapan memberi kebebasan</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i>
+                                    <span>Prinsip parenting yang tak lekang zaman</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i>
+                                    <span>Ketahanan mental agar tak bergantung berlebihan</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-2xl mt-6">Reza Malik</h3>
-                    <p class="text-sm font-medium text-graphite/60 mt-1">Sisi Teknologi yang Perlu Dipahami Orang Tua
-                    </p>
-                    <ul class="mt-5 space-y-2.5 text-sm text-graphite/75">
-                        <li class="flex gap-2.5"><i
-                                class="fa-solid fa-check text-blue-bell mt-1 text-xs"></i>Perkembangan AI terkini dan
-                            dampak ke pendidikan</li>
-                        <li class="flex gap-2.5"><i class="fa-solid fa-check text-blue-bell mt-1 text-xs"></i>AI hadir
-                            sehari-hari, tanpa disadari orang tua</li>
-                        <li class="flex gap-2.5"><i
-                                class="fa-solid fa-check text-blue-bell mt-1 text-xs"></i>Kompetensi masa depan sejak
-                            dini</li>
-                        <li class="flex gap-2.5"><i class="fa-solid fa-check text-blue-bell mt-1 text-xs"></i>Peluang
-                            pendidikan teknologi yang bisa difasilitasi</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -286,12 +285,12 @@
         <div class="max-w-5xl mx-auto px-5 py-12 lg:py-16">
             <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">03 — Save the date</p>
             <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Catat tanggalnya.</h2>
-            <p class="mt-3 text-[15px] text-graphite/65 leading-relaxed max-w-xl">Sabtu, 18 Oktober 2026 · 09.00–10.30 WIB · Online via Zoom. Hadir 15 menit sebelumnya.</p>
+            <p class="mt-3 text-[15px] text-graphite/65 leading-relaxed max-w-xl">Sabtu, 31 Oktober 2026 · 10.00–11.00 WIB · Online via Zoom. Hadir 15 menit sebelumnya.</p>
             <div class="mt-8 bg-white border border-graphite/10 rounded-3xl overflow-hidden shadow-sm grid lg:grid-cols-[1fr_300px]">
                 <div class="p-6 sm:p-8">
                     <div class="flex items-center justify-between mb-5">
                         <p class="font-extrabold text-lg">Oktober <span class="text-graphite/40 font-bold">2026</span></p>
-                        <span class="text-[11px] font-bold uppercase tracking-widest text-blue-spruce bg-azure-mist/60 px-3 py-1.5 rounded-full">Sabtu · 18</span>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-blue-spruce bg-azure-mist/60 px-3 py-1.5 rounded-full">Sabtu · 31</span>
                     </div>
                     <div class="grid grid-cols-7 gap-1 text-center text-[11px] font-bold uppercase tracking-wider text-graphite/40 mb-2">
                         <span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
@@ -299,15 +298,15 @@
                     <div id="octCalendar" class="grid grid-cols-7 gap-1 text-center text-sm num">
                         <span class="py-2.5"></span><span class="py-2.5"></span><span class="py-2.5"></span>
                         @for ($d = 1; $d <= 31; $d++)
-                            @if ($d === 18)
-                                <span data-day="18" data-event="1" class="relative py-2.5 rounded-xl bg-watermelon text-white font-extrabold shadow-md shadow-watermelon/30">18</span>
+                            @if ($d === 31)
+                                <span data-day="31" data-event="1" class="relative py-2.5 rounded-xl bg-watermelon text-white font-extrabold shadow-md shadow-watermelon/30">31</span>
                             @else
                                 <span data-day="{{ $d }}" class="relative py-2.5 rounded-xl hover:bg-azure-mist/50">{{ $d }}</span>
                             @endif
                         @endfor
                     </div>
                     <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-graphite/60">
-                        <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-md bg-watermelon inline-block"></span>Acara · 18 Okt</span>
+                        <span class="inline-flex items-center gap-2"><span class="w-3 h-3 rounded-md bg-watermelon inline-block"></span>Acara · 31 Okt</span>
                         <span id="todayLegend" class="hidden items-center gap-2"><span class="w-3 h-3 rounded-md border-2 border-blue-spruce inline-block"></span>Hari ini</span>
                     </div>
                 </div>
@@ -318,7 +317,7 @@
                         </div>
                         <div>
                             <p class="text-[11px] font-bold uppercase tracking-widest opacity-70 mb-0.5">Tanggal</p>
-                            <p class="text-lg font-bold num">Sabtu, 18 Okt 2026</p>
+                            <p class="text-lg font-bold num">Sabtu, 31 Okt 2026</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -327,7 +326,7 @@
                         </div>
                         <div>
                             <p class="text-[11px] font-bold uppercase tracking-widest opacity-70 mb-0.5">Jam</p>
-                            <p class="text-lg font-bold num">09.00 – 10.30 WIB</p>
+                            <p class="text-lg font-bold num">10.00 – 11.00 WIB</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -347,31 +346,24 @@
     <!-- AGENDA -->
     <section id="agenda" class="max-w-5xl mx-auto px-5 py-12 lg:py-16">
         <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">04 — Rangkaian</p>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Agenda 90 menit.</h2>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Agenda 60 menit.</h2>
         <div class="mt-8 border-t border-graphite/10">
             <div class="flex gap-4 py-4 border-b border-graphite/10 text-sm"><span
-                    class="num w-28 shrink-0 font-bold">08.30–09.00</span><span>Registrasi dan enter Zoom</span></div>
+                    class="num w-28 shrink-0 font-bold">09.45–10.00</span><span>Registrasi dan enter Zoom</span></div>
             <div class="flex gap-4 py-4 border-b border-graphite/10 text-sm"><span
-                    class="num w-28 shrink-0 font-bold">09.00–09.05</span><span>Opening MC</span></div>
+                    class="num w-28 shrink-0 font-bold">10.00–10.05</span><span>Opening MC & Sambutan</span></div>
             <div class="flex gap-4 py-4 border-b border-graphite/10 text-sm"><span
-                    class="num w-28 shrink-0 font-bold">09.05–09.10</span><span>Sambutan Alhazen Academy</span></div>
+                    class="num w-28 shrink-0 font-bold">10.05–10.45</span><span><span class="font-bold">Materi Utama —
+                        Mendidik Anak di Era AI.</span> <span class="text-blue-spruce">Ustadz Awang Insandaru</span></span></div>
             <div class="flex gap-4 py-4 border-b border-graphite/10 text-sm"><span
-                    class="num w-28 shrink-0 font-bold">09.10–09.45</span><span><span class="font-bold">Sesi 1 —
-                        Parenting.</span> <span class="text-blue-spruce">Ustadz Awang Insandaru</span></span></div>
-            <div class="flex gap-4 py-4 border-b border-graphite/10 text-sm"><span
-                    class="num w-28 shrink-0 font-bold">09.45–09.50</span><span>Break singkat</span></div>
-            <div class="flex gap-4 py-4 border-b border-graphite/10 text-sm"><span
-                    class="num w-28 shrink-0 font-bold">09.50–10.20</span><span><span class="font-bold">Sesi 2 —
-                        Teknologi AI.</span> <span class="text-blue-bell">Reza Malik</span></span></div>
-            <div class="flex gap-4 py-4 border-b border-graphite/10 text-sm"><span
-                    class="num w-28 shrink-0 font-bold">10.20–10.30</span><span>Tanya jawab dan penutup</span></div>
+                    class="num w-28 shrink-0 font-bold">10.45–11.00</span><span>Tanya jawab dan penutup</span></div>
         </div>
     </section>
 
     <!-- BENEFIT -->
     <section class="bg-azure-mist/40 border-y border-graphite/10">
         <div class="max-w-5xl mx-auto px-5 py-12 lg:py-16">
-            <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">04 — Benefit</p>
+            <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">05 — Benefit</p>
             <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Satu pendaftaran, empat benefit.</h2>
             <div
                 class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-graphite/10 border border-graphite/10 rounded-2xl overflow-hidden shadow-sm">
@@ -410,7 +402,7 @@
     <!-- TUJUAN + TARGET -->
     <section class="max-w-5xl mx-auto px-5 py-12 lg:py-16 grid lg:grid-cols-2 gap-10">
         <div>
-            <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">05 — Tujuan</p>
+            <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">06 — Tujuan</p>
             <h2 class="text-2xl font-extrabold tracking-tight">Tidak panik. Fasilitasi.</h2>
             <div class="mt-6 space-y-5 text-sm leading-relaxed">
                 <div class="border-l-2 border-blue-spruce pl-4">
@@ -426,7 +418,7 @@
             </div>
         </div>
         <div>
-            <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">06 — Untuk siapa</p>
+            <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">07 — Untuk siapa</p>
             <h2 class="text-2xl font-extrabold tracking-tight">Target peserta.</h2>
             <ul class="mt-6 space-y-3 text-sm">
                 <li class="flex gap-2.5"><i class="fa-solid fa-check text-blue-spruce mt-1 text-xs"></i>Orang tua anak
@@ -444,22 +436,21 @@
     <!-- DAFTAR -->
     <section id="daftar" class="max-w-5xl mx-auto px-5 pb-16">
         <div class="rounded-2xl border border-graphite/10 overflow-hidden grid lg:grid-cols-2 shadow-sm">
-            <div class="p-8 sm:p-10 bg-white">
-                <p class="eyebrow text-[11px] font-bold uppercase text-watermelon mb-3">Pendaftaran</p>
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Amankan kursi Anda.</h2>
-                <form id="regForm"
-                    onsubmit="event.preventDefault(); alert('Terima kasih! Pendaftaran berhasil dicatat.'); this.reset();"
-                    class="mt-6 space-y-3">
-                    <input required placeholder="Nama lengkap orang tua"
-                        class="w-full text-sm px-4 py-3 rounded-xl border border-graphite/15 focus:outline-none focus:border-blue-spruce">
-                    <input required type="email" placeholder="Email aktif"
-                        class="w-full text-sm px-4 py-3 rounded-xl border border-graphite/15 focus:outline-none focus:border-blue-spruce">
-                    <input required type="tel" placeholder="WhatsApp 08…"
-                        class="w-full text-sm px-4 py-3 rounded-xl border border-graphite/15 focus:outline-none focus:border-blue-spruce">
-                    <button type="submit"
-                        class="w-full bg-watermelon text-white text-sm font-bold py-3.5 rounded-xl hover:opacity-90 shadow-md shadow-watermelon/20 transition-all">Daftar
-                        Webinar</button>
-                </form>
+            <div class="p-8 sm:p-10 bg-white flex flex-col justify-between">
+                <div>
+                    <p class="eyebrow text-[11px] font-bold uppercase text-watermelon mb-3">Pendaftaran</p>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Amankan kursi Anda.</h2>
+                    <p class="mt-4 text-sm text-graphite/70 leading-relaxed">
+                        Pendaftaran webinar dibuka untuk umum melalui Google Form. Klik tombol di bawah untuk mengisi formulir pendaftaran.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTrvtT1aBXRAgQ5A_eV8SV7uH1RFwS4a82DPNdz2zoXFgG0A/viewform" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 w-full bg-watermelon text-white text-sm font-bold py-3.5 px-6 rounded-xl hover:opacity-90 shadow-md shadow-watermelon/20 transition-all text-center">
+                        <span>Daftar via Google Form</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
             </div>
             <div class="bg-graphite text-white p-8 sm:p-10 text-sm flex flex-col justify-between">
                 <div>
@@ -475,7 +466,7 @@
                 </div>
                 <div class="mt-8 pt-6 border-t border-white/15">
                     <p class="text-white/60 text-xs">Penyelenggara: <span class="text-white font-semibold">Alhazen
-                            Academy</span><br>Sabtu, 18 Okt 2026 · Zoom</p>
+                            Academy</span><br>Sabtu, 31 Okt 2026 · Zoom</p>
                 </div>
             </div>
         </div>
@@ -500,11 +491,19 @@
             <div class="md:col-span-4">
                 <img src="{{ asset('assets/foot-logo-new.webp') }}" alt="Alhazen Academy" class="h-10 w-auto mb-4" loading="lazy">
                 <p class="text-xs text-white/60 leading-relaxed">PT. Alhazen Global Teknologi adalah Lembaga Kursus dan Konsultan Pendidikan, terutama di bidang pendidikan teknologi kreatif, solutif, inovatif, dan adaptif.</p>
+                <div class="mt-5 pt-5 border-t border-white/10">
+                    <p class="eyebrow text-[10px] font-bold uppercase text-white/40 mb-2.5">Partner Kolaborasi Event</p>
+                    <div class="flex items-center gap-4">
+                        <img src="{{ asset('assets/custom/mendidik-anak-ai/logo_madinah_plus.png') }}" alt="Madinah Plus" class="h-6 w-auto object-contain opacity-80 hover:opacity-100 transition" loading="lazy">
+                        <span class="text-white/20 text-xs">|</span>
+                        <img src="{{ asset('assets/custom/mendidik-anak-ai/logo_drb.png') }}" alt="DRB" class="h-6 w-auto object-contain opacity-80 hover:opacity-100 transition" loading="lazy">
+                    </div>
+                </div>
                 @if ($socials->isNotEmpty())
                     <div class="flex items-center gap-2.5 mt-5">
                         @foreach ($socials as $s)
-                            <a href="{{ $s['href'] }}" target="_blank" rel="noopener" aria-label="{{ $s['label'] ?? 'Sosial media' }}" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/10 flex items-center justify-center transition">
-                                <img src="{{ asset($s['icon_path'] ?? 'assets/kids/index-footer/Alhazen-Logo-white.png') }}" alt="{{ $s['label'] ?? 'sosmed' }}" class="w-6 h-auto object-contain" loading="lazy">
+                            <a href="{{ $s['href'] }}" target="_blank" rel="noopener" aria-label="{{ $s['label'] ?? 'Sosial media' }}" class="w-9 h-9 rounded-full bg-watermelon/15 hover:bg-watermelon text-watermelon hover:text-white ring-1 ring-watermelon/30 flex items-center justify-center transition-all">
+                                <i class="fa-brands fa-{{ strtolower($s['label'] ?? 'globe') }} text-sm"></i>
                             </a>
                         @endforeach
                     </div>
