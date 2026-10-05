@@ -423,9 +423,9 @@
     <section id="benefit" class="bg-azure-mist/40 border-y border-graphite/10 scroll-mt-20">
         <div class="max-w-5xl mx-auto px-5 py-12 lg:py-16">
             <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">05 — Benefit</p>
-            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Satu pendaftaran, tiga benefit.</h2>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Satu pendaftaran, empat benefit.</h2>
             <div
-                class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-graphite/10 border border-graphite/10 rounded-2xl overflow-hidden shadow-sm">
+                class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-graphite/10 border border-graphite/10 rounded-2xl overflow-hidden shadow-sm">
                 <div class="bg-white p-6">
                     <p class="num text-xs font-bold text-blue-spruce">01</p><i
                         class="fa-solid fa-video text-watermelon mt-3 text-lg"></i>
@@ -446,6 +446,13 @@
                     <h3 class="font-bold mt-2 text-[15px]">Buku Digital</h3>
                     <p class="text-[13px] text-graphite/65 mt-1 leading-relaxed">Buku panduan digital 'Cepat Belajar
                         Coding untuk Anak' langsung ke email.</p>
+                </div>
+                <div class="bg-white p-6">
+                    <p class="num text-xs font-bold text-blue-spruce">04</p><i
+                        class="fa-solid fa-laptop-code text-watermelon mt-3 text-lg"></i>
+                    <h3 class="font-bold mt-2 text-[15px]">Kelas Trial Coding</h3>
+                    <p class="text-[13px] text-graphite/65 mt-1 leading-relaxed">Akses kelas trial coding untuk anak di
+                        Alhazen Academy — kenali pengalaman belajar coding sebelum ikut kelas reguler.</p>
                 </div>
             </div>
         </div>
