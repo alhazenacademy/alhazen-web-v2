@@ -554,10 +554,7 @@
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-spruce">Agenda 60 menit.</h2>
         <div class="mt-8 space-y-3">
             <div class="clay-sm flex gap-4 py-4 px-5 text-sm text-blue-spruce"><span
-                    class="num w-28 shrink-0 font-bold">09.30–09.45</span><span>Masuk Zoom</span></div>
-            <div class="clay-sm flex gap-4 py-4 px-5 text-sm text-blue-spruce"><span
-                    class="num w-28 shrink-0 font-bold">09.45–10.00</span><span><span class="font-bold">Presentasi
-                        Program Alhazen Academy</span> <span class="text-blue-bell">| Tim Alhazen</span></span></div>
+                    class="num w-28 shrink-0 font-bold">09.30–10.00</span><span>Masuk Zoom</span></div>
             <div class="clay-sm flex gap-4 py-4 px-5 text-sm text-blue-spruce"><span
                     class="num w-28 shrink-0 font-bold">10.00–10.05</span><span>Opening MC & Sambutan</span></div>
             <div class="clay-sm py-4 px-5 text-sm text-blue-spruce">
