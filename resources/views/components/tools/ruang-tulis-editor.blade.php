@@ -470,12 +470,99 @@ window.__ruangTulisStarter = @js($starterText);
                     navigator.clipboard.writeText(this.content);
                     this.showNotification('Markdown berhasil disalin ke clipboard!');
                 },
-                downloadFile(format = 'md') {
+                async downloadFile(format = 'md') {
                     let blob;
                     let filename = 'ruang-tulis';
                     if (format === 'html') {
-                        const body = this.renderedHtml || '';
-                        const html = `<!DOCTYPE html>\n<html lang="id">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Ruang Tulis by Alhazen Export</title>\n<style>\nbody{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#111827;max-width:800px;margin:0 auto;padding:2rem 1.25rem}\nh1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.25rem}\ntable{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:.5rem .75rem;text-align:left}\npre{background:#f6f8fa;padding:1rem;border-radius:.75rem;overflow-x:auto}\ncode{font-family:ui-monospace,Menlo,Consolas,monospace}\nimg{max-width:100%;height:auto}\n</style>\n</head>\n<body>\n${body}\n</body>\n</html>`;
+                        const preview = this.$refs.preview || document.getElementById('preview-pane');
+                        let body = this.renderedHtml || '';
+                        if (preview) {
+                            const pendingMermaid = preview.querySelectorAll('.mermaid');
+                            let hasUnrenderedMermaid = false;
+                            pendingMermaid.forEach((el) => {
+                                if (!el.querySelector('svg')) hasUnrenderedMermaid = true;
+                            });
+                            if (hasUnrenderedMermaid && typeof mermaid !== 'undefined') {
+                                try {
+                                    await mermaid.run({ querySelector: '#preview-pane .mermaid' });
+                                } catch (e) {
+                                    console.error('Mermaid render error on export:', e);
+                                }
+                            }
+                            const inner = preview.firstElementChild || preview;
+                            body = inner.innerHTML;
+                        }
+
+                        const html = `<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruang Tulis by Alhazen Export</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+* { box-sizing: border-box; }
+body {
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+}
+.markdown-preview { overflow-wrap: anywhere; word-break: break-word; }
+.markdown-preview h1 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; margin-top: 1.5rem; line-height: 1.25; color: #111827; }
+.markdown-preview h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; margin-top: 1.25rem; line-height: 1.3; color: #111827; }
+.markdown-preview h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; margin-top: 1rem; line-height: 1.35; color: #111827; }
+.markdown-preview h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 0.75rem; color: #111827; }
+.markdown-preview p { margin-bottom: 1rem; line-height: 1.6; }
+.markdown-preview a { color: #059669; text-decoration: underline; }
+.markdown-preview ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.markdown-preview ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+.markdown-preview li { margin-bottom: 0.25rem; }
+.markdown-preview blockquote { border-left: 4px solid #059669; padding-left: 1rem; margin: 1rem 0; color: inherit; opacity: 0.85; font-style: italic; }
+.markdown-preview table { display: block; width: max-content; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin-bottom: 1rem; }
+.markdown-preview th, .markdown-preview td { border: 1px solid rgba(0, 0, 0, 0.1); padding: 0.4rem 0.6rem; text-align: left; white-space: nowrap; }
+.markdown-preview th { background-color: rgba(0, 0, 0, 0.05); font-weight: 600; }
+.markdown-preview img { max-width: 100%; height: auto; border-radius: 0.75rem; }
+.markdown-preview hr { border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); margin: 1.5rem 0; }
+.markdown-preview code { font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; background: rgba(0, 0, 0, 0.06); padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.9em; color: #24292f; }
+.markdown-preview pre { background: #f6f8fa; padding: 1rem; border-radius: 0.75rem; overflow-x: auto; border: 1px solid rgba(0, 0, 0, 0.08); margin-bottom: 1rem; max-width: 100%; }
+.markdown-preview pre code { background: transparent; padding: 0; color: #24292f; font-size: 0.9em; }
+.markdown-preview pre code.hljs { background: transparent; }
+.markdown-preview .md-alert { border-radius: 0.75rem; padding: 1rem 1.25rem; margin-bottom: 1rem; border: 1px solid; }
+.markdown-preview .md-alert-title { font-weight: bold; text-transform: capitalize; margin-bottom: 0.5rem; }
+.markdown-preview .md-alert-body p:last-child { margin-bottom: 0; }
+.markdown-preview .md-alert-success { background: #ecfdf5; border-color: #059669; color: #065f46; }
+.markdown-preview .md-alert-danger { background: #fef2f2; border-color: #ef4444; color: #991b1b; }
+.markdown-preview .md-alert-info { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+.markdown-preview .md-alert-warning { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
+.markdown-preview .md-toc { padding: 1rem 1.25rem; background: #f9fafb; border-radius: 0.75rem; border: 1px solid #e5e7eb; margin-bottom: 1.5rem; }
+.markdown-preview .md-toc h4 { font-weight: bold; margin-bottom: 0.5rem; font-size: 1rem; margin-top: 0; }
+.markdown-preview .md-toc ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+.markdown-preview .md-toc li { margin-bottom: 0.25rem; }
+.markdown-preview .md-toc a { color: #059669; text-decoration: none; font-weight: 500; }
+.markdown-preview .md-toc a:hover { text-decoration: underline; }
+.markdown-preview .mermaid { display: flex; justify-content: center; margin: 1.5rem 0; overflow-x: auto; background: transparent; }
+.markdown-preview .mermaid svg { max-width: 100%; height: auto; }
+.markdown-preview .footnotes { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(0, 0, 0, 0.1); font-size: 0.9em; opacity: 0.9; }
+.markdown-preview .footnotes ol { padding-left: 1.25rem; }
+.markdown-preview .footnote-backref { margin-left: 0.25rem; text-decoration: none; color: #059669; font-weight: bold; }
+.markdown-preview sup a { color: #059669; text-decoration: none; font-weight: bold; padding: 0 0.15rem; }
+.markdown-preview sup a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="markdown-preview">
+${body}
+</div>
+</body>
+</html>`;
                         blob = new Blob([html], { type: 'text/html;charset=utf-8' });
                         filename += '.html';
                     } else if (format === 'txt') {
