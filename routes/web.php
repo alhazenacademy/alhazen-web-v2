@@ -48,11 +48,16 @@ Route::get('/ujian/kelas-6', function () {
     return view('pages.kurikulum.ujian.ujian-kelas-6');
 });
 
+/** RANDOM */
 Route::get('/links', [LandingController::class, 'links'])->name('links');
 // Route::get('/plus/program/ai-python-quickstart', function () {
 //     return view('pages.random.aipythonquickstart');
 // });
 Route::get('/form-review-kelas', [LandingController::class, 'form_review_kelas']);
+Route::get('/form-daftar-hadir-bimtek', function () {
+    return view('pages.random.form_daftar_hadir_bimtek');
+});
+
 Route::get('/tools/ruang-tulis', [ToolsController::class, 'ruang_tulis'])->name('tools.ruang-tulis');
 Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
