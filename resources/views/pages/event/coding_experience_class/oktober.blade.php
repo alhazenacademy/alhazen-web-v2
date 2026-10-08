@@ -1151,7 +1151,7 @@
                             </li>
                             <li class="footer-contact-item">
                                 <span class="footer-contact-icon flex items-center justify-center"><span class="material-symbols-outlined" style="font-size: 16px; color: var(--strong-cyan);">globe</span></span>
-                                <a href="https://www.alhazen.academy" target="_blank" rel="noopener" class="hover:underline">www.alhazen.academy</a>
+                                <a href="https://alhazen.academy" target="_blank" rel="noopener" class="hover:underline">alhazen.academy</a>
                             </li>
                         </ul>
                     </div>
