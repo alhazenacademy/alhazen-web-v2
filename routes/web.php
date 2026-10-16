@@ -59,6 +59,17 @@ Route::get('/form-daftar-hadir-bimtek', function () {
 });
 
 Route::get('/tools/ruang-tulis', [ToolsController::class, 'ruang_tulis'])->name('tools.ruang-tulis');
+Route::get('/tools/quiz/pin', [ToolsController::class, 'quizPin'])->name('tools.quiz.pin');
+Route::post('/tools/quiz/pin', [ToolsController::class, 'quizPinStore'])->name('tools.quiz.pin.store');
+Route::get('/tools/quiz/create', [ToolsController::class, 'quizCreate'])->name('tools.quiz.create');
+Route::post('/tools/quiz', [ToolsController::class, 'quizStore'])->name('tools.quiz.store');
+Route::get('/tools/quiz/{slug}', [ToolsController::class, 'quizShow'])->name('tools.quiz.show');
+Route::post('/tools/quiz/{slug}', [ToolsController::class, 'quizSubmit'])->middleware('throttle:10,1')->name('tools.quiz.submit');
+Route::get('/tools/quiz/{slug}/hasil', [ToolsController::class, 'quizMonitor'])->name('tools.quiz.monitor');
+Route::get('/tools/quiz/{slug}/export', [ToolsController::class, 'quizExport'])->name('tools.quiz.export');
+Route::post('/tools/quiz/answers/{answer}/resync', [ToolsController::class, 'quizResync'])->name('tools.quiz.resync');
+Route::post('/tools/quiz/{slug}/resync-all', [ToolsController::class, 'quizResyncAll'])->name('tools.quiz.resync_all');
+Route::delete('/tools/quiz/answers/{answer}', [ToolsController::class, 'quizReset'])->name('tools.quiz.reset');
 Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
 // Route::view('/pro', 'pro')->name('adult');

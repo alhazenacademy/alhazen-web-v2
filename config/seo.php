@@ -21,5 +21,8 @@ return [
 
         //page thank you trial class
         'thank-you',
+
+        // Quiz tools (tutor + siswa)
+        'tools/quiz/*',
     ],
 ];
