@@ -1,11 +1,21 @@
 <x-layout title="Kerjakan Quiz - Alhazen Academy"
     description="Kerjakan quiz/ujian online dari Alhazen Academy."
     wa-message="Halo MinZen, saya butuh bantuan terkait Quiz/Ujian Online Alhazen Academy."
+    :focus="true"
     :sales-phone="$salesPhone">
 
-    <x-navbar variant="kids" />
-
-    <main class="max-w-3xl mx-auto px-4 py-10">
+    <main class="max-w-3xl mx-auto px-4 py-10 pt-16">
+        <button type="button" id="quiz-fs-btn" onclick="toggleQuizFullscreen()"
+            class="fixed top-4 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-white/90 backdrop-blur border border-gray-200 shadow-lg px-4 py-2.5 text-sm font-bold text-primary hover:bg-white transition-all cursor-pointer"
+            title="Aktifkan layar penuh">
+            <svg id="quiz-fs-enter" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9M3.75 20.25h4.5m-4.5 0v-4.5m0 4.5L9 15M20.25 20.25v-4.5m0 4.5h-4.5m4.5 0L15 15" />
+            </svg>
+            <svg id="quiz-fs-exit" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
+            </svg>
+            <span id="quiz-fs-label">Layar penuh</span>
+        </button>
         @if ($errors->any())
             <div class="mb-6 p-4 rounded-2xl bg-red-50 text-red-600 text-sm">
                 <p class="font-bold mb-1">Ada yang perlu diperbaiki:</p>
@@ -23,7 +33,7 @@
                 <p class="text-sm text-gray-500">Maaf, link ujian "{{ $session->title }}" sudah tidak berlaku. Hubungi tutor untuk link baru.</p>
             </div>
         @else
-            <h1 class="text-2xl sm:text-3xl font-bold text-center mb-2">{{ $session->title }}</h1>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-center text-primary mb-2">{{ $session->title }}</h1>
             @if ($session->description)
                 <p class="text-sm text-gray-500 text-center mb-2">{{ $session->description }}</p>
             @endif
@@ -75,14 +85,14 @@
                             <template x-if="q.question_image">
                                 <img :src="q.question_image" :alt="'Gambar soal ' + (qi + 1)" loading="lazy"
                                     referrerpolicy="no-referrer" onerror="this.style.display='none'"
-                                    class="rounded-xl border mb-3 w-full max-h-96 object-contain bg-gray-50">
+                                    class="rounded-xl mb-3 w-full max-h-96 object-contain bg-gray-50">
                             </template>
 
                             <template x-if="q.type === 'pg'">
                                 <div class="space-y-2">
                                     <template x-for="opt in q._opts" :key="opt.idx">
                                         <div>
-                                            <label class="block p-3 border rounded-xl text-sm cursor-pointer hover:border-primary">
+                                            <label class="block p-3 rounded-xl text-sm cursor-pointer bg-gray-50 hover:bg-gray-100 has-[:checked]:bg-primary/10 has-[:checked]:text-primary transition-colors">
                                                 <span class="flex items-center gap-3">
                                                     <input type="radio" :name="'jawaban[' + q.id + ']'" :value="opt.idx"
                                                         x-model="answers[q.id]" required class="w-4 h-4 shrink-0 cursor-pointer">
@@ -91,7 +101,7 @@
                                                 <template x-if="opt.image">
                                                     <img :src="opt.image" :alt="'Gambar opsi ' + (qi + 1)" loading="lazy"
                                                         referrerpolicy="no-referrer" onerror="this.style.display='none'"
-                                                        class="rounded-xl border mt-3 w-full max-h-96 object-contain bg-gray-50">
+                                                        class="rounded-xl mt-3 w-full max-h-96 object-contain bg-gray-50">
                                                 </template>
                                             </label>
                                         </div>
@@ -102,14 +112,14 @@
                             <template x-if="q.type === 'isian'">
                                 <input type="text" :name="'jawaban[' + q.id + ']'" x-model="answers[q.id]"
                                     required maxlength="500"
-                                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
                                     placeholder="Tulis jawaban singkatmu">
                             </template>
 
                             <template x-if="q.type === 'essay'">
                                 <textarea :name="'jawaban[' + q.id + ']'" x-model="answers[q.id]" rows="4"
                                     required maxlength="2000"
-                                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
                                     placeholder="Tulis jawabanmu (maks 2000 karakter)"></textarea>
                             </template>
                         </div>
@@ -146,7 +156,7 @@
                         </template>
                         <div class="flex gap-2 mt-4">
                             <button type="button" @click="confirmOpen = false" :disabled="submitting"
-                                class="flex-1 py-3 border rounded-xl font-bold text-sm cursor-pointer disabled:opacity-50">Kembali periksa</button>
+                                class="flex-1 py-3 border border-gray-200 rounded-xl font-bold text-sm cursor-pointer disabled:opacity-50">Kembali periksa</button>
                             <button type="button" @click="doSubmit" :disabled="submitting"
                                 class="flex-1 py-3 bg-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/20 cursor-pointer disabled:opacity-50"
                                 x-text="submitting ? 'Mengirim...' : 'Ya, kumpulkan'"></button>
@@ -156,8 +166,6 @@
             </div>
         @endif
     </main>
-
-    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" :program-links="$programLinks" />
 
     <script>
         function quizApp() {
@@ -178,6 +186,7 @@
                 confirmOpen: false,
                 submitting: false,
                 confirmed: false,
+                timer: null,
                 get answeredCount() {
                     return this.display.filter(q => this.isAnswered(q)).length;
                 },
@@ -199,10 +208,19 @@
                 doSubmit() {
                     this.confirmed = true;
                     this.submitting = true;
+                    // Hentikan autosave dulu, supaya tidak menulis ulang draft
+                    // selama proses kirim ke server (round-trip bisa lama).
+                    this.stopAutosave();
                     this.$refs.quizForm.requestSubmit();
                     setTimeout(() => {
                         this.submitting = false;
                     }, 1000);
+                },
+                stopAutosave() {
+                    if (this.timer) {
+                        clearInterval(this.timer);
+                        this.timer = null;
+                    }
                 },
                 handleSubmit(e) {
                     if (!this.confirmed) {
@@ -239,7 +257,7 @@
                         q._opts = this.shuffleO ? this.shuffle(opts) : opts;
                     });
 
-                    setInterval(() => this.save(), 5000);
+                    this.timer = setInterval(() => this.save(), 5000);
                 },
                 shuffle(arr) {
                     for (let i = arr.length - 1; i > 0; i--) {
@@ -249,6 +267,12 @@
                     return arr;
                 },
                 save() {
+                    // Jangan simpan draft kosong (belum ada isian sama sekali).
+                    const kosong = !this.nama && !this.kelas && !this.instansi
+                        && !Object.values(this.answers).some(v => v !== undefined && v !== null && String(v).trim() !== '');
+                    if (kosong) {
+                        return;
+                    }
                     localStorage.setItem('quiz_draft_' + this.slug, JSON.stringify({
                         nama: this.nama,
                         kelas: this.kelas,
@@ -257,11 +281,39 @@
                     }));
                 },
                 onSubmit() {
-                    localStorage.setItem('quiz_done_' + this.slug, '1');
-                    localStorage.removeItem('quiz_draft_' + this.slug);
+                    // Draft TIDAK dihapus di sini — penghapusan otoritatif
+                    // dilakukan di halaman terima kasih setelah server
+                    // memastikan jawaban tersimpan (berhasil/duplikat).
+                    this.stopAutosave();
                 },
             };
         }
+    </script>
+
+    <script>
+        function updateQuizFullscreenUI() {
+            const active = !!document.fullscreenElement;
+            const btn = document.getElementById('quiz-fs-btn');
+            if (!btn) return;
+            document.getElementById('quiz-fs-enter').classList.toggle('hidden', active);
+            document.getElementById('quiz-fs-exit').classList.toggle('hidden', !active);
+            document.getElementById('quiz-fs-label').textContent = active ? 'Keluar layar penuh' : 'Layar penuh';
+            btn.title = active ? 'Keluar layar penuh' : 'Aktifkan layar penuh';
+        }
+
+        function toggleQuizFullscreen() {
+            const el = document.documentElement;
+            if (!document.fullscreenElement) {
+                const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+                if (req) req.call(el);
+            } else {
+                const exit = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
+                if (exit) exit.call(document);
+            }
+        }
+
+        document.addEventListener('fullscreenchange', updateQuizFullscreenUI);
+        document.addEventListener('webkitfullscreenchange', updateQuizFullscreenUI);
     </script>
 
 </x-layout>

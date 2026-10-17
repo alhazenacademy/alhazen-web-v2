@@ -556,6 +556,7 @@ class ToolsController extends Controller
         if (session('quiz_done')) {
             return view('pages.tools.quiz.quiz-result', $page + [
                 'title' => $session->title,
+                'slug' => $session->slug,
                 'submittedBefore' => (bool) session('quiz_submitted_before', false),
             ]);
         }

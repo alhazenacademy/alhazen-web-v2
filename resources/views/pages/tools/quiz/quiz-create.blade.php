@@ -6,7 +6,7 @@
     <x-navbar variant="kids" />
 
     <main class="max-w-3xl mx-auto px-4 py-10">
-        <h1 class="text-3xl font-bold text-center mb-2">Buat Quiz / Ujian Online</h1>
+        <h1 class="text-3xl font-extrabold tracking-tight text-center text-primary mb-2">Buat Quiz / Ujian Online</h1>
         <p class="text-sm text-gray-500 text-center mb-8">Upload soal, dapatkan link, bagikan ke siswa.</p>
 
         @if (session('quiz_created'))
@@ -19,14 +19,14 @@
                     @endif
                     <div class="flex-1 w-full">
                         <input id="quiz-link" type="text" readonly value="{{ session('quiz_created.url') }}"
-                            class="w-full px-4 py-3 border rounded-xl bg-white text-sm">
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 bg-white text-sm">
                         <div class="flex gap-2 mt-3">
                             <button type="button" id="copy-quiz-link" onclick="copyQuizLink()"
                                 class="flex-1 py-2.5 bg-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/20 cursor-pointer">
                                 Salin Link
                             </button>
                             <a href="{{ session('quiz_created.wa_url') }}" target="_blank" rel="noopener"
-                                class="flex-1 py-2.5 text-center bg-white border rounded-xl font-bold text-sm">
+                                class="flex-1 py-2.5 text-center bg-white border border-gray-200 rounded-xl font-bold text-sm">
                                 Bagikan WA
                             </a>
                         </div>
@@ -49,7 +49,7 @@
         <div class="mb-6 p-4 rounded-2xl bg-primary/5 text-sm">
             <p class="font-bold text-primary mb-2">Checklist sebelum upload:</p>
             <ul class="list-disc list-inside text-gray-600 space-y-1">
-                <li>File CSV/JSON sesuai contoh (<a href="#" class="underline">lihat format</a>).</li>
+                <li>File CSV/JSON mengikuti format Alhazen. Format dapat diminta ke tim kurikulum.</li>
                 <li>Gambar soal di Google Drive sudah Share &rarr; Anyone with link.</li>
                 <li>URL Web App Apps Script sudah di-deploy (https://script.google.com/...).</li>
                 <li>Jangan hapus/pindah file Drive selama ujian berlangsung.</li>
@@ -63,21 +63,21 @@
             <div>
                 <label for="title" class="block text-sm font-bold mb-2">Judul Ujian</label>
                 <input type="text" name="title" id="title" required maxlength="150" value="{{ old('title') }}"
-                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
                     placeholder="Contoh: Kuis Coding Kelas 6 - Pertemuan 4">
             </div>
 
             <div>
                 <label for="description" class="block text-sm font-bold mb-2">Petunjuk (opsional)</label>
                 <textarea name="description" id="description" rows="2" maxlength="2000"
-                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
                     placeholder="Contoh: Kerjakan sendiri, waktu 30 menit.">{{ old('description') }}</textarea>
             </div>
 
             <div>
                 <label for="soal_file" class="block text-sm font-bold mb-2">File Soal (CSV / JSON, maks 1 MB)</label>
                 <input type="file" name="soal_file" id="soal_file" required accept=".csv,.txt,.json"
-                    class="w-full px-4 py-3 border rounded-xl bg-gray-50 text-sm">
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 text-sm">
                 <div id="image-preview" class="hidden mt-3">
                     <p class="text-xs font-bold text-gray-500 mb-2">Preview gambar yang terdeteksi di file:</p>
                     <div id="image-preview-list" class="flex flex-wrap gap-2"></div>
@@ -88,7 +88,7 @@
                 <label for="sheets_webhook_url" class="block text-sm font-bold mb-2">URL Web App Google Sheets (opsional)</label>
                 <input type="url" name="sheets_webhook_url" id="sheets_webhook_url" maxlength="500"
                     value="{{ old('sheets_webhook_url') }}"
-                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
                     placeholder="https://script.google.com/macros/s/.../exec">
                 <p class="text-xs text-gray-400 mt-1">Boleh dikosongkan — hasil tetap tersimpan dan bisa di-Export Excel.</p>
             </div>
@@ -96,7 +96,7 @@
             <div>
                 <label for="expires_in" class="block text-sm font-bold mb-2">Link berlaku selama</label>
                 <select name="expires_in" id="expires_in"
-                    class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 bg-white">
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 bg-white">
                     <option value="2" @selected(old('expires_in') === '2')>2 jam</option>
                     <option value="4" @selected(old('expires_in', '4') === '4')>4 jam (disarankan)</option>
                     <option value="12" @selected(old('expires_in') === '12')>12 jam</option>
@@ -199,7 +199,7 @@
                     img.alt = 'Preview gambar soal';
                     img.loading = 'lazy';
                     img.referrerPolicy = 'no-referrer';
-                    img.className = 'w-20 h-20 object-cover rounded-lg border';
+                    img.className = 'w-20 h-20 object-cover rounded-lg border border-gray-200';
                     img.onerror = function() {
                         img.classList.add('opacity-30');
                         img.title = 'Gagal dimuat: ' + url;

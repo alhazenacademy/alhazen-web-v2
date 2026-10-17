@@ -10,7 +10,7 @@
             <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-4xl text-primary mx-auto mb-4">
                 &#10003;
             </div>
-            <h1 class="text-2xl font-bold mb-2">Jawaban Terkirim!</h1>
+            <h1 class="text-2xl font-extrabold tracking-tight mb-2 text-primary">Jawaban Terkirim!</h1>
             @if ($submittedBefore)
                 <p class="text-sm text-gray-500 mb-2">Kamu sudah mengumpulkan jawaban untuk "{{ $title }}" sebelumnya. Data yang tersimpan adalah pengumpulan pertamamu.</p>
             @else
@@ -25,5 +25,20 @@
     </main>
 
     <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" :program-links="$programLinks" />
+
+    <script>
+        // Draft di localStorage baru dihapus di sini, karena halaman ini
+        // hanya dirender setelah server memastikan jawaban tersimpan
+        // (berhasil maupun terdeteksi duplikat). Ini titik otoritatif.
+        (function () {
+            var slug = @json($slug);
+            try {
+                localStorage.removeItem('quiz_draft_' + slug);
+                localStorage.setItem('quiz_done_' + slug, '1');
+            } catch (e) {
+                // localStorage bisa diblokir di mode privasi; abaikan.
+            }
+        })();
+    </script>
 
 </x-layout>

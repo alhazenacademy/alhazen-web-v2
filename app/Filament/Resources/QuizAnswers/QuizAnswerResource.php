@@ -9,12 +9,15 @@ use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class QuizAnswerResource extends Resource
 {
     protected static ?string $model = QuizAnswer::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentCheck;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Tools';
 
     protected static ?string $navigationLabel = 'Jawaban Quiz';
 

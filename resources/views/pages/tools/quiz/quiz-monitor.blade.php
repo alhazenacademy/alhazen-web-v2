@@ -6,7 +6,7 @@
     <x-navbar variant="kids" />
 
     <main class="max-w-5xl mx-auto px-4 py-10" x-data="monitorApp()" x-init="init()">
-        <h1 class="text-2xl sm:text-3xl font-bold text-center mb-2">{{ $session->title }}</h1>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-center text-primary mb-2">{{ $session->title }}</h1>
         <p class="text-sm text-gray-500 text-center mb-6">
             Link ujian: <a href="{{ $quizUrl }}" class="underline break-all">{{ $quizUrl }}</a>
         </p>
@@ -141,7 +141,7 @@
                         @method('DELETE')
                         <div class="flex gap-2">
                             <button type="button" @click="resetOpen = false"
-                                class="flex-1 py-3 border rounded-xl font-bold text-sm cursor-pointer">Batal</button>
+                                class="flex-1 py-3 border border-gray-200 rounded-xl font-bold text-sm cursor-pointer">Batal</button>
                             <button type="submit"
                                 class="flex-1 py-3 bg-red-500 text-white rounded-xl font-bold text-sm shadow-lg cursor-pointer">Ya, hapus</button>
                         </div>
