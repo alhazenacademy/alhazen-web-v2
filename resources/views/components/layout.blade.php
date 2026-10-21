@@ -5,6 +5,7 @@
     'ogImage' => asset('assets/logo-new.webp'),
     'theme' => 'kids', // 'kids' | 'pro'
     'canonical' => null,
+    'focus' => false, // sembunyikan elemen mengambang (WA & back-to-top) untuk halaman fokus
 ])
 
 @php
@@ -83,26 +84,28 @@
         {{ $slot }}
     </div>
 
-    @if ($waHref)
-        <a href="{{ $waHref }}" target="_blank" rel="noopener noreferrer" x-data="{ show: false }"
-            x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show"
-            class="fixed z-40 bottom-18 right-5 sm:bottom-22 w-14 h-14 rounded-full shadow-lg shadow-black/20 bg-[#25D366] flex items-center justify-center hover:scale-[1.05] hover:shadow-xl active:scale-95 transition">
-            <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt="WhatsApp icon" class="w-7 h-7">
-        </a>
-    @endif
+    @unless ($focus)
+        @if ($waHref)
+            <a href="{{ $waHref }}" target="_blank" rel="noopener noreferrer" x-data="{ show: false }"
+                x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show"
+                class="fixed z-40 bottom-18 right-5 sm:bottom-22 w-14 h-14 rounded-full shadow-lg shadow-black/20 bg-[#25D366] flex items-center justify-center hover:scale-[1.05] hover:shadow-xl active:scale-95 transition">
+                <img src="{{ asset('assets/kids/icon-wa-white.png') }}" alt="WhatsApp icon" class="w-7 h-7">
+            </a>
+        @endif
 
 
-    {{-- Back-to-top --}}
-    <button x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show"
-        @click="window.scrollTo({top:0,behavior:'smooth'})"
-        class="fixed bottom-5 right-5 z-50 rounded-full p-4 shadow-lg bg-primary/80 text-white dark:bg-accent dark:text-background cursor-pointer"
-        aria-label="Back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
-            stroke="currentColor" class="size-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-        </svg>
+        {{-- Back-to-top --}}
+        <button x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show"
+            @click="window.scrollTo({top:0,behavior:'smooth'})"
+            class="fixed bottom-5 right-5 z-50 rounded-full p-4 shadow-lg bg-primary/80 text-white dark:bg-accent dark:text-background cursor-pointer"
+            aria-label="Back to top">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+            </svg>
 
-    </button>
+        </button>
+    @endunless
 
     <script>
         (function () {

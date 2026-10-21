@@ -81,5 +81,14 @@ class SiteSettingSeeder extends Seeder
                 ],
             ]
         );
+
+        SiteSetting::firstOrCreate(
+            ['key' => 'quiz_tools'],
+            [
+                'settings' => [
+                    'quiz_pin' => '',
+                ],
+            ]
+        );
     }
 }
