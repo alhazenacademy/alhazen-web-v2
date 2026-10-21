@@ -65,6 +65,7 @@
                 <input type="text" name="title" id="title" required maxlength="150" value="{{ old('title') }}"
                     class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
                     placeholder="Contoh: Kuis Coding Kelas 6 - Pertemuan 4">
+                <p class="text-xs text-gray-400 mt-1">Judul juga dipakai sebagai nama tab di Google Sheets (otomatis dibuat bila belum ada). Gunakan judul yang unik dan jangan diubah setelah ujian dimulai.</p>
             </div>
 
             <div>

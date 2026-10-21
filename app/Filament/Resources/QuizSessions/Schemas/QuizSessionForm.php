@@ -22,6 +22,7 @@ class QuizSessionForm
                     ->schema([
                         TextInput::make('title')
                             ->label('Judul')
+                            ->helperText('PENTING: judul = nama tab tujuan di Google Sheets (tab baru dibuat otomatis jika belum ada). Jangan ubah judul setelah siswa mulai mengerjakan — baris berikutnya masuk ke tab lain. Jangan pakai judul sama untuk 2 ujian.')
                             ->required()
                             ->maxLength(150)
                             ->columnSpanFull(),

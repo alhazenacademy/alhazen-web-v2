@@ -62,8 +62,9 @@ class QuizAnswer extends Model
         }
 
         try {
-            $response = Http::timeout(10)->asJson()->post($webhook, [
+            $response = Http::timeout(25)->asJson()->post($webhook, [
                 'slug' => $this->session->slug,
+                'judul' => $this->session->title,
                 'waktu' => $this->submitted_at->format('Y-m-d H:i:s'),
                 'nama' => $this->nama,
                 'kelas' => $this->kelas,
@@ -71,10 +72,24 @@ class QuizAnswer extends Model
                 'total_soal' => $this->total_soal,
                 'pertanyaan_ids' => collect($this->session->questions)->pluck('id')->all(),
                 'jawaban' => $this->jawaban,
+                'idempotency_key' => $this->idempotency_key,
             ]);
 
             if (! $response->successful()) {
                 throw new \RuntimeException('Sheets webhook HTTP '.$response->status());
+            }
+
+            // Apps Script SELALU membalas HTTP 200 (ContentService tidak bisa
+            // mengatur status), jadi sukses-tidaknya dibaca dari body JSON:
+            // {ok:true,...} saat tersimpan, {ok:false,error:...} saat ditolak.
+            $body = $response->json();
+
+            if (! is_array($body)) {
+                throw new \RuntimeException('Balasan Sheets bukan JSON: '.mb_substr($response->body(), 0, 200));
+            }
+
+            if (($body['ok'] ?? null) !== true) {
+                throw new \RuntimeException((string) ($body['error'] ?? 'Sheets menolak data tanpa keterangan.'));
             }
         } catch (\Throwable $e) {
             $this->update([

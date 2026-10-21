@@ -69,13 +69,16 @@ class AnswersRelationManager extends RelationManager
                     ->requiresConfirmation()
                     ->modalHeading('Kirim semua jawaban yang belum terkirim?')
                     ->action(function () {
+                        $belum = $this->getOwnerRecord()->answers()->where('sheets_status', '!=', 'synced')->count();
                         $sent = 0;
                         $failed = 0;
                         foreach ($this->getOwnerRecord()->answers()->where('sheets_status', '!=', 'synced')->cursor() as $answer) {
                             $answer->sendToSheets() ? $sent++ : $failed++;
                         }
                         Notification::make()
-                            ->title($sent.' terkirim, '.$failed.' gagal.')
+                            ->title($belum === 0
+                                ? 'Semua jawaban sudah terkirim ke Google Sheets.'
+                                : $sent.' terkirim, '.$failed.' gagal.')
                             ->success($failed === 0)
                             ->danger($failed > 0)
                             ->send();
@@ -119,6 +122,7 @@ class AnswersRelationManager extends RelationManager
                         ->color('warning')
                         ->requiresConfirmation()
                         ->action(function ($records) {
+                            $belum = $records->where('sheets_status', '!=', 'synced')->count();
                             $sent = 0;
                             $failed = 0;
                             foreach ($records as $record) {
@@ -128,7 +132,9 @@ class AnswersRelationManager extends RelationManager
                                 $record->sendToSheets() ? $sent++ : $failed++;
                             }
                             Notification::make()
-                                ->title($sent.' terkirim, '.$failed.' gagal.')
+                                ->title($belum === 0
+                                    ? 'Semua jawaban yang dipilih sudah terkirim ke Google Sheets.'
+                                    : $sent.' terkirim, '.$failed.' gagal.')
                                 ->success($failed === 0)
                                 ->danger($failed > 0)
                                 ->send();
