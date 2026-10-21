@@ -30,10 +30,13 @@
         // Draft di localStorage baru dihapus di sini, karena halaman ini
         // hanya dirender setelah server memastikan jawaban tersimpan
         // (berhasil maupun terdeteksi duplikat). Ini titik otoritatif.
+        // Urutan acak (`quiz_order_`) ikut dihapus di sini supaya siswa
+        // berikutnya pada device yang sama mendapat acakan soal yang baru.
         (function () {
             var slug = @json($slug);
             try {
                 localStorage.removeItem('quiz_draft_' + slug);
+                localStorage.removeItem('quiz_order_' + slug);
                 localStorage.setItem('quiz_done_' + slug, '1');
             } catch (e) {
                 // localStorage bisa diblokir di mode privasi; abaikan.

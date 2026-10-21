@@ -666,13 +666,19 @@ class ToolsController extends Controller
 
         set_time_limit(300);
 
+        $belum = $session->answers()->where('sheets_status', '!=', 'synced')->count();
+
         $sent = 0;
         $failed = 0;
         $session->answers()->where('sheets_status', '!=', 'synced')->each(function (QuizAnswer $answer) use (&$sent, &$failed) {
             $answer->sendToSheets() ? $sent++ : $failed++;
         });
 
-        return back()->with('quiz_notice', $sent.' jawaban terkirim, '.$failed.' gagal.');
+        $notice = $belum === 0
+            ? 'Semua jawaban sudah terkirim ke Google Sheets.'
+            : $sent.' jawaban terkirim, '.$failed.' gagal.';
+
+        return back()->with('quiz_notice', $notice);
     }
 
     public function quizMonitor(string $slug)

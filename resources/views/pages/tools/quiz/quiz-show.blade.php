@@ -251,11 +251,7 @@
                     this.instansi = this.oldIdentity.instansi || draft.instansi || '';
                     this.answers = Object.assign({}, draft.answers || {}, this.oldAnswers);
 
-                    this.display = this.shuffleQ ? this.shuffle(this.questions.slice()) : this.questions.slice();
-                    this.display.forEach(q => {
-                        const opts = (q.options || []).map((o, i) => Object.assign({ idx: i }, o));
-                        q._opts = this.shuffleO ? this.shuffle(opts) : opts;
-                    });
+                    this.buildOrder();
 
                     this.timer = setInterval(() => this.save(), 5000);
                 },
@@ -265,6 +261,76 @@
                         [arr[i], arr[j]] = [arr[j], arr[i]];
                     }
                     return arr;
+                },
+                // Urutan acak DISIMPAN di browser supaya refresh tidak mengacak
+                // ulang — soal dan opsi tetap di posisi yang sama. Yang disimpan
+                // hanya urutan (id soal + index opsi aslinya), bukan isi soal.
+                // Urutan dihapus di halaman terima kasih, jadi siswa berikutnya
+                // pada device yang sama langsung mendapat acakan baru.
+                orderKey() {
+                    return 'quiz_order_' + this.slug;
+                },
+                loadOrder() {
+                    try {
+                        return JSON.parse(localStorage.getItem(this.orderKey()) || 'null');
+                    } catch (e) {
+                        return null;
+                    }
+                },
+                saveOrder(ids, opts) {
+                    try {
+                        localStorage.setItem(this.orderKey(), JSON.stringify({ ids: ids, opts: opts }));
+                    } catch (e) {
+                        // localStorage bisa diblokir (mode privasi); abaikan,
+                        // acakan hanya berlaku untuk halaman ini saja.
+                    }
+                },
+                // Simpanan hanya dipakai bila masih cocok dengan soal sekarang
+                // (jumlah & isi id sama, urutan opsi = permutasi lengkap).
+                // Kalau tidak cocok, diacak ulang — bukan error.
+                isValidOrder(order) {
+                    if (!order || !Array.isArray(order.ids) || !order.opts || typeof order.opts !== 'object') {
+                        return false;
+                    }
+                    const idList = this.questions.map(q => String(q.id));
+                    if (order.ids.length !== this.questions.length) return false;
+                    if (new Set(order.ids.map(String)).size !== order.ids.length) return false;
+                    if (!order.ids.every(id => idList.indexOf(String(id)) >= 0)) return false;
+                    return this.questions.every(q => {
+                        const permut = order.opts[q.id];
+                        const n = (q.options || []).length;
+                        if (!Array.isArray(permut) || permut.length !== n) return false;
+                        if (new Set(permut.map(Number)).size !== n) return false;
+                        return permut.every(v => Number.isInteger(Number(v)) && Number(v) >= 0 && Number(v) < n);
+                    });
+                },
+                // Susun opsi sesuai urutan tersimpan (nilai jawaban tetap index
+                // asli opsi, jadi draft yang sudah tersimpan tidak berubah).
+                applyOrder(q, permut) {
+                    const opts = (q.options || []).map((o, i) => Object.assign({ idx: i }, o));
+                    if (!Array.isArray(permut)) return opts;
+                    return permut.map(i => opts[Number(i)]);
+                },
+                buildOrder() {
+                    const order = this.loadOrder();
+                    if (this.isValidOrder(order)) {
+                        this.display = order.ids
+                            .map(id => this.questions.filter(q => String(q.id) === String(id))[0])
+                            .filter(q => !!q);
+                        this.display.forEach(q => {
+                            q._opts = this.applyOrder(q, order.opts[q.id]);
+                        });
+                        return;
+                    }
+
+                    const display = this.shuffleQ ? this.shuffle(this.questions.slice()) : this.questions.slice();
+                    const opts = {};
+                    display.forEach(q => {
+                        q._opts = this.shuffleO ? this.shuffle(this.applyOrder(q, null)) : this.applyOrder(q, null);
+                        opts[q.id] = q._opts.map(o => o.idx);
+                    });
+                    this.display = display;
+                    this.saveOrder(display.map(q => q.id), opts);
                 },
                 save() {
                     // Jangan simpan draft kosong (belum ada isian sama sekali).
