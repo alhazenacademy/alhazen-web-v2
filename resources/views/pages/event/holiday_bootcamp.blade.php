@@ -14,14 +14,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alhazen Holiday Bootcamp 2026 — Liburan Seru Bikin Game & Portofolio Digital</title>
-    <meta name="description" content="Program liburan sekolah 8 hari intensif online via Zoom untuk jenjang SD–SMA. Bikin game Roblox, animasi Scratch, dan pemrograman Python bareng mentor Alhazen!">
+    <title>Alhazen Holiday Bootcamp 2026 — Liburan Seru Bikin Karya Digital & Portofolio</title>
+    <meta name="description" content="Program liburan sekolah 8 hari intensif online via Zoom untuk jenjang SD–SMA. Bikin karya 3D di Roblox Studio, animasi Scratch, dan pemrograman Python bareng mentor Alhazen!">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="id_ID">
-    <meta property="og:title" content="Alhazen Holiday Bootcamp 2026 — Liburan Seru Bikin Game & Portofolio Digital">
-    <meta property="og:description" content="Program liburan sekolah 8 hari intensif online via Zoom untuk SD–SMA. Bikin game Roblox, animasi Scratch, dan pemrograman Python bareng mentor Alhazen!">
+    <meta property="og:title" content="Alhazen Holiday Bootcamp 2026 — Liburan Seru Bikin Karya Digital & Portofolio">
+    <meta property="og:description" content="Program liburan sekolah 8 hari intensif online via Zoom untuk SD–SMA. Bikin karya 3D di Roblox Studio, animasi Scratch, dan pemrograman Python bareng mentor Alhazen!">
     <meta property="og:image" content="{{ asset('assets/custom/holiday_bootcamp/poster.jpeg') }}">
     <link rel="icon" href="{{ asset('assets/logo-new.webp') }}" type="image/x-icon">
 
@@ -283,7 +283,7 @@
                             <img src="{{ asset('assets/custom/holiday_bootcamp/poster.jpeg') }}" alt="Alhazen Holiday Bootcamp 2026" class="w-full h-auto rounded-2xl object-cover" onerror="this.onerror=null; this.src='https://akalstorageaccount1.blob.core.windows.net/akalcontainer1/alhazenacademy/33sfTJUPfIuh4sR3iQGXI'">
                         </div>
 
-                        <!-- Floating Badge 1: Game Controller (Left Top) -->
+                        <!-- Floating Badge 1: Controller (Left Top) -->
                         <div class="absolute -top-6 -left-6 z-20 hidden sm:flex items-center gap-2 bg-white px-4 py-2.5 rounded-2xl border-2 border-scratch shadow-lg clay-pill animate-float">
                             <img src="{{ asset('assets/custom/holiday_bootcamp/controller.webp') }}" alt="Controller" class="w-8 h-8 object-contain">
                             <div class="text-left">
@@ -484,25 +484,25 @@
 
                     <h3 class="text-2xl font-bold font-heading text-ink mb-4">Karya Mandiri & Showcase Day</h3>
                     <p class="text-muted text-sm sm:text-base leading-relaxed mb-6">
-                        Perancangan ide mandiri siswa, penulisan script Karya pribadi, perbaikan bug secara 1-on-1, dan presentasi karya di hari terakhir.
+                        Siswa mengembangkan karya digital berdasarkan ide dan kreativitas masing-masing, menyempurnakan fitur bersama mentor, lalu mempresentasikan hasil karyanya pada hari terakhir.
                     </p>
 
                     <ul class="space-y-3">
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">5</span>
-                            <span>Brainstorming ide Karya pribadi & pemilihan aset</span>
+                            <span>Mengembangkan ide karya dan memilih aset yang sesuai</span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">6</span>
-                            <span>Penulisan kode Karya & fitur kustom peserta</span>
+                            <span>Membuat kode dan fitur sesuai kreativitas siswa</span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">7</span>
-                            <span>In-class 1-on-1 debugging clinic bareng mentor</span>
+                            <span>Memperbaiki dan menyempurnakan karya bersama mentor</span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">8</span>
-                            <span><strong>Showcase Day</strong>: Presentasi Karya & pengumuman juara!</span>
+                            <span><strong>Showcase Day</strong>: Presentasi hasil karya dan pengumuman pemenang</span>
                         </li>
                     </ul>
                 </div>
@@ -722,9 +722,9 @@
                             </span>
                         </div>
 
-                        <h3 class="text-2xl font-bold font-heading text-ink mb-2 text-center">Game Dev with Scratch</h3>
+                        <h3 class="text-2xl font-bold font-heading text-ink mb-2 text-center">Coding &amp; Animation <br> with Scratch</h3>
                         <p class="text-muted text-sm leading-relaxed mb-6">
-                            Susun blok visual, ciptakan game interaktif, animasi seru, dan rilis portofolio digital pertamamu! Cocok untuk anak yang baru pertama kali mengenal coding.
+                            Susun blok visual, ciptakan karya interaktif, animasi seru, dan rilis portofolio digital pertamamu! Cocok untuk anak yang baru pertama kali mengenal coding.
                         </p>
 
                         <!-- Price Tag -->
@@ -792,7 +792,7 @@
                             </span>
                         </div>
 
-                        <h3 class="text-2xl font-bold font-heading text-ink mb-2 text-center">Game Dev with Roblox</h3>
+                        <h3 class="text-2xl font-bold font-heading text-ink mb-2 text-center">3D Creation <br> with Roblox Studio</h3>
                         <p class="text-muted text-sm leading-relaxed mb-6">
                             Desain map 3D, buat rintangan tantangan seru, dan ciptakan petualangan Roblox Studio yang bisa dimainkan online bersama teman-teman!
                         </p>
@@ -994,7 +994,7 @@
                         <iconify-icon icon="lucide:chevron-down" class="text-2xl transition-transform duration-200" :class="openFaq === 2 ? 'rotate-180 text-main' : 'text-muted'"></iconify-icon>
                     </button>
                     <div x-show="openFaq === 2" x-collapse class="px-5 pb-6 sm:px-6 text-sm text-muted leading-relaxed">
-                        Peserta membutuhkan Laptop atau Komputer (PC) dengan sistem operasi Windows atau Mac yang terkoneksi internet lancar, webcam, dan aplikasi Zoom. Mouse eksternal sangat disarankan untuk kemudahan navigasi saat membuat game.
+                        Peserta membutuhkan Laptop atau Komputer (PC) dengan sistem operasi Windows atau Mac yang terkoneksi internet lancar, webcam, dan aplikasi Zoom. Mouse eksternal sangat disarankan untuk kemudahan navigasi saat membuat proyek.
                     </div>
                 </div>
 
