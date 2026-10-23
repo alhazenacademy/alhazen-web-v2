@@ -195,7 +195,7 @@
                 <a href="#tentang" class="hover:text-main transition-colors">Tentang Program</a>
                 <a href="#kurikulum" class="hover:text-main transition-colors">Kurikulum 8 Hari</a>
                 <a href="#jalur" class="hover:text-main transition-colors">Pilihan Kelas</a>
-                <a href="#tutor" class="hover:text-main transition-colors">Mentor</a>
+                <a href="#Mentor" class="hover:text-main transition-colors">Mentor</a>
                 <a href="#faq" class="hover:text-main transition-colors">FAQ</a>
             </nav>
 
@@ -234,7 +234,7 @@
 
                     <!-- Persuasive Subtitle -->
                     <p class="text-base sm:text-lg lg:text-xl text-muted font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        Ubah screen time liburan anak menjadi karya nyata! 8 hari belajar intensif membuat game Roblox, animasi Scratch, atau program Python bareng mentor ramah anak.
+                        Liburan produktif dengan pengalaman belajar teknologi yang seru! Selama 8 hari, anak mengeksplorasi kreasi dunia 3D, animasi digital, dan pemrograman Python bersama mentor yang ramah anak.
                     </p>
 
                     <!-- Key Event Pills -->
@@ -249,7 +249,7 @@
                         </div>
                         <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-2xl border-2 border-[#E2E8F0] shadow-sm text-xs sm:text-sm font-semibold">
                             <iconify-icon icon="lucide:award" class="text-accent text-lg"></iconify-icon>
-                            <span>Hadiah Uang Tunai 3 Terbaik</span>
+                            <span>Hadiah Menarik Untuk 3 Karya Terbaik</span>
                         </div>
                     </div>
 
@@ -280,15 +280,15 @@
                     <div class="relative w-full max-w-md">
                         <!-- Backdrop Clay Frame -->
                         <div class="clay-card border-4 border-white p-3 sm:p-4 bg-white relative z-10 overflow-hidden">
-                            <img src="{{ asset('assets/custom/holiday_bootcamp/poster.jpg') }}" alt="Alhazen Holiday Bootcamp 2026" class="w-full h-auto rounded-2xl object-cover" onerror="this.onerror=null; this.src='https://akalstorageaccount1.blob.core.windows.net/akalcontainer1/alhazenacademy/33sfTJUPfIuh4sR3iQGXI'">
+                            <img src="{{ asset('assets/custom/holiday_bootcamp/poster.jpeg') }}" alt="Alhazen Holiday Bootcamp 2026" class="w-full h-auto rounded-2xl object-cover" onerror="this.onerror=null; this.src='https://akalstorageaccount1.blob.core.windows.net/akalcontainer1/alhazenacademy/33sfTJUPfIuh4sR3iQGXI'">
                         </div>
 
                         <!-- Floating Badge 1: Game Controller (Left Top) -->
                         <div class="absolute -top-6 -left-6 z-20 hidden sm:flex items-center gap-2 bg-white px-4 py-2.5 rounded-2xl border-2 border-scratch shadow-lg clay-pill animate-float">
                             <img src="{{ asset('assets/custom/holiday_bootcamp/controller.webp') }}" alt="Controller" class="w-8 h-8 object-contain">
                             <div class="text-left">
-                                <p class="text-[10px] text-muted font-bold uppercase tracking-wider">Hasil Proyek</p>
-                                <p class="text-xs font-heading font-bold text-scratch">Game Sendiri!</p>
+                                <p class="text-[10px] text-muted font-bold uppercase tracking-wider">Hasil Karya</p>
+                                <p class="text-xs font-heading font-bold text-scratch">Karya Digital Sendiri!</p>
                             </div>
                         </div>
 
@@ -297,7 +297,7 @@
                             <img src="{{ asset('assets/custom/holiday_bootcamp/money.webp') }}" alt="Hadiah" class="w-10 h-10 object-contain">
                             <div class="text-left">
                                 <span class="bg-accent/30 text-ink text-[10px] font-bold px-2 py-0.5 rounded-full">Showcase Day</span>
-                                <p class="text-xs sm:text-sm font-heading font-bold text-ink">Hadiah Uang Tunai!</p>
+                                <p class="text-xs sm:text-sm font-heading font-bold text-ink">Hadiah Uang Tunai, Voucher kelas, E-sertifikat</p>
                             </div>
                         </div>
 
@@ -318,7 +318,7 @@
                         <iconify-icon icon="lucide:clock" class="text-2xl"></iconify-icon>
                     </div>
                     <div>
-                        <h4 class="font-heading font-bold text-lg text-ink">8 Hari Kelas</h4>
+                        <h4 class="font-heading font-bold text-lg text-ink">8 Hari Belajar</h4>
                         <p class="text-xs text-muted">Intensif & terarah</p>
                     </div>
                 </div>
@@ -328,7 +328,7 @@
                         <iconify-icon icon="lucide:video" class="text-2xl"></iconify-icon>
                     </div>
                     <div>
-                        <h4 class="font-heading font-bold text-lg text-ink">Online Zoom</h4>
+                        <h4 class="font-heading font-bold text-lg text-ink">Online Via Zoom</h4>
                         <p class="text-xs text-muted">Belajar dari rumah</p>
                     </div>
                 </div>
@@ -348,7 +348,7 @@
                         <iconify-icon icon="lucide:trophy" class="text-2xl"></iconify-icon>
                     </div>
                     <div>
-                        <h4 class="font-heading font-bold text-lg text-ink">Proyek Nyata</h4>
+                        <h4 class="font-heading font-bold text-lg text-ink">Karya Nyata</h4>
                         <p class="text-xs text-muted">Portofolio & reward</p>
                     </div>
                 </div>
@@ -383,11 +383,11 @@
                         </h2>
 
                         <p class="text-muted text-base sm:text-lg leading-relaxed">
-                            <strong>Alhazen Holiday Bootcamp</strong> adalah program liburan sekolah intensif berbasis <em>Project-Based Learning</em> yang dirancang khusus untuk mengubah rasa ingin tahu anak (jenjang SD–SMA) menjadi pencipta teknologi digital.
+                            <strong>Alhazen Holiday Bootcamp</strong> adalah program liburan sekolah intensif berbasis <em>Project-Based Learning</em> yang dirancang untuk anak jenjang SD hingga SMA agar dapat mengembangkan kreativitas, logika, dan keterampilan teknologi digital melalui pengalaman belajar yang menyenangkan.
                         </p>
 
                         <p class="text-muted text-base sm:text-lg leading-relaxed">
-                            Selama 8 hari pertemuan terstruktur, anak tidak hanya diajarkan teori kaku. Mereka dipandu langsung oleh mentor berpengalaman untuk membangun game impian di Roblox, merakit logika animasi di Scratch, hingga membedah visualisasi data di Python.
+                            Selama 8 hari pertemuan terstruktur, anak akan didampingi mentor berpengalaman untuk merancang kreasi dunia 3D dengan Roblox Studio, membuat animasi interaktif dengan Scratch, hingga mengolah dan memvisualisasikan data menggunakan Python.
                         </p>
 
                         <div class="grid sm:grid-cols-2 gap-4 pt-2">
@@ -401,11 +401,11 @@
                             </div>
                             <div class="flex items-start gap-3">
                                 <iconify-icon icon="lucide:check-circle" class="text-main text-2xl shrink-0 mt-0.5"></iconify-icon>
-                                <span class="text-sm font-semibold text-ink">Portofolio proyek nyata siap dipamerkan</span>
+                                <span class="text-sm font-semibold text-ink">Portofolio karya nyata siap dipamerkan</span>
                             </div>
                             <div class="flex items-start gap-3">
                                 <iconify-icon icon="lucide:check-circle" class="text-main text-2xl shrink-0 mt-0.5"></iconify-icon>
-                                <span class="text-sm font-semibold text-ink">Tutor sabar & ramah anak terverifikasi</span>
+                                <span class="text-sm font-semibold text-ink">Mentor sabar & ramah anak terverifikasi</span>
                             </div>
                         </div>
 
@@ -447,7 +447,7 @@
 
                     <h3 class="text-2xl font-bold font-heading text-ink mb-4">Fondasi Konsep & Prototype</h3>
                     <p class="text-muted text-sm sm:text-base leading-relaxed mb-6">
-                        Siswa diajak memahami konsep dasar logika coding dan pengenalan antarmuka tool/software melalui latihan studi kasus terpandu.
+                        Siswa mempelajari dasar-dasar logika pemrograman dan mengenal antarmuka software melalui studi kasus dan latihan praktik yang terarah bersama mentor.
                     </p>
 
                     <ul class="space-y-3">
@@ -465,7 +465,7 @@
                         </li>
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-emerald-100 text-main flex items-center justify-center shrink-0 text-xs font-bold">4</span>
-                            <span>Penyelesaian purwarupa (prototype) proyek pertama</span>
+                            <span>Penyelesaian purwarupa (prototype) Karya pertama</span>
                         </li>
                     </ul>
                 </div>
@@ -484,17 +484,17 @@
 
                     <h3 class="text-2xl font-bold font-heading text-ink mb-4">Karya Mandiri & Showcase Day</h3>
                     <p class="text-muted text-sm sm:text-base leading-relaxed mb-6">
-                        Perancangan ide mandiri siswa, penulisan script proyek pribadi, perbaikan bug secara 1-on-1, dan presentasi karya di hari terakhir.
+                        Perancangan ide mandiri siswa, penulisan script Karya pribadi, perbaikan bug secara 1-on-1, dan presentasi karya di hari terakhir.
                     </p>
 
                     <ul class="space-y-3">
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">5</span>
-                            <span>Brainstorming ide proyek pribadi & pemilihan aset</span>
+                            <span>Brainstorming ide Karya pribadi & pemilihan aset</span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">6</span>
-                            <span>Penulisan kode proyek & fitur kustom peserta</span>
+                            <span>Penulisan kode Karya & fitur kustom peserta</span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">7</span>
@@ -502,7 +502,7 @@
                         </li>
                         <li class="flex items-center gap-3 text-sm text-ink font-medium">
                             <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 text-xs font-bold">8</span>
-                            <span><strong>Showcase Day</strong>: Presentasi proyek & pengumuman juara!</span>
+                            <span><strong>Showcase Day</strong>: Presentasi Karya & pengumuman juara!</span>
                         </li>
                     </ul>
                 </div>
@@ -536,7 +536,7 @@
                     </div>
                     <h3 class="font-heading font-bold text-xl text-ink mb-2">Live Zoom Interaktif</h3>
                     <p class="text-muted text-sm leading-relaxed">
-                        Kelas online tatap muka kelompok interaktif yang dibimbing oleh tutor ramah anak dan sabar.
+                        Kelas online tatap muka kelompok interaktif yang dibimbing oleh Mentor ramah anak dan sabar.
                     </p>
                 </div>
 
@@ -567,7 +567,7 @@
                     <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center mb-5 text-2xl">
                         <iconify-icon icon="lucide:award"></iconify-icon>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-ink mb-2">Sertifikat Kelulusan</h3>
+                    <h3 class="font-heading font-bold text-xl text-ink mb-2">E-Sertifikat</h3>
                     <p class="text-muted text-sm leading-relaxed">
                         Sertifikat resmi dari Alhazen Academy sebagai bukti portofolio pencapaian keterampilan anak.
                     </p>
@@ -612,41 +612,76 @@
                         Puncak Acara: Lomba Adu Karya
                     </span>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
-                        Akhiri Bootcamp dengan <span class="text-main">Lomba</span> &amp; Hadiah Uang Tunai!
+                        Tampilkan <span class="text-main">Karyamu</span>, Raih <span class="text-scratch">Hadiahnya</span>!
                     </h2>
                     <p class="text-muted text-base sm:text-lg">
-                        Di akhir program diadakan <strong>Lomba Adu Karya (Showcase Day)</strong>. Setiap siswa mempresentasikan proyek buatannya di depan mentor dan sesama peserta. Karya terbaik berhak membawa pulang <strong>hadiah uang tunai</strong>!
+                        Di akhir program, siswa berkesempatan mempresentasikan hasil karyanya dalam <strong>Showcase Day</strong>. Karya terbaik berkesempatan meraih hadiah <strong>uang tunai dan voucher kelas</strong>, sementara seluruh peserta mendapatkan e-sertifikat serta voucher spesial.
                     </p>
                 </div>
 
-                <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto relative z-10 items-center">
+                <!-- Hadiah Pemenang -->
+                <div class="text-center mb-8 relative z-10">
+                    <h3 class="inline-flex items-center gap-2 font-heading font-bold text-lg sm:text-xl text-ink uppercase tracking-wide">
+                        <iconify-icon icon="lucide:trophy" class="text-amber-500 text-xl"></iconify-icon>
+                        Hadiah Pemenang
+                    </h3>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto relative z-10 items-start">
                     <!-- Juara 1 (featured, tengah) -->
                     <div class="clay-card bg-white border-4 border-accent p-6 text-center relative shadow-xl sm:order-2">
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-ink text-xs font-heading font-bold px-4 py-1 rounded-full border-2 border-white shadow clay-pill whitespace-nowrap">Juara 1</div>
                         <div class="text-5xl mb-3 mt-5 text-amber-500"><iconify-icon icon="lucide:trophy"></iconify-icon></div>
-                        <h3 class="font-heading font-bold text-2xl text-ink">Karya Terbaik</h3>
-                        <p class="text-muted text-sm mt-1">Pilihan mentor &amp; penonton</p>
-                        <p class="font-heading font-extrabold text-main text-lg mt-4">Hadiah Uang Tunai</p>
+                        <p class="font-heading font-extrabold text-3xl sm:text-4xl text-main">Rp200.000</p>
+                        <p class="text-muted text-xs mt-1">Uang Tunai</p>
+                        <div class="h-px bg-[#E2E8F0] my-4"></div>
+                        <ul class="space-y-2 text-sm text-left text-ink">
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>Voucher <strong>50%</strong> kelas Coding Private</span></li>
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>Voucher <strong>30%</strong> After School Program (ASP) Group</span></li>
+                        </ul>
                     </div>
                     <!-- Juara 2 -->
                     <div class="clay-card bg-white border-2 border-[#E2E8F0] p-6 text-center sm:order-1 sm:mt-8">
-                        <div class="text-4xl mb-3 text-slate-400"><iconify-icon icon="lucide:medal"></iconify-icon></div>
-                        <h3 class="font-heading font-bold text-xl text-ink">Juara 2</h3>
-                        <p class="text-muted text-sm mt-1">Karya terbaik ke-2</p>
-                        <p class="font-heading font-bold text-main mt-3">Hadiah Uang Tunai</p>
+                        <div class="text-4xl mb-2 text-slate-400"><iconify-icon icon="lucide:medal"></iconify-icon></div>
+                        <h4 class="font-heading font-bold text-lg text-ink mb-1">Juara 2</h4>
+                        <p class="font-heading font-extrabold text-3xl text-main">Rp150.000</p>
+                        <p class="text-muted text-xs mt-1">Uang Tunai</p>
+                        <div class="h-px bg-[#E2E8F0] my-4"></div>
+                        <ul class="space-y-2 text-sm text-left text-ink">
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>Voucher <strong>50%</strong> kelas Coding Private</span></li>
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>Voucher <strong>30%</strong> After School Program (ASP) Group</span></li>
+                        </ul>
                     </div>
                     <!-- Juara 3 -->
                     <div class="clay-card bg-white border-2 border-[#E2E8F0] p-6 text-center sm:order-3 sm:mt-8">
-                        <div class="text-4xl mb-3 text-orange-500"><iconify-icon icon="lucide:medal"></iconify-icon></div>
-                        <h3 class="font-heading font-bold text-xl text-ink">Juara 3</h3>
-                        <p class="text-muted text-sm mt-1">Karya terbaik ke-3</p>
-                        <p class="font-heading font-bold text-main mt-3">Hadiah Uang Tunai</p>
+                        <div class="text-4xl mb-2 text-orange-500"><iconify-icon icon="lucide:medal"></iconify-icon></div>
+                        <h4 class="font-heading font-bold text-lg text-ink mb-1">Juara 3</h4>
+                        <p class="font-heading font-extrabold text-3xl text-main">Rp100.000</p>
+                        <p class="text-muted text-xs mt-1">Uang Tunai</p>
+                        <div class="h-px bg-[#E2E8F0] my-4"></div>
+                        <ul class="space-y-2 text-sm text-left text-ink">
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>Voucher <strong>50%</strong> kelas Coding Private</span></li>
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>Voucher <strong>30%</strong> After School Program (ASP) Group</span></li>
+                        </ul>
                     </div>
                 </div>
 
-                <p class="text-center text-muted text-sm mt-10 relative z-10">
-                    Penilaian karya berdasarkan kreativitas, fungsi program, dan kepercayaan diri saat presentasi.
-                </p>
+                <!-- Hadiah untuk Seluruh Peserta -->
+                <div class="mt-10 max-w-4xl mx-auto relative z-10">
+                    <div class="clay-card bg-main/5 border-2 border-main/30 p-6 sm:p-8">
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-ink mb-4 flex items-center gap-2">
+                            <iconify-icon icon="lucide:gift" class="text-main text-xl"></iconify-icon>
+                            Hadiah untuk Seluruh Peserta
+                        </h3>
+                        <ul class="grid sm:grid-cols-2 gap-3 text-sm text-ink">
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>E-sertifikat keikutsertaan</span></li>
+                            <li class="flex items-start gap-2"><iconify-icon icon="lucide:check-circle-2" class="text-main mt-0.5 shrink-0"></iconify-icon><span>Voucher diskon <strong>20%</strong> kelas Coding Private dan ASP Group bagi peserta di luar Juara 1, 2, dan 3</span></li>
+                        </ul>
+                        <p class="text-muted text-xs sm:text-sm mt-5 italic">
+                            <strong>Kriteria penilaian:</strong> kreativitas, fungsi program, dan kepercayaan diri saat presentasi.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -766,8 +801,8 @@
                         <div class="p-4 bg-amber-100/70 rounded-2xl border border-amber-200 mb-6">
                             <p class="text-xs text-muted mb-1">Biaya Investasi Liburan:</p>
                             <div class="flex items-center gap-3 flex-wrap">
-                                <p class="text-lg text-muted line-through">Rp599.000</p>
-                                <span class="px-2 py-0.5 rounded-full bg-roblox text-ink text-[10px] font-bold">HEMAT 67%</span>
+                                <p class="text-lg text-muted line-through">Rp699.000</p>
+                                <span class="px-2 py-0.5 rounded-full bg-roblox text-ink text-[10px] font-bold">HEMAT 72%</span>
                             </div>
                             <p class="text-3xl font-extrabold font-heading text-ink">Rp199.000</p>
                         </div>
@@ -875,8 +910,8 @@
         </div>
     </section>
 
-    <!-- ==================== TUTOR SECTION ==================== -->
-    <section id="tutor" class="py-16 relative">
+    <!-- ==================== Mentor SECTION ==================== -->
+    <section id="Mentor" class="py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="clay-card p-8 sm:p-12 border-2 border-white bg-gradient-to-r from-emerald-50/60 to-white">
                 <div class="grid lg:grid-cols-12 gap-8 items-center">
@@ -884,10 +919,10 @@
                     <div class="lg:col-span-4 flex justify-center">
                         <div class="relative">
                             <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full border-4 border-white shadow-xl overflow-hidden bg-main/20 flex items-center justify-center">
-                                <img src="{{ asset('assets/custom/holiday_bootcamp/boy.webp') }}" alt="Tutor Alhazen" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://akalstorageaccount1.blob.core.windows.net/akalcontainer1/alhazenacademy/G4Ja_8JpWPWtkLZTdQ9p0'">
+                                <img src="{{ asset('assets/custom/holiday_bootcamp/boy.webp') }}" alt="Mentor Alhazen" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://akalstorageaccount1.blob.core.windows.net/akalcontainer1/alhazenacademy/G4Ja_8JpWPWtkLZTdQ9p0'">
                             </div>
                             <div class="absolute -bottom-2 -right-2 bg-main text-white px-3 py-1 rounded-full text-xs font-bold clay-pill">
-                                Verified Tutor
+                                Verified Mentor
                             </div>
                         </div>
                     </div>
@@ -897,10 +932,10 @@
                             Pendampingan Penuh
                         </span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-ink">
-                            Dibimbing Langsung oleh Alhazen Elite Tutor
+                            Dibimbing Langsung oleh Alhazen Elite Mentor
                         </h2>
                         <p class="text-muted text-base leading-relaxed">
-                            Tutor kami adalah instruktur profesional yang tidak hanya menguasai coding teknis, tetapi juga dibekali sertifikasi pedagogi ramah anak. Setiap peserta mendapatkan ruang berpendapat, bertanya, dan bereksperimen dengan santai dan menyenangkan.
+                            Mentor kami adalah instruktur profesional yang tidak hanya menguasai coding teknis, tetapi juga dibekali sertifikasi pedagogi ramah anak. Setiap peserta mendapatkan ruang berpendapat, bertanya, dan bereksperimen dengan santai dan menyenangkan.
                         </p>
                         <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
                             <div class="flex items-center gap-2 text-sm font-semibold text-ink">
@@ -909,7 +944,7 @@
                             </div>
                             <div class="flex items-center gap-2 text-sm font-semibold text-ink">
                                 <iconify-icon icon="lucide:heart-handshake" class="text-main text-xl"></iconify-icon>
-                                <span>1-on-1 Debugging Clinic</span>
+                                <span>1-on-1 Group Debugging Clinic</span>
                             </div>
                             <div class="flex items-center gap-2 text-sm font-semibold text-ink">
                                 <iconify-icon icon="lucide:sparkles" class="text-main text-xl"></iconify-icon>
@@ -948,7 +983,7 @@
                         <iconify-icon icon="lucide:chevron-down" class="text-2xl transition-transform duration-200" :class="openFaq === 1 ? 'rotate-180 text-main' : 'text-muted'"></iconify-icon>
                     </button>
                     <div x-show="openFaq === 1" x-collapse class="px-5 pb-6 sm:px-6 text-sm text-muted leading-relaxed">
-                        Tentu bisa! Seluruh jalur (terutama Scratch dan Roblox) dirancang mulai dari nol (beginner-friendly). Tutor akan memandu langkah demi langkah dari pengenalan antarmuka hingga anak bisa membuat proyeknya sendiri.
+                        Tentu bisa! Seluruh jalur (terutama Scratch dan Roblox) dirancang mulai dari nol (beginner-friendly). Mentor akan memandu langkah demi langkah dari pengenalan antarmuka hingga anak bisa membuat Karyanya sendiri.
                     </div>
                 </div>
 
@@ -970,7 +1005,7 @@
                         <iconify-icon icon="lucide:chevron-down" class="text-2xl transition-transform duration-200" :class="openFaq === 3 ? 'rotate-180 text-main' : 'text-muted'"></iconify-icon>
                     </button>
                     <div x-show="openFaq === 3" x-collapse class="px-5 pb-6 sm:px-6 text-sm text-muted leading-relaxed">
-                        Setiap sesi kelas Zoom direkam secara penuh. Peserta dapat memutar kembali rekaman kapan saja dan mengajukan pertanyaan perbaikan proyek kepada tim tutor.
+                        Setiap sesi kelas Zoom direkam secara penuh. Peserta dapat memutar kembali rekaman kapan saja dan mengajukan pertanyaan perbaikan Karya kepada tim Mentor.
                     </div>
                 </div>
 
@@ -992,7 +1027,7 @@
                         <iconify-icon icon="lucide:chevron-down" class="text-2xl transition-transform duration-200" :class="openFaq === 5 ? 'rotate-180 text-main' : 'text-muted'"></iconify-icon>
                     </button>
                     <div x-show="openFaq === 5" x-collapse class="px-5 pb-6 sm:px-6 text-sm text-muted leading-relaxed">
-                        Ya. Di akhir program diadakan <strong>Lomba Adu Karya (Showcase Day)</strong> tempat siswa mempresentasikan proyek buatannya. Juara 1, 2, dan 3 (3 karya terbaik pilihan mentor) berhak mendapatkan <strong>hadiah uang tunai</strong>. Penilaian berdasarkan kreativitas, fungsi program, dan kepercayaan diri saat presentasi.
+                        Ya. Di akhir program diadakan <strong>Lomba Adu Karya (Showcase Day)</strong> tempat siswa mempresentasikan Karya buatannya. Juara 1, 2, dan 3 (3 karya terbaik pilihan mentor) berhak mendapatkan <strong>hadiah uang tunai</strong>. Penilaian berdasarkan kreativitas, fungsi program, dan kepercayaan diri saat presentasi.
                     </div>
                 </div>
 
