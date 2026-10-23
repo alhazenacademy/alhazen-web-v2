@@ -22,7 +22,7 @@
     <meta property="og:locale" content="id_ID">
     <meta property="og:title" content="Alhazen Holiday Bootcamp 2026 — Liburan Seru Bikin Game & Portofolio Digital">
     <meta property="og:description" content="Program liburan sekolah 8 hari intensif online via Zoom untuk SD–SMA. Bikin game Roblox, animasi Scratch, dan pemrograman Python bareng mentor Alhazen!">
-    <meta property="og:image" content="{{ asset('assets/custom/holiday_bootcamp/poster.jpg') }}">
+    <meta property="og:image" content="{{ asset('assets/custom/holiday_bootcamp/poster.jpeg') }}">
     <link rel="icon" href="{{ asset('assets/logo-new.webp') }}" type="image/x-icon">
 
     <!-- Google Fonts: Fredoka (Headings) & Poppins (Body) -->
