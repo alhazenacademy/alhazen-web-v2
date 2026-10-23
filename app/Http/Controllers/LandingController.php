@@ -591,4 +591,22 @@ class LandingController extends Controller
     {
         return view('pages.random.form_review_kelas');
     }
+
+    public function holiday_bootcamp()
+    {
+        $salesPhone = $this->getSalesPhone();
+        $footer = $this->getFooterData();
+
+        return view('pages.event.holiday_bootcamp', [
+            'salesPhone' => $salesPhone,
+            'socials' => $footer['socials'],
+            'contact' => [
+                'phone' => $footer['whatsapp'] ?? '',
+                'email' => $footer['email'] ?? '',
+                'site' => $footer['website'] ?? 'alhazenacademy.com',
+            ],
+            'address' => $footer['address'] ?? '',
+            'programLinks' => $this->getProgramLinks(),
+        ]);
+    }
 }
