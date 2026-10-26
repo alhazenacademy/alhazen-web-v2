@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Mendidik Anak di Era AI — Alhazen Academy">
     <meta property="og:description"
-        content="Panduan pola asuh dan wawasan teknologi untuk orang tua anak SD–SMA bersama pakar parenting Islam. Sabtu, 31 Oktober 2026 · 10.00–11.00 WIB · Zoom.">
+        content="Panduan pola asuh dan wawasan teknologi untuk orang tua anak SD–SMA bersama pakar parenting Islam. Sabtu, 31 Oktober 2026 · 09.00–11.00 WIB · Zoom.">
     <meta property="og:image" content="{{ asset('assets/custom/mendidik-anak-ai/banner.jpeg') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta name="twitter:card" content="summary_large_image">
@@ -294,7 +294,7 @@
                 <a href="#jadwal"
                     class="nav-link text-xs font-semibold text-blue-spruce/75 hover:text-blue-spruce px-2.5 py-2 rounded-lg hover:bg-white/50 transition-all whitespace-nowrap">Jadwal</a>
                 <a href="#agenda"
-                    class="nav-link text-xs font-semibold text-blue-spruce/75 hover:text-blue-spruce px-2.5 py-2 rounded-lg hover:bg-white/50 transition-all whitespace-nowrap">Agenda</a>
+                    class="nav-link text-xs font-semibold text-blue-spruce/75 hover:text-blue-spruce px-2.5 py-2 rounded-lg hover:bg-white/50 transition-all whitespace-nowrap">Kehadiran</a>
                 <a href="#benefit"
                     class="nav-link text-xs font-semibold text-blue-spruce/75 hover:text-blue-spruce px-2.5 py-2 rounded-lg hover:bg-white/50 transition-all whitespace-nowrap">Benefit</a>
                 <a href="#daftar"
@@ -320,8 +320,8 @@
                     class="nav-link-m px-3 py-2.5 text-sm font-semibold text-blue-spruce/80 hover:text-blue-spruce rounded-lg hover:bg-azure-mist/60 transition-all">Save
                     the date</a>
                 <a href="#agenda"
-                    class="nav-link-m px-3 py-2.5 text-sm font-semibold text-blue-spruce/80 hover:text-blue-spruce rounded-lg hover:bg-azure-mist/60 transition-all">Rangkaian
-                    agenda</a>
+                    class="nav-link-m px-3 py-2.5 text-sm font-semibold text-blue-spruce/80 hover:text-blue-spruce rounded-lg hover:bg-azure-mist/60 transition-all">Kehadiran
+                    di Zoom</a>
                 <a href="#benefit"
                     class="nav-link-m px-3 py-2.5 text-sm font-semibold text-blue-spruce/80 hover:text-blue-spruce rounded-lg hover:bg-azure-mist/60 transition-all">Benefit</a>
                 <a href="#daftar"
@@ -336,7 +336,7 @@
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
                 <span
                     class="eyebrow text-[11px] font-bold uppercase text-blue-spruce bg-white/60 clay-pill px-3.5 py-1.5">
-                    Webinar online via Zoom · 60 menit
+                    Webinar online via Zoom · 120 menit
                 </span>
                 <div
                     class="inline-flex items-center gap-2.5 bg-blue-spruce text-white px-3.5 py-1 rounded-full text-[11px] clay-spruce-sm">
@@ -368,7 +368,7 @@
                         kursi <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a>
                     <a href="#agenda"
                         class="text-sm font-bold px-6 py-3 bg-white/75 clay-pill text-blue-spruce hover:bg-white transition-all">Lihat
-                        agenda</a>
+                        info kehadiran</a>
                 </div>
                 <div
                     class="mt-8 flex flex-wrap justify-center lg:justify-start gap-x-3 gap-y-2 text-[13px] text-blue-spruce/80 num">
@@ -377,7 +377,7 @@
                             class="fa-solid fa-calendar-days text-blue-spruce"></i>Sabtu, 31 Oktober 2026</span>
                     <span
                         class="inline-flex items-center gap-1.5 bg-white/75 clay-pill px-3.5 py-1.5 text-blue-spruce/85"><i
-                            class="fa-solid fa-clock text-blue-spruce"></i>10.00–11.00 WIB</span>
+                            class="fa-solid fa-clock text-blue-spruce"></i>09.00–11.00 WIB</span>
                     <span
                         class="inline-flex items-center gap-1.5 bg-white/75 clay-pill px-3.5 py-1.5 text-blue-spruce/85"><i
                             class="fa-solid fa-video text-blue-spruce"></i>Zoom</span>
@@ -475,8 +475,8 @@
             <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">03 — Save the date</p>
             <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-spruce">Catat tanggalnya.</h2>
             <p class="mt-3 text-[15px] text-blue-spruce/65 leading-relaxed max-w-xl">Sabtu, 31 Oktober 2026 ·
-                10.00–11.00
-                WIB · Online via Zoom. Hadir 15 menit sebelumnya.</p>
+                09.00–11.00
+                WIB · Online via Zoom. Peserta diharapkan masuk Zoom pukul 09.00 WIB.</p>
             <div class="mt-8 clay overflow-hidden grid lg:grid-cols-[1fr_300px]">
                 <div class="p-6 sm:p-8">
                     <div class="flex items-center justify-between mb-5">
@@ -527,7 +527,7 @@
                         </div>
                         <div>
                             <p class="text-[11px] font-bold uppercase tracking-widest opacity-70 mb-0.5">Jam</p>
-                            <p class="text-lg font-bold num">10.00 – 11.00 WIB</p>
+                            <p class="text-lg font-bold num">09.00 – 11.00 WIB</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -544,42 +544,116 @@
         </div>
     </section>
 
-    <!-- AGENDA -->
+    <!-- KEHADIRAN -->
     <section id="agenda" class="relative max-w-5xl mx-auto px-5 py-12 lg:py-16 scroll-mt-20">
         {{-- <img src="{{ asset('assets/custom/mendidik-anak-ai/cloud4.png') }}" alt="" aria-hidden="true"
             class="cloud-deco -top-2 -left-8 w-32 sm:w-44 lg:w-48 z-10"> --}}
         <img src="{{ asset('assets/custom/mendidik-anak-ai/cloud2.png') }}" alt="" aria-hidden="true"
             class="cloud-deco -bottom-2 right-0 w-44 sm:w-56 lg:w-64 z-0">
-        <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">04 — Rangkaian</p>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-spruce">Agenda 60 menit.</h2>
-        <div class="mt-8 space-y-3">
-            <div class="clay-sm flex gap-4 py-4 px-5 text-sm text-blue-spruce"><span
-                    class="num w-28 shrink-0 font-bold">09.30–10.00</span><span>Masuk Zoom</span></div>
-            <div class="clay-sm flex gap-4 py-4 px-5 text-sm text-blue-spruce"><span
-                    class="num w-28 shrink-0 font-bold">10.00–10.05</span><span>Opening MC & Sambutan</span></div>
-            <div class="clay-sm py-4 px-5 text-sm text-blue-spruce">
-                <div class="flex gap-4"><span class="num w-28 shrink-0 font-bold">10.05–10.45</span><span><span
-                            class="font-bold">Materi Utama —
-                            Mendidik Anak di Era AI.</span> <span class="text-blue-bell">| Ustadz dr. Raehanul
-                        Bahraen,
-                        M.Sc, Sp.PK</span></span></div>
-                <ul class="mt-3 ml-4 sm:ml-[7.75rem] space-y-2 text-[13px] text-blue-spruce/75">
-                    <li class="flex items-start gap-2.5"><i
-                            class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i><span>Komunikasi
-                            terbuka dengan anak soal teknologi</span></li>
-                    <li class="flex items-start gap-2.5"><i
-                            class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i><span>Kapan
-                            membatasi, kapan memberi kebebasan</span></li>
-                    <li class="flex items-start gap-2.5"><i
-                            class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i><span>Prinsip
-                            parenting yang tak lekang zaman</span></li>
-                    <li class="flex items-start gap-2.5"><i
-                            class="fa-solid fa-circle-check text-blue-spruce mt-1 text-xs shrink-0"></i><span>Ketahanan
-                            mental agar tak bergantung berlebihan</span></li>
-                </ul>
+        <p class="eyebrow text-[11px] font-bold uppercase text-blue-spruce mb-3">04 — Kehadiran</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-spruce">Masuk Zoom pukul 09.00.</h2>
+        <p class="mt-3 text-[15px] text-blue-spruce/65 leading-relaxed max-w-xl">Ruang Zoom dibuka tepat waktu. Tautan
+            Zoom dibagikan lewat group peserta — siapkan tautannya dan hadir sebelum webinar dimulai.</p>
+
+        <div class="mt-8 clay overflow-hidden grid lg:grid-cols-2">
+            <!-- Panel jam + countdown -->
+            <div class="clay-spruce text-white p-7 sm:p-10 flex flex-col justify-between gap-7">
+                <div>
+                    <span
+                        class="eyebrow inline-flex items-center gap-2 text-[10px] font-bold uppercase text-azure-mist bg-white/15 rounded-full px-3 py-1.5">
+                        <span class="w-2 h-2 rounded-full bg-watermelon inline-block"></span>
+                        Menuju webinar
+                    </span>
+                    <p class="mt-6 eyebrow text-[11px] font-bold uppercase text-white/60">Mulai pukul</p>
+                    <p class="num font-extrabold tracking-tight leading-none text-5xl sm:text-6xl">09.00 <span
+                            class="text-2xl sm:text-3xl font-bold text-azure-mist/80">WIB</span></p>
+                    <div class="mt-5 space-y-3 text-sm">
+                        <div class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-calendar-days text-sm"></i>
+                            </span>
+                            <span class="num">Sabtu, 31 Oktober 2026</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-hourglass-half text-sm"></i>
+                            </span>
+                            <span class="num">Durasi 120 menit · 09.00–11.00 WIB</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-video text-sm"></i>
+                            </span>
+                            <span>Online via Zoom</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-3 text-center num">
+                        <div class="bg-white/12 rounded-2xl py-3 px-1">
+                            <p id="cd-days" class="text-xl sm:text-2xl font-extrabold leading-none">--</p>
+                            <p class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-white/55 mt-1.5">Hari</p>
+                        </div>
+                        <div class="bg-white/12 rounded-2xl py-3 px-1">
+                            <p id="cd-hours" class="text-xl sm:text-2xl font-extrabold leading-none">--</p>
+                            <p class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-white/55 mt-1.5">Jam</p>
+                        </div>
+                        <div class="bg-white/12 rounded-2xl py-3 px-1">
+                            <p id="cd-mins" class="text-xl sm:text-2xl font-extrabold leading-none">--</p>
+                            <p class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-white/55 mt-1.5">Menit</p>
+                        </div>
+                        <div class="bg-white/12 rounded-2xl py-3 px-1">
+                            <p id="cd-secs" class="text-xl sm:text-2xl font-extrabold leading-none">--</p>
+                            <p class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-white/55 mt-1.5">Detik</p>
+                        </div>
+                    </div>
+                    <p id="countdown-note" class="text-[11px] text-white/55 mt-3 text-center">Hitung mundur menuju
+                        dimulainya webinar.</p>
+                </div>
             </div>
-            <div class="clay-sm flex gap-4 py-4 px-5 text-sm text-blue-spruce"><span
-                    class="num w-28 shrink-0 font-bold">10.45–11.00</span><span>Tanya jawab dan penutup</span></div>
+
+            <!-- Langkah masuk Zoom -->
+            <div class="bg-white p-7 sm:p-10">
+                <p class="eyebrow text-[11px] font-bold uppercase text-watermelon mb-3">Cara masuk</p>
+                <h3 class="text-xl sm:text-2xl font-extrabold tracking-tight text-blue-spruce">Tiga langkah, siap
+                    di depan layar.</h3>
+                <ol class="mt-6 space-y-4">
+                    <li class="clay-white-sm bg-azure-mist/50 flex gap-4 p-4">
+                        <span
+                            class="num w-9 h-9 rounded-xl bg-watermelon text-white text-sm font-extrabold flex items-center justify-center shrink-0">1</span>
+                        <div>
+                            <p class="font-bold text-sm text-blue-spruce">Daftar & bergabung group</p>
+                            <p class="text-[13px] text-blue-spruce/70 mt-1 leading-relaxed">Isi formulir pendaftaran,
+                                lalu bergabung ke group peserta. Tautan Zoom dibagikan lewat group tersebut — pantau
+                                group agar tidak ketinggalan info.</p>
+                        </div>
+                    </li>
+                    <li class="clay-white-sm bg-azure-mist/50 flex gap-4 p-4">
+                        <span
+                            class="num w-9 h-9 rounded-xl bg-blue-bell text-white text-sm font-extrabold flex items-center justify-center shrink-0">2</span>
+                        <div>
+                            <p class="font-bold text-sm text-blue-spruce">Siapkan sebelum 09.00</p>
+                            <p class="text-[13px] text-blue-spruce/70 mt-1 leading-relaxed">Buka Zoom di laptop/HP,
+                                login lebih awal, dan uji suara agar tidak ketinggalan awal webinar.</p>
+                        </div>
+                    </li>
+                    <li class="clay-white-sm bg-azure-mist/50 flex gap-4 p-4">
+                        <span
+                            class="num w-9 h-9 rounded-xl bg-blue-spruce text-white text-sm font-extrabold flex items-center justify-center shrink-0">3</span>
+                        <div>
+                            <p class="font-bold text-sm text-blue-spruce">Masuk Zoom pukul 09.00 WIB</p>
+                            <p class="text-[13px] text-blue-spruce/70 mt-1 leading-relaxed">Ruang Zoom dibuka tepat
+                                pukul 09.00. Webinar berakhir pukul 11.00 WIB.</p>
+                        </div>
+                    </li>
+                </ol>
+                <div class="mt-6 flex items-start gap-3 rounded-2xl bg-watermelon/10 border border-watermelon/25 p-4">
+                    <i class="fa-solid fa-triangle-exclamation text-watermelon text-sm mt-0.5 shrink-0"></i>
+                    <p class="text-[13px] text-blue-spruce/80 leading-relaxed"><span class="font-bold text-blue-spruce">Catatan:</span>
+                        tautan Zoom hanya dibagikan di group peserta — jangan bagikan ke pihak
+                        lain di luar group.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -798,6 +872,50 @@
                 legend.classList.remove('hidden');
                 legend.classList.add('inline-flex');
             }
+        })();
+    </script>
+
+    <script>
+        (function () {
+            // Target: Sabtu, 31 Oktober 2026 pukul 09.00 WIB (UTC+7)
+            var target = new Date('2026-10-31T09:00:00+07:00').getTime();
+            var daysEl = document.getElementById('cd-days');
+            var hoursEl = document.getElementById('cd-hours');
+            var minsEl = document.getElementById('cd-mins');
+            var secsEl = document.getElementById('cd-secs');
+            var note = document.getElementById('countdown-note');
+            if (!daysEl) return;
+
+            function pad(n) {
+                return n < 10 ? '0' + n : '' + n;
+            }
+
+            var timer = null;
+
+            function render() {
+                var diff = target - Date.now();
+                if (diff <= 0) {
+                    var live = Date.now() < target + 120 * 60 * 1000;
+                    daysEl.textContent = '00';
+                    hoursEl.textContent = '00';
+                    minsEl.textContent = '00';
+                    secsEl.textContent = '00';
+                    if (note) {
+                        note.textContent = live ? 'Webinar sedang berlangsung — selamat mengikuti!' :
+                            'Webinar telah selesai. Rekaman menyusul ke email Anda.';
+                    }
+                    if (timer) clearInterval(timer);
+                    return;
+                }
+                var s = Math.floor(diff / 1000);
+                daysEl.textContent = pad(Math.floor(s / 86400));
+                hoursEl.textContent = pad(Math.floor((s % 86400) / 3600));
+                minsEl.textContent = pad(Math.floor((s % 3600) / 60));
+                secsEl.textContent = pad(s % 60);
+            }
+
+            render();
+            timer = setInterval(render, 1000);
         })();
     </script>
 
