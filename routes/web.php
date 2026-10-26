@@ -43,6 +43,9 @@ Route::get('/event/holiday-bootcamp', [LandingController::class, 'holiday_bootca
 Route::get('/webinar/didik-anak-era-ai', function () {
     return view('pages.event.webinar.mendidik-anak-ai');
 })->name('event.mendidik-anak-ai');
+Route::get('/webinar/didik-anak-era-ai/absensi', function () {
+    return view('pages.event.webinar.mendidik-anak-ai-absensi');
+})->name('event.mendidik-anak-ai.absensi');
 
 /** UJIAN */
 Route::get('/ujian/kelas-6', function () {
