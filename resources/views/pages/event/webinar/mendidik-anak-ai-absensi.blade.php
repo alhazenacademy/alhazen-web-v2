@@ -302,7 +302,7 @@
         (function () {
             // URL Web App Google Apps Script yang sudah di-deploy.
             // Panduan: .ai/brief/mendidik-anak-di-era-ai/apps-script.md
-            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFg5ksNY76gG-_H1jIwM0Je-IYd_0zL-KXgT9yEXBeYQKifFEFc6_nmgaMUHaNnpjx/exec';
+            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgg4WsXz-cvpUwM_r9h3s9eUGHISZ84htVezW6w60qpGaM0xSVy0xx0995dU9jGxQz/exec';
 
             var form = document.getElementById('attendance-form');
             var formCard = document.getElementById('form-card');
