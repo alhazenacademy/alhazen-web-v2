@@ -364,8 +364,7 @@
                 </div>
                 <div class="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                     <a href="#daftar"
-                        class="bg-watermelon text-white text-sm font-bold px-6 py-3 clay-btn hover:opacity-90 transition-all">Amankan
-                        kursi <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a>
+                        class="bg-watermelon text-white text-sm font-bold px-6 py-3 clay-btn hover:opacity-90 transition-all">Daftar Sekarang <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a>
                     <a href="#agenda"
                         class="text-sm font-bold px-6 py-3 bg-white/75 clay-pill text-blue-spruce hover:bg-white transition-all">Lihat
                         info kehadiran</a>
