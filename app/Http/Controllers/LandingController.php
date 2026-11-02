@@ -594,6 +594,8 @@ class LandingController extends Controller
 
     public function holiday_bootcamp()
     {
+        $promo = request()->query('kode') ?: 'liburanproduktif';
+
         $salesPhone = $this->getSalesPhone();
         $footer = $this->getFooterData();
 
@@ -607,6 +609,7 @@ class LandingController extends Controller
             ],
             'address' => $footer['address'] ?? '',
             'programLinks' => $this->getProgramLinks(),
+            'promo' => $promo,
         ]);
     }
 }
