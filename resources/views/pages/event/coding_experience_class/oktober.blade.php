@@ -983,12 +983,11 @@
                         <tr><th scope="col">Hari</th><th scope="col">Tanggal</th><th scope="col">Jam</th><th scope="col">Tutor</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td class="j-day-name">Senin</td><td class="jt-date" data-day="0"></td><td class="jt-time">18.30 WIB</td><td>Kak Hilyah</td></tr>
-                        <tr><td class="j-day-name">Selasa</td><td class="jt-date" data-day="1"></td><td class="jt-time">19.00 WIB</td><td>Kak Refina</td></tr>
+                        <tr><td class="j-day-name">Senin</td><td class="jt-date" data-day="0"></td><td class="jt-time">16.00 WIB</td><td>Kak Hilyah</td></tr>
+                        <tr><td class="j-day-name">Selasa</td><td class="jt-date" data-day="1"></td><td class="jt-time">16.00 WIB</td><td>Kak Ardi</td></tr>
                         <tr><td class="j-day-name">Rabu</td><td class="jt-date" data-day="2"></td><td class="jt-time">14.00 WIB</td><td>Kak Miftah</td></tr>
                         <tr><td class="j-day-name">Kamis</td><td class="jt-date" data-day="3"></td><td class="jt-time">16.00 WIB</td><td>Kak Refina</td></tr>
-                        <tr><td class="j-day-name">Kamis</td><td class="jt-date" data-day="3"></td><td class="jt-time">16.00 WIB</td><td>Kak Ardi</td></tr>
-                        <tr><td class="j-day-name">Jumat</td><td class="jt-date" data-day="4"></td><td class="jt-time">18.30 WIB</td><td>Kak Ardi</td></tr>
+                        <tr><td class="j-day-name">Jumat</td><td class="jt-date" data-day="4"></td><td class="jt-time">16.00 WIB</td><td>Kak Ardi</td></tr>
                         <tr><td class="j-day-name">Sabtu</td><td class="jt-date" data-day="5"></td><td class="jt-time">13.00 WIB</td><td>Kak Miftah</td></tr>
                     </tbody>
                 </table>
