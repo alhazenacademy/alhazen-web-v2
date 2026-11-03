@@ -762,7 +762,7 @@
                         </ul>
                     </div>
 
-                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/8r9fa/apply?promo=liburanproduktif" target="_blank" class="btn-3d btn-scratch py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/8r9fa/apply?promo={{$promo}}" target="_blank" class="btn-3d btn-scratch py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
                         <span>Daftar Kelas Scratch</span>
                         <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon>
                     </a>
@@ -836,7 +836,7 @@
                         </ul>
                     </div>
 
-                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/1lze1/apply?promo=liburanproduktif" target="_blank" class="btn-3d btn-roblox py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/1lze1/apply?promo={{$promo}}" target="_blank" class="btn-3d btn-roblox py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
                         <span>Daftar Kelas Roblox</span>
                         <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon>
                     </a>
@@ -900,7 +900,7 @@
                         </ul>
                     </div>
 
-                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/dsdpn/apply?promo=liburanproduktif" target="_blank" class="btn-3d btn-python py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/dsdpn/apply?promo={{$promo}}" target="_blank" class="btn-3d btn-python py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
                         <span>Daftar Kelas Python</span>
                         <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon>
                     </a>
