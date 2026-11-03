@@ -705,7 +705,7 @@
             <div class="grid lg:grid-cols-3 gap-8 items-stretch pt-4">
 
                 <!-- Track 1: Scratch -->
-                <div class="clay-card p-8 border-2 border-scratch/50 flex flex-col justify-between relative hover:border-scratch">
+                <div class="clay-card p-8 border-2 border-scratch/50 flex flex-col justify-between relative hover:border-scratch" x-data="{ promoCode: '' }">
                     <div>
                         <!-- Large Character Illustration -->
                         <div class="flex justify-center mb-5">
@@ -762,14 +762,27 @@
                         </ul>
                     </div>
 
-                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/8r9fa/apply?promo={{$promo}}" target="_blank" class="btn-3d btn-scratch py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                    <!-- Promo Code Input -->
+                    <div class="mb-4 space-y-2">
+                        <p class="text-xs text-muted italic">
+                            Masukkan kode promo untuk mendapatkan harga spesial
+                        </p>
+                        <input 
+                            type="text" 
+                            x-model="promoCode"
+                            placeholder="Kode Promo (opsional)" 
+                            class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-scratch focus:outline-none text-sm transition-colors"
+                        />
+                    </div>
+
+                    <a :href="'https://goakal.com/alhazenacademy/holiday-bootcamp-2026/8r9fa/apply?promo=' + (promoCode || '{{$promo}}')" target="_blank" class="btn-3d btn-scratch py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
                         <span>Daftar Kelas Scratch</span>
                         <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon>
                     </a>
                 </div>
 
                 <!-- Track 2: Roblox (Featured / Paling Populer) -->
-                <div class="clay-card p-8 border-4 border-roblox flex flex-col justify-between relative shadow-xl lg:-translate-y-3 bg-gradient-to-b from-white to-amber-50/40">
+                <div class="clay-card p-8 border-4 border-roblox flex flex-col justify-between relative shadow-xl lg:-translate-y-3 bg-gradient-to-b from-white to-amber-50/40" x-data="{ promoCode: '' }">
 
                     <!-- Sticker Floating Badge -->
                     <div class="absolute -top-4 -right-2 bg-roblox text-ink font-heading font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full border-2 border-white shadow-md rotate-3 clay-pill inline-flex items-center gap-1.5">
@@ -836,14 +849,27 @@
                         </ul>
                     </div>
 
-                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/1lze1/apply?promo={{$promo}}" target="_blank" class="btn-3d btn-roblox py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                    <!-- Promo Code Input -->
+                    <div class="mb-4 space-y-2">
+                        <p class="text-xs text-muted italic">
+                            Masukkan kode promo untuk mendapatkan harga spesial
+                        </p>
+                        <input 
+                            type="text" 
+                            x-model="promoCode"
+                            placeholder="Kode Promo (opsional)" 
+                            class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-roblox focus:outline-none text-sm transition-colors"
+                        />
+                    </div>
+
+                    <a :href="'https://goakal.com/alhazenacademy/holiday-bootcamp-2026/1lze1/apply?promo=' + (promoCode || '{{$promo}}')" target="_blank" class="btn-3d btn-roblox py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
                         <span>Daftar Kelas Roblox</span>
                         <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon>
                     </a>
                 </div>
 
                 <!-- Track 3: Python -->
-                <div class="clay-card p-8 border-2 border-python/50 flex flex-col justify-between relative hover:border-python">
+                <div class="clay-card p-8 border-2 border-python/50 flex flex-col justify-between relative hover:border-python" x-data="{ promoCode: '' }">
                     <div>
                         <!-- Large Character Illustration -->
                         <div class="flex justify-center mb-5">
@@ -900,7 +926,20 @@
                         </ul>
                     </div>
 
-                    <a href="https://goakal.com/alhazenacademy/holiday-bootcamp-2026/dsdpn/apply?promo={{$promo}}" target="_blank" class="btn-3d btn-python py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                    <!-- Promo Code Input -->
+                    <div class="mb-4 space-y-2">
+                        <p class="text-xs text-muted italic">
+                            Masukkan kode promo untuk mendapatkan harga spesial
+                        </p>
+                        <input 
+                            type="text" 
+                            x-model="promoCode"
+                            placeholder="Kode Promo (opsional)" 
+                            class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-python focus:outline-none text-sm transition-colors"
+                        />
+                    </div>
+
+                    <a :href="'https://goakal.com/alhazenacademy/holiday-bootcamp-2026/dsdpn/apply?promo=' + (promoCode || '{{$promo}}')" target="_blank" class="btn-3d btn-python py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
                         <span>Daftar Kelas Python</span>
                         <iconify-icon icon="lucide:external-link" class="text-lg"></iconify-icon>
                     </a>
