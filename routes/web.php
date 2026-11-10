@@ -29,23 +29,30 @@ Route::get('/goes-to-school', [LandingController::class, 'goes_to_school'])->nam
 Route::get('/kompetisi/alhazen-hackathon', [LandingController::class, 'alhazen_hackathon'])->name('alhazen-hackathon');
 
 /** EVENT */
-Route::get('/event/ngabuburit-class', [LandingController::class, 'ramadhan_technoclass'])->name('ramadhan-technoclass');
-// Route::get('/event/alhazen-tech-sprint', [LandingController::class, 'event_alhazen_tech_sprint'])->name('alhazen-tech-sprint');
-// Route::get('/event/mini-bootcamp-2026', [LandingController::class, 'event_mini_bootcamp_2026'])->name('mini-bootcamp-2026');
-Route::get('/event/starter-project', [LandingController::class, 'event_starter_project'])->name('starter-project');
-Route::get('/event/master-gpt', [LandingController::class, 'event_master_gpt'])->name('master-gpt');
-Route::get('/event/master-gemini', [LandingController::class, 'event_master_gemini'])->name('master-gemini');
-Route::get('/event/coding-experience', [LandingController::class, 'coding_experience'])->name('coding-experience');
-Route::get('/event/kelas-coding-roblox', [LandingController::class, 'kelas_group_promo'])->name('kelas-group-promo');
-Route::get('/event/holiday-bootcamp', [LandingController::class, 'holiday_bootcamp'])->name('event.holiday-bootcamp');
+Route::prefix('event')->group(function () {
+    Route::get('/ngabuburit-class', [LandingController::class, 'ramadhan_technoclass'])->name('ramadhan-technoclass');
+    // Route::get('/alhazen-tech-sprint', [LandingController::class, 'event_alhazen_tech_sprint'])->name('alhazen-tech-sprint');
+    // Route::get('/mini-bootcamp-2026', [LandingController::class, 'event_mini_bootcamp_2026'])->name('mini-bootcamp-2026');
+    Route::get('/starter-project', [LandingController::class, 'event_starter_project'])->name('starter-project');
+    Route::get('/master-gpt', [LandingController::class, 'event_master_gpt'])->name('master-gpt');
+    Route::get('/master-gemini', [LandingController::class, 'event_master_gemini'])->name('master-gemini');
+    Route::get('/coding-experience', [LandingController::class, 'coding_experience'])->name('coding-experience');
+    Route::get('/kelas-coding-roblox', [LandingController::class, 'kelas_group_promo'])->name('kelas-group-promo');
+    Route::get('/holiday-bootcamp', [LandingController::class, 'holiday_bootcamp'])->name('event.holiday-bootcamp');
+});
 
 /** WEBINAR */
-Route::get('/webinar/didik-anak-era-ai', function () {
-    return view('pages.event.webinar.mendidik-anak-ai');
-})->name('event.mendidik-anak-ai');
-Route::get('/webinar/didik-anak-era-ai/absensi', function () {
-    return view('pages.event.webinar.mendidik-anak-ai-absensi');
-})->name('event.mendidik-anak-ai.absensi');
+Route::prefix('webinar')->group(function () {
+    Route::get('/didik-anak-era-ai', function () {
+        return view('pages.event.webinar.mendidik-anak-ai');
+    })->name('event.mendidik-anak-ai');
+    Route::get('/didik-anak-era-ai/absensi', function () {
+        return view('pages.event.webinar.mendidik-anak-ai-absensi');
+    })->name('event.mendidik-anak-ai.absensi');
+    Route::get('/santri-dan-teknologi', function () {
+        return view('pages.event.webinar.santri-dan-teknologi');
+    })->name('event.santri-dan-teknologi');
+});
 
 /** UJIAN */
 Route::get('/ujian/kelas-6', function () {
@@ -62,18 +69,21 @@ Route::get('/form-daftar-hadir-bimtek', function () {
     return view('pages.random.form_daftar_hadir_bimtek');
 });
 
-Route::get('/tools/ruang-tulis', [ToolsController::class, 'ruang_tulis'])->name('tools.ruang-tulis');
-Route::get('/tools/quiz/pin', [ToolsController::class, 'quizPin'])->name('tools.quiz.pin');
-Route::post('/tools/quiz/pin', [ToolsController::class, 'quizPinStore'])->name('tools.quiz.pin.store');
-Route::get('/tools/quiz/create', [ToolsController::class, 'quizCreate'])->name('tools.quiz.create');
-Route::post('/tools/quiz', [ToolsController::class, 'quizStore'])->name('tools.quiz.store');
-Route::get('/tools/quiz/{slug}', [ToolsController::class, 'quizShow'])->name('tools.quiz.show');
-Route::post('/tools/quiz/{slug}', [ToolsController::class, 'quizSubmit'])->middleware('throttle:10,1')->name('tools.quiz.submit');
-Route::get('/tools/quiz/{slug}/hasil', [ToolsController::class, 'quizMonitor'])->name('tools.quiz.monitor');
-Route::get('/tools/quiz/{slug}/export', [ToolsController::class, 'quizExport'])->name('tools.quiz.export');
-Route::post('/tools/quiz/answers/{answer}/resync', [ToolsController::class, 'quizResync'])->name('tools.quiz.resync');
-Route::post('/tools/quiz/{slug}/resync-all', [ToolsController::class, 'quizResyncAll'])->name('tools.quiz.resync_all');
-Route::delete('/tools/quiz/answers/{answer}', [ToolsController::class, 'quizReset'])->name('tools.quiz.reset');
+/** TOOLS */
+Route::prefix('tools')->group(function () {
+    Route::get('/ruang-tulis', [ToolsController::class, 'ruang_tulis'])->name('tools.ruang-tulis');
+    Route::get('/quiz/pin', [ToolsController::class, 'quizPin'])->name('tools.quiz.pin');
+    Route::post('/quiz/pin', [ToolsController::class, 'quizPinStore'])->name('tools.quiz.pin.store');
+    Route::get('/quiz/create', [ToolsController::class, 'quizCreate'])->name('tools.quiz.create');
+    Route::post('/quiz', [ToolsController::class, 'quizStore'])->name('tools.quiz.store');
+    Route::get('/quiz/{slug}', [ToolsController::class, 'quizShow'])->name('tools.quiz.show');
+    Route::post('/quiz/{slug}', [ToolsController::class, 'quizSubmit'])->middleware('throttle:10,1')->name('tools.quiz.submit');
+    Route::get('/quiz/{slug}/hasil', [ToolsController::class, 'quizMonitor'])->name('tools.quiz.monitor');
+    Route::get('/quiz/{slug}/export', [ToolsController::class, 'quizExport'])->name('tools.quiz.export');
+    Route::post('/quiz/answers/{answer}/resync', [ToolsController::class, 'quizResync'])->name('tools.quiz.resync');
+    Route::post('/quiz/{slug}/resync-all', [ToolsController::class, 'quizResyncAll'])->name('tools.quiz.resync_all');
+    Route::delete('/quiz/answers/{answer}', [ToolsController::class, 'quizReset'])->name('tools.quiz.reset');
+});
 Route::get('/go/{slug}', [ShortLinkController::class, 'redirect']);
 
 // Route::view('/pro', 'pro')->name('adult');
