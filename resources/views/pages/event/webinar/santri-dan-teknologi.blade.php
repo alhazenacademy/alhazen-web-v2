@@ -688,20 +688,264 @@
             margin-bottom: 35px;
         }
 
-        .gform-embed {
+        /* Registration form (custom → Google Sheets) */
+
+        .reg-form-card {
             max-width: 780px;
             margin: 0 auto 30px;
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, .9);
             border: 1px solid var(--border);
             border-radius: 24px;
-            overflow: hidden;
+            padding: 45px;
+            text-align: left;
         }
 
-        .gform-embed iframe {
+        #form-alert {
+            margin-bottom: 22px;
+            padding: 13px 17px;
+            border-radius: 12px;
+            background: rgba(180, 69, 56, .07);
+            border: 1px solid rgba(180, 69, 56, .35);
+            color: #B44538;
+            font-size: 13.5px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .reg-form .reg-form-part {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: #A89A35;
+            margin: 35px 0 25px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reg-form .reg-form-part:first-child {
+            margin-top: 0;
+        }
+
+        .reg-form .field {
+            margin-bottom: 22px;
+        }
+
+        .reg-form .field>label,
+        .reg-form legend {
             display: block;
-            width: 100%;
-            height: 1550px;
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.55;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #55551F;
+            margin-bottom: 10px;
+            padding: 0;
+        }
+
+        .reg-form fieldset {
             border: 0;
+            padding: 0;
+            margin: 0 0 22px;
+            min-width: 0;
+        }
+
+        .reg-form input[type="text"],
+        .reg-form input[type="tel"],
+        .reg-form select,
+        .reg-form textarea {
+            width: 100%;
+            padding: 13px 16px;
+            font-family: var(--sans);
+            font-size: 16px;
+            color: #494640;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .reg-form select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2355551F' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 42px;
+            cursor: pointer;
+        }
+
+        .reg-form textarea {
+            min-height: 130px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .reg-form input:focus,
+        .reg-form select:focus,
+        .reg-form textarea:focus {
+            border-color: #A89A35;
+            box-shadow: 0 0 0 3px rgba(168, 154, 53, .15);
+        }
+
+        .reg-form input[aria-invalid="true"],
+        .reg-form select[aria-invalid="true"],
+        .reg-form textarea[aria-invalid="true"] {
+            border-color: #B44538;
+            box-shadow: 0 0 0 3px rgba(180, 69, 56, .12);
+        }
+
+        .reg-form .helper {
+            display: block;
+            margin-top: 7px;
+            font-size: 12px;
+            color: #77743A;
+        }
+
+        .reg-form .helper.error {
+            color: #B44538;
+            font-weight: 500;
+        }
+
+        .reg-form .choices {
+            display: grid;
+            gap: 10px;
+        }
+
+        .reg-form .choice {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .7);
+            font-size: 14.5px;
+            line-height: 1.55;
+            color: #4D5442;
+            cursor: pointer;
+            transition: border-color .2s ease, background .2s ease;
+        }
+
+        .reg-form .choice:hover {
+            border-color: #D0B95A;
+            background: rgba(242, 232, 216, .35);
+        }
+
+        .reg-form .choice:has(input:checked) {
+            border-color: #A89A35;
+            background: rgba(168, 154, 53, .06);
+            color: #494640;
+        }
+
+        .reg-form .choice input {
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            accent-color: #A89A35;
+            cursor: pointer;
+        }
+
+        .reg-form fieldset[aria-invalid="true"] .choice {
+            border-color: rgba(180, 69, 56, .55);
+        }
+
+        .reg-form .reg-submit {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .reg-step-actions {
+            display: flex;
+            gap: 12px;
+            align-items: stretch;
+            margin-top: 6px;
+        }
+
+        .reg-step-actions .reg-submit {
+            margin-top: 0;
+        }
+
+        .reg-step-actions #step-back {
+            flex: 0 0 auto;
+            padding-left: 22px;
+            padding-right: 22px;
+            background: #FFFFFF;
+            color: #494640 !important;
+            border: 1px solid #D8C7AD;
+        }
+
+        .reg-step-actions #step-back:hover {
+            border-color: #A89A35;
+        }
+
+        .reg-step-actions #submit-button {
+            flex: 1;
+        }
+
+        .reg-form #form-status {
+            display: block;
+            text-align: center;
+            margin-top: 13px;
+            font-size: 12.5px;
+            color: #77743A;
+            min-height: 1em;
+        }
+
+        .reg-form-success {
+            text-align: center;
+        }
+
+        .reg-form-success .success-icon {
+            font-size: 46px;
+            color: #A89A35;
+        }
+
+        .reg-form-success h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 1.1;
+            color: #494640;
+            margin: 16px 0 12px;
+        }
+
+        .reg-form-success p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #4D5442;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .reg-form-success #success-name {
+            font-weight: 500;
+            color: #55551F;
+        }
+
+        .reg-form-success .success-note {
+            margin-top: 20px;
+            padding: 17px 19px;
+            background: rgba(242, 232, 216, .5);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #55551F;
+            text-align: left;
+        }
+
+        .reg-form-success .success-note strong {
+            font-weight: 500;
+            color: #494640;
         }
 
         .cta-actions {
@@ -956,8 +1200,12 @@
                 padding: 25px 20px;
             }
 
-            .gform-embed iframe {
-                height: 1900px;
+            .reg-form-card {
+                padding: 25px 18px;
+            }
+
+            .reg-form-success h3 {
+                font-size: 32px;
             }
 
             footer {
@@ -992,7 +1240,7 @@
 
     <!-- NAVIGATION -->
     <header class="navbar">
-        <a href="#" class="brand">AL MINHAJ<span class="muted">×</span>ALHAZEN</a>
+        <a href="#" class="brand">AL MINHAJ<span class="muted"> × </span>ALHAZEN ACADEMY</a>
 
         <nav class="nav-links">
             <a href="#tujuan">TUJUAN</a>
@@ -1104,45 +1352,37 @@
         <section class="prose-section" id="penting">
             <div class="container">
                 <div class="reveal">
-                <p class="mono muted" style="margin-bottom:20px;">
+                    <p class="mono muted" style="margin-bottom:20px;">
                         01 — MENGAPA KAJIAN INI PENTING
-                </p>
-
-                <h2>
-                    Tantangan teknologi<br>
-                    <span class="silver-text">tidak boleh dianggap remeh.</span>
-                </h2>
-
-                <div class="prose">
-                    <p>
-                        Perkembangan teknologi berjalan lebih cepat daripada
-                        kemampuan masyarakat menyesuaikan diri. Kecerdasan
-                        buatan, media sosial, gim daring, dan ekonomi digital
-                        telah menjadi bagian dari kehidupan santri, termasuk
-                        di lingkungan pesantren.
                     </p>
 
-                    <p>
-                        Teknologi masih sering dipandang sebagai pelengkap
-                        atau gangguan, bukan sebagai bagian dari masa depan
-                        yang perlu disiapkan. Tantangan teknologi sudah sangat
-                        besar dan tidak boleh dianggap remeh oleh pesantren
-                        dan komunitas remaja Islam.
-                    </p>
+                    <h2>
+                        Dunia Terus Berubah,<br>
+                        <span class="silver-text">Apakah Bekal Anak Sudah Cukup?</span>
+                    </h2>
 
-                    <p>
-                        Setelah lulus, santri tidak hanya menghadapi persoalan
-                        identitas dan akhlak, tetapi juga persaingan keterampilan.
-                        Jika santri hanya dibekali hafalan dan ijazah tanpa
-                        literasi teknologi dan keterampilan praktis, mereka
-                        berisiko tertinggal karena kurang kesiapan.
-                    </p>
+                    <div class="prose">
+                        <p>
+                            Setelah lulus dari pesantren, anak akan menghadapi dunia yang jauh lebih luas. Cara manusia
+                            belajar, bekerja, berkomunikasi, dan mencari peluang terus berubah.
+                        </p>
 
-                    <p class="prose-highlight">
-                        Santri yang kuat adabnya dan memahami teknologi
-                        berpeluang memberi manfaat yang lebih luas.
-                    </p>
-                </div>
+                        <p>
+                            Ilmu agama menjadi fondasi utama. Namun, anak juga perlu memiliki wawasan luas, keterampilan
+                            praktis, dan kemampuan beradaptasi agar tidak tertinggal dalam menghadapi perubahan.
+
+                        </p>
+
+                        <p>
+                            Orang tua perlu mempersiapkan anak bukan hanya untuk menjadi pribadi yang baik, tetapi juga
+                            agar mampu mengambil peran dan memberi manfaat di tengah masyarakat.
+                        </p>
+
+                        <p class="prose-highlight">
+                            Santri yang kuat adabnya dan memahami teknologi
+                            berpeluang memberi manfaat yang lebih luas.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1152,7 +1392,7 @@
             <div class="container reveal">
 
                 <p class="mono muted" style="margin-bottom:20px;">
-                        02 — TUJUAN KAJIAN
+                    02 — TUJUAN KAJIAN
                 </p>
 
                 <h2>
@@ -1160,15 +1400,18 @@
                     <span class="silver-text">dan keterampilan.</span>
                 </h2>
 
-                <p>
-                    Menghubungkan kekuatan adab dan ilmu agama dengan
-                    penguasaan teknologi, serta membuka wawasan peserta
-                    agar tidak memandang teknologi sebagai ancaman semata —
-                    tetapi sebagai bagian masa depan yang perlu disikapi
-                    dengan ilmu, adab, dan keterampilan. Santri didorong
-                    membangun literasi digital dan kemampuan berpikir melalui
-                    coding tanpa meninggalkan nilai keislaman, dengan wali
-                    santri dan pesantren sebagai pendamping dan fasilitator.
+                <p style="margin-bottom: 20px">
+                    Mendorong orang tua untuk membekali santri dengan ilmu agama, adab, wawasan luas, dan keterampilan
+                    yang relevan dengan kebutuhan zaman.
+                </p>
+
+                <p style="margin-bottom: 20px">
+                    Membuka pemahaman bahwa santri memiliki kesempatan untuk mengembangkan potensi, menciptakan karya,
+                    dan mengambil peran di berbagai bidang tanpa meninggalkan prinsip Islam.
+                </p>
+
+                <p style="margin-bottom: 20px">
+                    Membentuk generasi yang tidak hanya mampu mengikuti perubahan, tetapi juga menciptakan peluang dan memberi manfaat bagi umat.
                 </p>
 
             </div>
@@ -1197,23 +1440,17 @@
                     </div>
 
                     <div class="speaker-body">
-                        <blockquote class="speaker-quote">
+                        {{-- <blockquote class="speaker-quote">
                             "Menyiapkan generasi yang kuat iman,
                             adab, dan melek teknologi."
-                        </blockquote>
+                        </blockquote> --}}
 
                         <p class="speaker-role">
                             Dokter Sp.PK · Da'i Terstandarisasi MUI
                         </p>
 
                         <p class="speaker-bio">
-                            Dokter spesialis dan pendakwah yang aktif mengedukasi
-                            keluarga muslim dalam mengasuh serta mendidik anak di
-                            era modern. Dalam kajian ini beliau membahas tantangan
-                            teknologi dari sudut pandang nilai agama, adab, dan
-                            kesiapan generasi, dengan penekanan pada peran wali
-                            santri dan pesantren dalam mendampingi santri
-                            menghadapi perkembangan teknologi.
+                            Aktif mengedukasi keluarga Muslim tentang pengasuhan dan pendidikan anak. Dalam kajian ini, beliau mengajak orang tua memahami pentingnya mendampingi perkembangan potensi anak, membangun karakter, serta mempersiapkan masa depan mereka tanpa mengesampingkan nilai-nilai agama.
                         </p>
 
                         <ul class="speaker-chips">
@@ -1248,8 +1485,7 @@
                         <span class="bento-index">01</span>
                         <h3>Rekaman Kajian</h3>
                         <p>
-                            Akses ke rekaman lengkap kajian sehingga
-                            dapat ditonton ulang kapan saja.
+                            Akses rekaman lengkap kajian agar bisa disimak kembali kapan saja.
                         </p>
                     </article>
 
@@ -1257,8 +1493,7 @@
                         <span class="bento-index">02</span>
                         <h3>Voucher Kelas Koding</h3>
                         <p>
-                            Voucher potongan harga untuk pendaftaran
-                            kelas koding di Alhazen Academy.
+                            Voucher harga khusus untuk mengikuti kelas coding di Alhazen Academy.
                         </p>
                     </article>
 
@@ -1266,8 +1501,7 @@
                         <span class="bento-index">03</span>
                         <h3>Buku Panduan Coding Singkat</h3>
                         <p>
-                            Panduan singkat dasar-dasar coding yang
-                            dapat dipelajari santri secara mandiri.
+                            Panduan praktis untuk mengenal dasar-dasar coding dan mulai belajar secara mandiri.
                         </p>
                     </article>
 
@@ -1275,8 +1509,7 @@
                         <span class="bento-index">04</span>
                         <h3>Materi Pendukung</h3>
                         <p>
-                            Ringkasan materi dan daftar rekomendasi
-                            belajar teknologi untuk santri.
+                            Ringkasan materi dan rekomendasi sumber belajar untuk membantu santri mengembangkan wawasan dan keterampilan.
                         </p>
                     </article>
 
@@ -1289,12 +1522,12 @@
             <div class="container reveal">
 
                 <p class="mono muted" style="margin-bottom:20px;">
-                    05 — SAMPAI JUMAT PAGI
+                    05 — JANGAN LEWATKAN
                 </p>
 
                 <h2>
-                    Amankan<br>
-                    <span class="silver-text">waktunya.</span>
+                    CATAT<br>
+                    <span class="silver-text">JADWALNYA</span>
                 </h2>
 
                 <div class="final-schedule">
@@ -1325,7 +1558,7 @@
                             Zoom
                         </span>
                         <span class="sched-sub">
-                            Online · gratis · tautan via email
+                            Online · gratis · tautan via WhatsApp Group
                         </span>
                     </div>
                 </div>
@@ -1334,18 +1567,259 @@
                     Terbuka untuk wali santri dan masyarakat umum
                 </p>
 
-                {{-- <div class="gform-embed">
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSdTrvtT1aBXRAgQ5A_eV8SV7uH1RFwS4a82DPNdz2zoXFgG0A/viewform?embedded=true"
-                        title="Formulir Pendaftaran Kajian Santri dan Teknologi" loading="lazy" width="100%"
-                        height="1550">
-                    </iframe>
-                </div> --}}
+                <div class="reg-form-card" id="reg-form-card">
+                    <div id="form-alert" hidden></div>
+
+                    <form id="registration-form" class="reg-form" novalidate>
+                        <div class="reg-step" id="step-1">
+                            <p class="reg-form-part">Bagian 1 — Data Diri Peserta</p>
+
+                            <div class="field">
+                                <label for="nama">Siapa nama lengkap Ayah/Bunda?</label>
+                                <input type="text" id="nama" name="nama" required minlength="3" autocomplete="name"
+                                    placeholder="Nama lengkap">
+                                <small class="helper" id="nama-helper">Nama sesuai identitas Ayah/Bunda.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="kota">Di kota mana Ayah/Bunda berdomisili?</label>
+                                <input type="text" id="kota" name="kota" required minlength="2"
+                                    placeholder="Kota domisili saat ini">
+                                <small class="helper" id="kota-helper">Cukup nama kota, contoh: Yogyakarta.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="no_wa">Berapa nomor WhatsApp aktif Ayah/Bunda?</label>
+                                <input type="tel" id="no_wa" name="no_wa" required
+                                    pattern="^(0|\+62|62)8[1-9][0-9]{7,11}$"
+                                    title="Contoh: 08123456789 atau +628123456789" inputmode="numeric"
+                                    autocomplete="tel" placeholder="08xxxxxxxxxx">
+                                <small class="helper" id="no_wa-helper">Format: 08xxxxxxxxxx atau +628xxxxxxxxxx —
+                                    tautan Zoom dikirim ke nomor ini.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="asal_pesantren">Dari pesantren mana putra/putri Ayah/Bunda berasal?
+                                    (Opsional)</label>
+                                <input type="text" id="asal_pesantren" name="asal_pesantren"
+                                    placeholder="Nama pesantren">
+                                <small class="helper" id="asal_pesantren-helper">Kosongkan bila putra/putri belum
+                                    mondok.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="status">Apa status Ayah/Bunda saat ini?</label>
+                                <select id="status" name="status" required>
+                                    <option value="" selected disabled>Pilih status…</option>
+                                    <option value="Orang Tua">Orang Tua</option>
+                                    <option value="Calon Orang Tua">Calon Orang Tua</option>
+                                    <option value="Guru / Pendidik">Guru / Pendidik</option>
+                                    <option value="Santri">Santri</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                                <small class="helper" id="status-helper">Pilih salah satu.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="jenjang">Jenjang pendidikan putra/putri Ayah/Bunda saat ini?</label>
+                                <select id="jenjang" name="jenjang" required>
+                                    <option value="" selected disabled>Pilih jenjang…</option>
+                                    <option value="SD/MI">SD/MI</option>
+                                    <option value="SMP/MTs">SMP/MTs</option>
+                                    <option value="SMA/MA">SMA/MA</option>
+                                    <option value="Sudah lulus pesantren">Sudah lulus pesantren</option>
+                                    <option value="Belum mondok, tetapi berencana memasukkan anak ke pesantren">Belum
+                                        mondok, tetapi berencana memasukkan anak ke pesantren</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                                <small class="helper" id="jenjang-helper">Pilih satu.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="sumber_info">Dari mana Ayah/Bunda mengetahui kajian ini?</label>
+                                <select id="sumber_info" name="sumber_info" required>
+                                    <option value="" selected disabled>Pilih sumber…</option>
+                                    <option value="Instagram Alhazen Academy & Al-Minhaj">Instagram Alhazen Academy
+                                        &amp; Al-Minhaj</option>
+                                    <option value="Grup WhatsApp Sekolah">Grup WhatsApp Sekolah</option>
+                                    <option value="Grup WhatsApp Kajian">Grup WhatsApp Kajian</option>
+                                    <option value="Grup Facebook">Grup Facebook</option>
+                                    <option value="Teman / Keluarga">Teman / Keluarga</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                                <small class="helper" id="sumber_info-helper">Pilih salah satu.</small>
+                            </div>
+
+                            <button type="button" id="step-next" class="silver-btn reg-submit">
+                                Selanjutnya <span class="ms-icon">arrow_forward</span>
+                            </button>
+                        </div>
+
+                        <div class="reg-step" id="step-2" hidden>
+                            <p class="reg-form-part">Bagian 2 — Pandangan dan Harapan Orang Tua</p>
+
+                            <fieldset data-max="2" id="bekal_penting_group" aria-describedby="bekal_penting-helper">
+                                <legend>Bekal apa yang paling penting setelah lulus pesantren?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Ilmu agama dan hafalan Al-Qur'an">Ilmu agama dan hafalan
+                                        Al-Qur'an</label>
+                                    <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Adab dan akhlak">Adab dan akhlak</label>
+                                    <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Keterampilan praktis untuk bekerja atau berwirausaha">Keterampilan
+                                        praktis untuk bekerja atau berwirausaha</label>
+                                    <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Kemampuan memanfaatkan teknologi">Kemampuan memanfaatkan
+                                        teknologi</label>
+                                    <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Kemampuan berpikir kritis dan memecahkan masalah">Kemampuan berpikir
+                                        kritis dan memecahkan masalah</label>
+                                    <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Kemandirian dan kepercayaan diri">Kemandirian dan kepercayaan
+                                        diri</label>
+                                    <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Lainnya">Lainnya</label>
+                                </div>
+                                <small class="helper" id="bekal_penting-helper">Pilih maksimal 2.</small>
+                            </fieldset>
+
+                            <fieldset id="penting_teknologi_group" aria-describedby="penting_teknologi-helper">
+                                <legend>Seberapa penting kemampuan teknologi untuk masa depan putra/putri?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="penting_teknologi"
+                                            value="1 — Tidak Penting" required>1 — Tidak Penting</label>
+                                    <label class="choice"><input type="radio" name="penting_teknologi"
+                                            value="2 — Kurang Penting">2 — Kurang Penting</label>
+                                    <label class="choice"><input type="radio" name="penting_teknologi"
+                                            value="3 — Cukup Penting">3 — Cukup Penting</label>
+                                    <label class="choice"><input type="radio" name="penting_teknologi"
+                                            value="4 — Penting">4 — Penting</label>
+                                    <label class="choice"><input type="radio" name="penting_teknologi"
+                                            value="5 — Sangat Penting">5 — Sangat Penting</label>
+                                </div>
+                                <small class="helper" id="penting_teknologi-helper">Skala 1–5, pilih satu.</small>
+                            </fieldset>
+
+                            <fieldset id="waktu_tepat_group" aria-describedby="waktu_tepat-helper">
+                                <legend>Kapan waktu tepat santri mulai mempelajari teknologi?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="waktu_tepat"
+                                            value="Selama di pesantren, sebagai bagian dari pelajaran" required>Selama
+                                        di pesantren, sebagai bagian dari pelajaran</label>
+                                    <label class="choice"><input type="radio" name="waktu_tepat"
+                                            value="Selama di pesantren, sebagai kegiatan tambahan">Selama di pesantren,
+                                        sebagai kegiatan tambahan</label>
+                                    <label class="choice"><input type="radio" name="waktu_tepat"
+                                            value="Di luar pesantren, misalnya saat liburan">Di luar pesantren, misalnya
+                                        saat liburan</label>
+                                    <label class="choice"><input type="radio" name="waktu_tepat"
+                                            value="Setelah lulus pesantren">Setelah lulus pesantren</label>
+                                    <label class="choice"><input type="radio" name="waktu_tepat"
+                                            value="Belum perlu">Belum perlu</label>
+                                    <label class="choice"><input type="radio" name="waktu_tepat"
+                                            value="Lainnya">Lainnya</label>
+                                </div>
+                                <small class="helper" id="waktu_tepat-helper">Pilih satu.</small>
+                            </fieldset>
+
+                            <fieldset data-max="2" id="manfaat_group" aria-describedby="manfaat-helper">
+                                <legend>Manfaat apa yang paling diharapkan dari teknologi &amp; ilmu umum?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Lebih siap melanjutkan pendidikan ke jenjang berikutnya">Lebih siap
+                                        melanjutkan pendidikan ke jenjang berikutnya</label>
+                                    <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Lebih siap bersaing di dunia kerja atau berwirausaha">Lebih siap
+                                        bersaing di dunia kerja atau berwirausaha</label>
+                                    <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Terlatih berpikir logis dan memecahkan masalah">Terlatih berpikir
+                                        logis dan memecahkan masalah</label>
+                                    <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Mampu memanfaatkan teknologi untuk dakwah dan kebaikan">Mampu
+                                        memanfaatkan teknologi untuk dakwah dan kebaikan</label>
+                                    <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Lebih bijak dan terlindungi dari dampak buruk teknologi">Lebih bijak
+                                        dan terlindungi dari dampak buruk teknologi</label>
+                                    <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Saya belum mengetahui manfaatnya">Saya belum mengetahui
+                                        manfaatnya</label>
+                                    <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Lainnya">Lainnya</label>
+                                </div>
+                                <small class="helper" id="manfaat-helper">Pilih maksimal 2.</small>
+                            </fieldset>
+
+                            <fieldset id="kekhawatiran_group" aria-describedby="kekhawatiran-helper">
+                                <legend>Apa yang paling Ayah/Bunda khawatirkan bila anak tak paham teknologi?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Kesulitan melanjutkan pendidikan ke jenjang berikutnya"
+                                            required>Kesulitan melanjutkan pendidikan ke jenjang berikutnya</label>
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Sulit bersaing di dunia kerja atau berwirausaha">Sulit bersaing di
+                                        dunia kerja atau berwirausaha</label>
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Mudah terjebak hoaks, penipuan, atau judi online">Mudah terjebak
+                                        hoaks, penipuan, atau judi online</label>
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Kurang percaya diri saat terjun ke masyarakat">Kurang percaya diri
+                                        saat terjun ke masyarakat</label>
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Kurang mampu berdakwah sesuai tantangan zaman">Kurang mampu berdakwah
+                                        sesuai tantangan zaman</label>
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Tidak ada kekhawatiran, bekal ilmu agama sudah cukup">Tidak ada
+                                        kekhawatiran, bekal ilmu agama sudah cukup</label>
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Belum terpikirkan">Belum terpikirkan</label>
+                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                            value="Lainnya">Lainnya</label>
+                                </div>
+                                <small class="helper" id="kekhawatiran-helper">Pilih satu.</small>
+                            </fieldset>
+
+                            <div class="field">
+                                <label for="keresahan">Hal yang paling Ayah/Bunda resahkan soal masa depan anak?
+                                    (Opsional)</label>
+                                <textarea id="keresahan" name="keresahan"
+                                    placeholder="Silakan ceritakan keresahan, harapan, atau tantangan mengenai masa depan putra/putri…"></textarea>
+                                <small class="helper" id="keresahan-helper">Jawaban ini menjadi bahan pembahasan bersama
+                                    Ustadz dalam kajian.</small>
+                            </div>
+
+                            <div class="reg-step-actions">
+                                <button type="button" id="step-back" class="silver-btn btn-ghost reg-back">
+                                    <span class="ms-icon">arrow_back</span> Kembali
+                                </button>
+
+                                <button type="submit" id="submit-button" class="silver-btn reg-submit">
+                                    <span id="submit-label">Daftar Sekarang</span>
+                                    <span class="ms-icon">north_east</span>
+                                </button>
+                            </div>
+                            <small id="form-status" role="status" aria-live="polite"></small>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="reg-form-card reg-form-success" id="success-card" hidden>
+                    <span class="ms-icon success-icon">check_circle</span>
+                    <h3>Pendaftaran tercatat!</h3>
+                    <p>
+                        Terima kasih, <span id="success-name"></span>. Jawaban Ayah/Bunda sudah
+                        tersimpan dan akan menjadi bahan pembahasan bersama Ustadz dalam kajian.
+                    </p>
+                    <div class="success-note">
+                        <strong>Tautan Zoom</strong> dikirim ke WhatsApp Group Anda menjelang hari-H —
+                        Jumat, 27 November 2026, 08.00 WIB. Jika belum bergabung dengan WhatsApp Group, silakan hubungi Admin Alhazen Academy.
+                    </div>
+                </div>
 
                 <div class="cta-actions">
                     <a href="https://forms.gle/ryMJ7cGqnpaZGv1B8" target="_blank" rel="noopener noreferrer"
-                        class="silver-btn">
-                        Daftar Sekarang <span class="ms-icon">north_east</span>
+                        class="silver-btn btn-ghost">
+                        Daftar via Google Form <span class="ms-icon">north_east</span>
                     </a>
 
                     <a href="#home" class="silver-btn btn-ghost">
@@ -1360,7 +1834,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <a href="#" class="brand">AL MINHAJ × ALHAZEN.</a>
+        <a href="#" class="brand">AL MINHAJ × ALHAZEN ACADEMY.</a>
 
         <p>© 2026 KAJIAN SANTRI DAN TEKNOLOGI. SEMUA HAK DILINDUNGI.</p>
 
@@ -1519,6 +1993,283 @@
                 }
             });
         });
+
+
+        /* =================================
+           REGISTRATION FORM (SHEETS)
+        ================================= */
+
+        (function() {
+            // URL Web App Google Apps Script yang sudah di-deploy.
+            // Panduan: .ai/brief/santri-dan-teknologi/apps-script.md
+            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgpH_MTaDReWIV-ZP_61LtuGBQcYwgZEHPYDJxBdugSynT2e6ik6mjo_fUh7mmrC2_/exec';
+
+            var form = document.getElementById('registration-form');
+            if (!form) return;
+
+            var formCard = document.getElementById('reg-form-card');
+            var successCard = document.getElementById('success-card');
+            var successName = document.getElementById('success-name');
+            var alertBox = document.getElementById('form-alert');
+            var submitButton = document.getElementById('submit-button');
+            var submitLabel = document.getElementById('submit-label');
+            var statusText = document.getElementById('form-status');
+            var step1 = document.getElementById('step-1');
+            var step2 = document.getElementById('step-2');
+            var stepNext = document.getElementById('step-next');
+            var stepBack = document.getElementById('step-back');
+
+            var textFields = {
+                nama: {
+                    input: document.getElementById('nama'),
+                    helper: document.getElementById('nama-helper'),
+                    def: 'Nama sesuai identitas Ayah/Bunda.',
+                    err: 'Nama minimal 3 karakter.'
+                },
+                kota: {
+                    input: document.getElementById('kota'),
+                    helper: document.getElementById('kota-helper'),
+                    def: 'Cukup nama kota, contoh: Yogyakarta.',
+                    err: 'Kota minimal 2 karakter.'
+                },
+                no_wa: {
+                    input: document.getElementById('no_wa'),
+                    helper: document.getElementById('no_wa-helper'),
+                    def: 'Format: 08xxxxxxxxxx atau +628xxxxxxxxxx — tautan Zoom dikirim ke nomor ini.',
+                    err: 'Nomor HP tidak valid. Contoh: 08123456789'
+                }
+            };
+
+            Object.keys(textFields).forEach(function(key) {
+                var f = textFields[key];
+
+                function update() {
+                    if (f.input.value.trim() === '') {
+                        f.input.removeAttribute('aria-invalid');
+                        f.helper.textContent = f.def;
+                        f.helper.classList.remove('error');
+                        return;
+                    }
+                    var ok = f.input.checkValidity();
+                    f.input.setAttribute('aria-invalid', ok ? 'false' : 'true');
+                    f.helper.textContent = ok ? f.def : f.err;
+                    f.helper.classList.toggle('error', !ok);
+                }
+                f.input.addEventListener('input', update);
+                f.input.addEventListener('blur', update);
+            });
+
+            Array.prototype.forEach.call(form.querySelectorAll('select[required]'), function(select) {
+                var helper = document.getElementById(select.id + '-helper');
+                helper._def = helper.textContent;
+
+                select.addEventListener('change', function() {
+                    var ok = select.value !== '';
+                    select.setAttribute('aria-invalid', ok ? 'false' : 'true');
+                    helper.classList.toggle('error', !ok);
+                    helper.textContent = ok ? helper._def : 'Pilih salah satu.';
+                });
+            });
+
+            Array.prototype.forEach.call(form.querySelectorAll('fieldset'), function(group) {
+                var helper = group.querySelector('.helper');
+                helper._def = helper.textContent;
+
+                var boxes = group.querySelectorAll('input[type="checkbox"]');
+                var radios = group.querySelectorAll('input[type="radio"]');
+                var max = parseInt(group.getAttribute('data-max') || '', 10);
+
+                function clearInvalid() {
+                    group.removeAttribute('aria-invalid');
+                    helper.classList.remove('error');
+                    helper.textContent = helper._def;
+                }
+
+                if (boxes.length) {
+                    Array.prototype.forEach.call(boxes, function(box) {
+                        box.addEventListener('change', function() {
+                            var checked = group.querySelectorAll('input:checked');
+                            Array.prototype.forEach.call(boxes, function(b) {
+                                b.disabled = checked.length >= max && !b.checked;
+                            });
+                            if (checked.length >= 1) clearInvalid();
+                        });
+                    });
+                }
+
+                if (radios.length) {
+                    Array.prototype.forEach.call(radios, function(radio) {
+                        radio.addEventListener('change', clearInvalid);
+                    });
+                }
+            });
+
+            function validateGroups() {
+                var firstInvalid = null;
+
+                Array.prototype.forEach.call(form.querySelectorAll('fieldset'), function(group) {
+                    var helper = group.querySelector('.helper');
+                    var checked = group.querySelectorAll('input:checked').length;
+                    var maxAttr = group.getAttribute('data-max');
+                    var ok = maxAttr
+                        ? (checked >= 1 && checked <= parseInt(maxAttr, 10))
+                        : checked >= 1;
+
+                    if (!ok) {
+                        group.setAttribute('aria-invalid', 'true');
+                        helper.classList.add('error');
+                        helper.textContent = maxAttr
+                            ? 'Pilih minimal 1 dan maksimal ' + maxAttr + '.'
+                            : 'Pilih salah satu.';
+                        if (!firstInvalid) firstInvalid = group;
+                    } else {
+                        group.removeAttribute('aria-invalid');
+                        helper.classList.remove('error');
+                        helper.textContent = helper._def;
+                    }
+                });
+
+                return firstInvalid;
+            }
+
+            function validateStep(container) {
+                var els = container.querySelectorAll('input, select, textarea');
+                var firstInvalid = null;
+
+                Array.prototype.forEach.call(els, function(el) {
+                    if (el.disabled) return;
+                    if (!el.checkValidity()) {
+                        if (!firstInvalid) firstInvalid = el;
+                        el.dispatchEvent(new Event(el.tagName === 'SELECT' ? 'change' : 'input'));
+                    }
+                });
+
+                if (firstInvalid) {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstInvalid.reportValidity();
+                    return false;
+                }
+                return true;
+            }
+
+            function goToStep(step) {
+                step1.hidden = step !== 1;
+                step2.hidden = step !== 2;
+                formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            stepNext.addEventListener('click', function() {
+                alertBox.hidden = true;
+                if (!validateStep(step1)) return;
+                goToStep(2);
+            });
+
+            stepBack.addEventListener('click', function() {
+                alertBox.hidden = true;
+                goToStep(1);
+            });
+
+            function showAlert(message) {
+                alertBox.textContent = message;
+                alertBox.hidden = false;
+            }
+
+            function setLoading(isLoading) {
+                submitButton.disabled = isLoading;
+                submitButton.setAttribute('aria-busy', String(isLoading));
+                submitLabel.textContent = isLoading ? 'Mengirim...' : 'Daftar Sekarang';
+                statusText.textContent = isLoading ? 'Mohon tunggu, sedang menyimpan data...' : '';
+            }
+
+            function checkedValues(name) {
+                return Array.prototype.map.call(
+                    form.querySelectorAll('input[name="' + name + '"]:checked'),
+                    function(el) { return el.value; }
+                ).join('; ');
+            }
+
+            function radioValue(name) {
+                var el = form.querySelector('input[name="' + name + '"]:checked');
+                return el ? el.value : '';
+            }
+
+            function fieldValue(id) {
+                var el = document.getElementById(id);
+                return el ? el.value.trim() : '';
+            }
+
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                alertBox.hidden = true;
+
+                if (APPS_SCRIPT_URL === 'GANTI_DENGAN_URL_WEB_APP_ANDA') {
+                    showAlert('Formulir belum aktif. Silakan coba lagi beberapa saat lagi atau hubungi admin.');
+                    return;
+                }
+
+                var invalidGroup = validateGroups();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    if (invalidGroup) invalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                if (invalidGroup) {
+                    invalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                var payload = {
+                    'nama': fieldValue('nama'),
+                    'kota': fieldValue('kota'),
+                    'no_wa': fieldValue('no_wa'),
+                    'asal_pesantren': fieldValue('asal_pesantren'),
+                    'status': fieldValue('status'),
+                    'jenjang': fieldValue('jenjang'),
+                    'sumber_info': fieldValue('sumber_info'),
+                    'bekal_penting': checkedValues('bekal_penting'),
+                    'penting_teknologi': radioValue('penting_teknologi'),
+                    'waktu_tepat': radioValue('waktu_tepat'),
+                    'manfaat': checkedValues('manfaat'),
+                    'kekhawatiran': radioValue('kekhawatiran'),
+                    'keresahan': fieldValue('keresahan')
+                };
+
+                setLoading(true);
+
+                try {
+                    var response = await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        body: new URLSearchParams(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('HTTP ' + response.status);
+                    }
+
+                    var result;
+                    try {
+                        result = await response.json();
+                    } catch (e) {
+                        result = { result: 'success' };
+                    }
+
+                    if (result && result.result === 'error') {
+                        throw new Error(result.message || 'Gagal menyimpan data.');
+                    }
+
+                    successName.textContent = payload.nama;
+                    formCard.hidden = true;
+                    successCard.hidden = false;
+                    successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } catch (err) {
+                    console.error('[pendaftaran] Gagal kirim:', err);
+                    showAlert('Pendaftaran gagal terkirim. Silakan coba lagi atau hubungi admin Alhazen Academy.');
+                    setLoading(false);
+                }
+            });
+        })();
     </script>
 
 </body>
