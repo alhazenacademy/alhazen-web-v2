@@ -25,10 +25,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <style>
+        @font-face {
+            font-family: 'TNR Cond';
+            src: url("{{ asset('assets/custom/santri-dan-teknologi/Times New Roman MT Condensed Regular.otf') }}") format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --bg: #ffffff;
             --surface: #F2E8D8;
@@ -37,8 +47,7 @@
             --muted: #77743A;
             --border: rgba(85, 85, 31, 0.16);
             --glass: rgba(242, 232, 216, 0.55);
-            --gradient: linear-gradient(135deg, #A89A35 0%, #D0B95A 50%, #F2E8D8 100%);
-            --serif: 'DM Serif Display', serif;
+            --serif: 'TNR Cond', 'Times New Roman', serif;
             --mono: 'Geist Mono', monospace;
             --sans: 'Inter', sans-serif;
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -107,11 +116,36 @@
             color: var(--muted);
         }
 
+        .ms-icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 16px;
+            color: inherit;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .silver-btn .ms-icon {
+            font-size: 14px;
+            vertical-align: -2px;
+        }
+
+        .navbar .ms-icon {
+            font-size: 13px;
+            vertical-align: -2px;
+        }
+
         .silver-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #A89A35;
         }
 
         .serif {
@@ -165,8 +199,8 @@
         }
 
         .silver-btn {
-            background: var(--gradient);
-            color: #494640 !important;
+            background: #A89A35;
+            color: #FFFFFF !important;
             border: none;
             padding: 13px 25px;
             border-radius: 12px;
@@ -362,6 +396,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            background: rgba(242, 232, 216, .5);
             border-bottom: 1px solid var(--border);
         }
 
@@ -401,84 +436,11 @@
             letter-spacing: -.03em;
         }
 
-        /* Bento Grid */
-
-        .features {
-            padding: 100px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid var(--border);
-            border-left: 1px solid var(--border);
-        }
-
-        .bento-card {
-            min-height: 320px;
-            padding: 30px;
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-            transition: background .4s, border-color .4s;
-        }
-
-        .bento-card:hover {
-            background: rgba(168, 154, 53, .06);
-            border-color: #A89A35;
-        }
-
-        .bento-card.wide {
-            grid-column: span 2;
-        }
-
-        .bento-index {
-            font-family: var(--mono);
-            font-size: 14px;
-            font-weight: 500;
-            color: #77743A;
-            letter-spacing: .12em;
-        }
-
-        .bento-icon {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 22px;
-            color: #A89A35;
-        }
-
-        .bento-content {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            right: 30px;
-        }
-
-        .bento-content h3 {
-            font-family: var(--serif);
-            font-size: clamp(26px, 3vw, 40px);
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-
-        .bento-content p {
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.8;
-            color: #4D5442;
-            max-width: 360px;
-        }
-
         /* Value proposition */
 
         .manifesto {
             padding: 150px 0;
             text-align: center;
-            background: rgba(242, 232, 216, .5);
             border-bottom: 1px solid var(--border);
         }
 
@@ -596,102 +558,6 @@
             padding: 9px 16px;
         }
 
-        /* Schedule */
-
-        .schedule {
-            padding: 110px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .schedule-list {
-            border-top: 1px solid var(--border);
-        }
-
-        .schedule-row {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 40px;
-            padding: 32px 10px;
-            border-bottom: 1px solid var(--border);
-            align-items: baseline;
-            transition: background .4s;
-        }
-
-        .schedule-row:hover {
-            background: rgba(168, 154, 53, .06);
-        }
-
-        .schedule-time {
-            font-family: var(--mono);
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: .08em;
-            color: #77743A;
-        }
-
-        .schedule-session {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .schedule-session strong {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: clamp(20px, 2.5vw, 28px);
-        }
-
-        .schedule-session span {
-            color: #4D5442;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        /* Questions */
-
-        .questions {
-            padding: 120px 0;
-            background: rgba(242, 232, 216, .5);
-            border-top: 1px solid var(--border);
-        }
-
-        .question-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        .question-item {
-            background: var(--bg);
-            padding: 45px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            min-height: 240px;
-            transition: background .4s;
-        }
-
-        .question-item:hover {
-            background: rgba(168, 154, 53, .06);
-        }
-
-        .question-index {
-            font-family: var(--mono);
-            font-size: 14px;
-            font-weight: 500;
-            color: #77743A;
-            letter-spacing: .12em;
-        }
-
-        .question-item p {
-            font-family: var(--serif);
-            font-size: clamp(22px, 2.5vw, 32px);
-            line-height: 1.25;
-            margin-top: auto;
-        }
-
         /* Benefits */
 
         .benefits {
@@ -722,6 +588,11 @@
         }
 
         .benefit-card .bento-index {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 500;
+            color: #77743A;
+            letter-spacing: .12em;
             margin-bottom: auto;
         }
 
@@ -738,59 +609,12 @@
             color: #4D5442;
         }
 
-        /* Criteria */
-
-        .criteria {
-            padding: 110px 0;
-            background: rgba(242, 232, 216, .5);
-            border-top: 1px solid var(--border);
-        }
-
-        .criteria-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px 70px;
-            counter-reset: criteria;
-        }
-
-        .criteria-item {
-            counter-increment: criteria;
-            display: grid;
-            grid-template-columns: 60px 1fr;
-            gap: 25px;
-            align-items: start;
-            padding-bottom: 35px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .criteria-item::before {
-            content: counter(criteria, decimal-leading-zero);
-            font-family: var(--mono);
-            font-size: 14px;
-            font-weight: 500;
-            color: #A89A35;
-            letter-spacing: .12em;
-            padding-top: 6px;
-        }
-
-        .criteria-item p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #4D5442;
-        }
-
-        /* Notes */
-
-        .notes {
-            padding: 110px 0;
-            border-top: 1px solid var(--border);
-        }
-
         /* Final CTA */
 
         .final-cta {
             padding: 140px 20px;
             text-align: center;
+            background: rgba(242, 232, 216, .5);
             border-top: 1px solid var(--border);
         }
 
@@ -864,6 +688,22 @@
             margin-bottom: 35px;
         }
 
+        .gform-embed {
+            max-width: 780px;
+            margin: 0 auto 30px;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .gform-embed iframe {
+            display: block;
+            width: 100%;
+            height: 1550px;
+            border: 0;
+        }
+
         .cta-actions {
             display: flex;
             flex-wrap: wrap;
@@ -873,6 +713,7 @@
 
         .silver-btn.btn-ghost {
             background: #FFFFFF;
+            color: #494640 !important;
             border: 1px solid #D8C7AD;
         }
 
@@ -946,9 +787,18 @@
             letter-spacing: .05em;
         }
 
+        .mobile-nav span.ms-icon {
+            font-family: 'Material Symbols Outlined';
+            font-size: 20px;
+            font-weight: normal;
+            letter-spacing: normal;
+            text-transform: none;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
         .mobile-nav .mobile-primary {
-            background: var(--gradient);
-            color: #494640;
+            background: #A89A35;
+            color: #FFFFFF;
             border-radius: 50%;
             width: 48px;
             height: 48px;
@@ -956,7 +806,7 @@
         }
 
         .mobile-nav .mobile-primary span {
-            color: #494640;
+            color: #FFFFFF;
         }
 
         /* Animations */
@@ -976,25 +826,8 @@
         /* Responsive */
 
         @media (max-width: 900px) {
-            .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .benefit-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .question-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .criteria-list {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .criteria-item {
-                margin-bottom: 0;
             }
 
             .speaker-card {
@@ -1086,22 +919,6 @@
                 font-size: 21px;
             }
 
-            .features {
-                padding: 80px 0;
-            }
-
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .bento-card {
-                min-height: 260px;
-            }
-
-            .bento-card.wide {
-                grid-column: span 1;
-            }
-
             .manifesto {
                 padding: 100px 0;
             }
@@ -1114,28 +931,12 @@
                 max-width: 230px;
             }
 
-            .schedule-row {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                padding: 25px 5px;
-            }
-
             .benefit-grid {
                 grid-template-columns: 1fr;
             }
 
             .benefit-card {
                 min-height: 220px;
-            }
-
-            .question-item {
-                padding: 35px 25px;
-                min-height: 200px;
-            }
-
-            .criteria-item {
-                grid-template-columns: 40px 1fr;
-                gap: 15px;
             }
 
             .final-cta {
@@ -1153,6 +954,10 @@
 
             .final-schedule .sched-item {
                 padding: 25px 20px;
+            }
+
+            .gform-embed iframe {
+                height: 1900px;
             }
 
             footer {
@@ -1190,13 +995,13 @@
         <a href="#" class="brand">AL MINHAJ<span class="muted">×</span>ALHAZEN</a>
 
         <nav class="nav-links">
-            <a href="#fokus">FOKUS</a>
+            <a href="#tujuan">TUJUAN</a>
             <a href="#narasumber">NARASUMBER</a>
-            <a href="#agenda">AGENDA</a>
-            <a href="#manfaat" class="silver-btn">MANFAAT ↗</a>
+            <a href="#manfaat">MANFAAT</a>
+            <a href="#daftar" class="silver-btn">DAFTAR <span class="ms-icon">north_east</span></a>
         </nav>
 
-        <a href="#agenda" class="mono" style="color:#77743A;">27 NOV ↗</a>
+        <a href="#daftar" class="mono" style="color:#77743A;">27 NOV <span class="ms-icon">north_east</span></a>
     </header>
 
     <main>
@@ -1223,11 +1028,11 @@
 
                     <div class="hero-actions">
                         <a href="#daftar" class="silver-btn">
-                            Daftar Sekarang ↗
+                            Daftar Sekarang <span class="ms-icon">north_east</span>
                         </a>
 
-                        <a href="#fokus" class="silver-btn btn-ghost">
-                            Jelajahi Kajian ↗
+                        <a href="#tujuan" class="silver-btn btn-ghost">
+                            Jelajahi Kajian <span class="ms-icon">north_east</span>
                         </a>
                     </div>
 
@@ -1296,10 +1101,11 @@
         </section>
 
         <!-- LATAR BELAKANG -->
-        <section class="prose-section container" id="penting">
-            <div class="reveal">
+        <section class="prose-section" id="penting">
+            <div class="container">
+                <div class="reveal">
                 <p class="mono muted" style="margin-bottom:20px;">
-                    01 - MENGAPA KAJIAN INI PENTING
+                        01 — MENGAPA KAJIAN INI PENTING
                 </p>
 
                 <h2>
@@ -1337,6 +1143,7 @@
                         berpeluang memberi manfaat yang lebih luas.
                     </p>
                 </div>
+                </div>
             </div>
         </section>
 
@@ -1345,7 +1152,7 @@
             <div class="container reveal">
 
                 <p class="mono muted" style="margin-bottom:20px;">
-                    02 - TUJUAN KAJIAN
+                        02 — TUJUAN KAJIAN
                 </p>
 
                 <h2>
@@ -1367,144 +1174,13 @@
             </div>
         </section>
 
-        <!-- FOKUS PEMBAHASAN -->
-        <section class="features" id="fokus">
-            <div class="container">
-
-                <div class="section-heading reveal">
-                    <p class="mono muted" style="margin-bottom:20px;">
-                        03 — FOKUS PEMBAHASAN
-                    </p>
-
-                    <h2>
-                        Delapan arah<br>
-                        <span class="silver-text">pembahasan.</span>
-                    </h2>
-                </div>
-
-                <div class="bento-grid">
-
-                    <article class="bento-card wide reveal">
-                        <span class="bento-index">01 / REALITAS ZAMAN</span>
-                        <span class="bento-icon">↗</span>
-
-                        <div class="bento-content">
-                            <h3>Memahami realitas zaman.</h3>
-                            <p>
-                                Santri hidup di zaman yang berbeda dari para
-                                pendahulu, sehingga perubahan zaman perlu
-                                dipahami sebagai bagian dari sikap keagamaan.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="bento-card wide reveal">
-                        <span class="bento-index">02 / TIMBANGAN SYARIAT</span>
-                        <span class="bento-icon">◈</span>
-
-                        <div class="bento-content">
-                            <h3>Ilmu &amp; teknologi dalam syariat.</h3>
-                            <p>
-                                Kedudukan ilmu dan teknologi dalam Islam,
-                                serta cara menimbang maslahat dan mafsadat
-                                dalam penggunaannya.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="bento-card reveal">
-                        <span class="bento-index">03 / BAHAYA</span>
-                        <span class="bento-icon">⌑</span>
-
-                        <div class="bento-content">
-                            <h3>Melalaikan ibadah.</h3>
-                            <p>
-                                Dampak teknologi yang dapat melalaikan ibadah
-                                dan merusak akhlak: ghibah, hoaks, konten
-                                negatif, dan judi online.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="bento-card reveal">
-                        <span class="bento-index">04 / ADAB DIGITAL</span>
-                        <span class="bento-icon">✳</span>
-
-                        <div class="bento-content">
-                            <h3>Bermuamalah di ruang digital.</h3>
-                            <p>
-                                Menjaga lisan dan tulisan, tabayyun,
-                                menjaga privasi, serta menjaga akhlak
-                                di dunia maya.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="bento-card reveal">
-                        <span class="bento-index">05 / NIAT</span>
-                        <span class="bento-icon">◇</span>
-
-                        <div class="bento-content">
-                            <h3>Menjaga niat &amp; tujuan hidup.</h3>
-                            <p>
-                                Niat yang benar serta keseimbangan antara
-                                urusan dunia, akhirat, ibadah, dan belajar.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="bento-card reveal">
-                        <span class="bento-index">06 / TARBIYAH</span>
-                        <span class="bento-icon">○</span>
-
-                        <div class="bento-content">
-                            <h3>Peran wali santri &amp; pesantren.</h3>
-                            <p>
-                                Mendampingi, memberikan teladan, dan
-                                memfasilitasi pembelajaran teknologi
-                                yang sehat.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="bento-card wide reveal">
-                        <span class="bento-index">07 / GENERASI BERMANFAAT</span>
-                        <span class="bento-icon">↗</span>
-
-                        <div class="bento-content">
-                            <h3>Kesiapan setelah lulus.</h3>
-                            <p>
-                                Baik dari sisi ilmu agama maupun keterampilan,
-                                agar santri dapat memberi manfaat bagi umat.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="bento-card wide reveal">
-                        <span class="bento-index">08 / PENUTUP</span>
-                        <span class="bento-icon">◈</span>
-
-                        <div class="bento-content">
-                            <h3>Semangat ilmu dan adab.</h3>
-                            <p>
-                                Teknologi adalah sarana, bukan tujuan.
-                                Niat, adab, serta manfaat tetap menjadi
-                                hal utama.
-                            </p>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
         <!-- NARASUMBER -->
         <section class="testimonials" id="narasumber">
             <div class="container">
 
                 <div class="section-heading reveal">
                     <p class="mono muted" style="margin-bottom:20px;">
-                        04 — NARASUMBER
+                        03 — NARASUMBER
                     </p>
 
                     <h2>
@@ -1551,146 +1227,13 @@
             </div>
         </section>
 
-        <!-- RANGKAIAN ACARA -->
-        <section class="schedule" id="agenda">
-            <div class="container">
-
-                <div class="section-heading reveal">
-                    <p class="mono muted" style="margin-bottom:20px;">
-                        05 — RANGKAIAN ACARA
-                    </p>
-
-                    <h2>
-                        90 menit,<br>
-                        <span class="silver-text">satu arah pembahasan.</span>
-                    </h2>
-                </div>
-
-                <div class="schedule-list reveal">
-
-                    <div class="schedule-row">
-                        <div class="schedule-time">08.00 – 08.30</div>
-                        <div class="schedule-session">
-                            <strong>Pembukaan</strong>
-                            <span>
-                                Registrasi ulang, pembukaan oleh MC,
-                                dan penjelasan program lain.
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-time">08.30 – 09.10</div>
-                        <div class="schedule-session">
-                            <strong>Sesi Materi: Santri dan Teknologi</strong>
-                            <span>
-                                Pemaparan materi oleh Ustadz Raehanul Bahraen —
-                                mengacu pada delapan fokus pembahasan.
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-time">09.10 – 09.25</div>
-                        <div class="schedule-session">
-                            <strong>Tanya Jawab</strong>
-                            <span>
-                                Diskusi dipandu dengan pertanyaan
-                                pemandu agar arah pembahasan tetap terjaga.
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-time">09.25 – 09.30</div>
-                        <div class="schedule-session">
-                            <strong>Penutup</strong>
-                            <span>
-                                Penutup dan dokumentasi.
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- PERTANYAAN PEMANDU -->
-        <section class="questions" id="pertanyaan">
-            <div class="container">
-
-                <div class="section-heading reveal">
-                    <p class="mono muted" style="margin-bottom:20px;">
-                        06 — PERTANYAAN PEMANDU DISKUSI
-                    </p>
-
-                    <h2>
-                        Menjaga arah<br>
-                        <span class="silver-text">tanya jawab.</span>
-                    </h2>
-                </div>
-
-                <div class="question-grid reveal">
-
-                    <article class="question-item">
-                        <span class="question-index">Q / 01</span>
-                        <p>
-                            Apa tantangan teknologi yang paling nyata
-                            dihadapi santri saat ini?
-                        </p>
-                    </article>
-
-                    <article class="question-item">
-                        <span class="question-index">Q / 02</span>
-                        <p>
-                            Setelah lulus, keterampilan apa yang paling
-                            menentukan daya saing santri?
-                        </p>
-                    </article>
-
-                    <article class="question-item">
-                        <span class="question-index">Q / 03</span>
-                        <p>
-                            Bagaimana cara memulai belajar coding tanpa
-                            meninggalkan rutinitas pesantren?
-                        </p>
-                    </article>
-
-                    <article class="question-item">
-                        <span class="question-index">Q / 04</span>
-                        <p>
-                            Bagaimana membedakan penggunaan teknologi
-                            yang produktif dan yang merusak?
-                        </p>
-                    </article>
-
-                    <article class="question-item">
-                        <span class="question-index">Q / 05</span>
-                        <p>
-                            Apa peran wali santri ketika anak lebih cepat
-                            memahami teknologi daripada orang tuanya?
-                        </p>
-                    </article>
-
-                    <article class="question-item">
-                        <span class="question-index">Q / 06</span>
-                        <p>
-                            Bagaimana pesantren mengambil peran dalam
-                            pendidikan teknologi tanpa kehilangan identitasnya?
-                        </p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
         <!-- BENEFIT -->
         <section class="benefits" id="manfaat">
             <div class="container">
 
                 <div class="section-heading reveal">
                     <p class="mono muted" style="margin-bottom:20px;">
-                        07 — BENEFIT UNTUK PESERTA
+                        04 — BENEFIT UNTUK PESERTA
                     </p>
 
                     <h2>
@@ -1741,126 +1284,12 @@
             </div>
         </section>
 
-        <!-- KRITERIA KEBERHASILAN -->
-        <section class="criteria" id="kriteria">
-            <div class="container">
-
-                <div class="section-heading reveal">
-                    <p class="mono muted" style="margin-bottom:20px;">
-                        08 — KRITERIA KEBERHASILAN
-                    </p>
-
-                    <h2>
-                        Peserta pulang<br>
-                        <span class="silver-text">dengan ini.</span>
-                    </h2>
-                </div>
-
-                <div class="criteria-list reveal">
-
-                    <div class="criteria-item">
-                        <p>
-                            Memahami bahwa tantangan teknologi bersifat besar
-                            dan tidak boleh diabaikan.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Menyadari bahwa masa depan santri juga ditentukan
-                            oleh penguasaan keterampilan, bukan hanya ijazah.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Mengetahui perbedaan antara yang perlu dipelajari
-                            dan yang perlu dihindari.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Memiliki gambaran awal tentang langkah belajar
-                            teknologi, termasuk coding.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Terdorong untuk mendampingi dan memfasilitasi
-                            anak, bukan hanya melarang.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- CATATAN -->
-        <section class="notes" id="catatan">
-            <div class="container">
-
-                <div class="section-heading reveal">
-                    <p class="mono muted" style="margin-bottom:20px;">
-                        09 - CATATAN
-                    </p>
-
-                    <h2>
-                        Yang perlu<br>
-                        <span class="silver-text">diperhatikan.</span>
-                    </h2>
-                </div>
-
-                <div class="criteria-list reveal">
-
-                    <div class="criteria-item">
-                        <p>
-                            Sesi materi narasumber murni berisi pembelajaran
-                            agama dan tidak digunakan untuk promosi produk,
-                            kelas, atau voucher.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Informasi benefit dan penawaran pendidikan teknologi
-                            disampaikan oleh penyelenggara di luar sesi materi.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Peserta diharapkan hadir tepat waktu untuk
-                            mendapatkan pengalaman terbaik.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Rekaman dan benefit dikirimkan ke email peserta
-                            dalam waktu 3x24 jam setelah kajian selesai.
-                        </p>
-                    </div>
-
-                    <div class="criteria-item">
-                        <p>
-                            Jadwal, media, dan detail teknis dapat disesuaikan
-                            dengan kebutuhan Al Minhaj dan Alhazen Academy.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
         <!-- FINAL CTA -->
         <section class="final-cta" id="daftar">
             <div class="container reveal">
 
                 <p class="mono muted" style="margin-bottom:20px;">
-                    10 — SAMPAI JUMAT PAGI
+                    05 — SAMPAI JUMAT PAGI
                 </p>
 
                 <h2>
@@ -1905,10 +1334,18 @@
                     Terbuka untuk wali santri dan masyarakat umum
                 </p>
 
+                {{-- <div class="gform-embed">
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSdTrvtT1aBXRAgQ5A_eV8SV7uH1RFwS4a82DPNdz2zoXFgG0A/viewform?embedded=true"
+                        title="Formulir Pendaftaran Kajian Santri dan Teknologi" loading="lazy" width="100%"
+                        height="1550">
+                    </iframe>
+                </div> --}}
+
                 <div class="cta-actions">
                     <a href="https://forms.gle/ryMJ7cGqnpaZGv1B8" target="_blank" rel="noopener noreferrer"
                         class="silver-btn">
-                        Daftar Sekarang ↗
+                        Daftar Sekarang <span class="ms-icon">north_east</span>
                     </a>
 
                     <a href="#home" class="silver-btn btn-ghost">
@@ -1928,8 +1365,8 @@
         <p>© 2026 KAJIAN SANTRI DAN TEKNOLOGI. SEMUA HAK DILINDUNGI.</p>
 
         <div class="footer-links">
-            <a href="#fokus">FOKUS</a>
-            <a href="#agenda">AGENDA</a>
+            <a href="#tujuan">TUJUAN</a>
+            <a href="#narasumber">NARASUMBER</a>
             <a href="#manfaat">MANFAAT</a>
         </div>
     </footer>
@@ -1938,28 +1375,28 @@
     <nav class="mobile-nav" id="mobileNav">
 
         <a href="#home">
-            ⌂
+            <span class="ms-icon">home</span>
             <span>HOME</span>
         </a>
 
-        <a href="#fokus">
-            ◈
-            <span>FOKUS</span>
+        <a href="#tujuan">
+            <span class="ms-icon">flag</span>
+            <span>TUJUAN</span>
         </a>
 
         <a href="#daftar" class="mobile-primary">
-            ↗
+            <span class="ms-icon">north_east</span>
             <span>CTA</span>
         </a>
 
-        <a href="#agenda">
-            ◉
-            <span>AGENDA</span>
+        <a href="#manfaat">
+            <span class="ms-icon">card_giftcard</span>
+            <span>MANFAAT</span>
         </a>
 
-        <a href="#manfaat">
-            ⌑
-            <span>MANFAAT</span>
+        <a href="#narasumber">
+            <span class="ms-icon">person</span>
+            <span>NARASUMBER</span>
         </a>
 
     </nav>
