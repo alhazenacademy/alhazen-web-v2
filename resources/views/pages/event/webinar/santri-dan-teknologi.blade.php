@@ -700,6 +700,41 @@
             text-align: left;
         }
 
+        #form-alert .form-alert-detail {
+            display: block;
+            margin-top: 7px;
+            font-family: var(--mono);
+            font-size: 11.5px;
+            line-height: 1.5;
+            letter-spacing: .02em;
+            opacity: .72;
+            word-break: break-word;
+        }
+
+        #form-alert .form-alert-action {
+            display: block;
+            margin-top: 9px;
+            padding-top: 9px;
+            border-top: 1px solid rgba(180, 69, 56, .22);
+            font-size: 12.5px;
+            line-height: 1.7;
+            color: #7A2F26;
+        }
+
+        #form-alert .form-alert-action a {
+            color: #B44538;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            white-space: nowrap;
+        }
+
+        .reg-form-success .success-warning {
+            border-left-color: #B44538;
+            background: rgba(180, 69, 56, .06);
+            color: #7A2F26;
+        }
+
         #form-alert {
             margin-bottom: 22px;
             padding: 13px 17px;
@@ -875,7 +910,7 @@
             margin-top: 0;
         }
 
-        .reg-step-actions #step-back {
+        .reg-step-actions .reg-back {
             flex: 0 0 auto;
             padding-left: 22px;
             padding-right: 22px;
@@ -884,12 +919,202 @@
             border: 1px solid #D8C7AD;
         }
 
-        .reg-step-actions #step-back:hover {
+        .reg-step-actions .reg-back:hover {
             border-color: #A89A35;
         }
 
+        .reg-step-actions .reg-next,
         .reg-step-actions #submit-button {
             flex: 1;
+        }
+
+        /* Upload bukti transfer */
+
+        .reg-form .field>label.upload-zone {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 28px 20px;
+            border: 1px dashed #D8C7AD;
+            border-radius: 14px;
+            background: rgba(242, 232, 216, .25);
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: normal;
+            text-transform: none;
+            text-align: center;
+            color: #494640;
+            cursor: pointer;
+            transition: border-color .2s ease, background .2s ease;
+        }
+
+        .reg-form .field>label.upload-zone:hover,
+        .reg-form .field>label.upload-zone:focus-within {
+            border-color: #A89A35;
+            background: rgba(168, 154, 53, .06);
+        }
+
+        .reg-form .field>label.upload-zone[aria-invalid="true"] {
+            border-color: #B44538;
+            background: rgba(180, 69, 56, .05);
+        }
+
+        .reg-form .upload-zone input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .reg-form .upload-zone .ms-icon {
+            font-size: 28px;
+            color: #A89A35;
+        }
+
+        .reg-form .upload-title {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: #494640;
+        }
+
+        .reg-form .upload-hint {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #77743A;
+        }
+
+        .upload-preview {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #FFFFFF;
+        }
+
+        .upload-preview img,
+        .upload-preview .upload-file-icon {
+            width: 54px;
+            height: 54px;
+            flex: 0 0 auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .upload-preview img {
+            object-fit: cover;
+        }
+
+        .upload-preview .upload-file-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #A89A35;
+            background: rgba(242, 232, 216, .5);
+        }
+
+        .upload-preview .upload-file-icon .ms-icon {
+            font-size: 24px;
+        }
+
+        .upload-preview .upload-meta {
+            flex: 1;
+            min-width: 0;
+            display: block;
+        }
+
+        .upload-preview .upload-name {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #494640;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .upload-preview .upload-size {
+            display: block;
+            margin-top: 3px;
+            font-size: 12px;
+            color: #77743A;
+        }
+
+        .upload-preview .upload-remove {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            border: 1px solid #D8C7AD;
+            background: #FFFFFF;
+            color: #B44538;
+            cursor: pointer;
+            transition: border-color .2s ease;
+        }
+
+        .upload-preview .upload-remove:hover {
+            border-color: #B44538;
+        }
+
+        /* Info infaq (di atas form bukti transfer) */
+
+        .infaq-info {
+            margin-bottom: 25px;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: rgba(242, 232, 216, .5);
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #4D5442;
+        }
+
+        .infaq-info p+p {
+            margin-top: 12px;
+        }
+
+        .infaq-info .infaq-quote {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 20px;
+            line-height: 1.4;
+            color: #55551F;
+        }
+
+        .infaq-info .infaq-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: #A89A35;
+            margin-bottom: 0;
+        }
+
+        .infaq-info .infaq-account {
+            display: block;
+            margin-top: 4px;
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .04em;
+            color: #494640;
+            word-break: break-word;
         }
 
         .reg-form #form-status {
@@ -1794,8 +2019,72 @@
                                     <span class="ms-icon">arrow_back</span> Kembali
                                 </button>
 
+                                <button type="button" id="step-next-2" class="silver-btn reg-submit reg-next">
+                                    Selanjutnya <span class="ms-icon">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="reg-step" id="step-3" hidden>
+                            <p class="reg-form-part">Bagian 3 — Bukti Transfer</p>
+
+                            <div class="infaq-info">
+                                <p>
+                                    Kajian ini insyaAllah <strong>gratis</strong> dan terbuka untuk umum. Jika Anda
+                                    berkenan, kami membuka kesempatan <strong>infaq seikhlasnya</strong> untuk
+                                    mendukung operasional kajian (seperti biaya platform Zoom, dokumentasi, dan
+                                    kebutuhan teknis lainnya). Infaq ini sepenuhnya opsional dan tidak memengaruhi
+                                    akses Anda ke kajian.
+                                </p>
+
+                                <p class="infaq-quote">
+                                    “Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.”
+                                </p>
+
+                                <p class="infaq-label" style="margin-top:18px;">Cara Berinfaq</p>
+                                <p>
+                                    Transfer ke rekening panitia:
+                                    <span class="infaq-account">BSI 7200011297 — PT. Alhazen Global Teknologi</span>
+                                </p>
+                            </div>
+
+                            <div class="field">
+                                <label class="upload-zone" for="bukti_transfer" id="upload-zone">
+                                    <input type="file" id="bukti_transfer" name="bukti_transfer"
+                                        accept="image/jpeg,image/png,image/webp,application/pdf">
+                                    <span class="ms-icon">cloud_upload</span>
+                                    <span class="upload-title" id="upload-title">Pilih file bukti transfer
+                                        (opsional)</span>
+                                    <span class="upload-hint">JPG, PNG, WEBP, atau PDF · maksimal 5 MB</span>
+                                </label>
+
+                                <div class="upload-preview" id="upload-preview" hidden>
+                                    <img id="upload-thumb" alt="Pratinjau bukti transfer" hidden>
+                                    <span class="upload-file-icon" id="upload-file-icon">
+                                        <span class="ms-icon">description</span>
+                                    </span>
+                                    <span class="upload-meta">
+                                        <span class="upload-name" id="upload-name"></span>
+                                        <span class="upload-size" id="upload-size"></span>
+                                    </span>
+                                    <button type="button" class="upload-remove" id="upload-remove"
+                                        aria-label="Hapus bukti transfer">
+                                        <span class="ms-icon">close</span>
+                                    </button>
+                                </div>
+
+                                <small class="helper" id="bukti_transfer-helper">Opsional — hanya perlu diunggah
+                                    bila Anda sudah berinfaq. Pastikan nominal dan tanggal transfer terlihat
+                                    jelas pada file.</small>
+                            </div>
+
+                            <div class="reg-step-actions">
+                                <button type="button" id="step-back-2" class="silver-btn btn-ghost reg-back">
+                                    <span class="ms-icon">arrow_back</span> Kembali
+                                </button>
+
                                 <button type="submit" id="submit-button" class="silver-btn reg-submit">
-                                    <span id="submit-label">Daftar Sekarang</span>
+                                    <span id="submit-label">Kirim Pendaftaran</span>
                                     <span class="ms-icon">north_east</span>
                                 </button>
                             </div>
@@ -1815,6 +2104,7 @@
                         <strong>Tautan Zoom</strong> dikirim ke WhatsApp Group Anda menjelang hari-H —
                         Jumat, 27 November 2026, 08.00 WIB. Jika belum bergabung dengan WhatsApp Group, silakan hubungi Admin Alhazen Academy.
                     </div>
+                    <div class="success-note success-warning" id="success-warning" hidden></div>
                 </div>
 
                 <div class="cta-actions">
@@ -2003,7 +2293,7 @@
         (function() {
             // URL Web App Google Apps Script yang sudah di-deploy.
             // Panduan: .ai/brief/santri-dan-teknologi/apps-script.md
-            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaM-L7hBEQ6LlKylP6ci9ANfmbMIF6tduJVgWZjCxLMNop-OQT_jk0fzbEV3de5RX9/exec';
+            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznFCXU-9isdhNsJ5BWcdTBy3EwqJgNtuvsMviHOxD1cUpVFzQeAQ4xM4jWIj-NFZKN/exec';
 
             var form = document.getElementById('registration-form');
             if (!form) return;
@@ -2011,14 +2301,18 @@
             var formCard = document.getElementById('reg-form-card');
             var successCard = document.getElementById('success-card');
             var successName = document.getElementById('success-name');
+            var successWarning = document.getElementById('success-warning');
             var alertBox = document.getElementById('form-alert');
             var submitButton = document.getElementById('submit-button');
             var submitLabel = document.getElementById('submit-label');
             var statusText = document.getElementById('form-status');
             var step1 = document.getElementById('step-1');
             var step2 = document.getElementById('step-2');
+            var step3 = document.getElementById('step-3');
             var stepNext = document.getElementById('step-next');
+            var stepNext2 = document.getElementById('step-next-2');
             var stepBack = document.getElementById('step-back');
+            var stepBack2 = document.getElementById('step-back-2');
 
             var textFields = {
                 nama: {
@@ -2111,6 +2405,102 @@
                 }
             });
 
+            /* ---------- Bukti transfer ---------- */
+            var fileInput = document.getElementById('bukti_transfer');
+            var fileHelper = document.getElementById('bukti_transfer-helper');
+            var uploadZone = document.getElementById('upload-zone');
+            var uploadPreview = document.getElementById('upload-preview');
+            var uploadThumb = document.getElementById('upload-thumb');
+            var uploadFileIcon = document.getElementById('upload-file-icon');
+            var uploadName = document.getElementById('upload-name');
+            var uploadSize = document.getElementById('upload-size');
+            var uploadRemove = document.getElementById('upload-remove');
+            var fileHelperDef = fileHelper.textContent;
+            var MAX_FILE_SIZE = 5 * 1024 * 1024;
+            var ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+
+            function formatFileSize(bytes) {
+                if (bytes < 1024) return bytes + ' B';
+                if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + ' KB';
+                return (bytes / (1024 * 1024)).toFixed(1).replace('.', ',') + ' MB';
+            }
+
+            function fileError(file) {
+                if (!file) return '';
+                if (ALLOWED_TYPES.indexOf(file.type) === -1) {
+                    return 'Format file harus JPG, PNG, WEBP, atau PDF.';
+                }
+                if (file.size > MAX_FILE_SIZE) {
+                    return 'Ukuran file maksimal 5 MB.';
+                }
+                return '';
+            }
+
+            function resetFileFeedback() {
+                uploadZone.setAttribute('aria-invalid', 'false');
+                fileHelper.classList.remove('error');
+                fileHelper.textContent = fileHelperDef;
+            }
+
+            function renderFile() {
+                var file = fileInput.files && fileInput.files[0];
+                var error = fileError(file);
+
+                uploadZone.setAttribute('aria-invalid', error ? 'true' : 'false');
+                fileHelper.classList.toggle('error', Boolean(error));
+                fileHelper.textContent = error || fileHelperDef;
+
+                if (!file) {
+                    uploadPreview.hidden = true;
+                    uploadThumb.hidden = true;
+                    uploadThumb.removeAttribute('src');
+                    uploadFileIcon.hidden = false;
+                    return;
+                }
+
+                uploadName.textContent = file.name;
+                uploadSize.textContent = formatFileSize(file.size);
+                uploadPreview.hidden = false;
+
+                if (file.type.indexOf('image/') === 0) {
+                    uploadThumb.src = URL.createObjectURL(file);
+                    uploadThumb.hidden = false;
+                    uploadFileIcon.hidden = true;
+                } else {
+                    uploadThumb.hidden = true;
+                    uploadThumb.removeAttribute('src');
+                    uploadFileIcon.hidden = false;
+                }
+            }
+
+            fileInput.addEventListener('change', renderFile);
+
+            uploadRemove.addEventListener('click', function() {
+                fileInput.value = '';
+                uploadPreview.hidden = true;
+                uploadThumb.hidden = true;
+                uploadThumb.removeAttribute('src');
+                uploadFileIcon.hidden = false;
+                uploadName.textContent = '';
+                uploadSize.textContent = '';
+                resetFileFeedback();
+                fileInput.focus();
+            });
+
+            function readFileAsBase64(file) {
+                return new Promise(function(resolve, reject) {
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        var result = String(reader.result || '');
+                        resolve(result.slice(result.indexOf(',') + 1));
+                    };
+                    reader.onerror = function() {
+                        reject(reader.error || new Error('Gagal membaca file.'));
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+
             function validateGroups() {
                 var firstInvalid = null;
 
@@ -2162,6 +2552,7 @@
             function goToStep(step) {
                 step1.hidden = step !== 1;
                 step2.hidden = step !== 2;
+                step3.hidden = step !== 3;
                 formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
@@ -2171,20 +2562,72 @@
                 goToStep(2);
             });
 
+            stepNext2.addEventListener('click', function() {
+                alertBox.hidden = true;
+
+                var invalidGroup = validateGroups();
+
+                if (!validateStep(step2)) return;
+
+                if (invalidGroup) {
+                    invalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                goToStep(3);
+            });
+
             stepBack.addEventListener('click', function() {
                 alertBox.hidden = true;
                 goToStep(1);
             });
 
-            function showAlert(message) {
+            stepBack2.addEventListener('click', function() {
+                alertBox.hidden = true;
+                goToStep(2);
+            });
+
+            var ADMIN_WA_NUMBER = '628217833102';
+            var ADMIN_WA_TEXT = 'Halo Admin Alhazen Academy, pendaftaran kajian Santri dan Teknologi saya gagal terkirim dari web. Mohon dibantu pendaftarannya. Berikut data saya:';
+
+            function appendAdminContact() {
+                var note = document.createElement('span');
+                note.className = 'form-alert-action';
+                note.appendChild(document.createTextNode(
+                    'Masih gagal? Kirim data pendaftaran lewat WhatsApp ke admin: '
+                ));
+
+                var link = document.createElement('a');
+                link.href = 'https://wa.me/' + ADMIN_WA_NUMBER + '?text=' + encodeURIComponent(ADMIN_WA_TEXT);
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = '+62 821-783-3102';
+                note.appendChild(link);
+
+                alertBox.appendChild(note);
+            }
+
+            function showAlert(message, detail, withAdminContact) {
                 alertBox.textContent = message;
+
+                if (detail) {
+                    var detailEl = document.createElement('span');
+                    detailEl.className = 'form-alert-detail';
+                    detailEl.textContent = detail;
+                    alertBox.appendChild(detailEl);
+                }
+
+                if (withAdminContact) {
+                    appendAdminContact();
+                }
+
                 alertBox.hidden = false;
             }
 
             function setLoading(isLoading) {
                 submitButton.disabled = isLoading;
                 submitButton.setAttribute('aria-busy', String(isLoading));
-                submitLabel.textContent = isLoading ? 'Mengirim...' : 'Daftar Sekarang';
+                submitLabel.textContent = isLoading ? 'Mengirim...' : 'Kirim Pendaftaran';
                 statusText.textContent = isLoading ? 'Mohon tunggu, sedang menyimpan data...' : '';
             }
 
@@ -2210,7 +2653,7 @@
                 alertBox.hidden = true;
 
                 if (APPS_SCRIPT_URL === 'GANTI_DENGAN_URL_WEB_APP_ANDA') {
-                    showAlert('Formulir belum aktif. Silakan coba lagi beberapa saat lagi atau hubungi admin.');
+                    showAlert('Formulir belum aktif. Silakan coba lagi beberapa saat lagi atau hubungi admin.', null, true);
                     return;
                 }
 
@@ -2223,9 +2666,23 @@
                 }
 
                 if (invalidGroup) {
+                    goToStep(2);
                     invalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     return;
                 }
+
+                var file = fileInput.files && fileInput.files[0];
+                var invalidFile = fileError(file);
+
+                if (invalidFile) {
+                    uploadZone.setAttribute('aria-invalid', 'true');
+                    fileHelper.classList.add('error');
+                    fileHelper.textContent = invalidFile;
+                    uploadZone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+
+                successWarning.hidden = true;
 
                 var payload = {
                     'nama': fieldValue('nama'),
@@ -2247,6 +2704,12 @@
                 setLoading(true);
 
                 try {
+                    if (file) {
+                        payload['bukti_transfer_name'] = file.name;
+                        payload['bukti_transfer_type'] = file.type;
+                        payload['bukti_transfer_data'] = await readFileAsBase64(file);
+                    }
+
                     var response = await fetch(APPS_SCRIPT_URL, {
                         method: 'POST',
                         body: new URLSearchParams(payload)
@@ -2256,15 +2719,30 @@
                         throw new Error('HTTP ' + response.status);
                     }
 
+                    var raw = await response.text();
                     var result;
+
                     try {
-                        result = await response.json();
+                        result = raw ? JSON.parse(raw) : null;
                     } catch (e) {
-                        result = { result: 'success' };
+                        throw new Error('HTTP ' + response.status + ' — respons bukan JSON: ' + raw.slice(0, 160));
                     }
 
-                    if (result && result.result === 'error') {
+                    if (!result) {
+                        throw new Error('HTTP ' + response.status + ' — respons kosong dari server.');
+                    }
+
+                    if (result.result === 'error') {
                         throw new Error(result.message || 'Gagal menyimpan data.');
+                    }
+
+                    if (result.result !== 'success') {
+                        throw new Error('Respons tidak dikenali: ' + raw.slice(0, 160));
+                    }
+
+                    if (result.file_saved === false) {
+                        successWarning.textContent = 'Pendaftaran Ayah/Bunda sudah tersimpan, tetapi bukti transfer gagal diunggah ke Drive. Tim Alhazen Academy akan menghubungi Anda melalui WhatsApp untuk konfirmasi.';
+                        successWarning.hidden = false;
                     }
 
                     successName.textContent = payload.nama;
@@ -2273,7 +2751,11 @@
                     successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } catch (err) {
                     console.error('[pendaftaran] Gagal kirim:', err);
-                    showAlert('Pendaftaran gagal terkirim. Silakan coba lagi atau hubungi admin Alhazen Academy.');
+                    showAlert(
+                        'Pendaftaran gagal terkirim. Silakan coba lagi atau hubungi admin Alhazen Academy.',
+                        'Detail teknis: ' + (err && err.message ? err.message : String(err)),
+                        true
+                    );
                     setLoading(false);
                 }
             });
