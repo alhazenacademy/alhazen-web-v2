@@ -754,6 +754,7 @@
         }
 
         .reg-form input[type="text"],
+        .reg-form input[type="email"],
         .reg-form input[type="tel"],
         .reg-form select,
         .reg-form textarea {
@@ -1524,8 +1525,8 @@
                 </p>
 
                 <h2>
-                    CATAT<br>
-                    <span class="silver-text">JADWALNYA</span>
+                    Catat<br>
+                    <span class="silver-text">Jadwalnya</span>
                 </h2>
 
                 <div class="final-schedule">
@@ -1573,40 +1574,29 @@
                             <p class="reg-form-part">Bagian 1 — Data Diri Peserta</p>
 
                             <div class="field">
-                                <label for="nama">Siapa nama lengkap Ayah/Bunda?</label>
+                                <label for="nama">Nama Lengkap</label>
                                 <input type="text" id="nama" name="nama" required minlength="3" autocomplete="name"
                                     placeholder="Nama lengkap">
-                                <small class="helper" id="nama-helper">Nama sesuai identitas Ayah/Bunda.</small>
+                                <small class="helper" id="nama-helper">Nama sesuai identitas.</small>
                             </div>
 
                             <div class="field">
-                                <label for="kota">Di kota mana Ayah/Bunda berdomisili?</label>
+                                <label for="email">Email Aktif</label>
+                                <input type="email" id="email" name="email" required autocomplete="email"
+                                    placeholder="nama@email.com">
+                                <small class="helper" id="email-helper">Informasi dan tautan Zoom juga dikirim ke email
+                                    ini.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="kota">Domisili</label>
                                 <input type="text" id="kota" name="kota" required minlength="2"
                                     placeholder="Kota domisili saat ini">
                                 <small class="helper" id="kota-helper">Cukup nama kota, contoh: Yogyakarta.</small>
                             </div>
 
                             <div class="field">
-                                <label for="no_wa">Berapa nomor WhatsApp aktif Ayah/Bunda?</label>
-                                <input type="tel" id="no_wa" name="no_wa" required
-                                    pattern="^(0|\+62|62)8[1-9][0-9]{7,11}$"
-                                    title="Contoh: 08123456789 atau +628123456789" inputmode="numeric"
-                                    autocomplete="tel" placeholder="08xxxxxxxxxx">
-                                <small class="helper" id="no_wa-helper">Format: 08xxxxxxxxxx atau +628xxxxxxxxxx —
-                                    tautan Zoom dikirim ke nomor ini.</small>
-                            </div>
-
-                            <div class="field">
-                                <label for="asal_pesantren">Dari pesantren mana putra/putri Ayah/Bunda berasal?
-                                    (Opsional)</label>
-                                <input type="text" id="asal_pesantren" name="asal_pesantren"
-                                    placeholder="Nama pesantren">
-                                <small class="helper" id="asal_pesantren-helper">Kosongkan bila putra/putri belum
-                                    mondok.</small>
-                            </div>
-
-                            <div class="field">
-                                <label for="status">Apa status Ayah/Bunda saat ini?</label>
+                                <label for="status">Status</label>
                                 <select id="status" name="status" required>
                                     <option value="" selected disabled>Pilih status…</option>
                                     <option value="Orang Tua">Orang Tua</option>
@@ -1619,22 +1609,40 @@
                             </div>
 
                             <div class="field">
-                                <label for="jenjang">Jenjang pendidikan putra/putri Ayah/Bunda saat ini?</label>
-                                <select id="jenjang" name="jenjang" required>
-                                    <option value="" selected disabled>Pilih jenjang…</option>
-                                    <option value="SD/MI">SD/MI</option>
-                                    <option value="SMP/MTs">SMP/MTs</option>
-                                    <option value="SMA/MA">SMA/MA</option>
-                                    <option value="Sudah lulus pesantren">Sudah lulus pesantren</option>
-                                    <option value="Belum mondok, tetapi berencana memasukkan anak ke pesantren">Belum
-                                        mondok, tetapi berencana memasukkan anak ke pesantren</option>
-                                    <option value="Lainnya">Lainnya</option>
-                                </select>
-                                <small class="helper" id="jenjang-helper">Pilih satu.</small>
+                                <label for="no_wa">No Whatsapp Aktif</label>
+                                <input type="tel" id="no_wa" name="no_wa" required
+                                    pattern="^(0|\+62|62)8[1-9][0-9]{7,11}$"
+                                    title="Contoh: 08123456789 atau +628123456789" inputmode="numeric"
+                                    autocomplete="tel" placeholder="08xxxxxxxxxx">
+                                <small class="helper" id="no_wa-helper">Format: 08xxxxxxxxxx atau +628xxxxxxxxxx.</small>
                             </div>
 
                             <div class="field">
-                                <label for="sumber_info">Dari mana Ayah/Bunda mengetahui kajian ini?</label>
+                                <label for="asal_pesantren">Asal Sekolah Ananda (Opsional)</label>
+                                <input type="text" id="asal_pesantren" name="asal_pesantren"
+                                    placeholder="Nama pesantren">
+                                <small class="helper" id="asal_pesantren-helper">Kosongkan bila putra/putri belum
+                                    mondok.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="jenjang">Jenjang Pendidikan Ananda (Opsional)</label>
+                                <select id="jenjang" name="jenjang">
+                                    <option value="" selected>Pilih jenjang…</option>
+                                    <option value="SD/MI">SD/MI</option>
+                                    <option value="SMP/MTs">SMP/MTs</option>
+                                    <option value="SMA/MA">SMA/MA</option>
+                                    <option value="Sudah lulus">Sudah lulus</option>
+                                    {{-- <option value="Belum mondok, tetapi berencana memasukkan anak ke pesantren">Belum
+                                        mondok, tetapi berencana memasukkan anak ke pesantren</option>
+                                    <option value="Lainnya">Lainnya</option> --}}
+                                </select>
+                                <small class="helper" id="jenjang-helper">Kosongkan bila belum ada ananda atau tidak
+                                    ingin mengisi.</small>
+                            </div>
+
+                            <div class="field">
+                                <label for="sumber_info">⁠Darimana Mengetahui Kajian Ini</label>
                                 <select id="sumber_info" name="sumber_info" required>
                                     <option value="" selected disabled>Pilih sumber…</option>
                                     <option value="Instagram Alhazen Academy & Al-Minhaj">Instagram Alhazen Academy
@@ -1676,8 +1684,8 @@
                                     <label class="choice"><input type="checkbox" name="bekal_penting"
                                             value="Kemandirian dan kepercayaan diri">Kemandirian dan kepercayaan
                                         diri</label>
-                                    <label class="choice"><input type="checkbox" name="bekal_penting"
-                                            value="Lainnya">Lainnya</label>
+                                    {{-- <label class="choice"><input type="checkbox" name="bekal_penting"
+                                            value="Lainnya">Lainnya</label> --}}
                                 </div>
                                 <small class="helper" id="bekal_penting-helper">Pilih maksimal 2.</small>
                             </fieldset>
@@ -1685,18 +1693,18 @@
                             <fieldset id="penting_teknologi_group" aria-describedby="penting_teknologi-helper">
                                 <legend>Seberapa penting kemampuan teknologi untuk masa depan putra/putri?</legend>
                                 <div class="choices">
-                                    <label class="choice"><input type="radio" name="penting_teknologi"
+                                    {{-- <label class="choice"><input type="radio" name="penting_teknologi"
                                             value="1 — Tidak Penting" required>1 — Tidak Penting</label>
                                     <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="2 — Kurang Penting">2 — Kurang Penting</label>
+                                            value="2 — Kurang Penting">2 — Kurang Penting</label> --}}
                                     <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="3 — Cukup Penting">3 — Cukup Penting</label>
+                                            value="1 — Cukup Penting">1 — Cukup Penting</label>
                                     <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="4 — Penting">4 — Penting</label>
+                                            value="2 — Penting">2 — Penting</label>
                                     <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="5 — Sangat Penting">5 — Sangat Penting</label>
+                                            value="3 — Sangat Penting">3 — Sangat Penting</label>
                                 </div>
-                                <small class="helper" id="penting_teknologi-helper">Skala 1–5, pilih satu.</small>
+                                <small class="helper" id="penting_teknologi-helper">Skala 1–3, pilih satu.</small>
                             </fieldset>
 
                             <fieldset id="waktu_tepat_group" aria-describedby="waktu_tepat-helper">
@@ -1722,7 +1730,7 @@
                             </fieldset>
 
                             <fieldset data-max="2" id="manfaat_group" aria-describedby="manfaat-helper">
-                                <legend>Manfaat apa yang paling diharapkan dari teknologi &amp; ilmu umum?</legend>
+                                <legend>Manfaat apa yang diharapkan saat anak mempelajari teknologi dan ilmu pengetahuan umum?</legend>
                                 <div class="choices">
                                     <label class="choice"><input type="checkbox" name="manfaat"
                                             value="Lebih siap melanjutkan pendidikan ke jenjang berikutnya">Lebih siap
@@ -1742,14 +1750,14 @@
                                     <label class="choice"><input type="checkbox" name="manfaat"
                                             value="Saya belum mengetahui manfaatnya">Saya belum mengetahui
                                         manfaatnya</label>
-                                    <label class="choice"><input type="checkbox" name="manfaat"
-                                            value="Lainnya">Lainnya</label>
+                                    {{-- <label class="choice"><input type="checkbox" name="manfaat"
+                                            value="Lainnya">Lainnya</label> --}}
                                 </div>
                                 <small class="helper" id="manfaat-helper">Pilih maksimal 2.</small>
                             </fieldset>
 
                             <fieldset id="kekhawatiran_group" aria-describedby="kekhawatiran-helper">
-                                <legend>Apa yang paling Ayah/Bunda khawatirkan bila anak tak paham teknologi?</legend>
+                                <legend>Yang paling dikhawatirkan bila anak tidak paham teknologi dan ilmu pengetahuan umum</legend>
                                 <div class="choices">
                                     <label class="choice"><input type="radio" name="kekhawatiran"
                                             value="Kesulitan melanjutkan pendidikan ke jenjang berikutnya"
@@ -1769,17 +1777,16 @@
                                     <label class="choice"><input type="radio" name="kekhawatiran"
                                             value="Tidak ada kekhawatiran, bekal ilmu agama sudah cukup">Tidak ada
                                         kekhawatiran, bekal ilmu agama sudah cukup</label>
-                                    <label class="choice"><input type="radio" name="kekhawatiran"
+                                    {{-- <label class="choice"><input type="radio" name="kekhawatiran"
                                             value="Belum terpikirkan">Belum terpikirkan</label>
                                     <label class="choice"><input type="radio" name="kekhawatiran"
-                                            value="Lainnya">Lainnya</label>
+                                            value="Lainnya">Lainnya</label> --}}
                                 </div>
                                 <small class="helper" id="kekhawatiran-helper">Pilih satu.</small>
                             </fieldset>
 
                             <div class="field">
-                                <label for="keresahan">Hal yang paling Ayah/Bunda resahkan soal masa depan anak?
-                                    (Opsional)</label>
+                                <label for="keresahan">Hal yang dikhawatirkan soal masa depan anak (Opsional)</label>
                                 <textarea id="keresahan" name="keresahan"
                                     placeholder="Silakan ceritakan keresahan, harapan, atau tantangan mengenai masa depan putra/putri…"></textarea>
                                 <small class="helper" id="keresahan-helper">Jawaban ini menjadi bahan pembahasan bersama
@@ -2000,7 +2007,7 @@
         (function() {
             // URL Web App Google Apps Script yang sudah di-deploy.
             // Panduan: .ai/brief/santri-dan-teknologi/apps-script.md
-            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgpH_MTaDReWIV-ZP_61LtuGBQcYwgZEHPYDJxBdugSynT2e6ik6mjo_fUh7mmrC2_/exec';
+            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxaM-L7hBEQ6LlKylP6ci9ANfmbMIF6tduJVgWZjCxLMNop-OQT_jk0fzbEV3de5RX9/exec';
 
             var form = document.getElementById('registration-form');
             if (!form) return;
@@ -2023,6 +2030,12 @@
                     helper: document.getElementById('nama-helper'),
                     def: 'Nama sesuai identitas Ayah/Bunda.',
                     err: 'Nama minimal 3 karakter.'
+                },
+                email: {
+                    input: document.getElementById('email'),
+                    helper: document.getElementById('email-helper'),
+                    def: 'Informasi dan tautan Zoom juga dikirim ke email ini.',
+                    err: 'Format email belum benar. Contoh: nama@email.com'
                 },
                 kota: {
                     input: document.getElementById('kota'),
@@ -2220,6 +2233,7 @@
 
                 var payload = {
                     'nama': fieldValue('nama'),
+                    'email': fieldValue('email'),
                     'kota': fieldValue('kota'),
                     'no_wa': fieldValue('no_wa'),
                     'asal_pesantren': fieldValue('asal_pesantren'),
