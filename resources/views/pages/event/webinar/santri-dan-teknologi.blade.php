@@ -1269,9 +1269,7 @@
                     </h1>
 
                     <p class="hero-description">
-                        Menyiapkan generasi yang kuat iman, adab,
-                        dan melek teknologi - menghubungkan adab dan
-                        ilmu agama dengan penguasaan teknologi.
+                        Ilmu Agama Sudah Menjadi Bekal. Kini, Bagaimana Menyiapkan Anak untuk Menjalani Kehidupan?
                     </p>
 
                     <div class="hero-actions">
@@ -1491,7 +1489,7 @@
 
                     <article class="benefit-card">
                         <span class="bento-index">02</span>
-                        <h3>Voucher Kelas Koding</h3>
+                        <h3>Voucher Kelas Coding</h3>
                         <p>
                             Voucher harga khusus untuk mengikuti kelas coding di Alhazen Academy.
                         </p>
@@ -1499,7 +1497,7 @@
 
                     <article class="benefit-card">
                         <span class="bento-index">03</span>
-                        <h3>Buku Panduan Coding Singkat</h3>
+                        <h3>Panduan Coding Singkat</h3>
                         <p>
                             Panduan praktis untuk mengenal dasar-dasar coding dan mulai belajar secara mandiri.
                         </p>
