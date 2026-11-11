@@ -1693,18 +1693,14 @@
                             <fieldset id="penting_teknologi_group" aria-describedby="penting_teknologi-helper">
                                 <legend>Seberapa penting kemampuan teknologi untuk masa depan putra/putri?</legend>
                                 <div class="choices">
-                                    {{-- <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="1 — Tidak Penting" required>1 — Tidak Penting</label>
                                     <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="2 — Kurang Penting">2 — Kurang Penting</label> --}}
+                                            value="Cukup Penting">Cukup Penting</label>
                                     <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="1 — Cukup Penting">1 — Cukup Penting</label>
+                                            value="Penting">Penting</label>
                                     <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="2 — Penting">2 — Penting</label>
-                                    <label class="choice"><input type="radio" name="penting_teknologi"
-                                            value="3 — Sangat Penting">3 — Sangat Penting</label>
+                                            value="Sangat Penting">Sangat Penting</label>
                                 </div>
-                                <small class="helper" id="penting_teknologi-helper">Skala 1–3, pilih satu.</small>
+                                <small class="helper" id="penting_teknologi-helper">Skala 1 – 3, pilih satu.</small>
                             </fieldset>
 
                             <fieldset id="waktu_tepat_group" aria-describedby="waktu_tepat-helper">
@@ -1721,10 +1717,10 @@
                                         saat liburan</label>
                                     <label class="choice"><input type="radio" name="waktu_tepat"
                                             value="Setelah lulus pesantren">Setelah lulus pesantren</label>
-                                    <label class="choice"><input type="radio" name="waktu_tepat"
+                                    {{-- <label class="choice"><input type="radio" name="waktu_tepat"
                                             value="Belum perlu">Belum perlu</label>
                                     <label class="choice"><input type="radio" name="waktu_tepat"
-                                            value="Lainnya">Lainnya</label>
+                                            value="Lainnya">Lainnya</label> --}}
                                 </div>
                                 <small class="helper" id="waktu_tepat-helper">Pilih satu.</small>
                             </fieldset>
