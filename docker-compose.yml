@@ -64,6 +64,18 @@ x-app-env: &app-env
 
   RUN_MIGRATIONS: ${RUN_MIGRATIONS:-true}
 
+# ---------------------------------------------------------------------------
+# Persistent data on the host. Override the root with APP_DATA_DIR, e.g.
+#   APP_DATA_DIR=/mnt/storage docker compose up -d
+# Layout:  ${APP_DATA_DIR}/storage/          -> uploads, logs, cache, sessions
+#          ${APP_DATA_DIR}/database.sqlite   -> SQLite database
+# NOTE: database.sqlite must be a FILE - if it is missing Docker creates a
+# directory with that name and SQLite will fail to start.
+# ---------------------------------------------------------------------------
+x-app-volumes: &app-volumes
+  - ${APP_DATA_DIR:-./data}/storage:/var/www/html/storage
+  - ${APP_DATA_DIR:-./data}/database.sqlite:/var/www/html/database/database.sqlite
+
 services:
   # PHP-FPM - runs migrations / caches config via docker/entrypoint.sh
   app:
@@ -75,11 +87,8 @@ services:
     image: alhazen-web-v2:latest
     restart: unless-stopped
     environment: *app-env
-    volumes:
-      # Storage (uploads, logs, cache, sessions) lives on the host
-      - ./storage:/var/www/html/storage
-      # SQLite database lives on the host
-      - ./database/database.sqlite:/var/www/html/database/database.sqlite
+    # storage/ + SQLite database live on the host (see x-app-volumes above)
+    volumes: *app-volumes
     expose:
       - "9000"
     healthcheck:
@@ -101,7 +110,7 @@ services:
       - "${APP_PORT:-8080}:80"
     volumes:
       - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./storage:/var/www/html/storage
+      - ${APP_DATA_DIR:-./data}/storage:/var/www/html/storage
 
   # Queue worker (QUEUE_CONNECTION=database)
   worker:
@@ -112,9 +121,7 @@ services:
       app:
         condition: service_healthy
     environment: *app-env
-    volumes:
-      - ./storage:/var/www/html/storage
-      - ./database/database.sqlite:/var/www/html/database/database.sqlite
+    volumes: *app-volumes
 
 # ---------------------------------------------------------------------------
 # Optional: switch to MySQL by uncommenting the block below and setting
