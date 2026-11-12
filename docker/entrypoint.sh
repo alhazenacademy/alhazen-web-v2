@@ -25,12 +25,24 @@ if [ "${DB_CONNECTION:-sqlite}" = "sqlite" ]; then
     [ -f database/database.sqlite ] || touch database/database.sqlite
 fi
 
-# Generate an application key if none was provided.
+# Application key: use the provided one, otherwise load/generate a persisted key
+# stored in storage/app (bind mounted to the host, so it survives rebuilds).
 if [ -z "${APP_KEY:-}" ]; then
-    echo "[entrypoint] APP_KEY not set, generating one..."
-    php artisan key:generate --force
-    echo "[entrypoint] NOTE: set APP_KEY in your .env (docker compose run --rm app php artisan key:generate) to keep it stable across container rebuilds."
+    KEY_FILE="storage/app/.app_key"
+    if [ -s "$KEY_FILE" ]; then
+        APP_KEY="$(cat "$KEY_FILE")"
+        export APP_KEY
+        echo "[entrypoint] Loaded APP_KEY from $KEY_FILE"
+    else
+        APP_KEY="base64:$(head -c 32 /dev/urandom | base64 | tr -d '\n')"
+        printf '%s' "$APP_KEY" > "$KEY_FILE"
+        export APP_KEY
+        echo "[entrypoint] Generated APP_KEY and persisted it to $KEY_FILE"
+    fi
 fi
+
+# Ensure package manifests are generated (composer post-autoload-dump equivalent).
+php artisan package:discover 2>/dev/null || true
 
 # Symlink for uploaded files (public/storage -> storage/app/public).
 php artisan storage:link 2>/dev/null || true
