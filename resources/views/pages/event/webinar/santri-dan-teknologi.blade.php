@@ -1187,6 +1187,115 @@
             border: 1px solid #D8C7AD;
         }
 
+        /* Submit loading overlay (memblokir klik ganda saat mengirim) */
+
+        .submit-loading {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(73, 70, 64, .45);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            pointer-events: auto;
+        }
+
+        .submit-loading[hidden] {
+            display: none;
+        }
+
+        .submit-loading-card {
+            width: 100%;
+            max-width: 420px;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 42px 32px;
+            text-align: center;
+            box-shadow: 0 24px 60px rgba(73, 70, 64, .25);
+        }
+
+        .submit-spinner {
+            display: block;
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 22px;
+            border: 4px solid rgba(168, 154, 53, .2);
+            border-top-color: #A89A35;
+            border-radius: 50%;
+            animation: submit-spin .8s linear infinite;
+        }
+
+        @keyframes submit-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .submit-loading-card h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 1.15;
+            color: #494640;
+            margin-bottom: 12px;
+        }
+
+        .submit-loading-card p {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #4D5442;
+        }
+
+        /* Tombol gabung WhatsApp Group (success card) */
+
+        .reg-form-success .success-wa-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            max-width: 440px;
+            margin: 20px auto 0;
+            padding: 16px 25px;
+            background: #25D366;
+            color: #FFFFFF !important;
+            border: none;
+            border-radius: 12px;
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform .3s var(--ease),
+                box-shadow .3s var(--ease),
+                background .3s ease;
+        }
+
+        .reg-form-success .success-wa-btn:hover {
+            background: #1EBE5B;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(37, 211, 102, .35);
+        }
+
+        .reg-form-success .success-wa-btn .ms-icon {
+            font-size: 16px;
+        }
+
+        .reg-form-success .success-wa-hint {
+            max-width: 440px;
+            margin: 12px auto 0;
+            font-family: var(--mono);
+            font-size: 10px;
+            line-height: 1.7;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #77743A;
+        }
+
         /* Footer */
 
         footer {
@@ -2102,8 +2211,20 @@
                     </p>
                     <div class="success-note">
                         <strong>Tautan Zoom</strong> dikirim ke WhatsApp Group Anda menjelang hari-H —
-                        Jumat, 27 November 2026, 08.00 WIB. Jika belum bergabung dengan WhatsApp Group, silakan hubungi Admin Alhazen Academy.
+                        Jumat, 27 November 2026, 08.00 WIB.
                     </div>
+
+                    <a class="success-wa-btn" href="https://chat.whatsapp.com/DfFZFdrx98rBsTlkQMFHBZ?mode=gi_t"
+                        target="_blank" rel="noopener noreferrer">
+                        <span class="ms-icon">group</span>
+                        Gabung WhatsApp Group Kajian
+                        <span class="ms-icon">north_east</span>
+                    </a>
+
+                    <p class="success-wa-hint">
+                        Bergabung sekarang agar tautan Zoom bisa langsung diterima menjelang hari-H.
+                    </p>
+
                     <div class="success-note success-warning" id="success-warning" hidden></div>
                 </div>
 
@@ -2122,6 +2243,18 @@
         </section>
 
     </main>
+
+    <!-- SUBMIT LOADING OVERLAY -->
+    <div id="submit-loading" class="submit-loading" hidden role="alert" aria-live="assertive">
+        <div class="submit-loading-card">
+            <span class="submit-spinner" aria-hidden="true"></span>
+            <h3>Mengirim Pendaftaran…</h3>
+            <p>
+                Mohon tunggu sebentar, data Ayah/Bunda sedang disimpan.
+                Jangan tutup atau muat ulang halaman ini.
+            </p>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -2306,6 +2439,7 @@
             var submitButton = document.getElementById('submit-button');
             var submitLabel = document.getElementById('submit-label');
             var statusText = document.getElementById('form-status');
+            var loadingOverlay = document.getElementById('submit-loading');
             var step1 = document.getElementById('step-1');
             var step2 = document.getElementById('step-2');
             var step3 = document.getElementById('step-3');
@@ -2629,6 +2763,8 @@
                 submitButton.setAttribute('aria-busy', String(isLoading));
                 submitLabel.textContent = isLoading ? 'Mengirim...' : 'Kirim Pendaftaran';
                 statusText.textContent = isLoading ? 'Mohon tunggu, sedang menyimpan data...' : '';
+                loadingOverlay.hidden = !isLoading;
+                document.body.style.overflow = isLoading ? 'hidden' : '';
             }
 
             function checkedValues(name) {
@@ -2746,6 +2882,7 @@
                     }
 
                     successName.textContent = payload.nama;
+                    setLoading(false);
                     formCard.hidden = true;
                     successCard.hidden = false;
                     successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
