@@ -577,7 +577,7 @@ class LandingController extends Controller
     {
         $salesPhone = $this->getSalesPhone();
 
-        return view('pages.event.coding_experience_class.oktober', compact('salesPhone'));
+        return view('pages.event.coding_experience_class.desember', compact('salesPhone'));
     }
 
     public function kelas_group_promo()
