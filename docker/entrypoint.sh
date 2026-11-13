@@ -65,6 +65,13 @@ fi
 # Point storage to public (for public files/symlinked storage)
 php artisan storage:link --force >/dev/null 2>&1 || true
 
+# Ensure the SQLite database file exists (bind-mounted volume may be empty)
+if [ "${DB_CONNECTION:-sqlite}" = "sqlite" ] && [ -n "$DB_DATABASE" ] && [ ! -f "$DB_DATABASE" ]; then
+    echo "Creating SQLite database at ${DB_DATABASE}..."
+    mkdir -p "$(dirname "$DB_DATABASE")"
+    touch "$DB_DATABASE"
+fi
+
 # Run migrations (SQLite by default; can be skipped with MIGRATE=false)
 if [ "${MIGRATE:-true}" = "true" ]; then
     php artisan migrate --force
