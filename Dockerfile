@@ -1,21 +1,7 @@
 # ============================================================
-# Stage 1: Build frontend assets with Node
-# ============================================================
-FROM node:22-alpine AS node-build
-
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
-COPY vite.config.js postcss.config.js tailwind.config.js ./
-COPY resources/ resources/
-COPY public/ public/
-
-RUN npm run build
-
-# ============================================================
-# Stage 2: Install PHP dependencies with Composer
+# Stage 1: Install PHP dependencies with Composer
+# (defined first because the node build needs vendor/ from it,
+# see the COPY --from below)
 # ============================================================
 FROM composer:2 AS composer-build
 
@@ -42,6 +28,28 @@ COPY artisan ./
 
 RUN composer dump-autoload --optimize \
     && composer run-script post-autoload-dump --no-interaction
+
+# ============================================================
+# Stage 2: Build frontend assets with Node
+# ============================================================
+FROM node:22-alpine AS node-build
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY vite.config.js postcss.config.js tailwind.config.js ./
+COPY resources/ resources/
+COPY public/ public/
+
+# resources/css/app.css imports Filament CSS and @source's framework blade
+# views from vendor/, so vendor/ must exist in this stage. It comes from the
+# composer-build stage and is NOT included in the final image.
+COPY --from=composer-build /app/vendor/ ./vendor/
+RUN mkdir -p storage/framework/views
+
+RUN npm run build
 
 # ============================================================
 # Stage 3: Production runtime (single container, Apache + PHP)
