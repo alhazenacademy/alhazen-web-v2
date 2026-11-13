@@ -1,64 +1,89 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 cd /var/www/html
 
-# The nginx service only needs the web server, not Laravel bootstrapping.
-if [ "$1" = "nginx" ]; then
-    exec "$@"
+# Ensure all Laravel storage subdirectories exist (host bind mount may start empty)
+mkdir -p storage/framework/{cache/data,sessions,testing,views} \
+        storage/logs storage/app/public
+
+# Create .env on first run if it doesn't exist (mounted or generated)
+if [ ! -f .env ]; then
+    echo "No .env found, creating from .env.example..."
+    cp .env.example .env
 fi
 
-# Make sure the writable directories exist (they may be bind mounts).
-mkdir -p \
-    bootstrap/cache \
-    storage/app/public \
-    storage/framework/cache/data \
-    storage/framework/sessions \
-    storage/framework/views \
-    storage/logs
-
-chown -R www-data:www-data storage bootstrap/cache 2>/dev/null || true
-chmod -R ug+rwx storage bootstrap/cache 2>/dev/null || true
-
-# SQLite database file must exist before PDO touches it.
-if [ "${DB_CONNECTION:-sqlite}" = "sqlite" ]; then
-    [ -f database/database.sqlite ] || touch database/database.sqlite
-fi
-
-# Application key: use the provided one, otherwise load/generate a persisted key
-# stored in storage/app (bind mounted to the host, so it survives rebuilds).
-if [ -z "${APP_KEY:-}" ]; then
-    KEY_FILE="storage/app/.app_key"
-    if [ -s "$KEY_FILE" ]; then
-        APP_KEY="$(cat "$KEY_FILE")"
-        export APP_KEY
-        echo "[entrypoint] Loaded APP_KEY from $KEY_FILE"
+# Generate APP_KEY if empty (persisted to APP_KEY_FILE so it survives
+# container recreation)
+if ! grep -q "^APP_KEY=base64" .env; then
+    if [ -n "$APP_KEY_FILE" ] && [ -s "$APP_KEY_FILE" ]; then
+        echo "Reusing existing APP_KEY from ${APP_KEY_FILE}..."
+        APP_KEY_VALUE=$(cat "$APP_KEY_FILE")
+        sed -i "s|^APP_KEY=.*|APP_KEY=${APP_KEY_VALUE}|" .env
     else
-        APP_KEY="base64:$(head -c 32 /dev/urandom | base64 | tr -d '\n')"
-        printf '%s' "$APP_KEY" > "$KEY_FILE"
-        export APP_KEY
-        echo "[entrypoint] Generated APP_KEY and persisted it to $KEY_FILE"
+        echo "Generating APP_KEY..."
+        php artisan key:generate --force
+        if [ -n "$APP_KEY_FILE" ]; then
+            grep "^APP_KEY=" .env | cut -d= -f2- > "$APP_KEY_FILE"
+        fi
     fi
 fi
 
-# Ensure package manifests are generated (composer post-autoload-dump equivalent).
-php artisan package:discover 2>/dev/null || true
-
-# Symlink for uploaded files (public/storage -> storage/app/public).
-php artisan storage:link 2>/dev/null || true
-
-# Run migrations when requested (default: true, disable with RUN_MIGRATIONS=false).
-if [ "${RUN_MIGRATIONS:-true}" = "true" ]; then
-    echo "[entrypoint] Running migrations..."
-    php artisan migrate --force || true
+# Wait for DB to be ready if using an external database
+if [ -n "$DB_HOST" ]; then
+    case "$DB_CONNECTION" in
+        pgsql|postgres)
+            DB_DRIVER="pgsql"
+            DB_DEFAULT_PORT=5432
+            ;;
+        *)
+            DB_DRIVER="mysql"
+            DB_DEFAULT_PORT=3306
+            ;;
+    esac
+    DB_PORT="${DB_PORT:-$DB_DEFAULT_PORT}"
+    if [ "$DB_DRIVER" = "pgsql" ]; then
+        DSN="pgsql:host=${DB_HOST};port=${DB_PORT}"
+    else
+        DSN="mysql:host=${DB_HOST};port=${DB_PORT}"
+    fi
+    echo "Waiting for ${DB_DRIVER} database at ${DB_HOST}:${DB_PORT}..."
+    ATTEMPTS=0
+    until php -r "try { new PDO('${DSN}', getenv('DB_USERNAME'), getenv('DB_PASSWORD')); echo 'ok'; } catch (Exception \$e) { exit(1); }" >/dev/null 2>&1; do
+        ATTEMPTS=$((ATTEMPTS+1))
+        if [ "$ATTEMPTS" -ge 15 ]; then
+            echo "ERROR: database at ${DB_HOST}:${DB_PORT} not reachable after 15 attempts."
+            echo "Check DB_HOST / DB_PORT / DB_USERNAME / DB_PASSWORD, and that this"
+            echo "container is attached to the same docker network as the database."
+            exit 1
+        fi
+        sleep 2
+    done
+    echo "Database is reachable."
 fi
 
-if [ "${APP_ENV:-production}" = "production" ]; then
-    php artisan config:cache
-    php artisan view:cache
-else
-    php artisan config:clear
-    php artisan view:clear
+# Point storage to public (for public files/symlinked storage)
+php artisan storage:link --force >/dev/null 2>&1 || true
+
+# Run migrations (SQLite by default; can be skipped with MIGRATE=false)
+if [ "${MIGRATE:-true}" = "true" ]; then
+    php artisan migrate --force
 fi
+
+# Fix ownership after migrations (migrations may run as root and create files
+# that the web server user, www-data, needs to write to)
+chown -R www-data:www-data data database storage bootstrap/cache 2>/dev/null || \
+    chown -R www-data:www-data database storage bootstrap/cache
+
+# Clear and warm caches
+php artisan config:clear >/dev/null 2>&1 || true
+php artisan route:clear >/dev/null 2>&1 || true
+php artisan view:clear >/dev/null 2>&1 || true
+
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+echo "Laravel app is ready. Starting web server..."
 
 exec "$@"
