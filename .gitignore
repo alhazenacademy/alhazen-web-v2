@@ -73,3 +73,6 @@ _ide_helper_models.php
 
 # Ignore helper scripts
 push-all.sh
+
+# Docker runtime data (SQLite db, app.key, storage uploads)
+docker-data/

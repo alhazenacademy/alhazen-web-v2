@@ -2545,7 +2545,8 @@
                 <div class="price-main"><small>Rp</small> 19.000</div>
                 <p class="price-note">Hemat 81%, promo spesial kelas perdana Desember.</p>
 
-                <div class="cd-label">
+                {{-- COUNTDOWN --}}
+                {{-- <div class="cd-label">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10" />
@@ -2558,7 +2559,7 @@
                     <div class="cd-box"><b id="cdH">00</b><span>Jam</span></div>
                     <div class="cd-box"><b id="cdM">00</b><span>Menit</span></div>
                     <div class="cd-box"><b id="cdS">00</b><span>Detik</span></div>
-                </div>
+                </div> --}}
 
                 <ul class="price-includes">
                     <li><span class="check">&#10003;</span>1 sesi live Zoom 60 menit bersama tutor ramah anak</li>
@@ -2901,7 +2902,7 @@
                 if (mulaiEl) {
                     mulaiEl.textContent = fmtFull.format(monday);
                 }
-                var countdownTarget = new Date(2026, 9, 31, 23, 59, 59).getTime();
+                var countdownTarget = new Date(2026, 12, 30, 23, 59, 59).getTime();
                 var cdD = document.getElementById('cdD'), cdH = document.getElementById('cdH'),
                     cdM = document.getElementById('cdM'), cdS = document.getElementById('cdS');
                 function tickCd() {

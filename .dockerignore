@@ -1,0 +1,23 @@
+.git
+.gitignore
+.ai
+.opencode
+.idea
+.vscode
+
+node_modules
+vendor
+
+# Docker runtime data (SQLite db, app.key, uploads)
+docker-data
+
+# Local env files (the image only uses .env.example)
+.env
+.env.*
+!.env.example
+
+# Local docs / helpers not needed in the image
+AGENTS.md
+push-all.sh
+docker-compose.yml
+Dockerfile
