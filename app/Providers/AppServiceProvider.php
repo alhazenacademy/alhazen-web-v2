@@ -22,6 +22,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // View preview "Lari ke Sekolah" adalah ekspor TurboWarp Packager ~8 MB
+        // yang dibungkus @verbatim. Kompilasi Blade-nya melebihi batas default
+        // PCRE (1.000.000 backtrack) sehingga view:cache/render menghasilkan
+        // halaman kosong tanpa error. Naikkan limit agar kompilasi berhasil.
+        ini_set('pcre.backtrack_limit', '50000000');
+
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }

@@ -37,6 +37,9 @@ Route::prefix('event')->group(function () {
     Route::get('/master-gpt', [LandingController::class, 'event_master_gpt'])->name('master-gpt');
     Route::get('/master-gemini', [LandingController::class, 'event_master_gemini'])->name('master-gemini');
     Route::get('/coding-experience', [LandingController::class, 'coding_experience'])->name('coding-experience');
+    Route::get('/coding-experience/preview/lari-ke-sekolah', function () {
+        return view('pages.event.coding_experience_class.preview.lari-ke-sekolah');
+    })->name('coding-experience.preview.lari-ke-sekolah');
     Route::get('/kelas-coding-roblox', [LandingController::class, 'kelas_group_promo'])->name('kelas-group-promo');
     Route::get('/holiday-bootcamp', [LandingController::class, 'holiday_bootcamp'])->name('event.holiday-bootcamp');
 });

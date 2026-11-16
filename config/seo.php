@@ -24,5 +24,8 @@ return [
 
         // Quiz tools (tutor + siswa)
         'tools/quiz/*',
+
+        // Preview game coding experience class
+        'event/coding-experience/preview/*',
     ],
 ];
