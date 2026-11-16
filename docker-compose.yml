@@ -35,6 +35,8 @@ services:
       # Shared PIN for the Quiz tools (/tools/quiz/*), used only when no
       # PIN hash has been set in the site_settings table yet
       QUIZ_PIN: ${QUIZ_PIN:-}
+      # External API that receives trial-class leads (config/services.php)
+      TRIAL_API_URL: ${TRIAL_API_URL:-}
       # Run migrations on startup (set to false to skip)
       MIGRATE: ${MIGRATE:-true}
     volumes:
@@ -97,6 +99,7 @@ services:
       LOG_LEVEL: ${LOG_LEVEL:-info}
       APP_KEY_FILE: ${APP_KEY_FILE:-/var/www/html/data/app.key}
       QUIZ_PIN: ${QUIZ_PIN:-}
+      TRIAL_API_URL: ${TRIAL_API_URL:-}
       MIGRATE: "false"
     volumes:
       - ${DATABASE_HOST_PATH:-./docker-data/database}:/var/www/html/data
