@@ -1,0 +1,115 @@
+name: alhazen-web-v2
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - 80
+    environment:
+      APP_NAME: ${APP_NAME:-Alhazen}
+      APP_ENV: ${APP_ENV:-production}
+      APP_DEBUG: ${APP_DEBUG:-false}
+      APP_URL: ${APP_URL:-http://localhost:8000}
+      APP_LOCALE: ${APP_LOCALE:-id}
+      TZ: ${TZ:-Asia/Jakarta}
+      # SQLite by default (single container, no external DB needed)
+      DB_CONNECTION: ${DB_CONNECTION:-sqlite}
+      DB_DATABASE: ${DB_DATABASE:-/var/www/html/data/database.sqlite}
+      DB_HOST: ${DB_HOST:-}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USERNAME: ${DB_USERNAME:-}
+      DB_PASSWORD: ${DB_PASSWORD:-}
+      # Sessions / cache / queue all live in the database
+      SESSION_DRIVER: ${SESSION_DRIVER:-database}
+      QUEUE_CONNECTION: ${QUEUE_CONNECTION:-database}
+      CACHE_STORE: ${CACHE_STORE:-database}
+      # Logging
+      LOG_CHANNEL: ${LOG_CHANNEL:-stack}
+      LOG_STACK: ${LOG_STACK:-daily}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Where the generated APP_KEY is persisted (inside the data volume)
+      APP_KEY_FILE: ${APP_KEY_FILE:-/var/www/html/data/app.key}
+      # Shared PIN for the Quiz tools (/tools/quiz/*), used only when no
+      # PIN hash has been set in the site_settings table yet
+      QUIZ_PIN: ${QUIZ_PIN:-}
+      # External API that receives trial-class leads (config/services.php)
+      TRIAL_API_URL: ${TRIAL_API_URL:-}
+      # Run migrations on startup (set to false to skip)
+      MIGRATE: ${MIGRATE:-true}
+    volumes:
+      # Persist database (SQLite) on the host, path configurable via env
+      - ${DATABASE_HOST_PATH:-./docker-data/database}:/var/www/html/data
+      # Persist Laravel storage (logs, uploads, cache) on the host
+      - ${STORAGE_HOST_PATH:-./docker-data/storage}:/var/www/html/storage
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-fsS",
+          "-o",
+          "/dev/null",
+          "http://localhost/",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    networks:
+      - dokploy-network
+
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    # Same entrypoint (MIGRATE=false so only the app container migrates),
+    # then run the queue worker for database-queued jobs
+    # (SendTrialEmailJob, SendTrialToExternalApi)
+    command:
+      [
+        "php",
+        "artisan",
+        "queue:work",
+        "--tries=3",
+        "--sleep=1",
+        "--max-time=3600",
+      ]
+    environment:
+      APP_NAME: ${APP_NAME:-Alhazen}
+      APP_ENV: ${APP_ENV:-production}
+      APP_DEBUG: ${APP_DEBUG:-false}
+      APP_URL: ${APP_URL:-http://localhost:8000}
+      APP_LOCALE: ${APP_LOCALE:-id}
+      TZ: ${TZ:-Asia/Jakarta}
+      DB_CONNECTION: ${DB_CONNECTION:-sqlite}
+      DB_DATABASE: ${DB_DATABASE:-/var/www/html/data/database.sqlite}
+      DB_HOST: ${DB_HOST:-}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USERNAME: ${DB_USERNAME:-}
+      DB_PASSWORD: ${DB_PASSWORD:-}
+      SESSION_DRIVER: ${SESSION_DRIVER:-database}
+      QUEUE_CONNECTION: ${QUEUE_CONNECTION:-database}
+      CACHE_STORE: ${CACHE_STORE:-database}
+      LOG_CHANNEL: ${LOG_CHANNEL:-stack}
+      LOG_STACK: ${LOG_STACK:-daily}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      APP_KEY_FILE: ${APP_KEY_FILE:-/var/www/html/data/app.key}
+      QUIZ_PIN: ${QUIZ_PIN:-}
+      TRIAL_API_URL: ${TRIAL_API_URL:-}
+      MIGRATE: "false"
+    volumes:
+      - ${DATABASE_HOST_PATH:-./docker-data/database}:/var/www/html/data
+      - ${STORAGE_HOST_PATH:-./docker-data/storage}:/var/www/html/storage
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
