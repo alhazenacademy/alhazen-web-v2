@@ -8,17 +8,17 @@
     <title>Santri dan Teknologi - Setelah Lulus Dari Pesantren, Anak Siap Jadi Apa? | Alhazen Academy</title>
     <link rel="icon" href="{{ asset('assets/logo-new.webp') }}" type="image/x-icon">
     <meta name="description"
-        content="Kajian bersama Al Minhaj dan Alhazen Academy: Setelah Lulus Dari Pesantren, Anak Siap Jadi Apa? Jumat, 27 November 2026, 08.00-09.30 WIB via Zoom. Narasumber Ustadz Raehanul Bahraen.">
+        content="Kajian bersama Al Minhaj dan Alhazen Academy: Setelah Lulus Dari Pesantren, Anak Siap Jadi Apa? Sabtu, 28 November 2026, 08.00-09.30 WIB via Zoom. Narasumber Ustadz Raehanul Bahraen.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Santri dan Teknologi - Setelah Lulus Dari Pesantren, Anak Siap Jadi Apa?">
     <meta property="og:description"
-        content="Kajian bersama Al Minhaj dan Alhazen Academy. Menyiapkan generasi yang kuat iman, adab, dan melek teknologi. Jumat, 27 November 2026 - 08.00-09.30 WIB - Zoom.">
+        content="Kajian bersama Al Minhaj dan Alhazen Academy. Menyiapkan generasi yang kuat iman, adab, dan melek teknologi. Sabtu, 28 November 2026 - 08.00-09.30 WIB - Zoom.">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('assets/custom/santri-dan-teknologi/poster.jpeg') }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Santri dan Teknologi - Setelah Lulus Dari Pesantren, Anak Siap Jadi Apa?">
     <meta name="twitter:description"
-        content="Kajian bersama Al Minhaj dan Alhazen Academy. Jumat, 27 November 2026 - 08.00-09.30 WIB - Zoom.">
+        content="Kajian bersama Al Minhaj dan Alhazen Academy. Sabtu, 28 November 2026 - 08.00-09.30 WIB - Zoom.">
     <meta name="twitter:image" content="{{ asset('assets/custom/santri-dan-teknologi/Cover.png') }}">
 
     <!-- Google Fonts -->
@@ -1584,7 +1584,7 @@
             <a href="#daftar" class="silver-btn">DAFTAR <span class="ms-icon">north_east</span></a>
         </nav>
 
-        <a href="#daftar" class="mono" style="color:#77743A;">27 NOV <span class="ms-icon">north_east</span></a>
+        <a href="#daftar" class="mono" style="color:#77743A;">28 NOV <span class="ms-icon">north_east</span></a>
     </header>
 
     <main>
@@ -1619,8 +1619,8 @@
 
                     <div class="metadata">
                         <div class="metadata-item">
-                            <strong>27 NOV 2026</strong>
-                            <span>JUMAT · 08.00 WIB</span>
+                            <strong>28 NOV 2026</strong>
+                            <span>SABTU · 08.00 WIB</span>
                         </div>
 
                         <div class="metadata-item">
@@ -1675,7 +1675,7 @@
                 </div>
 
                 <p class="mono muted" style="margin-top:30px;">
-                    JUMAT, 27 NOVEMBER 2026 · 08.00 WIB
+                    SABTU, 28 NOVEMBER 2026 · 08.00 WIB
                 </p>
 
             </div>
@@ -1867,8 +1867,8 @@
                     <div class="sched-item">
                         <span class="sched-label">Tanggal</span>
                         <span class="sched-date">
-                            Jumat<br>
-                            27 November 2026
+                            Sabtu<br>
+                            28 November 2026
                         </span>
                         <span class="sched-sub">
                             Pendaftaran dibuka sekarang
@@ -2211,7 +2211,7 @@
                     </p>
                     <div class="success-note">
                         <strong>Tautan Zoom</strong> dikirim ke WhatsApp Group Anda menjelang hari-H —
-                        Jumat, 27 November 2026, 08.00 WIB.
+                        Sabtu, 28 November 2026, 08.00 WIB.
                     </div>
 
                     <a class="success-wa-btn" href="https://chat.whatsapp.com/DfFZFdrx98rBsTlkQMFHBZ?mode=gi_t"
@@ -2304,9 +2304,9 @@
            COUNTDOWN TIMER
         ================================= */
 
-        // Kajian: Jumat, 27 November 2026, 08.00 WIB (UTC+7).
+        // Kajian: Sabut, 28 November 2026, 08.00 WIB (UTC+7).
         const launchDate = new Date(
-            "2026-11-27T08:00:00+07:00"
+            "2026-11-28T08:00:00+07:00"
         ).getTime();
 
         function updateCountdown() {
