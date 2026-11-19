@@ -10,6 +10,48 @@
 @source '../js/landing.js';
 @source '../js/landing/*.js';
 
+/*
+ * Safelist class Tailwind yang dihasilkan saat runtime (tidak tersedia sebagai
+ * teks statis saat build, sehingga tidak terdeteksi otomatis oleh scanner):
+ *
+ *  1. bg_class / text_color_class dari database (Program Cards) — LandingController
+ *  2. Fallback warna di LandingController (kartu "View All")
+ *  3. bg_color dari database (kartu Tutor) — Tutor::getBgColorSafeAttribute()
+ *  4. StudentWork::getBgTextAttribute() (badge karya murid)
+ *
+ * CATATAN:
+ *  - @source inline() hanya menerima SATU class per direktif (argumen berpisah
+ *    koma TIDAK didukung).
+ *  - Class dari file PHP (app/, database/) ikut ter-scan saat build lokal, tapi
+ *    TIDAK saat build Docker (stage node-build tidak menyalin app/ & database/).
+ *    Karena itu semua class runtime wajib didaftarkan di sini.
+ *  - PENTING: bila admin menambah warna baru lewat CMS, daftarkan class-nya di
+ *    sini sebelum menjalankan `npm run build` / rebuild Docker berikutnya.
+ */
+
+/* Program Cards — database program_infos */
+@source inline("bg-[#38BDF8]");
+@source inline("bg-[#F97316]");
+@source inline("bg-[#059669]");
+@source inline("bg-[#6366F1]");
+@source inline("bg-[#F43F5E]");
+@source inline("text-[#F9FAFB]");
+
+/* Fallback LandingController (kartu "View All" + info kosong) */
+@source inline("bg-[#E5E7EB]");
+@source inline("text-[#0F172A]");
+
+/* Kartu Tutor — database tutors.bg_color */
+@source inline("bg-[#FACC15]");
+@source inline("bg-[#FEE2E2]");
+
+/* Badge karya murid — StudentWork::getBgTextAttribute() */
+@source inline("bg-[#EB5353]");
+@source inline("bg-[#FAA52D]");
+@source inline("bg-[#4F46E5]");
+@source inline("bg-[#10B981]");
+@source inline("bg-gray-500");
+
 /* anti-FOUC Alpine (buat dropdown dsb.) */
 @layer base {
     [x-cloak] {
