@@ -21,9 +21,9 @@
 
     // Dropdown "Event"
     $moreEventNav = [
-        // ['route' => 'holiday-program', 'label' => 'Holiday Program'],
-        ['route' => 'ramadhan-technoclass', 'label' => 'Ramadhan NgabuburIT Class'],
+        ['route' => 'holiday-bootcamp', 'label' => 'Holiday Bootcamp'],
         ['route' => 'coding-experience', 'label' => 'Coding Experience Class'],
+        ['route' => 'ramadhan-technoclass', 'label' => 'Ramadhan NgabuburIT Class'],
         // ['route' => 'starter-project', 'label' => 'Starter Project'],
         // ['route' => 'master-gpt', 'label' => 'Master GPT'],
         // ['route' => 'master-gemini', 'label' => 'Master Gemini'],
