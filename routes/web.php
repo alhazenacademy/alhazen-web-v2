@@ -41,20 +41,20 @@ Route::prefix('event')->group(function () {
         return view('pages.event.coding_experience_class.preview.lari-ke-sekolah');
     })->name('coding-experience.preview.lari-ke-sekolah');
     Route::get('/kelas-coding-roblox', [LandingController::class, 'kelas_group_promo'])->name('kelas-group-promo');
-    Route::get('/holiday-bootcamp', [LandingController::class, 'holiday_bootcamp'])->name('event.holiday-bootcamp');
+    Route::get('/holiday-bootcamp', [LandingController::class, 'holiday_bootcamp'])->name('holiday-bootcamp');
 });
 
 /** WEBINAR */
 Route::prefix('webinar')->group(function () {
     Route::get('/didik-anak-era-ai', function () {
         return view('pages.event.webinar.mendidik-anak-ai');
-    })->name('event.mendidik-anak-ai');
+    })->name('mendidik-anak-ai');
     Route::get('/didik-anak-era-ai/absensi', function () {
         return view('pages.event.webinar.mendidik-anak-ai-absensi');
-    })->name('event.mendidik-anak-ai.absensi');
+    })->name('mendidik-anak-ai.absensi');
     Route::get('/santri-dan-teknologi', function () {
         return view('pages.event.webinar.santri-dan-teknologi');
-    })->name('event.santri-dan-teknologi');
+    })->name('santri-dan-teknologi');
 });
 
 /** UJIAN */

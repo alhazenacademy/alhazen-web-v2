@@ -211,9 +211,6 @@
 
     <!-- ==================== HERO SECTION ==================== -->
     <section class="relative pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden">
-        <!-- Background Bubbles Decoration -->
-        <div class="absolute -top-16 -left-16 w-80 h-80 bg-emerald-100/60 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/2 -right-20 w-96 h-96 bg-amber-100/70 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
@@ -435,7 +432,6 @@
 
                 <!-- Stage 1 Card -->
                 <div class="clay-card p-8 border-2 border-main/30 relative overflow-hidden">
-                    <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-main/10 rounded-full pointer-events-none"></div>
                     <div class="flex items-center justify-between mb-6">
                         <span class="px-4 py-2 bg-main text-white font-heading font-bold text-sm rounded-2xl shadow-sm">
                             Pekan 1 (Hari 1–4)
@@ -472,7 +468,6 @@
 
                 <!-- Stage 2 Card -->
                 <div class="clay-card p-8 border-2 border-accent/60 relative overflow-hidden">
-                    <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-accent/15 rounded-full pointer-events-none"></div>
                     <div class="flex items-center justify-between mb-6">
                         <span class="px-4 py-2 bg-accent text-ink font-heading font-bold text-sm rounded-2xl shadow-sm">
                             Pekan 2 (Hari 5–8)
@@ -602,10 +597,7 @@
     <!-- ==================== LOMBA AKHIR & HADIAH UANG TUNAI ==================== -->
     <section id="lomba" class="py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="clay-card border-2 border-accent/40 bg-gradient-to-br from-white to-amber-50/60 p-8 sm:p-12 relative overflow-hidden">
-                <!-- decorative -->
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/15 rounded-full blur-2xl pointer-events-none"></div>
-                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-main/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="clay-card border-2 border-accent/40 bg-white p-8 sm:p-12 relative overflow-hidden">
 
                 <div class="text-center max-w-3xl mx-auto mb-10 space-y-4 relative z-10">
                     <span class="inline-block px-4 py-1.5 rounded-full bg-accent/20 border border-accent text-xs font-bold text-ink uppercase tracking-wider clay-pill">
@@ -767,10 +759,10 @@
                         <p class="text-xs text-muted italic">
                             Masukkan kode promo untuk mendapatkan harga spesial
                         </p>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             x-model="promoCode"
-                            placeholder="Kode Promo (opsional)" 
+                            placeholder="Kode Promo (opsional)"
                             class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-scratch focus:outline-none text-sm transition-colors"
                         />
                     </div>
@@ -854,10 +846,10 @@
                         <p class="text-xs text-muted italic">
                             Masukkan kode promo untuk mendapatkan harga spesial
                         </p>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             x-model="promoCode"
-                            placeholder="Kode Promo (opsional)" 
+                            placeholder="Kode Promo (opsional)"
                             class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-roblox focus:outline-none text-sm transition-colors"
                         />
                     </div>
@@ -931,10 +923,10 @@
                         <p class="text-xs text-muted italic">
                             Masukkan kode promo untuk mendapatkan harga spesial
                         </p>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             x-model="promoCode"
-                            placeholder="Kode Promo (opsional)" 
+                            placeholder="Kode Promo (opsional)"
                             class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-python focus:outline-none text-sm transition-colors"
                         />
                     </div>
@@ -946,6 +938,90 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- ==================== JADWAL BATCH ==================== -->
+    <section id="batch" class="py-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-main/15 text-xs font-bold text-main uppercase tracking-wider clay-pill">
+                    Jadwal Kelas
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink">
+                    Pilih Batch Sesuai Jadwal Liburan
+                </h2>
+                <p class="text-muted text-base sm:text-lg">
+                    Kelas berlangsung 8 hari via Zoom. Tersedia 3 batch — pilih tanggal yang paling pas dengan jadwal liburan anak.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+                <!-- Batch 1 -->
+                <div class="clay-card p-7 border-2 border-main/40 flex flex-col relative overflow-hidden hover:border-main transition-colors">
+                    <div class="absolute -top-8 -right-8 w-24 h-24 bg-main/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="flex items-center justify-between mb-5 relative z-10">
+                        <span class="w-12 h-12 rounded-2xl bg-main/15 text-main flex items-center justify-center text-2xl">
+                            <iconify-icon icon="lucide:calendar-days"></iconify-icon>
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-main text-white text-xs font-bold clay-pill">Batch 1</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-ink mb-2 relative z-10">08 – 16 Desember 2026</h3>
+                    <p class="text-muted text-sm leading-relaxed relative z-10">
+                        Gelombang pertama — mulai lebih awal sebelum puncak liburan sekolah.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-[#E2E8F0] flex items-center gap-2 text-xs sm:text-sm text-ink font-semibold relative z-10">
+                        <iconify-icon icon="lucide:video" class="text-main text-lg"></iconify-icon>
+                        <span>8 Hari Kelas Live via Zoom</span>
+                    </div>
+                </div>
+
+                <!-- Batch 2 -->
+                <div class="clay-card p-7 border-2 border-accent/60 flex flex-col relative overflow-hidden hover:border-accent transition-colors">
+                    <div class="absolute -top-8 -right-8 w-24 h-24 bg-accent/15 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="flex items-center justify-between mb-5 relative z-10">
+                        <span class="w-12 h-12 rounded-2xl bg-accent/20 text-amber-800 flex items-center justify-center text-2xl">
+                            <iconify-icon icon="lucide:calendar-days"></iconify-icon>
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-accent text-ink text-xs font-bold clay-pill">Batch 2</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-ink mb-2 relative z-10">21 – 31 Desember 2026</h3>
+                    <p class="text-muted text-sm leading-relaxed relative z-10">
+                        Pilihan di tengah liburan — waktu paling fleksibel untuk sebagian besar keluarga.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-[#E2E8F0] flex items-center gap-2 text-xs sm:text-sm text-ink font-semibold relative z-10">
+                        <iconify-icon icon="lucide:video" class="text-accent text-lg"></iconify-icon>
+                        <span>8 Hari Kelas Live via Zoom</span>
+                    </div>
+                </div>
+
+                <!-- Batch 3 -->
+                <div class="clay-card p-7 border-2 border-python/40 flex flex-col relative overflow-hidden hover:border-python transition-colors">
+                    <div class="absolute -top-8 -right-8 w-24 h-24 bg-python/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="flex items-center justify-between mb-5 relative z-10">
+                        <span class="w-12 h-12 rounded-2xl bg-python/15 text-python flex items-center justify-center text-2xl">
+                            <iconify-icon icon="lucide:calendar-days"></iconify-icon>
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-python text-white text-xs font-bold clay-pill">Batch 3</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-ink mb-2 relative z-10">28 Desember 2026 – 07 Januari 2027</h3>
+                    <p class="text-muted text-sm leading-relaxed relative z-10">
+                        Gelombang terakhir — cocok bagi yang ingin menyelesaikan kelas tepat setelah tahun baru.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-[#E2E8F0] flex items-center gap-2 text-xs sm:text-sm text-ink font-semibold relative z-10">
+                        <iconify-icon icon="lucide:video" class="text-python text-lg"></iconify-icon>
+                        <span>8 Hari Kelas Live via Zoom</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-center text-muted text-sm mt-8">
+                <iconify-icon icon="lucide:info" class="text-main"></iconify-icon>
+                Pilih batch saat pendaftaran. Kuota tiap batch terbatas per kelas.
+            </p>
         </div>
     </section>
 

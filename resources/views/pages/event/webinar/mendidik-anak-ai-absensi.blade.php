@@ -185,7 +185,7 @@
             <a href="{{ route('home') }}" class="flex items-center gap-2.5 shrink-0">
                 <img src="{{ asset('assets/nav-logo-new.webp') }}" alt="Alhazen Academy" class="h-8 object-contain">
             </a>
-            <a href="{{ route('event.mendidik-anak-ai') }}"
+            <a href="{{ route('mendidik-anak-ai') }}"
                 class="text-xs font-bold text-blue-spruce bg-white clay-pill px-4 py-2 hover:bg-azure-mist transition-all">
                 <i class="fa-solid fa-arrow-left mr-1.5 text-[11px]"></i>Kembali ke info webinar
             </a>
@@ -278,7 +278,7 @@
                         <p class="text-white/85">Benefit dikirim dalam waktu <span class="font-semibold text-white">3x24
                                 jam</span> setelah webinar selesai. Pastikan email yang Anda isi benar dan aktif.</p>
                     </div>
-                    <a href="{{ route('event.mendidik-anak-ai') }}"
+                    <a href="{{ route('mendidik-anak-ai') }}"
                         class="mt-7 inline-flex items-center justify-center gap-2 bg-white text-blue-spruce text-sm font-bold py-3 px-6 clay-pill hover:bg-azure-mist transition-all">
                         <i class="fa-solid fa-arrow-left text-xs"></i>Kembali ke halaman webinar
                     </a>

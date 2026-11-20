@@ -1,5 +1,7 @@
 <x-layout title="NgabuburIT: Kelas Coding & Game Anak Spesial Ramadhan" description="Isi waktu ngabuburit anak dengan kelas IT seru! Belajar animasi, game, Roblox & web dev dengan tutor professional. Dapat sertifikat & modul pembelajaran!" :sales-phone="$salesPhone" wa-message="Halo MinZen, Saya Mendapatkan Informasi dari Website. Saya Mau Konsultasi / Daftar Kelas di Alhazen Academy.">
-    <x-navbar variant="kids" />
+    <x-error.coming-soon launchAt='2027-02-08T00:00:00' />
+
+    {{-- <x-navbar variant="kids" />
 
     @php
         $title_hero = 'NgabuburIT Class Bekal Technopreneur Sejak Dini';
@@ -339,5 +341,5 @@
     <x-faq :items="$faqs_custom" title="Frequently Asked Questions"
         description="Masih bingung tentang kelas, usia peserta, atau jadwal belajar? Cek jawaban di bawah sebelum kamu daftar, ya!" />
 
-    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" :program-links="$programLinks" />
+    <x-footer :address="$address" :socials="$socials" :contact="['phone' => $whatsapp, 'email' => $email, 'site' => $website]" :program-links="$programLinks" /> --}}
 </x-layout>
