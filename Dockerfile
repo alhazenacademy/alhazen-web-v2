@@ -1,9 +1,25 @@
 # ============================================================
+# Composer binary only (this image tag floats, so it is used
+# just as the source of the composer executable)
+# ============================================================
+FROM composer:2 AS composer-cli
+
+# ============================================================
 # Stage 1: Install PHP dependencies with Composer
 # (defined first because the node build needs vendor/ from it,
 # see the COPY --from below)
+#
+# Base is php:8.4-cli-alpine instead of composer:2 because
+# composer:2 currently ships PHP 8.6 without ext-mbstring, which
+# makes `artisan package:discover` die in
+# Illuminate\Support\Str::mb_split() during post-autoload-dump.
+# PHP 8.4 matches the runtime image (php:8.4-apache).
 # ============================================================
-FROM composer:2 AS composer-build
+FROM php:8.4-cli-alpine AS composer-build
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+COPY --from=composer-cli /usr/bin/composer /usr/local/bin/composer
+RUN apk add --no-cache git unzip
 
 WORKDIR /app
 

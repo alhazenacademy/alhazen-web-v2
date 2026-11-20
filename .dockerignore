@@ -11,6 +11,10 @@ vendor
 # Docker runtime data (SQLite db, app.key, uploads)
 docker-data
 
+# storage:link junction/symlink - breaks the BuildKit context tar on
+# Windows, and the entrypoint recreates it at runtime anyway
+public/storage
+
 # Local env files (the image only uses .env.example)
 .env
 .env.*
