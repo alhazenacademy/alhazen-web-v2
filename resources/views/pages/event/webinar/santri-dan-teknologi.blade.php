@@ -14,7 +14,7 @@
     <meta property="og:description"
         content="Kajian bersama Al Minhaj dan Alhazen Academy. Menyiapkan generasi yang kuat iman, adab, dan melek teknologi. Sabtu, 28 November 2026 - 08.00-09.30 WIB - Zoom.">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('assets/custom/santri-dan-teknologi/poster.jpeg') }}">
+    <meta property="og:image" content="{{ asset('assets/custom/santri-dan-teknologi/og.jpeg') }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Santri dan Teknologi - Setelah Lulus Dari Pesantren, Anak Siap Jadi Apa?">
     <meta name="twitter:description"
