@@ -133,7 +133,7 @@
                     <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
                         <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-2xl border-2 border-[#E2E8F0] shadow-sm text-xs sm:text-sm font-semibold">
                             <svg width="1em" height="1em" aria-hidden="true" class="text-main text-lg"><use href="#i-lucide-calendar"></use></svg>
-                            <span>21 Des 2026 – 7 Jan 2027</span>
+                            <span>08 Des 2026 – 07 Jan 2027</span>
                         </div>
                         <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-2xl border-2 border-[#E2E8F0] shadow-sm text-xs sm:text-sm font-semibold">
                             <svg width="1em" height="1em" aria-hidden="true" class="text-python text-lg"><use href="#i-lucide-video"></use></svg>
@@ -1423,7 +1423,7 @@
                 </div>
 
                 <!-- Foto Mentor (Slider) -->
-                <div class="mt-8" style="border-top: 2px solid #EEF2F6; padding-top: 28px" x-data="{ mi: 0, paused: false, step: 172, max() { return Math.max(0, 17 - Math.floor(this.$refs.mv.clientWidth / this.step)) }, next() { this.mi = this.mi >= this.max() ? 0 : this.mi + 1 }, prev() { this.mi = this.mi <= 0 ? this.max() : this.mi - 1 } }" x-init="setInterval(() => { if (!paused) next() }, 4000)">
+                <div class="mt-8" style="border-top: 2px solid #EEF2F6; padding-top: 28px" x-data="{ mi: 0, paused: false, step() { let el = this.$refs.mv?.firstElementChild?.firstElementChild; return el ? el.getBoundingClientRect().width + 12 : 172; }, max() { let vis = Math.round((this.$refs.mv?.clientWidth || 700) / this.step()); return Math.max(0, 17 - vis); }, next() { this.mi = this.mi >= this.max() ? 0 : this.mi + 1 }, prev() { this.mi = this.mi <= 0 ? this.max() : this.mi - 1 } }" x-init="setInterval(() => { if (!paused) next() }, 4000)">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="w-10 h-10 rounded-xl bg-main/15 text-main flex items-center justify-center shrink-0 text-xl">
                             <svg width="1em" height="1em" aria-hidden="true"><use href="#i-lucide-users"></use></svg>
@@ -1434,24 +1434,24 @@
                         </div>
                     </div>
                     <div class="overflow-hidden" x-ref="mv">
-                        <div class="flex gap-3" style="transition: transform .5s ease" :style="'transform: translateX(-' + (mi * 172) + 'px)'">
-                            <img src="https://lh3.googleusercontent.com/d/1zHGhwNMSXSMruNu2GAsSVe5KzV_uL-NI" alt="Foto mentor Alhazen Academy 1" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1yvkZM12jwZmQAY32wGUZXrUcVBjPhXPP" alt="Foto mentor Alhazen Academy 2" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1yFJSVNwUAuCpm5GGPoK2fQ4hEw5xbFda" alt="Foto mentor Alhazen Academy 3" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1xHr0cncHhAcVtdFuXhTA7ZEOK6We-Ww1" alt="Foto mentor Alhazen Academy 4" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1wlKU7A26ZYg0Fus8wXmfSdm9L2687NRC" alt="Foto mentor Alhazen Academy 5" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1nuDaR4nTlnlMwyynclO6dMZnkhCKNrCE" alt="Foto mentor Alhazen Academy 6" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1lzNZJalCYXcITenNhcJq8clf8U8mAf2P" alt="Foto mentor Alhazen Academy 7" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1kQBV0uoNc2bc8JFmDyAkU3TInfHbRvqV" alt="Foto mentor Alhazen Academy 8" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1ZTtMxxa7T3K6DzqsR8sX92basprfpIee" alt="Foto mentor Alhazen Academy 9" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1WN0YfPo_hMbHK86GO05qRQsHZdANKNww" alt="Foto mentor Alhazen Academy 10" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1S6mFmIw4j-U20s23ROVmQqys_4TiUhZm" alt="Foto mentor Alhazen Academy 11" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1P_4oowK20tOmgVL-Xk_SZY5l6GVWqpOj" alt="Foto mentor Alhazen Academy 12" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1KE9MSjBbY41V4MnlWmnJjdmGFqUoB3Xb" alt="Foto mentor Alhazen Academy 13" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1IyZfxJbnosZpha8DgGm09FFj2DPCwPSQ" alt="Foto mentor Alhazen Academy 14" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/1DE1H5dv227CQX8yX7f9BhtKWE7SU81KF" alt="Foto mentor Alhazen Academy 15" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/19ehfXg1ALMxXY5hhCcUQd7xs1bJkO8_6" alt="Foto mentor Alhazen Academy 16" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
-                            <img src="https://lh3.googleusercontent.com/d/10IZQZ4Fsr5Sl2WTZOpRqaOPtbLS3mcjX" alt="Foto mentor Alhazen Academy 17" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-40 shrink-0 object-cover rounded-xl border-2 border-[#E2E8F0]">
+                        <div class="flex gap-3" style="transition: transform .5s ease" :style="'transform: translateX(-' + (mi * step()) + 'px)'">
+                            <img src="https://lh3.googleusercontent.com/d/1zHGhwNMSXSMruNu2GAsSVe5KzV_uL-NI" alt="Foto mentor Alhazen Academy 1" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1yvkZM12jwZmQAY32wGUZXrUcVBjPhXPP" alt="Foto mentor Alhazen Academy 2" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1yFJSVNwUAuCpm5GGPoK2fQ4hEw5xbFda" alt="Foto mentor Alhazen Academy 3" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1xHr0cncHhAcVtdFuXhTA7ZEOK6We-Ww1" alt="Foto mentor Alhazen Academy 4" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1wlKU7A26ZYg0Fus8wXmfSdm9L2687NRC" alt="Foto mentor Alhazen Academy 5" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1nuDaR4nTlnlMwyynclO6dMZnkhCKNrCE" alt="Foto mentor Alhazen Academy 6" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1lzNZJalCYXcITenNhcJq8clf8U8mAf2P" alt="Foto mentor Alhazen Academy 7" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1kQBV0uoNc2bc8JFmDyAkU3TInfHbRvqV" alt="Foto mentor Alhazen Academy 8" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1ZTtMxxa7T3K6DzqsR8sX92basprfpIee" alt="Foto mentor Alhazen Academy 9" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1WN0YfPo_hMbHK86GO05qRQsHZdANKNww" alt="Foto mentor Alhazen Academy 10" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1S6mFmIw4j-U20s23ROVmQqys_4TiUhZm" alt="Foto mentor Alhazen Academy 11" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1P_4oowK20tOmgVL-Xk_SZY5l6GVWqpOj" alt="Foto mentor Alhazen Academy 12" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1KE9MSjBbY41V4MnlWmnJjdmGFqUoB3Xb" alt="Foto mentor Alhazen Academy 13" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1IyZfxJbnosZpha8DgGm09FFj2DPCwPSQ" alt="Foto mentor Alhazen Academy 14" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/1DE1H5dv227CQX8yX7f9BhtKWE7SU81KF" alt="Foto mentor Alhazen Academy 15" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/19ehfXg1ALMxXY5hhCcUQd7xs1bJkO8_6" alt="Foto mentor Alhazen Academy 16" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
+                            <img src="https://lh3.googleusercontent.com/d/10IZQZ4Fsr5Sl2WTZOpRqaOPtbLS3mcjX" alt="Foto mentor Alhazen Academy 17" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="rounded-xl border-2 border-[#E2E8F0]">
                         </div>
                     </div>
                     <div class="flex items-center justify-between mt-5">
