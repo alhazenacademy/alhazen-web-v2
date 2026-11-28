@@ -65,6 +65,7 @@
         <symbol id="i-lucide-book-open" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v16m8.001-2A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2a5 5 0 0 1 4-2z"/></symbol>
         <symbol id="i-lucide-heart-handshake" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676a.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052a2.12 2.12 0 0 0-.004-3a2.124 2.124 0 1 0 3-3a2.124 2.124 0 0 0 3.004 0a2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0a2 2 0 0 1 0-2.828l2.823-2.762"/></symbol>
         <symbol id="i-lucide-film" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18M3 7.5h4M3 12h18M3 16.5h4M17 3v18m0-13.5h4m-4 9h4"/></g></symbol>
+        <symbol id="i-lucide-map-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
     </svg>
 
 
@@ -81,6 +82,7 @@
                 <a href="#tentang" class="hover:text-main transition-colors">Tentang Program</a>
                 <a href="#kurikulum" class="hover:text-main transition-colors">Kurikulum 8 Hari</a>
                 <a href="#jalur" class="hover:text-main transition-colors">Pilihan Kelas</a>
+                <a href="#offline" class="hover:text-main transition-colors">Kelas Offline</a>
                 <a href="#Mentor" class="hover:text-main transition-colors">Mentor</a>
                 <a href="#faq" class="hover:text-main transition-colors">FAQ</a>
             </nav>
@@ -925,6 +927,264 @@
             <p class="text-center text-muted text-sm mt-8">
                 <svg width="1em" height="1em" aria-hidden="true" class="text-main"><use href="#i-lucide-info"></use></svg>
                 Pilih batch saat pendaftaran. Kuota tiap batch terbatas per kelas.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== KELAS OFFLINE (TATAP MUKA) ==================== -->
+    <section id="offline" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                <span class="inline-block px-4 py-1.5 rounded bg-main text-white text-xs font-bold uppercase tracking-wider">
+                    Tersedia Kelas Offline
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink">
+                    Belajar Langsung di Kelas Tatap Muka
+                </h2>
+                <p class="text-muted text-base sm:text-lg">
+                    Holiday Bootcamp juga tersedia secara offline. Siswa belajar langsung bersama mentor di kelas Alhazen, tanpa perlu tatap muka lewat layar.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-10">
+                <div class="bg-white border-2 border-[#E2E8F0] rounded-xl p-5 flex items-start gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-main/15 text-main flex items-center justify-center shrink-0 text-xl">
+                        <svg width="1em" height="1em" aria-hidden="true"><use href="#i-lucide-calendar-days"></use></svg>
+                    </span>
+                    <div>
+                        <h3 class="font-heading font-bold text-ink">Jadwal</h3>
+                        <p class="text-sm text-muted">21 – 31 Desember 2026</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-[#E2E8F0] rounded-xl p-5 flex items-start gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-main/15 text-main flex items-center justify-center shrink-0 text-xl">
+                        <svg width="1em" height="1em" aria-hidden="true"><use href="#i-lucide-map-pin"></use></svg>
+                    </span>
+                    <div>
+                        <h3 class="font-heading font-bold text-ink">Lokasi</h3>
+                        <p class="text-sm text-muted">Ciputat (Alhazen School) &amp; Depok (Alhazen Academy)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+
+                <!-- Offline Track 1: Scratch -->
+                <div class="bg-white border-2 border-[#E2E8F0] rounded-xl p-6 flex flex-col justify-between hover:border-scratch transition-colors" x-data="{ promoCode: '' }">
+                    <div>
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-scratch/15 text-scratch flex items-center justify-center text-2xl shrink-0">
+                                <svg width="1em" height="1em" aria-hidden="true"><use href="#i-lucide-sparkles"></use></svg>
+                            </span>
+                            <span class="px-3 py-1 rounded bg-scratch text-white text-xs font-bold">SD / Pemula</span>
+                        </div>
+
+                        <h3 class="font-heading font-bold text-xl text-ink mb-3">Coding &amp; Animation with Scratch</h3>
+
+                        <div class="mb-5 space-y-2">
+                            <p class="flex items-center gap-2 text-sm text-muted">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-main text-lg shrink-0"><use href="#i-lucide-calendar-days"></use></svg>
+                                21 – 31 Desember 2026
+                            </p>
+                            <p class="flex items-center gap-2 text-sm text-muted">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-main text-lg shrink-0"><use href="#i-lucide-map-pin"></use></svg>
+                                Ciputat &amp; Depok
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-canvas rounded-xl border border-[#E2E8F0] mb-5">
+                            <p class="text-xs text-muted mb-1">Biaya Investasi Offline:</p>
+                            <div class="flex items-center gap-3 flex-wrap">
+                                <p class="text-lg text-muted line-through">Rp499.000</p>
+                                <span class="px-2 py-0.5 rounded bg-scratch text-white text-[10px] font-bold">HEMAT 50%</span>
+                            </div>
+                            <p class="text-3xl font-extrabold font-heading text-scratch">Rp249.000</p>
+                        </div>
+
+                        <ul class="space-y-3 mb-6 text-sm">
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-scratch text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>8 Hari Kelas Tatap Muka</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-scratch text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Rekaman kelas &amp; modul materi</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-scratch text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Sertifikat resmi Alhazen</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-scratch text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Voucher 20% Private Class</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4 space-y-2">
+                        <p class="text-xs text-muted italic">
+                            Masukkan kode promo untuk mendapatkan harga spesial
+                        </p>
+                        <input
+                            type="text"
+                            x-model="promoCode"
+                            placeholder="Kode Promo (opsional)"
+                            class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-scratch focus:outline-none text-sm transition-colors"
+                        />
+                    </div>
+
+                    <a :href="'https://goakal.com/alhazenacademy/holiday-bootcamp-offline/mv9ww/apply?promo=' + (promoCode || '{{$promo}}')" target="_blank" class="btn-3d btn-scratch py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                        <span>Daftar Offline Scratch</span>
+                        <svg width="1em" height="1em" aria-hidden="true" class="text-lg"><use href="#i-lucide-external-link"></use></svg>
+                    </a>
+                </div>
+
+                <!-- Offline Track 2: Roblox -->
+                <div class="bg-white border-2 border-[#E2E8F0] rounded-xl p-6 flex flex-col justify-between hover:border-roblox transition-colors" x-data="{ promoCode: '' }">
+                    <div>
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-accent/20 text-ink flex items-center justify-center text-2xl shrink-0">
+                                <svg width="1em" height="1em" aria-hidden="true"><use href="#i-lucide-rocket"></use></svg>
+                            </span>
+                            <span class="px-3 py-1 rounded bg-roblox text-ink text-xs font-bold">SD Lanjutan – SMP</span>
+                        </div>
+
+                        <h3 class="font-heading font-bold text-xl text-ink mb-3">3D Creation with Roblox Studio</h3>
+
+                        <div class="mb-5 space-y-2">
+                            <p class="flex items-center gap-2 text-sm text-muted">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-main text-lg shrink-0"><use href="#i-lucide-calendar-days"></use></svg>
+                                21 – 31 Desember 2026
+                            </p>
+                            <p class="flex items-center gap-2 text-sm text-muted">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-main text-lg shrink-0"><use href="#i-lucide-map-pin"></use></svg>
+                                Ciputat &amp; Depok
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-canvas rounded-xl border border-[#E2E8F0] mb-5">
+                            <p class="text-xs text-muted mb-1">Biaya Investasi Offline:</p>
+                            <div class="flex items-center gap-3 flex-wrap">
+                                <p class="text-lg text-muted line-through">Rp699.000</p>
+                                <span class="px-2 py-0.5 rounded bg-roblox text-ink text-[10px] font-bold">HEMAT 57%</span>
+                            </div>
+                            <p class="text-3xl font-extrabold font-heading text-ink">Rp299.000</p>
+                        </div>
+
+                        <ul class="space-y-3 mb-6 text-sm">
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-amber-600 text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>8 Hari Kelas Tatap Muka</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-amber-600 text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Rekaman kelas &amp; modul materi</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-amber-600 text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Sertifikat resmi Alhazen</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-amber-600 text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Voucher 20% Private Class</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4 space-y-2">
+                        <p class="text-xs text-muted italic">
+                            Masukkan kode promo untuk mendapatkan harga spesial
+                        </p>
+                        <input
+                            type="text"
+                            x-model="promoCode"
+                            placeholder="Kode Promo (opsional)"
+                            class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-roblox focus:outline-none text-sm transition-colors"
+                        />
+                    </div>
+
+                    <a :href="'https://goakal.com/alhazenacademy/holiday-bootcamp-offline/cf7t5/apply?promo=' + (promoCode || '{{$promo}}')" target="_blank" class="btn-3d btn-roblox py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                        <span>Daftar Offline Roblox</span>
+                        <svg width="1em" height="1em" aria-hidden="true" class="text-lg"><use href="#i-lucide-external-link"></use></svg>
+                    </a>
+                </div>
+
+                <!-- Offline Track 3: Python -->
+                <div class="bg-white border-2 border-[#E2E8F0] rounded-xl p-6 flex flex-col justify-between hover:border-python transition-colors" x-data="{ promoCode: '' }">
+                    <div>
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <span class="w-12 h-12 rounded-xl bg-python/15 text-python flex items-center justify-center text-2xl shrink-0">
+                                <svg width="1em" height="1em" aria-hidden="true"><use href="#i-lucide-book-open"></use></svg>
+                            </span>
+                            <span class="px-3 py-1 rounded bg-python text-white text-xs font-bold">SMP – SMA</span>
+                        </div>
+
+                        <h3 class="font-heading font-bold text-xl text-ink mb-3">Python Programming</h3>
+
+                        <div class="mb-5 space-y-2">
+                            <p class="flex items-center gap-2 text-sm text-muted">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-main text-lg shrink-0"><use href="#i-lucide-calendar-days"></use></svg>
+                                21 – 31 Desember 2026
+                            </p>
+                            <p class="flex items-center gap-2 text-sm text-muted">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-main text-lg shrink-0"><use href="#i-lucide-map-pin"></use></svg>
+                                Ciputat &amp; Depok
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-canvas rounded-xl border border-[#E2E8F0] mb-5">
+                            <p class="text-xs text-muted mb-1">Biaya Investasi Offline:</p>
+                            <div class="flex items-center gap-3 flex-wrap">
+                                <p class="text-lg text-muted line-through">Rp499.000</p>
+                                <span class="px-2 py-0.5 rounded bg-python text-white text-[10px] font-bold">HEMAT 50%</span>
+                            </div>
+                            <p class="text-3xl font-extrabold font-heading text-python">Rp249.000</p>
+                        </div>
+
+                        <ul class="space-y-3 mb-6 text-sm">
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-python text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>8 Hari Kelas Tatap Muka</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-python text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Rekaman kelas &amp; modul materi</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-python text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Sertifikat resmi Alhazen</span>
+                            </li>
+                            <li class="flex items-center gap-2.5 text-ink">
+                                <svg width="1em" height="1em" aria-hidden="true" class="text-python text-lg shrink-0"><use href="#i-lucide-check-circle-2"></use></svg>
+                                <span>Voucher 20% Private Class</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4 space-y-2">
+                        <p class="text-xs text-muted italic">
+                            Masukkan kode promo untuk mendapatkan harga spesial
+                        </p>
+                        <input
+                            type="text"
+                            x-model="promoCode"
+                            placeholder="Kode Promo (opsional)"
+                            class="w-full px-4 py-2.5 rounded-xl border-2 border-[#E2E8F0] focus:border-python focus:outline-none text-sm transition-colors"
+                        />
+                    </div>
+
+                    <a :href="'https://goakal.com/alhazenacademy/holiday-bootcamp-offline/ufd0z/apply?promo=' + (promoCode || '{{$promo}}')" target="_blank" class="btn-3d btn-python py-3.5 px-6 rounded-2xl font-bold text-center text-base flex items-center justify-center gap-2">
+                        <span>Daftar Offline Python</span>
+                        <svg width="1em" height="1em" aria-hidden="true" class="text-lg"><use href="#i-lucide-external-link"></use></svg>
+                    </a>
+                </div>
+
+            </div>
+
+            <p class="text-center text-muted text-sm mt-8">
+                <svg width="1em" height="1em" aria-hidden="true" class="text-main"><use href="#i-lucide-info"></use></svg>
+                Pilih lokasi saat pendaftaran. Kuota kelas offline terbatas.
             </p>
         </div>
     </section>
